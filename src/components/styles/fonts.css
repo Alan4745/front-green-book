@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'FuenteGrande';
+    src: url('/Fonts/Ahmet AltunFestivoLettersNo.1.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/Fonts/Gotham-Bold.ttf') format('truetype');
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/Fonts/Gotham-Book.ttf') format('truetype');
+    font-style: normal;
+}

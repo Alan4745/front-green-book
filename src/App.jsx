@@ -1,15 +1,9 @@
-import Hero from './components/hero/Hero';
-import LanguageSelector from './components/navigation/LanguageSelector';
-import CardSection from './components/sections/CardSection';
-import NavigationControls from './components/navigation/NavigationControls';
+import Home from './components/Home/Home'
 
 function App() {
   return (
-    <div className="relative">
-      <Hero />
-      <CardSection />
-      <NavigationControls />
-      <LanguageSelector />
+    <div>
+      <Home></Home>
     </div>
   )
 }
