@@ -15,13 +15,13 @@ const Home = () => {
     useEffect(() => {
         const interval = setInterval(() => {
         const next = (currentIndex + 1) % backgrounds.length;
-        setPrevIndex(currentIndex); // fondo anterior
-        setCurrentIndex(next); // fondo nuevo se aplicará arriba
+        setPrevIndex(currentIndex);
+        setCurrentIndex(next);
         setFadeIn(true);
 
         setTimeout(() => {
             setFadeIn(false);
-            setPrevIndex(null); // quitamos la capa anterior después del fade
+            setPrevIndex(null);
         }, 1000);
         }, 5000);
 
@@ -29,24 +29,20 @@ const Home = () => {
     }, [currentIndex]);
 
     return (
-        <div className="relative min-h-screen w-screen overflow-hidden">
-        {/* Fondo base (nuevo fondo ya activo) */}
+        <div className="relative min-h-screen w-screen overflow-hidden bg-black">
+        {/* Fondo actual como background-cover */}
         <div
-            className="absolute inset-0 bg-cover bg-center backdrop-brightness-2 transition-none z-10"
-            style={{
-            backgroundImage: `url(${backgrounds[currentIndex]})`,
-            }}
+            className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-500 z-10`}
+            style={{ backgroundImage: `url(${backgrounds[currentIndex]})` }}
         />
 
-        {/* Fondo anterior con fade-in encima (si hay) */}
+        {/* Fondo anterior en transición */}
         {prevIndex !== null && (
             <div
-            className={`absolute inset-0 bg-cover bg-center backdrop-brightness-2 transition-opacity duration-1000 ease-in-out z-20 ${
-                fadeIn ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-1000 z-20 ${
+                fadeIn ? "opacity-0" : "opacity-100"
             }`}
-            style={{
-                backgroundImage: `url(${backgrounds[prevIndex]})`,
-            }}
+            style={{ backgroundImage: `url(${backgrounds[prevIndex]})` }}
             />
         )}
 
