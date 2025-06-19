@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
+import ZoomButton from "../Global/ZoomButton";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
@@ -68,8 +70,14 @@ const Home = () => {
             <LanguageSelector />
         </div>
 
-        <div className="absolute top-[3vh] right-0 z-50">
+        {/* Menú desplegable */}
+        <div className="absolute top-[2vh] right-0 z-50">
             <MainMenu />
+        </div>
+
+        {/* Botón de zoom */}
+        <div className="absolute top-[4vh] left-[4vh] z-50">
+            <ZoomButton />
         </div>
 
         </div>
