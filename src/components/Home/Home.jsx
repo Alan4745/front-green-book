@@ -58,7 +58,7 @@ const Home = () => {
         </div>
 
         {/* Carrusel de capítulos abajo */}
-        <div className="absolute bottom-10 transform left-[45%] w-[85%] z-40">
+        <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
             <Carrousel />
         </div>
 

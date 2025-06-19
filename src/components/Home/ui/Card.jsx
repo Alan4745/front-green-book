@@ -11,11 +11,11 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg" }) =>
 return (
     <div
         style={backgroundStyle}
-        className={`h-95 w-62 flex flex-col justify-between p-4 shadow-md`}
+        className={`h-105 w-70 flex flex-col justify-between p-4 shadow-md`}
     >
         {/* Text Section */}
         <div className="flex-grow flex items-center justify-center">
-            <h2 className="text-white text-[2.5vh] text-left font-Gotham font-bold leading-[1.15] mt-[15vh]">
+            <h2 className="text-white text-[2.8vh] text-left font-Gotham font-bold leading-[1.15] mt-[15vh]">
             {text}
             </h2>
         </div>
