@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
+import MainMenu from "../Global/MainMenu";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
@@ -65,6 +66,10 @@ const Home = () => {
         {/* Selector de idioma */}
         <div className="absolute bottom-6 left-6 z-50">
             <LanguageSelector />
+        </div>
+
+        <div className="absolute top-[3vh] right-0 z-50">
+            <MainMenu />
         </div>
 
         </div>
