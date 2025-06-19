@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Carrousel from "./ui/Carrousel";
+import Card from "./ui/Card";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
@@ -30,13 +32,13 @@ const Home = () => {
 
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-        {/* Fondo actual como background-cover */}
+        {/* Fondo actual */}
         <div
             className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-500 z-10`}
             style={{ backgroundImage: `url(${backgrounds[currentIndex]})` }}
         />
 
-        {/* Fondo anterior en transición */}
+        {/* Fondo anterior para transición */}
         {prevIndex !== null && (
             <div
             className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-1000 z-20 ${
@@ -46,7 +48,7 @@ const Home = () => {
             />
         )}
 
-        {/* Contenido */}
+        {/* Logo centrado */}
         <div className="relative z-30 flex items-center justify-center h-full">
             <img
             src="/Logos/Greenbook.svg"
@@ -54,6 +56,12 @@ const Home = () => {
             className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
             />
         </div>
+
+        {/* Carrusel de capítulos abajo */}
+        <div className="absolute bottom-10 transform left-[45%] w-[85%] z-40">
+            <Carrousel />
+        </div>
+
         </div>
     );
 };
