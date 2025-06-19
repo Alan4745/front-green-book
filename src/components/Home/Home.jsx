@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Carrousel from "./ui/Carrousel";
-import Card from "./ui/Card";
+import LanguageSelector from "../Global/LanguageSelector";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
@@ -60,6 +60,11 @@ const Home = () => {
         {/* Carrusel de capítulos abajo */}
         <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
             <Carrousel />
+        </div>
+
+        {/* Selector de idioma */}
+        <div className="absolute bottom-6 left-6 z-50">
+            <LanguageSelector />
         </div>
 
         </div>
