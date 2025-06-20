@@ -15,7 +15,7 @@ return (
     >
         {/* Text Section */}
         <div className="flex-grow flex items-center justify-center">
-            <h2 className="text-white text-[2.8vh] text-left font-Gotham font-bold leading-[1.15] mt-[15vh]">
+            <h2 className="text-white text-[2.6vh] text-left leading-[1.15] mt-[15vh]" style={{ fontFamily: 'GothamBold' }}>
             {text}
             </h2>
         </div>

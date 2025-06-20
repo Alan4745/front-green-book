@@ -1,5 +1,6 @@
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
+import HoverButton from "../Global/HoverButton";
 
 const Capitulo1 = () => {
     return (
@@ -32,7 +33,7 @@ const Capitulo1 = () => {
             </h3>
 
             {/* Línea rosada */}
-            <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[1vh]"></div>
+            <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh]"></div>
             </div>
 
             {/* Logo inferior izquierdo */}
@@ -48,6 +49,11 @@ const Capitulo1 = () => {
             {/* Menú desplegable */}
             <div className="absolute top-[2vh] right-0 z-50">
                 <MainMenu />
+            </div>
+
+            {/* Botón de hover */}
+            <div className="absolute top-10 left-10 z-50">
+                <HoverButton text="VER MAPA" />
             </div>
 
         </div>

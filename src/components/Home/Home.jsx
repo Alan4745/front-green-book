@@ -4,6 +4,7 @@ import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
 import ZoomButton from "../Global/ZoomButton";
+import HoverButton from "../Global/HoverButton";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
