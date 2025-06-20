@@ -27,7 +27,7 @@ const Capitulo3 = () => {
             </h3>
 
             {/* Línea azul */}
-            <div className="w-[10vw] h-[1.5vh] bg-[#00B3BD] mt-[1vh]"></div>
+            <div className="w-[10vw] h-[1.5vh] bg-[#00B3BD] mt-[0.5vh]"></div>
         </div>
 
         {/* Logo inferior izquierdo */}

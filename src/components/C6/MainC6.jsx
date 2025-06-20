@@ -27,7 +27,7 @@ const Capitulo6 = () => {
             </h3>
 
             {/* Línea azul */}
-            <div className="w-[10vw] h-[1.5vh] bg-[#00AE43] mt-[1vh]"></div>
+            <div className="w-[10vw] h-[1.5vh] bg-[#00AE43] mt-[0.5vh]"></div>
 
             {/* Texto adicional */}
             <p className="text-white text-justify text-[3vh] mt-[2vh] max-w-[35vw]" style={{fontFamily: "GothamNormal"}}>
