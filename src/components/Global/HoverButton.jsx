@@ -44,7 +44,7 @@ const HoverButton = ({ text = "Hover Me" }) => {
         {/* Texto */}
         <span
             className={`transition-all duration-300 mt-[1vh] ${
-            hover ? "ml-[15px]" : "ml-[-120px]"
+            hover ? "ml-[-25px]" : "ml-[-150px]"
             }`}
             style={{ fontFamily: "GothamNormal" }}
         >
