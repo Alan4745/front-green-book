@@ -12,17 +12,17 @@ const Capitulo5 = () => {
 
         {/* Número de capítulo */}
         <div className="absolute top-[20vh] right-[25vh] z-30">
-            <img src="/Img/C5/05.svg" alt="Capítulo 5" className="w-[50vh] h-auto" />
+            <img src="/Img/Global/Numbers/05.svg" alt="Capítulo 5" className="w-[50vh] h-auto" />
         </div>
 
         {/* Título y descripción */}
         <div className="absolute top-[30vh] right-[55vh] z-30 text-white text-left">
-            <h2 className="text-white text-[8vh] font-Gotham font-bold leading-[1] max-w-[50vw]">
+            <h2 className="text-white text-[8vh] leading-[1] max-w-[50vw]" style={{fontFamily: "GothamBold"}}>
             UN ENTORNO DIVERSO <br /> POR EXPLORAR
             </h2>
 
             {/* Subtítulo */}
-            <h3 className="text-white text-[4vh] font-Gotham font-bold mt-[20vh]">
+            <h3 className="text-white text-[4vh] mt-[20vh]" style={{fontFamily: "GothamBold"}}>
             EPICENTRO DE LA BIODIVERSIDAD <br /> EN MESOAMÉRICA
             </h3>
 

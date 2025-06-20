@@ -12,17 +12,17 @@ const Capitulo6 = () => {
 
         {/* Número de capítulo */}
         <div className="absolute top-[20vh] right-[25vh] z-30">
-            <img src="/Img/C6/06.svg" alt="Capítulo 6" className="w-[50vh] h-auto" />
+            <img src="/Img/Global/Numbers/06.svg" alt="Capítulo 6" className="w-[50vh] h-auto" />
         </div>
 
         {/* Título y descripción */}
         <div className="absolute top-[25vh] right-[55vh] z-30 text-white text-left">
-            <h2 className="text-white text-[8vh] font-Gotham font-bold leading-[1] max-w-[50vw]">
+            <h2 className="text-white text-[8vh] leading-[1] max-w-[60vw]" style={{fontFamily: "GothamBold"}}>
             SUSTENTABILIDAD QUE <br /> TRANSFORMA EL FUTURO <br /> DEL CAFÉ
             </h2>
 
             {/* Subtítulo */}
-            <h3 className="text-white text-[4vh] font-Gotham font-bold mt-[10vh]">
+            <h3 className="text-white text-[4vh] mt-[10vh]" style={{fontFamily: "GothamBold"}}>
             CAFICULTURA QUE EVOLUCIONA
             </h3>
 
@@ -30,7 +30,7 @@ const Capitulo6 = () => {
             <div className="w-[10vw] h-[1.5vh] bg-[#00AE43] mt-[1vh]"></div>
 
             {/* Texto adicional */}
-            <p className="text-white text-justify text-[3vh] font-Gotham font-light mt-[2vh] max-w-[35vw]">
+            <p className="text-white text-justify text-[3vh] mt-[2vh] max-w-[35vw]" style={{fontFamily: "GothamNormal"}}>
                 En Guatemala la caficultura evoluciona hacia un enfoque sustentable, que combina la protección ambiental y la producción de café de clase mundial.
             </p>
         </div>

@@ -12,17 +12,17 @@ const Capitulo4 = () => {
 
         {/* Número de capítulo */}
         <div className="absolute top-[20vh] right-[25vh] z-30">
-            <img src="/Img/C4/04.svg" alt="Capítulo 4" className="w-[50vh] h-auto" />
+            <img src="/Img/Global/Numbers/04.svg" alt="Capítulo 4" className="w-[50vh] h-auto" />
         </div>
 
         {/* Título y descripción */}
         <div className="absolute top-[30vh] right-[50vh] z-30 text-white text-left">
-            <h2 className="text-white text-[8vh] font-Gotham font-bold leading-[1] max-w-[50vw]">
+            <h2 className="text-white text-[8vh] leading-[1] max-w-[50vw]" style={{fontFamily: "GothamBold"}}>
             BENEFICIOS <br /> ECOSISTÉMICOS
             </h2>
 
             {/* Subtítulo */}
-            <h3 className="text-white text-[4vh] font-Gotham font-bold mt-[20vh]">
+            <h3 className="text-white text-[4vh] mt-[20vh]" style={{fontFamily: "GothamBold"}}>
             UNA FUERZA NATURAL QUE DEFIENDE <br /> LA TIERRA
             </h3>
 

@@ -7,7 +7,9 @@ export default {
     theme: {
         extend: {
         fontFamily: {
-            mifuente: ['"Gotham"', 'sans-serif'], // puedes usar el nombre que prefieras
+            gotham: ['"Gotham"', 'sans-serif'],
+            adelia: ['"ADELIA"', 'cursive'],
+            fuentegrande: ['FuenteGrande', 'sans-serif'],
         },
         },
     },

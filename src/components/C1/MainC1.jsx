@@ -12,22 +12,22 @@ const Capitulo1 = () => {
 
         {/* Número de capítulo */}
         <div className="absolute top-[20vh] right-[30vh] z-30">
-            <img src="/Img/C1/01.svg" alt="Capítulo 1" className="w-[50vh] h-auto" />
+            <img src="/Img/Global/Numbers/01.svg" alt="Capítulo 1" className="w-[50vh] h-auto" />
         </div>
 
         {/* Título y descripción */}
-        <div className="absolute top-[30vh] right-[45vh] z-30 text-white text-left">
-            <h2 className="text-white text-[8vh] font-Gotham font-bold leading-[1] max-w-[30vw] uppercase">
+        <div className="absolute top-[35vh] right-[45vh] z-30 text-white text-left">
+            <h2 className="text-white text-[8vh] leading-[1] max-w-[30vw] uppercase" style={{fontFamily: "GothamBold"}}>
             EL CAFÉ EN <br /> GUATEMALA
             </h2>
 
-            <p className="text-[3vh] font-Gotham font-light text-white/90 mt-[4vh] max-w-[60vw] leading-tight">
-            Se cultiva en el 3.5% del territorio del país,<br />
-            en un entorno geográfico irrepetible.
+            <p className="text-[3vh] text-white/90 mt-[5vh] max-w-[60vw] leading-tight" style={{fontFamily: "GothamNormal"}}>
+                Se cultiva en el 3.5% del territorio del país,<br />
+                en un entorno geográfico irrepetible.
             </p>
 
             {/* Subtítulo */}
-            <h3 className="text-white text-[4vh] font-Gotham font-bold uppercase mt-[6vh] tracking-wider">
+            <h3 className="text-white text-[4vh] uppercase mt-[6vh] tracking-wider" style={{fontFamily: "GothamBold"}}>
             LO QUE MARCA LA DIFERENCIA
             </h3>
 

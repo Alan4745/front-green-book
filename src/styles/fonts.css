@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'FuenteGrande';
+    src: url('/Fonts/FuenteGrande.otf');
+}
+
+@font-face {
+    font-family: 'GothamBold';
+    src: url('/Fonts/Gotham-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'GothamNormal';
+    src: url('/Fonts/Gotham-Book.ttf');
+}
+
+@font-face {
+    font-family: 'ADELIA';
+    src: url('/Fonts/adelia.ttf');
+}

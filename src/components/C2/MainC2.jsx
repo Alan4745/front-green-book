@@ -12,17 +12,17 @@ const Capitulo2 = () => {
 
         {/* Número de capítulo */}
         <div className="absolute top-[20vh] right-[25vh] z-30">
-            <img src="/Img/C2/02.svg" alt="Capítulo 2" className="w-[50vh] h-auto" />
+            <img src="/Img/Global/Numbers/02.svg" alt="Capítulo 2" className="w-[50vh] h-auto" />
         </div>
 
         {/* Título y descripción */}
         <div className="absolute top-[30vh] right-[60vh] z-30 text-white text-left">
-            <h2 className="text-white text-[8vh] font-Gotham font-bold leading-[1] max-w-[50vw]">
+            <h2 className="text-white text-[8vh] leading-[1] max-w-[50vw]" style={{fontFamily: "GothamBold"}}>
             LAS 8 REGIONES <br /> DEL CAFÉ
             </h2>
 
             {/* Subtítulo */}
-            <h3 className="text-white text-[4vh] font-Gotham font-bold mt-[20vh]">
+            <h3 className="text-white text-[4vh] mt-[20vh]" style={{fontFamily: "GothamBold"}}>
             CADA REGIÓN ES UNA AVENTURA <br /> POR DESCUBRIR
             </h3>
 
