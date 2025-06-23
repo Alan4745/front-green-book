@@ -1,5 +1,6 @@
 import CoverC1 from './CoverC1';
 import Section1C1 from './Section1C1';
+import Section2C1 from './Section2C1';
 
 const MainC1 = () => {
     return (
@@ -9,6 +10,9 @@ const MainC1 = () => {
 
             {/* Sección 1 del capítulo */}
             <Section1C1 />
+
+            {/* Sección 2 del capítulo */}
+            <Section2C1 />
         </div>
     );
 }

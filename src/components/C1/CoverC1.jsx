@@ -19,7 +19,7 @@ const CoverC1 = () => {
         {/* Título y descripción */}
         <div className="absolute top-[35vh] right-[45vh] z-30 text-white text-left">
             <h2 className="text-white text-[8vh] leading-[1] max-w-[30vw] uppercase" style={{fontFamily: "GothamBold"}}>
-            EL CAFÉ EN <br /> GUATEMALA
+                EL CAFÉ EN <br /> GUATEMALA
             </h2>
 
             <p className="text-[3vh] text-white/90 mt-[5vh] max-w-[60vw] leading-tight" style={{fontFamily: "GothamNormal"}}>

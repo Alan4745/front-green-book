@@ -10,12 +10,12 @@ function App() {
   return (
     <div>
       {/* <Home></Home> */}
-      <MainC1></MainC1>
+      {/* <MainC1></MainC1> */}
       {/* <MainC2></MainC2> */}
       {/* <MainC3></MainC3> */}
       {/* <MainC4></MainC4> */}
       {/* <MainC5></MainC5> */}
-      {/* <MainC6></MainC6> */}
+      <MainC6></MainC6>
     </div>
   )
 }
