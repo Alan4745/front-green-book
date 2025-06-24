@@ -5,88 +5,43 @@ import FS3 from "../../assets/C1/FS3.svg";
 const Section3C1 = () => {
     // Datos de los slides
     const slidesData = [
-        // Slide 1
-        [
-            {
-                bgColor: "#DA2F7D",
-                circleColor: "#DA2F7D",
-                mainText: "376,019",
-                description: "HECTÁREAS\nCULTIVADAS"
-            },
-            {
-                bgColor: "#852885",
-                circleColor: "#852885",
-                mainText: "22",
-                description: "DEPARTAMENTOS DE \n GUATEMALA TIENEN PRODUCCIÓN \n CAFETALERA"
-            },
-            {
-                bgColor: "#00B3BD",
-                circleColor: "#00B3BD",
-                mainText: "261",
-                description: "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ"
-            },
-            {
-                bgColor: "#EF7D00",
-                circleColor: "#EF7D00",
-                mainText: "98%",
-                description: "ES CULTIVADO\nBAJO SOMBRA"
-            }
-        ],
-        // Slide 2
-        [
-            {
-                bgColor: "#852885",
-                circleColor: "#852885",
-                mainText: "22",
-                description: "DEPARTAMENTOS DE \n GUATEMALA TIENEN PRODUCCIÓN \n CAFETALERA "
-            },
-            {
-                bgColor: "#00B3BD",
-                circleColor: "#00B3BD",
-                mainText: "261",
-                description: "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ"
-            },
-            {
-                bgColor: "#EF7D00",
-                circleColor: "#EF7D00",
-                mainText: "98%",
-                description: "ES CULTIVADO\nBAJO SOMBRA"
-            },
-            {
-                bgColor: "#00AE43",
-                circleColor: "#00AE43",
-                mainText: "+125K",
-                description: "FAMILIAS\nCAFICULTORAS"
-            }
-        ],
-        // Slide 3
-        [
-            {
-                bgColor: "#00B3BD",
-                circleColor: "#00B3BD",
-                mainText: "261",
-                description: "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ"
-            },
-            {
-                bgColor: "#EF7D00",
-                circleColor: "#EF7D00",
-                mainText: "98%",
-                description: "ES CULTIVADO\nBAJO SOMBRA"
-            },
-            {
-                bgColor: "#00AE43",
-                circleColor: "#00AE43",
-                mainText: "+125K",
-                description: "FAMILIAS\nCAFICULTORAS"
-            },
-            {
-                bgColor: "#DA2F7D",
-                circleColor: "#DA2F7D",
-                mainText: "+500K",
-                description: "EMPLEOS\nGENERADOS\nPOR AÑO"
-            }
-        ]
-    ];
+    {
+        bgColor: "#DA2F7D",
+        circleColor: "#DA2F7D",
+        mainText: "376,019",
+        description: "HECTÁREAS\nCULTIVADAS"
+    },
+    {
+        bgColor: "#852885",
+        circleColor: "#852885",
+        mainText: "22",
+        description: "DEPARTAMENTOS DE \n GUATEMALA TIENEN PRODUCCIÓN \n CAFETALERA"
+    },
+    {
+        bgColor: "#00B3BD",
+        circleColor: "#00B3BD",
+        mainText: "261",
+        description: "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ"
+    },
+    {
+        bgColor: "#EF7D00",
+        circleColor: "#EF7D00",
+        mainText: "98%",
+        description: "ES CULTIVADO\nBAJO SOMBRA"
+    },
+    {
+        bgColor: "#00AE43",
+        circleColor: "#00AE43",
+        mainText: "+125K",
+        description: "FAMILIAS\nCAFICULTORAS"
+    },
+    {
+        bgColor: "#FFD500",
+        circleColor: "#FFD500",
+        mainText: "+500K",
+        description: "EMPLEOS\nGENERADOS\nPOR AÑO"
+    }
+];
 
     return (
         <div
