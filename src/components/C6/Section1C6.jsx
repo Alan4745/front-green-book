@@ -61,13 +61,13 @@ const Section1C6 = () => {
                 {/* Primera imagen - rectangular, toca arriba */}
                 <div className="relative w-[60vh] h-[50vh] overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:w-[70vh] hover:h-[60vh] hover:z-20 hover:-translate-x-[5vh] group">
                     <img
-                    src="src/assets/C2/F1.svg"
+                    src="src/assets/C6/F1.svg"
                     alt="Imagen 1"
                     className="w-full h-full object-cover"
                     />
                     {/* ZoomButton posicionado en la esquina inferior derecha */}
                     <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div onClick={() => handleImageClick("src/assets/C2/F1.svg")}>
+                    <div onClick={() => handleImageClick("src/assets/C6/F1.svg")}>
                         <ZoomButton />
                     </div>
                     </div>
@@ -76,13 +76,13 @@ const Section1C6 = () => {
                 {/* Segunda imagen - rectangular, toca abajo */}
                 <div className="relative w-[60vh] h-[50vh] overflow-hidden mt-auto cursor-pointer transition-all duration-500 ease-in-out hover:w-[70vh] hover:h-[60vh] hover:z-20 hover:-translate-x-[5vh] group">
                     <img
-                    src="src/assets/C2/F2.svg"
+                    src="src/assets/C6/F2.svg"
                     alt="Imagen 2"
                     className="w-full h-full object-cover"
                     />
                     {/* ZoomButton posicionado en la esquina inferior derecha */}
                     <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div onClick={() => handleImageClick("src/assets/C2/F2.svg")}>
+                    <div onClick={() => handleImageClick("src/assets/C6/F2.svg")}>
                         <ZoomButton />
                     </div>
                     </div>

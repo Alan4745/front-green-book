@@ -2,7 +2,6 @@ import CoverC1 from './CoverC1';
 import Section1C1 from './Section1C1';
 import Section2C1 from './Section2C1';
 import Section3C1 from './Section3C1';
-import Section4C1 from './Section4C1';
 
 const MainC1 = () => {
     return (
