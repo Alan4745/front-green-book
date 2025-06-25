@@ -42,24 +42,38 @@ const CarrouselColor = ({ slides = [] }) => {
                             <div
                                 className="flex items-center justify-center h-[20vh] w-[20vh] rounded-full"
                                 style={{ backgroundColor: card.circleColor }}
-                            >
-                                <h2
-                                    className="text-[5vh] font-bold text-white text-center"
+                                >
+                                {card.image ? (
+                                    <img
+                                    src={card.image}
+                                    alt="Imagen"
+                                    className="object-contain"
+                                    style={{
+                                        width: card.imageWidth || '18vh',
+                                        height: card.imageHeight || '18vh'
+                                    }}
+                                    />
+                                ) : (
+                                    <h2
+                                    className="text-[5vh] text-white text-center"
                                     style={{ fontFamily: 'GothamBold' }}
-                                >
+                                    >
                                     {card.mainText}
-                                </h2>
+                                    </h2>
+                                )}
                             </div>
-
                             <div className="flex-grow flex items-center justify-center mt-4">
-                                <p
-                                    className="text-center text-[2.5vh] uppercase tracking-wide"
-                                    style={{ fontFamily: 'GothamNormal' }}
-                                >
+                                <p className="text-center text-[2.5vh] uppercase tracking-wide leading-tight">
                                     {card.description.split('\n').map((line, i) => (
                                         <span key={i}>
-                                            {line}
-                                            {i < card.description.split('\n').length - 1 && <br />}
+                                        {line.split(/(\d+)/).map((part, j) =>
+                                            /\d+/.test(part) ? (
+                                            <span key={j} style={{ fontFamily: 'GothamBold' }}>{part}</span>
+                                            ) : (
+                                            <span key={j} style={{ fontFamily: 'GothamNormal' }}>{part}</span>
+                                            )
+                                        )}
+                                        <br />
                                         </span>
                                     ))}
                                 </p>

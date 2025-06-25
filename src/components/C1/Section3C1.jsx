@@ -1,6 +1,8 @@
 import LanguageSelector from "../Global/LanguageSelector";
 import CarrouselColor from "../C1/ui/CarrouselColor";
 import FS3 from "../../assets/C1/FS3.svg";
+import MapaS3 from "../../assets/C1/MapaS3.svg";
+import Porcent98 from "../../assets/C1/Porcent98.svg";
 
 const Section3C1 = () => {
     // Datos de los slides
@@ -14,8 +16,10 @@ const Section3C1 = () => {
     {
         bgColor: "#852885",
         circleColor: "#852885",
-        mainText: "22",
-        description: "DEPARTAMENTOS DE \n GUATEMALA TIENEN PRODUCCIÓN \n CAFETALERA"
+        image: MapaS3,
+        imageWidth: "18vh",
+        imageHeight: "18vh",
+        description: "22 DEPARTAMENTOS \n DE GUATEMALA \n TIENEN PRODUCCIÓN \n CAFETALERA"
     },
     {
         bgColor: "#00B3BD",
@@ -26,7 +30,9 @@ const Section3C1 = () => {
     {
         bgColor: "#EF7D00",
         circleColor: "#EF7D00",
-        mainText: "98%",
+        image: Porcent98,
+        imageWidth: "15vh",
+        imageHeight: "15vh",
         description: "ES CULTIVADO\nBAJO SOMBRA"
     },
     {
@@ -59,12 +65,7 @@ const Section3C1 = () => {
             <div className="flex justify-center items-center mt-25 px-4">
                 <CarrouselColor slides={slidesData} />
             </div>
-
-            {/* Selector de idioma */}
-            <div className="absolute bottom-8 right-12 z-20">
-                <LanguageSelector />
-            </div>
-
+            
         </div>
     );
 };
