@@ -1,4 +1,3 @@
-import LanguageSelector from "../Global/LanguageSelector";
 import CarrouselColor from "../C1/ui/CarrouselColor";
 import FS3 from "../../assets/C1/FS3.svg";
 import MapaS3 from "../../assets/C1/MapaS3.svg";

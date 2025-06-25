@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'; // ✅ Importa el hook
 import { useState } from 'react';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
 
 const Section1C1 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
+    const navigate = useNavigate(); // ✅ Inicializa el hook
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -22,10 +24,14 @@ const Section1C1 = () => {
                 <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                     Altitud
                 </h3>
-                {/* Número grande 01 */}
-                <div className="text-[30vh] font-bold opacity-30 mt-[-13vh]" style={{ fontFamily: "GothamBold" }}>
-                    01
-                </div>
+                {/* Número grande 01 como botón que redirige */}
+                    <button
+                        onClick={() => navigate('/c1/section4')} // ✅ Redirige a la sección 4
+                        className="text-[30vh] font-bold opacity-30 mt-[-13vh] cursor-pointer transition-transform hover:scale-105"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
+                        01
+                    </button>
                 </div>
 
                 {/* Título "Más de 300 microclimas" en la esquina superior derecha */}
