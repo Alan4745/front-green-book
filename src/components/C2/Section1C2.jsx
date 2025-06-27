@@ -1,6 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import HoverButton from '../Global/HoverButton';
+import CloseButton from '../Global/CloseButton';
+
 import MapaFlechasC2 from '../../assets/C2/MapaFlechasC2.svg';
+import DCF1 from '../../assets/C2/DCF1.svg';
 
 // Regiones
 import RegionCoban from '../../assets/C2/Region/CobanR.svg';
@@ -12,13 +16,37 @@ import RegionAntigua from '../../assets/C2/Region/AntiguaR.svg';
 import RegionFraijanes from '../../assets/C2/Region/FraijanesR.svg';
 import RegionOriente from '../../assets/C2/Region/OrienteR.svg';
 
+// Diccionario de rutas personalizadas por región
+const REGION_PATHS = {
+    coban: "/c2/region/Coban",
+    huehue: "/c2/region/Huehue",
+    sanmarcos: "/c2/region/SanMarcos",
+    atitlan: "/c2/region/Atitlan",
+    acatenango: "/c2/region/Acate",
+    antigua: "/c2/region/Antigua",
+    fraijanes: "/c2/region/Fraijanes",
+    oriente: "/c2/region/Oriente"
+};
+
 const Section1C2 = () => {
     const navigate = useNavigate();
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const handleRegionClick = (region) => {
-        console.log(`Redirigir a: ${region}`);
-        // Por ejemplo:
-        // navigate(`/c2/region/${region}`);
+    const handleRegionClick = (regionKey) => {
+        const path = REGION_PATHS[regionKey];
+        if (path) {
+            navigate(path);
+        } else {
+            console.warn(`Ruta no encontrada para la región: ${regionKey}`);
+        }
+    };
+
+    const handleImageClick = (image) => {
+        setSelectedImage(image);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
     };
 
     return (
@@ -32,61 +60,57 @@ const Section1C2 = () => {
                 />
             </div>
 
-            {/* Regiones con hover y click */}
-            <img
-                src={RegionCoban}
-                alt="Coban"
-                onClick={() => handleRegionClick("coban")}
-                className="absolute top-[14vh] left-[68vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionHuehue}
-                alt="Huehue"
-                onClick={() => handleRegionClick("huehue")}
-                className="absolute top-[27vh] left-[54vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionSanMarcos}
-                alt="San Marcos"
-                onClick={() => handleRegionClick("sanmarcos")}
-                className="absolute top-[48vh] left-[48vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionAtitlan}
-                alt="Atitlán"
-                onClick={() => handleRegionClick("atitlan")}
-                className="absolute top-[68vh] left-[57vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionAcatenango}
-                alt="Acatenango"
-                onClick={() => handleRegionClick("acatenango")}
-                className="absolute top-[76vh] left-[82vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionAntigua}
-                alt="Antigua"
-                onClick={() => handleRegionClick("antigua")}
-                className="absolute top-[76vh] right-[85vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionFraijanes}
-                alt="Fraijanes"
-                onClick={() => handleRegionClick("fraijanes")}
-                className="absolute top-[67vh] right-[63vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
-            <img
-                src={RegionOriente}
-                alt="Oriente"
-                onClick={() => handleRegionClick("oriente")}
-                className="absolute top-[49vh] right-[52vh] w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-            />
+            {/* Regiones clickeables con hover */}
+            {[
+                { src: RegionCoban, top: '14vh', left: '68vh', key: 'coban' },
+                { src: RegionHuehue, top: '27vh', left: '54vh', key: 'huehue' },
+                { src: RegionSanMarcos, top: '48vh', left: '48vh', key: 'sanmarcos' },
+                { src: RegionAtitlan, top: '68vh', left: '57vh', key: 'atitlan' },
+                { src: RegionAcatenango, top: '76vh', left: '82vh', key: 'acatenango' },
+                { src: RegionAntigua, top: '76vh', right: '85vh', key: 'antigua' },
+                { src: RegionFraijanes, top: '67vh', right: '63vh', key: 'fraijanes' },
+                { src: RegionOriente, top: '49vh', right: '52vh', key: 'oriente' },
+            ].map((region, idx) => (
+                <img
+                    key={idx}
+                    src={region.src}
+                    alt={region.key}
+                    onClick={() => handleRegionClick(region.key)}
+                    className="absolute w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
+                    style={{
+                        top: region.top,
+                        left: region.left,
+                        right: region.right,
+                    }}
+                />
+            ))}
 
-            {/* Botón de hover */}
+            {/* Botón de diversidad cafetalera */}
             <div className="absolute top-10 left-10 z-50">
-                <HoverButton text="DIVERSIDAD CAFETELERA" />
+                <div onClick={() => handleImageClick(DCF1)}>
+                    <HoverButton
+                        text="DIVERSIDAD CAFETELERA"
+                        textOffset={-10}
+                        hoverOffset={120}
+                    />
+                </div>
             </div>
 
+            {/* Modal funcional */}
+            {selectedImage && (
+                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                    <div className="relative max-w-[90vw] max-h-[90vh] overflow-auto">
+                        <img
+                            src={selectedImage}
+                            alt="Imagen ampliada"
+                            className="w-[100vh] h-full object-contain"
+                        />
+                    </div>
+                    <div className="absolute top-[4vh] right-[45vh] z-50">
+                        <CloseButton onClick={handleCloseModal} />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

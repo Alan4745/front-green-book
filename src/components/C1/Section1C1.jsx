@@ -107,7 +107,7 @@ const Section1C1 = () => {
                     />
                     {/* CloseButton posicionado fuera, alineado horizontalmente con la imagen */}
                     <div className="absolute top-4 right-4">
-                    <CloseButton onClick={handleCloseModal} />
+                        <CloseButton onClick={handleCloseModal} />
                     </div>
                 </div>
                 </div>

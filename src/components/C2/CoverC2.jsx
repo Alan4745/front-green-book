@@ -37,18 +37,22 @@ const CoverC2 = () => {
             </div>
 
             {/* Selector de idioma */}
-            <div className="absolute bottom-[5vh] right-6 z-50">
+            <div className="absolute bottom-[5vh] right-12 z-50">
                 <LanguageSelector />
             </div>
 
             {/* Menú desplegable */}
-            <div className="absolute top-[2vh] right-0 z-50">
+            <div className="absolute top-[2vh] right-10 z-50">
                 <MainMenu />
             </div>
 
             {/* Botón de hover */}
             <div className="absolute top-10 left-10 z-50">
-                <HoverButton text="VER REGIONES" />
+                <HoverButton
+                    text="VER REGIONES"
+                    textOffset={-110}       // posición inicial
+                    hoverOffset={30}       // posición cuando hace hover
+                />
             </div>
         </div>
     );
