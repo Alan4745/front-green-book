@@ -45,15 +45,6 @@ const CoverC2 = () => {
             <div className="absolute top-[2vh] right-10 z-50">
                 <MainMenu />
             </div>
-
-            {/* Botón de hover */}
-            <div className="absolute top-10 left-10 z-50">
-                <HoverButton
-                    text="VER REGIONES"
-                    textOffset={-110}       // posición inicial
-                    hoverOffset={30}       // posición cuando hace hover
-                />
-            </div>
         </div>
     );
 };

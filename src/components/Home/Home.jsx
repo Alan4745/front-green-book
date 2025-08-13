@@ -76,11 +76,6 @@ const Home = () => {
             <MainMenu />
         </div>
 
-        {/* Botón de zoom */}
-        <div className="absolute top-[4vh] left-[4vh] z-50">
-            <ZoomButton />
-        </div>
-
         </div>
     );
 };
