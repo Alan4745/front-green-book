@@ -1,6 +1,5 @@
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
-import HoverButton from "../Global/HoverButton";
 
 const CoverC2 = () => {
     return (
