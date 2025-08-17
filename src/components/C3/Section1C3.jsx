@@ -1,5 +1,6 @@
 import React from "react";
 import ImageSlider from "./ui/ImageSlider";
+import SectionCircles from "./ui/SectionCircles";
 
 import IngaLaurina from "../../assets/C3/IngaLaurina.svg";
 import IngaEdulis from "../../assets/C3/IngaEdulis.svg";
@@ -32,24 +33,37 @@ const slides = [
     const Section1C3 = () => {
     return (
         <section className="relative w-full min-h-screen bg-[#00B3BD]">
-        {/* Layout en 2 columnas */}
         <div className="absolute inset-0 flex overflow-hidden">
-            {/* IZQUIERDA: slider pegado y a toda altura */}
+            {/* izquierda */}
             <div className="h-full w-full lg:w-1/3 shrink-0">
             <ImageSlider
                 slides={slides}
-                aspect="h-full"        // ocupa todo el alto disponible
+                aspect="h-full"
                 interval={5000}
                 autoPlay
                 loop
-                className="h-full w-full" // el carrusel llena su columna
+                className="h-full w-full"
             />
             </div>
 
-            {/* DERECHA: contenido (placeholder, reemplaza con tu UI) */}
+            {/* derecha */}
             <div className="hidden lg:flex flex-1 h-full">
-            <div className="m-auto max-w-3xl w-full p-10 text-white">
-                {/* Tu contenido va aquí */}
+            <div className="w-full h-full text-white flex flex-col">
+                <div className="w-full p-20 flex items-start justify-start">
+                <p className="text-2xl max-w-[90vh]" style={{ fontFamily: "GothamNormal" }}>
+                    Desde hace más de dos siglos, el{" "}
+                    <span style={{ fontFamily: "GothamBold" }}>98% de los cafetales en Guatemala</span>{" "}
+                    crecen bajo la sombra de árboles que:
+                </p>
+                </div>
+
+                <div className="justify-center px-30">
+                <SectionCircles />
+                </div>
+
+                <p className="text-2xl max-w-[110vh] px-20 mt-20" style={{ fontFamily: "GothamNormal" }}>
+                    Así, los granos maduran despacio, impulsando su calidad y perfil en taza. 
+                </p>
             </div>
             </div>
         </div>
