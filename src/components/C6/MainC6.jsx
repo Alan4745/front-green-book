@@ -1,6 +1,8 @@
 import CoverC6 from './CoverC6';
 import Section1C6 from './Section1C6';
 import Section2C6 from './Section2C6';
+import Section3C6 from './Section3C6';
+import Section4C6 from './Section4C6';
 
 const MainC6 = () => {
     return (
@@ -13,6 +15,12 @@ const MainC6 = () => {
 
             {/* Sección 2 del capítulo */}
             <Section2C6 />
+
+            {/* Sección 3 del capítulo */}
+            <Section3C6 />
+
+            {/* Sección 4 del capítulo */}
+            <Section4C6 />
         </div>
     );
 }

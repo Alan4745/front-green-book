@@ -1,4 +1,3 @@
-import React from "react";
 import CircleFeature from "./CircleFeature";
 
 const SectionCircles = () => {

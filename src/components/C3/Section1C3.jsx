@@ -1,4 +1,3 @@
-import React from "react";
 import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 
