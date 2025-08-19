@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 
 export default function ImageSlider({
     slides = [],
-    interval = 7000,            // ⏱️ 5 s por defecto
+    interval = 7000,            
     autoPlay = true,
     loop = true,
     showIndicators = true,
-    showArrows = true,          // (disponible si lo quieres usar luego)
+    showArrows = true, 
     aspect = "aspect-[9/16]",
     primaryColor = "bg-cyan-400",
     className = "",
