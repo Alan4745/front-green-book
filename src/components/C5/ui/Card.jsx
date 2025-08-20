@@ -1,12 +1,37 @@
+import ExpandButton from '../../Global/ExpandButton';
+
 const Card = ({
     image,
     Number,
-    description, // Agregamos el texto que se mostrará
+    description,
+    title,
+    MaxW,
     className = "",
     width = "w-85",
     height = "h-85",
-    style = {}
+    style = {},
+    highlightWords = [],
+    onExpandClick = null
 }) => {
+    // Función para resaltar palabras específicas
+    const highlightText = (text, wordsToHighlight) => {
+        if (!wordsToHighlight || wordsToHighlight.length === 0) {
+            return text;
+        }
+
+        let highlightedText = text;
+        
+        wordsToHighlight.forEach(word => {
+            const regex = new RegExp(`\\b(${word})\\b`, 'gi');
+            highlightedText = highlightedText.replace(regex, `<span style="color: #562E91; font-weight: bold;">$1</span>`);
+        });
+
+        return highlightedText;
+    };
+
+    // Verificar si es la card principal (grande)
+    const isMainCard = className.includes('scale-y-220');
+
     return (
         <div
             className={`relative ${width} ${height} rounded-xl p-8 shadow-xl overflow-hidden ${className}`}
@@ -29,7 +54,7 @@ const Card = ({
             {/* Cover negro para la opacidad */}
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-0"></div>
 
-            {/* Contenedor flex para el número y el texto - Aplicamos counter-scale y zoom */}
+            {/* Contenedor flex para el número y el título */}
             <div
                 className="absolute top-4 left-4 w-full flex items-center z-10"
                 style={{
@@ -49,10 +74,41 @@ const Card = ({
                     }}
                 ></div>
 
-                {/* Texto al lado del número */}
-                <p className="ml-4 w-[20vh] text-white text-[1.8vh] font-bold">
-                    {description}
+                {/* Título al lado del número */}
+                <p 
+                    className={`ml-4 w-[25vh] text-white text-[1.8vh] font-bold ${
+                        className.includes('scale-y-220') ? 'opacity-0' : 'opacity-100'
+                    }`} 
+                    style={{ 
+                        fontFamily: 'GothamBold',
+                        transition: 'opacity 0.7s ease-out'
+                    }}
+                >
+                    {title}
                 </p>
+
+                {/* Descripción en la esquina inferior izquierda, no afectada por el escalado */}
+                <div
+                    className="absolute mt-[95vh] text-white text-[2.8vh] z-10 leading-none"
+                    style={{
+                        fontFamily: 'GothamNormal',
+                        maxWidth: MaxW,
+                        textAlign: 'left',
+                        zIndex: 10 
+                    }}
+                    dangerouslySetInnerHTML={{
+                        __html: highlightText(description, highlightWords)
+                    }}
+                />
+
+                {/* Botón de expandir - solo visible en la card principal */}
+                {isMainCard && onExpandClick && (
+                    <ExpandButton 
+                        className="relative top-[0.4vh] left-[5vh]"
+                        onClick={() => onExpandClick(image)} 
+                        title="Ver imagen ampliada"
+                    />
+                )}
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import CoverC5 from "./CoverC5";
 import Section1C5 from "./Section1C5";
+import Section2C5 from "./Section2C5";
 
 const Capitulo5 = () => {
     return (
@@ -7,6 +8,7 @@ const Capitulo5 = () => {
             <CoverC5 />
 
             <Section1C5 />
+            <Section2C5 />
         </div>
     );
 };
