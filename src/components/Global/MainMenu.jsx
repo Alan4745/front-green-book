@@ -9,9 +9,10 @@ const menuItems = [
     { label: "BENEFICIOS ECOSISTÉMICOS", path: "/c4" },
     { label: "REFUGIO PARA LA DIVERSIDAD", path: "/c5" },
     { label: "COMPROMISO CON LA SOSTENIBILIDAD", path: "/c6" },
+    { label: "ANACAFÉ - GUATEMALAN COFFES", path: "/colab" },
 ];
 
-const MainMenu = () => {
+function MainMenu() {
     const [open, setOpen] = useState(false);
     const menuRef = useRef();
     const navigate = useNavigate();
@@ -47,8 +48,8 @@ const MainMenu = () => {
 
             {/* Menú desplegable */}
             {open && (
-                <div className="absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[320px]">
-                    <ul className="flex flex-col space-y-4 text-white font-light uppercase text-sm font-Gotham font-normal text-right">
+                <div className="absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[340px]">
+                    <ul className="flex flex-col space-y-4 text-white uppercase text-sm font-Gotham text-right" style={{ fontFamily: 'GothamNormal' }}>
                         {menuItems.map(({ label, path }, idx) => (
                             <li key={idx} className="hover:font-semibold transition">
                                 <button onClick={() => handleNavigate(path)}>{label}</button>
@@ -59,6 +60,6 @@ const MainMenu = () => {
             )}
         </div>
     );
-};
+}
 
 export default MainMenu;

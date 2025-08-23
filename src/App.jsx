@@ -14,10 +14,11 @@ import Fraijanes from './components/C2/Region/Fraijanes';
 import Oriente from './components/C2/Region/Oriente';
 
 import MainC3 from './components/C3/MainC3';
-
 import MainC4 from './components/C4/MainC4';
 import MainC5 from './components/C5/MainC5';
 import MainC6 from './components/C6/MainC6';
+
+import MainColab from './components/Colab/MainColab';
 
 function App() {
   return (
@@ -41,10 +42,11 @@ function App() {
         <Route path="/c2/region/oriente" element={<Oriente />} />
 
         <Route path="/c3" element={<MainC3 />} />
-
         <Route path="/c4" element={<MainC4 />} /> 
         <Route path="/c5" element={<MainC5 />} />
         <Route path="/c6" element={<MainC6 />} />
+
+        <Route path="/colab" element={<MainColab />} />
       </Routes>
     </Router>
   );

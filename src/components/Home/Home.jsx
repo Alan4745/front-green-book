@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
-import ZoomButton from "../Global/ZoomButton";
-import HoverButton from "../Global/HoverButton";
+import ColabButton from "./ui/ColabButton";
 
 const backgrounds = [
     "/Img/Start/Fondo1.svg",
@@ -20,62 +18,71 @@ const Home = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-        const next = (currentIndex + 1) % backgrounds.length;
-        setPrevIndex(currentIndex);
-        setCurrentIndex(next);
-        setFadeIn(true);
+            const next = (currentIndex + 1) % backgrounds.length;
+            setPrevIndex(currentIndex);
+            setCurrentIndex(next);
+            setFadeIn(true);
 
-        setTimeout(() => {
-            setFadeIn(false);
-            setPrevIndex(null);
-        }, 1000);
+            setTimeout(() => {
+                setFadeIn(false);
+                setPrevIndex(null);
+            }, 1000);
         }, 5000);
 
         return () => clearInterval(interval);
     }, [currentIndex]);
 
+    const handleClick = () => {
+        console.log("Botón clickeado");
+        window.location.href = "https://claude.ai/chat/bb1402d0-e534-4738-b6c9-a23b0143eb78";
+    };
+
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-        {/* Fondo actual */}
-        <div
-            className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-500 z-10`}
-            style={{ backgroundImage: `url(${backgrounds[currentIndex]})` }}
-        />
-
-        {/* Fondo anterior para transición */}
-        {prevIndex !== null && (
+            {/* Fondo actual */}
             <div
-            className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-1000 z-20 ${
-                fadeIn ? "opacity-0" : "opacity-100"
-            }`}
-            style={{ backgroundImage: `url(${backgrounds[prevIndex]})` }}
+                className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-500 z-10`}
+                style={{ backgroundImage: `url(${backgrounds[currentIndex]})` }}
             />
-        )}
 
-        {/* Logo centrado */}
-        <div className="relative z-30 flex items-center justify-center h-full">
-            <img
-            src="/Logos/Greenbook.svg"
-            alt="Green Book Logo"
-            className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
-            />
-        </div>
+            {/* Fondo anterior para transición */}
+            {prevIndex !== null && (
+                <div
+                className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-1000 z-20 ${
+                    fadeIn ? "opacity-0" : "opacity-100"
+                }`}
+                style={{ backgroundImage: `url(${backgrounds[prevIndex]})` }}
+                />
+            )}
 
-        {/* Carrusel de capítulos abajo */}
-        <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
-            <Carrousel />
-        </div>
+            {/* Logo centrado */}
+            <div className="relative z-30 flex items-center justify-center h-full">
+                <img
+                src="/Logos/Greenbook.svg"
+                alt="Green Book Logo"
+                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
+                />
+            </div>
 
-        {/* Selector de idioma */}
-        <div className="absolute bottom-6 left-6 z-50">
-            <LanguageSelector />
-        </div>
+            {/* Carrusel de capítulos abajo */}
+            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
+                <Carrousel />
+            </div>
 
-        {/* Menú desplegable */}
-        <div className="absolute top-[2vh] right-0 z-50">
-            <MainMenu />
-        </div>
+            {/* Selector de idioma */}
+            <div className="absolute bottom-6 left-6 z-50">
+                <LanguageSelector />
+            </div>
 
+            {/* ColabButton */}
+            <div className="absolute bottom-6 left-[18%] z-50 transform -translate-x-1/2">
+                <ColabButton progress={100} />
+            </div>
+
+            {/* Menú desplegable */}
+            <div className="absolute top-[2vh] right-0 z-50">
+                <MainMenu />
+            </div>
         </div>
     );
 };
