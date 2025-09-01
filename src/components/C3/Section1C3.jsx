@@ -60,7 +60,7 @@ const slides = [
                 <SectionCircles />
                 </div>
 
-                <p className="text-2xl max-w-[110vh] px-20 mt-20" style={{ fontFamily: "GothamNormal" }}>
+                <p className="text-2xl max-w-[120vh] px-20 mt-20" style={{ fontFamily: "GothamNormal" }}>
                     Así, los granos maduran despacio, impulsando su calidad y perfil en taza. 
                 </p>
             </div>

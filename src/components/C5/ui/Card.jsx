@@ -23,7 +23,7 @@ const Card = ({
         
         wordsToHighlight.forEach(word => {
             const regex = new RegExp(`\\b(${word})\\b`, 'gi');
-            highlightedText = highlightedText.replace(regex, `<span style="color: #562E91; font-weight: bold;">$1</span>`);
+            highlightedText = highlightedText.replace(regex, `<span style="color: #AC7EF0; font-weight: bold;">$1</span>`);
         });
 
         return highlightedText;

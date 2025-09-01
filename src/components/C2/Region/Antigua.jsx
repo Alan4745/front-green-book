@@ -53,7 +53,7 @@ const Antigua = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[32%] w-full text-left text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[4%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}

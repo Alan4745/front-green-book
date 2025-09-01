@@ -65,8 +65,8 @@ const Section2C5 = () => {
                 {/* Texto hover */}
                 {hoveredSection === 'murcielagos' && (
                     <div className="absolute top-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+80 </span>especies de mariposas solamente en el área de occidente.
+                        <p className="text-2xl text-justify w-[45vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                            <span className='text-[#AC7EF0]'>+24 </span>clases de murciélagos se refugian en los árboles de sombra
                         </p>
                     </div>
                 )}
@@ -90,8 +90,8 @@ const Section2C5 = () => {
                 {/* Texto hover */}
                 {hoveredSection === 'anfibios' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+80 </span>especies de mariposas solamente en el área de occidente.
+                        <p className="text-2xl text-justify w-[40vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                            <span className='text-[#AC7EF0]'>+300 </span>especies de anfibios y reptiles como ranas y lagartijas.
                         </p>
                     </div>
                 )}

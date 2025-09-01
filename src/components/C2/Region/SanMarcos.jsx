@@ -53,14 +53,14 @@ const SanMarcos = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[32vh] left-[30%] w-full text-left text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[32vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut", delay: 2.2 }}
                 >
-                    Lluvias continuas, clima cálido y una floración<br />
-                    anticipada.
+                    Lluvias continuas, clima cálido<br />
+                    y una floración anticipada.
                 </motion.p>
 
                 {/* Botón de zoom en esquina inferior derecha */}

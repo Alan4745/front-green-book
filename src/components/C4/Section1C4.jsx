@@ -33,7 +33,7 @@ const Section1C4 = () => {
             {/* Primer cuadro con fondo anaranjado */}
             <div className="relative bg-[#FF5200] h-[50vh] w-full flex items-center justify-center">
                 <div className="text-left text-white">
-                    <p className="w-[40vh] text-2xl" style={{ fontFamily: "GothamNormal" }}>
+                    <p className="w-[45vh] text-2xl" style={{ fontFamily: "GothamNormal" }}>
                     En Guatemala los sistemas agroforestales son ecosistemas completos que fortalecen el equilibrio del medio ambiente.
                     </p>
                 </div>

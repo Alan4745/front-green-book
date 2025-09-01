@@ -39,8 +39,8 @@ const Section3C5 = () => {
                 {/* Texto hover */}
                 {hoveredSection === 'mariposas' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[50vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+80 </span>especies de mariposas solamente en el área de occidente.
+                        <p className="text-2xl text-justify w-[90vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                            Miles de <span className='text-[#AC7EF0]'>insectos </span>controlan plagas, reciclan nutrientes y alimentan a otras especies
                         </p>
                     </div>
                 )}

@@ -40,25 +40,20 @@ const Section4C6 = () => {
                 </div>
 
                 {/* Texto descriptivo para Calidad y responsabilidad */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[40vh]">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[45vh]">
                 <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
-                    Durante el despulpado y lavado del grano, el agua es un recurso clave <br />
-                    que debe usarse y manejarse de <br /> 
-                    forma responsable.
+                    Desde 2006, en Guatemala es obligatorio manejar de forma responsable los subproductos del café, incluyendo 
+                    <br /> el agua residual. 
                 </p>
                 </div>
 
                 {/* Texto descriptivo para Cumplimiento de estándares internacionales */}
-                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[40vh]">
+                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[50vh]">
                 <p
                     className="text-[2vh] leading-relaxed"
                     style={{ fontFamily: "GothamNormal" }}
                     >
-                    La mayor parte del agua se usa para transportar y despulpar el café. Con rediseño y buenas prácticas,{" "}
-                    <span style={{ fontFamily: "GothamBold", fontWeight: "bold" }}>
-                        Anacafé
-                    </span>{" "}
-                    ha ayudado a los productores a reducir el consumo de agua a solamente 150 litros por cada 100 libras procesadas.
+                    Mediante pozos de infiltración, el mucílago <br/> del café puede atraparse y aprovecharse <br/> como insumo para compostaje.
                 </p>
                 </div>
 

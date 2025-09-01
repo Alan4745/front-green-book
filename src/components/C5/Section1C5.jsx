@@ -47,14 +47,14 @@ const Section1C5 = () => {
             title: "Hojarasca",
             description: "La hojarasca alberga insectos como hormigas, escarabajos y gusanos.",
             Number: Number1,
-            highlightWords: ["hormigas", "escarabajos", "gusanos"]
+            highlightWords: ["hojarasca"]
         },
         {
             image: F2,
             title: "Orquídeas, bromelias, musgos y líquenes",
             description: "Las epífitas como orquídeas, bromelias, musgos y líquenes alojan artrópodos esenciales.",
             Number: Number2,
-            highlightWords: ["orquídeas", "bromelias", "musgos", "líquenes", "artrópodos"]
+            highlightWords: ["orquídeas", "bromelias", ",", "y", "musgos", "líquenes"]
         },
         {
             image: F3,
@@ -62,16 +62,21 @@ const Section1C5 = () => {
             description: "Los árboles de sombra como las Ingas dan alimento y refugio a múltiples especies.",
             Number: Number3,
             MaxW: '90%',
-            highlightWords: ["Ingas", "alimento", "refugio", "especies"]
+            highlightWords: ["Ingas"]
         },
     ];
 
     return (
         <div className="relative min-h-screen w-full flex bg-[#562E91] bg-no-repeat bg-center bg-cover items-center justify-center">
 
-            {/* Botón de hover */}
+            {/* Botón de hover con link */}
             <div className="absolute top-6 right-[-6vh] z-50">
-                <HoverButton text="EXPLORAR MÁS" textOffset={-80} hoverOffset={30}/>
+                <HoverButton 
+                    text="EXPLORAR MÁS" 
+                    textOffset={-80} 
+                    hoverOffset={30} 
+                    link="https://reservasdeguatemala.org/" 
+                />
             </div>
 
             {/* Título ajustado */}

@@ -1,11 +1,20 @@
 import { useState } from "react";
 
-const HoverButton = ({ text = "Hover Me", textOffset = -120, hoverOffset = -10 }) => {
+const HoverButton = ({ 
+    text = "Hover Me", 
+    textOffset = -120, 
+    hoverOffset = -10, 
+    link = "#" 
+}) => {
     const [hover, setHover] = useState(false);
+
+    // Verificamos si es un link externo (comienza con http o https)
+    const isExternal = link.startsWith("http://") || link.startsWith("https://");
 
     return (
         <a
-            href="#"
+            href={link}
+            {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
             role="link"
             className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-white text-[2vh] tracking-wide no-underline"
             onMouseEnter={() => setHover(true)}

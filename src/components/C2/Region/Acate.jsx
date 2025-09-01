@@ -53,14 +53,14 @@ const Acate = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[30%] w-full text-left text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[5%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut", delay: 2.2 }}
                 >
-                    La energía del volcán de Fuego, vientos<br />
-                    del océano Pacífico y un suelo alto en minerales.
+                    La energía del volcán de Fuego, vientos del <br />
+                    océano Pacífico y un suelo alto en minerales.
                 </motion.p>
 
                 {/* Botón de zoom en esquina inferior derecha */}
