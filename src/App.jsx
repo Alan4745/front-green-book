@@ -19,6 +19,8 @@ import MainC5 from './components/C5/MainC5';
 import MainC6 from './components/C6/MainC6';
 
 import MainColab from './components/Colab/MainColab';
+import SectionGC from './components/Colab/SectionGC';
+import SectionAC from './components/Colab/SectionAC';
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
         <Route path="/c6" element={<MainC6 />} />
 
         <Route path="/colab" element={<MainColab />} />
+        <Route path="/colab/sgc" element={<SectionGC />} />
+        <Route path="/colab/sac" element={<SectionAC />} />
       </Routes>
     </Router>
   );

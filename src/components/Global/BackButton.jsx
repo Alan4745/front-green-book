@@ -1,15 +1,16 @@
-const BackButton = ({ onClick }) => {
+const BackButton = ({ onClick, color = "white" }) => {  // Color por defecto blanco
     return (
         <button
             onClick={onClick}
-            className="w-[7vh] h-[7vh] flex items-center justify-center rounded-full border border-white bg-transparent transition-transform duration-300 hover:scale-110"
+            className="w-[7vh] h-[7vh] flex items-center justify-center rounded-full border transition-transform duration-300 hover:scale-110"
             title="Regresar"
+            style={{ borderColor: color }}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="white"
+                stroke={color}  // Cambia el color del icono según la prop
                 strokeWidth={1.2}
                 className="w-[3vh] h-[3vh]"
             >
