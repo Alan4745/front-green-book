@@ -145,7 +145,7 @@ const Section3AC = () => {
                     style={{ fontFamily: 'GothamNormal' }}
                 >
                     En nuestra academia de café, compartimos conocimientos
-                    de <span className="text-white bg-[#0B312C] px-2 py-0.5 rounded-sm">barismo, tueste y catación.</span>
+                    de <span className="text-white bg-[#0B312C] px-2 py-0.5">barismo, tueste y catación.</span>
                 </p>
 
             </div>

@@ -17,3 +17,8 @@
     font-family: 'ADELIA';
     src: url('/Fonts/adelia.ttf');
 }
+
+@font-face {
+    font-family: 'Arquitectalight';
+    src: url('/Fonts/Arquitectalight.otf');
+}

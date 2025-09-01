@@ -11,7 +11,7 @@ const Section2AC = () => {
             {/* Texto + logo (arriba derecha) */}
             <div className="absolute top-20 right-[32vh] z-10 flex items-center gap-[20vh]">
                 <p
-                    className="text-[3vh] leading-snug text-black/80 text-left w-[100vh]"
+                    className="text-[3vh] leading-snug text-black text-left w-[100vh]"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
                     A través de <strong>Analab</strong>, realizamos análisis científicos para garantizar la

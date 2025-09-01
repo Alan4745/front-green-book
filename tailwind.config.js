@@ -7,6 +7,7 @@ export default {
     theme: {
         extend: {
         fontFamily: {
+            arquitecta: ['"Arquitecta"', 'latinotype'],
             gotham: ['"Gotham"', 'sans-serif'],
             adelia: ['"ADELIA"', 'cursive'],
             fuentegrande: ['FuenteGrande', 'sans-serif'],
