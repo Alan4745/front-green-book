@@ -1,43 +1,68 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HoverButton = ({ 
     text = "Hover Me", 
     textOffset = -120, 
     hoverOffset = -10, 
-    link = "#" 
+    link,   // 🌍 Link externo/interno
+    to,     // 🔄 Navegación React Router
+    color = "white" 
 }) => {
     const [hover, setHover] = useState(false);
+    const navigate = useNavigate();
 
-    // Verificamos si es un link externo (comienza con http o https)
-    const isExternal = link.startsWith("http://") || link.startsWith("https://");
+    // Detectamos si el link es externo
+    const isExternal = link?.startsWith("http://") || link?.startsWith("https://");
+
+    // 🔥 Contraste automático
+    const getContrastColor = (bgColor) => {
+        return (bgColor?.toLowerCase() === "white" || bgColor === "#fff" || bgColor === "#ffffff")
+            ? "black"
+            : "white";
+    };
+
+    const iconColor = getContrastColor(color);
+
+    // 🖱️ Acción al hacer click
+    const handleClick = (e) => {
+        if (to) {
+            e.preventDefault();
+            navigate(to);
+        }
+    };
 
     return (
         <a
-            href={link}
+            href={link || (to ? "#" : undefined)}
             {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+            onClick={handleClick}
             role="link"
-            className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-white text-[2vh] tracking-wide no-underline"
+            className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-[2vh] tracking-wide no-underline transition-all duration-300"
+            style={{ color: color }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            {/* Círculo de borde blanco */}
+            {/* Círculo de borde */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full border border-white transition-all duration-300 ${
+                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full border transition-all duration-300 ${
                     hover ? "scale-0" : "scale-100"
                 }`}
+                style={{ borderColor: color }}
             ></div>
 
-            {/* Círculo blanco sólido con ícono */}
+            {/* Círculo sólido con ícono */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full bg-white flex items-center justify-center transition-all duration-300 ${
+                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full flex items-center justify-center transition-all duration-300 ${
                     hover ? "scale-100" : "scale-0"
                 }`}
+                style={{ backgroundColor: color }}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-gray-700"
+                    className="w-8 h-8"
                     fill="none"
-                    stroke="currentColor"
+                    stroke={iconColor}
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                 >
@@ -45,7 +70,7 @@ const HoverButton = ({
                 </svg>
             </div>
 
-            {/* Texto con margen dinámico */}
+            {/* Texto */}
             <span
                 className="transition-all duration-300 mt-[1vh]"
                 style={{
