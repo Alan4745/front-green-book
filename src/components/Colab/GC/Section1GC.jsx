@@ -16,7 +16,6 @@ const Section1GC = () => {
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 autoPlay
                 loop
-                muted
                 playsInline
             >
                 <source src={VideoGC} type="video/mp4" />
