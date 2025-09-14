@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
+import LanguageSelector from '../Global/LanguageSelector';
 
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
 
@@ -52,6 +53,18 @@ const SectionAC = () => {
                 {/* Botón de retroceso */}
                 <div className="absolute top-6 left-6">
                     <BackButton onClick={() => navigate('/colab')} color="black" />
+                </div>
+
+                {/* 🌐 Selector de idioma (tema negro) */}
+                <div className="absolute bottom-6 left-[100vh] z-30">
+                    <LanguageSelector
+                        textColor="#000000"
+                        subtextColor="#00000099"
+                        buttonBg="#00000020"    // negro con ~12.5% de opacidad
+                        menuBg="#00000010"      // negro con ~6% de opacidad
+                        activeBg="#000000"  
+                        activeTextColor="#ffffff"
+                    />
                 </div>
 
                 <div className="absolute bottom-6 left-6">

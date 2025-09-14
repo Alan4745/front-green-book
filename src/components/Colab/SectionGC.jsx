@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
+import LanguageSelector from '../Global/LanguageSelector';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 
 const SectionGC = () => {
@@ -40,7 +41,11 @@ const SectionGC = () => {
             </video>
 
             {/* 🖼️ Overlays (se ocultan/mostran con fade) */}
-            <div className={`absolute inset-0 z-20 transition-opacity duration-300 ${ cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100' }`} >
+            <div
+                className={`absolute inset-0 z-20 transition-opacity duration-300 ${
+                    cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
+            >
                 {/* Rectángulo izquierda con opacidad */}
                 <div className="absolute top-0 left-0 w-3/5 h-full bg-white/90" />
 
@@ -49,8 +54,23 @@ const SectionGC = () => {
                     <BackButton onClick={() => navigate('/colab')} color="black" />
                 </div>
 
+                {/* 🌐 Selector de idioma (tema negro) */}
+                <div className="absolute bottom-6 left-[100vh] z-30">
+                    <LanguageSelector
+                        textColor="#000000"
+                        subtextColor="#00000099"
+                        buttonBg="#00000020"    // negro con ~12.5% de opacidad
+                        menuBg="#00000010"      // negro con ~6% de opacidad
+                        activeBg="#000000"  
+                        activeTextColor="#ffffff"
+                    />
+                </div>
+
                 <div className="absolute bottom-6 left-6">
-                    <p className="w-[100vh] text-xl" style={{ fontFamily: 'GothamNormal' }}>
+                    <p
+                        className="w-[100vh] text-xl"
+                        style={{ fontFamily: 'GothamNormal' }}
+                    >
                         {t('colab.gc.overlay.text')}
                     </p>
                     <button
@@ -77,27 +97,27 @@ const SectionGC = () => {
             >
                 {isPlaying ? (
                     // Icono de pausa
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-8 w-8 text-white" 
-                        viewBox="0 0 24 24" 
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-white"
+                        viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-hidden="true"
                         focusable="false"
                     >
-                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                     </svg>
                 ) : (
                     // Icono de play
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-8 w-8 text-white" 
-                        viewBox="0 0 24 24" 
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-white"
+                        viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-hidden="true"
                         focusable="false"
                     >
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                     </svg>
                 )}
             </button>
@@ -114,13 +134,35 @@ const SectionGC = () => {
                 {/* Iconito inline (ojo / ojo tachado) */}
                 {cleanView ? (
                     // Eye-off
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
-                        <path strokeWidth="2" d="M3 3l18 18M10.585 10.585A3 3 0 0012 15a3 3 0 002.121-.879M9.88 9.88C9.335 10.425 9 11.174 9 12m6 0c0-.826-.335-1.575-.88-2.12M4.5 7.5C6.5 5.5 9.09 4 12 4c5 0 8.5 3.5 9.5 8-.246 1.17-.697 2.244-1.33 3.18M6.12 17.88C4.92 16.86 3.99 15.54 3.5 14c1-4.5 4.5-8 8.5-8 1.02 0 2.001.18 2.91.51" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            strokeWidth="2"
+                            d="M3 3l18 18M10.585 10.585A3 3 0 0012 15a3 3 0 002.121-.879M9.88 9.88C9.335 10.425 9 11.174 9 12m6 0c0-.826-.335-1.575-.88-2.12M4.5 7.5C6.5 5.5 9.09 4 12 4c5 0 8.5 3.5 9.5 8-.246 1.17-.697 2.244-1.33 3.18M6.12 17.88C4.92 16.86 3.99 15.54 3.5 14c1-4.5 4.5-8 8.5-8 1.02 0 2.001.18 2.91.51"
+                        />
                     </svg>
                 ) : (
                     // Eye
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
-                        <path strokeWidth="2" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            strokeWidth="2"
+                            d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+                        />
                         <circle cx="12" cy="12" r="3" strokeWidth="2" />
                     </svg>
                 )}
