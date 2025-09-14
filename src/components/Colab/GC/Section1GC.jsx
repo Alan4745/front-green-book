@@ -57,7 +57,7 @@ const Section1GC = () => {
                     <div className="relative w-[90vh] h-[60vh] bg-white/80 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-white/40 p-6 md:p-8 flex flex-col">
                         {/* Encabezado del card: botón de regreso adentro */}
                         <div className="flex items-center justify-between mb-4">
-                            <BackButton onClick={() => navigate('/colab')} color="black" />
+                            <BackButton onClick={() => navigate('/colab/sgc')} color="black" />
                         </div>
 
                         {/* Zona central: centra logo + texto vertical y horizontalmente */}

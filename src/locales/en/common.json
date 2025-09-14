@@ -43,8 +43,8 @@
             "left": {
                 "title": "Altitude",
                 "descLine1": "Grown in mountainous regions",
-                "descLine2": "between 1,300 and 2,000 m a.s.l.",
-                "ctaAria": "Go to section 4"
+                "descLine2": "between 1,300 and 2,000 msnm.",
+                "ctaAria": "Press button"
             },
             "right": {
                 "title": {
@@ -52,8 +52,8 @@
                     "bottom": "microclimates"
                 },
                 "descLine1": "Active volcanoes, oceans, lakes and",
-                "descLine2": "natural diversity give each",
-                "descLine3": "coffee region a unique profile."
+                "descLine2": "natural diversity give each coffee",
+                "descLine3": "region a unique profile."
             },
             "images": {
                 "img1Alt": "Image 1",
@@ -158,8 +158,8 @@
                     "close": "Close"
                 },
                 "desc": {
-                    "line1": "The energy of Volcán de Fuego, winds from the",
-                    "line2": "Pacific Ocean and mineral-rich soils."
+                    "line1": "The energy of Volcán de Fuego, winds",
+                    "line2": "from the Pacific Ocean and mineral-rich soils."
                 },
                 "features": {
                     "f1": "Pronounced acidity",
@@ -583,8 +583,8 @@
                     "bottom": "responsibility"
                 },
                 "desc": {
-                    "line1": "Grown in mountainous regions",
-                    "line2": "between 1,300 and 2,000 meters above sea level."
+                    "line1": "Sustainable ecosystems and responsible production through the conservation",
+                    "line2": "of forest and native species."
                 }
             },
             "right": {
@@ -594,9 +594,8 @@
                     "line3": "standards"
                 },
                 "desc": {
-                    "line1": "Active volcanoes, oceans, lakes, and",
-                    "line2": "natural diversity make each coffee region",
-                    "line3": "have a unique profile."
+                    "line1": "Good agricultural practices and full",
+                    "line2": "traceability."
                 }
             },
             "images": {
@@ -620,8 +619,8 @@
                 },
                 "desc": {
                     "line1": "Agroforestry systems that capture",
-                    "line2": "carbon and minimize the impact of the",
-                    "line3": "coffee industry."
+                    "line2": "carbon and minimize the impact of",
+                    "line3": "the coffee industry."
                 }
             },
             "right": {
@@ -630,9 +629,9 @@
                     "bottom": "development"
                 },
                 "desc": {
-                    "line1": "Long-term economic and social development",
-                    "line2": "for coffee growers and entire",
-                    "line3": "communities."
+                    "line1": "Long-term economic and social",
+                    "line2": "development for coffee growers",
+                    "line3": "and entire communities."
                 }
             },
             "images": {

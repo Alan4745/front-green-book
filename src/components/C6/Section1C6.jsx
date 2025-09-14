@@ -48,7 +48,7 @@ const Section1C6 = () => {
                 </div>
 
                 {/* Texto descriptivo para Calidad y responsabilidad */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-xs">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[45vh]">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.left.desc.line1")} <br />
                         {t("c6.section1.left.desc.line2")}
@@ -59,8 +59,7 @@ const Section1C6 = () => {
                 <div className="absolute top-[60vh] right-[15vh] text-right">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.right.desc.line1")} <br />
-                        {t("c6.section1.right.desc.line2")} <br />
-                        {t("c6.section1.right.desc.line3")}
+                        {t("c6.section1.right.desc.line2")} 
                     </p>
                 </div>
 

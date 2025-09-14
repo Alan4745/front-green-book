@@ -65,7 +65,7 @@ const Carrousel = () => {
             >
             {loopedCards.map((card, index) => (
                 <div key={`${card.chapter}-${index}`} className="w-[220px] flex-shrink-0">
-                <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} />
+                    <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} />
                 </div>
             ))}
             </div>
@@ -105,7 +105,7 @@ const Carrousel = () => {
                     style={{ width: `${progress}%` }}
                 />
                 </div>
-                <div className="text-white font-Gotham font-normal text-[3rem] leading-none">
+                <div className="text-white text-[3rem] leading-none" style={{ fontFamily: "GothamBold" }}>
                 {String((startIndex % totalCards) + 1).padStart(2, "0")}
                 </div>
             </div>

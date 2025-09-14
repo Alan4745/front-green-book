@@ -190,7 +190,7 @@ const Section1C1 = () => {
                 </div>
 
                 {/* Texto descriptivo para Altitud */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-xs">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[50vh]">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                         {t('c1.section1.left.descLine1')} <br />
                         {t('c1.section1.left.descLine2')}

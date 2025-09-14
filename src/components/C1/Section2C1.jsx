@@ -127,7 +127,7 @@ const Section1C2 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-xs">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[50vh]">
                     <p
                         className="text-[2vh] leading-relaxed"
                         style={{ fontFamily: 'GothamNormal' }}

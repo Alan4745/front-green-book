@@ -44,7 +44,7 @@
                 "title": "Altitud",
                 "descLine1": "Cultivado en regiones montañosas",
                 "descLine2": "entre 1,300 y 2,000 msnm.",
-                "ctaAria": "Ir a la sección 4"
+                "ctaAria": "Presionar"
             },
             "right": {
                 "title": {
@@ -583,8 +583,8 @@
                     "bottom": "responsabilidad"
                 },
                 "desc": {
-                    "line1": "Cultivado en regiones montañosas",
-                    "line2": "entre 1,300 y 2,000 msnm."
+                    "line1": "Ecosistemas sostenibles y producción",
+                    "line2": "responsable gracias la conservación de especies forestales y nativas."
                 }
             },
             "right": {
@@ -594,9 +594,8 @@
                     "line3": "internacionales"
                 },
                 "desc": {
-                    "line1": "Volcanes activos, océanos, lagos y",
-                    "line2": "diversidad natural hacen que cada",
-                    "line3": "región de café tenga un perfil único."
+                    "line1": "Buenas prácticas agrícolas y total",
+                    "line2": "trazabilidad."
                 }
             },
             "images": {
@@ -655,9 +654,9 @@
                     "bottom": "del café"
                 },
                 "desc": {
-                    "line1": "Durante el despulpado y lavado del grano, el agua es un recurso clave",
-                    "line2": "que debe usarse y manejarse de",
-                    "line3": "forma responsable."
+                    "line1": "Durante el despulpado y lavado del grano,",
+                    "line2": "el agua es un recurso clave que debe",
+                    "line3": "usarse de forma responsable."
                 }
             },
             "right": {

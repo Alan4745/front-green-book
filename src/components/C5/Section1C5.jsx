@@ -90,7 +90,7 @@ const Section1C5 = () => {
 
             {/* Título ajustado */}
             <h2
-                className="absolute top-[18vh] right-[44.8vh] text-white text-[5vh] uppercase"
+                className="absolute top-[18vh] left-[43.2vw] text-white text-[5vh] uppercase"
                 style={{ fontFamily: 'GothamBold' }}
             >
                 {t('c5.section1.title')}

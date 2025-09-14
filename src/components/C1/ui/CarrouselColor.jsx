@@ -63,7 +63,7 @@ const CarrouselColor = ({ slides = [] }) => {
                                 )}
                             </div>
                             <div className="flex-grow flex items-center justify-center mt-4">
-                                <p className="text-center text-[2.5vh] uppercase tracking-wide leading-tight">
+                                <p className="text-center text-[2.3vh] uppercase tracking-wide leading-tight">
                                     {card.description.split('\n').map((line, i) => (
                                         <span key={i}>
                                         {line.split(/(\d+)/).map((part, j) =>
