@@ -1,28 +1,121 @@
 {
+    "app": {
+        "title": "GreenBook"
+    },
     "carrousel": {
         "prev": "Previous",
         "next": "Next",
         "cards": [
-        { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
-        { "text": "THE 8 COFFEE REGIONS", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
-        { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
-        { "text": "ECOSYSTEM BENEFITS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
-        { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
-        { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
+            { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
+            { "text": "THE 8 COFFEE REGIONS", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+            { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
+            { "text": "ECOSYSTEM BENEFITS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+            { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
+            { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
         ]
     },
     "menu": {
         "open": "Open menu",
         "close": "Close menu",
         "items": {
-        "home": "Home",
-        "c1": "Coffee in Guatemala",
-        "c2": "The 8 coffee regions",
-        "c3": "Agroforestry systems",
-        "c4": "Ecosystem benefits",
-        "c5": "A refuge for diversity",
-        "c6": "Commitment to sustainability",
-        "colab": "Anacafé - Guatemalan Coffees"
+            "home": "Home",
+            "c1": "Coffee in Guatemala",
+            "c2": "The 8 coffee regions",
+            "c3": "Agroforestry systems",
+            "c4": "Ecosystem benefits",
+            "c5": "A refuge for diversity",
+            "c6": "Commitment to sustainability",
+            "colab": "Anacafé - Guatemalan Coffees"
+        }
+    },
+    "c1": {
+        "cover": {
+            "title": {
+                "top": "COFFEE IN",
+                "bottom": "GUATEMALA"
+            },
+            "desc": "It is cultivated across 3.5% of the country's territory, within a unique geographic setting.",
+            "subtitle": "WHAT MAKES THE DIFFERENCE",
+            "cta": "VIEW MAP",
+            "chapterAlt": "Chapter {{num}}"
+        },
+        "section1": {
+            "left": {
+                "title": "Altitude",
+                "descLine1": "Grown in mountainous regions",
+                "descLine2": "between 1,300 and 2,000 m a.s.l.",
+                "ctaAria": "Go to section 4"
+            },
+            "right": {
+                "title": {
+                    "top": "More than 300",
+                    "bottom": "microclimates"
+                },
+                "descLine1": "Active volcanoes, oceans, lakes and",
+                "descLine2": "natural diversity give each",
+                "descLine3": "coffee region a unique profile."
+            },
+            "images": {
+                "img1Alt": "Image 1",
+                "img2Alt": "Image 2"
+            },
+            "modal": {
+                "alt": "Expanded image"
+            }
+        },
+        "section2": {
+            "left": {
+                "title": "Rainfall",
+                "descLine1": "With averages from 800 to 5,000",
+                "descLine2": "mm per year for natural flowering."
+            },
+            "right": {
+                "title": {
+                    "top": "Hand",
+                    "bottom": "picking"
+                },
+                "descLine1": "Nothing beats a hand selection",
+                "descLine2": "of the finest beans."
+            },
+            "images": {
+                "img1Alt": "Image 1",
+                "img2Alt": "Image 2"
+            },
+            "modal": {
+                "alt": "Expanded image"
+            }
+        },
+        "section3": {
+            "title": "IN NUMBERS",
+            "slides": [
+                { "main": "376,019", "desc": "HECTARES\nCULTIVATED" },
+                { "main": "", "desc": "22 DEPARTMENTS \n OF GUATEMALA \n HAVE COFFEE \n PRODUCTION" },
+                { "main": "261", "desc": "OF THE 340\nMUNICIPALITIES IN THE\nCOUNTRY PRODUCE\nCOFFEE" },
+                { "main": "", "desc": "IS GROWN\nUNDER SHADE" },
+                { "main": "+125K", "desc": "COFFEE-GROWING\nFAMILIES" },
+                { "main": "+500K", "desc": "JOBS\nGENERATED\nPER YEAR" }
+            ]
+        },
+        "section4": {
+            "iconAlt": "Mountain icon",
+            "pink": {
+                "title": {
+                    "top": "Classification",
+                    "bottom": "by altitude"
+                }
+            },
+            "playBox": {
+                "title": {
+                    "top": "PLAY",
+                    "bottom": "VIDEO"
+                },
+                "playAlt": "Play"
+            },
+            "steps": [
+                { "title": "Strictly Hard (SHB):", "subtitle": "1,370 m or higher" },
+                { "title": "Semi-Hard – Hard:", "subtitle": "1,066 – 1,370 m" },
+                { "title": "Prime – Extra Prime:", "subtitle": "762 – 1,066 m" }
+            ]
         }
     }
 }

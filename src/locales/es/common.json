@@ -1,28 +1,121 @@
 {
+    "app": {
+        "title": "GreenBook"
+    },
     "carrousel": {
         "prev": "Anterior",
         "next": "Siguiente",
         "cards": [
-        { "text": "EL CAFÉ EN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
-        { "text": "LAS 8 REGIONES DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
-        { "text": "SISTEMAS AGROFORESTALES", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
-        { "text": "BENEFICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
-        { "text": "UN ENTORNO DIVERSO POR EXPLORAR", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
-        { "text": "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
+            { "text": "EL CAFÉ EN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
+            { "text": "LAS 8 REGIONES DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+            { "text": "SISTEMAS AGROFORESTALES", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
+            { "text": "BENEFICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+            { "text": "UN ENTORNO DIVERSO POR EXPLORAR", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
+            { "text": "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
         ]
     },
     "menu": {
         "open": "Abrir menú",
         "close": "Cerrar menú",
         "items": {
-        "home": "Inicio",
-        "c1": "El café en Guatemala",
-        "c2": "Las 8 regiones del café",
-        "c3": "Sistemas agroforestales",
-        "c4": "Beneficios ecosistémicos",
-        "c5": "Refugio para la diversidad",
-        "c6": "Compromiso con la sostenibilidad",
-        "colab": "Anacafé - Guatemalan Coffees"
+            "home": "Inicio",
+            "c1": "El café en Guatemala",
+            "c2": "Las 8 regiones del café",
+            "c3": "Sistemas agroforestales",
+            "c4": "Beneficios ecosistémicos",
+            "c5": "Refugio para la diversidad",
+            "c6": "Compromiso con la sostenibilidad",
+            "colab": "Anacafé - Guatemalan Coffees"
+        }
+    },
+    "c1": {
+        "cover": {
+            "title": {
+                "top": "EL CAFÉ EN",
+                "bottom": "GUATEMALA"
+            },
+            "desc": "Se cultiva en el 3.5% del territorio del país, en un entorno geográfico irrepetible.",
+            "subtitle": "LO QUE MARCA LA DIFERENCIA",
+            "cta": "VER MAPA",
+            "chapterAlt": "Capítulo {{num}}"
+        },
+        "section1": {
+            "left": {
+                "title": "Altitud",
+                "descLine1": "Cultivado en regiones montañosas",
+                "descLine2": "entre 1,300 y 2,000 msnm.",
+                "ctaAria": "Ir a la sección 4"
+            },
+            "right": {
+                "title": {
+                    "top": "Más de 300",
+                    "bottom": "microclimas"
+                },
+                "descLine1": "Volcanes activos, océanos, lagos y",
+                "descLine2": "diversidad natural hacen que cada",
+                "descLine3": "región de café tenga un perfil único."
+            },
+            "images": {
+                "img1Alt": "Imagen 1",
+                "img2Alt": "Imagen 2"
+            },
+            "modal": {
+                "alt": "Imagen ampliada"
+            }
+        },
+        "section2": {
+            "left": {
+                "title": "Lluvias",
+                "descLine1": "Con promedios de 800 a 5,000",
+                "descLine2": "mm por año para una floración natural."
+            },
+            "right": {
+                "title": {
+                    "top": "Cosecha a",
+                    "bottom": "mano"
+                },
+                "descLine1": "Nada supera una selección manual",
+                "descLine2": "de los mejores granos."
+            },
+            "images": {
+                "img1Alt": "Imagen 1",
+                "img2Alt": "Imagen 2"
+            },
+            "modal": {
+                "alt": "Imagen ampliada"
+            }
+        },
+        "section3": {
+            "title": "EN NÚMEROS",
+            "slides": [
+                { "main": "376,019", "desc": "HECTÁREAS\nCULTIVADAS" },
+                { "main": "", "desc": "22 DEPARTAMENTOS \n DE GUATEMALA \n TIENEN PRODUCCIÓN \n CAFETALERA" },
+                { "main": "261", "desc": "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ" },
+                { "main": "", "desc": "ES CULTIVADO\nBAJO SOMBRA" },
+                { "main": "+125K", "desc": "FAMILIAS\nCAFICULTORAS" },
+                { "main": "+500K", "desc": "EMPLEOS\nGENERADOS\nPOR AÑO" }
+            ]
+        },
+        "section4": {
+            "iconAlt": "Icono Montaña",
+            "pink": {
+                "title": {
+                    "top": "Clasificación",
+                    "bottom": "por altitud"
+                }
+            },
+            "playBox": {
+                "title": {
+                    "top": "REPRODUCE",
+                    "bottom": "EL VIDEO"
+                },
+                "playAlt": "Reproducir"
+            },
+            "steps": [
+                { "title": "Estríctamente Duro (SHB):", "subtitle": "1,370 m o más" },
+                { "title": "Semi-Duro - Duro:", "subtitle": "1,066 – 1,370 m" },
+                { "title": "Prima - Extra Prima:", "subtitle": "762 – 1,066 m" }
+            ]
         }
     }
 }

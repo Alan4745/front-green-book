@@ -1,52 +1,55 @@
+import { useTranslation } from "react-i18next";
 import CarrouselColor from "../C1/ui/CarrouselColor";
 import FS3 from "../../assets/C1/FS3.svg";
 import MapaS3 from "../../assets/C1/MapaS3.svg";
 import Porcent98 from "../../assets/C1/Porcent98.svg";
 
 const Section3C1 = () => {
-    // Datos de los slides
+    const { t } = useTranslation();
+
+    // Datos de los slides (textos desde i18n)
     const slidesData = [
-    {
-        bgColor: "#DA2F7D",
-        circleColor: "#DA2F7D",
-        mainText: "376,019",
-        description: "HECTÁREAS\nCULTIVADAS"
-    },
-    {
-        bgColor: "#852885",
-        circleColor: "#852885",
-        image: MapaS3,
-        imageWidth: "18vh",
-        imageHeight: "18vh",
-        description: "22 DEPARTAMENTOS \n DE GUATEMALA \n TIENEN PRODUCCIÓN \n CAFETALERA"
-    },
-    {
-        bgColor: "#00B3BD",
-        circleColor: "#00B3BD",
-        mainText: "261",
-        description: "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ"
-    },
-    {
-        bgColor: "#EF7D00",
-        circleColor: "#EF7D00",
-        image: Porcent98,
-        imageWidth: "15vh",
-        imageHeight: "15vh",
-        description: "ES CULTIVADO\nBAJO SOMBRA"
-    },
-    {
-        bgColor: "#00AE43",
-        circleColor: "#00AE43",
-        mainText: "+125K",
-        description: "FAMILIAS\nCAFICULTORAS"
-    },
-    {
-        bgColor: "#FFD500",
-        circleColor: "#FFD500",
-        mainText: "+500K",
-        description: "EMPLEOS\nGENERADOS\nPOR AÑO"
-    }
-];
+        {
+            bgColor: "#DA2F7D",
+            circleColor: "#DA2F7D",
+            mainText: t("c1.section3.slides.0.main"),
+            description: t("c1.section3.slides.0.desc")
+        },
+        {
+            bgColor: "#852885",
+            circleColor: "#852885",
+            image: MapaS3,
+            imageWidth: "18vh",
+            imageHeight: "18vh",
+            description: t("c1.section3.slides.1.desc")
+        },
+        {
+            bgColor: "#00B3BD",
+            circleColor: "#00B3BD",
+            mainText: t("c1.section3.slides.2.main"),
+            description: t("c1.section3.slides.2.desc")
+        },
+        {
+            bgColor: "#EF7D00",
+            circleColor: "#EF7D00",
+            image: Porcent98,
+            imageWidth: "15vh",
+            imageHeight: "15vh",
+            description: t("c1.section3.slides.3.desc")
+        },
+        {
+            bgColor: "#00AE43",
+            circleColor: "#00AE43",
+            mainText: t("c1.section3.slides.4.main"),
+            description: t("c1.section3.slides.4.desc")
+        },
+        {
+            bgColor: "#FFD500",
+            circleColor: "#FFD500",
+            mainText: t("c1.section3.slides.5.main"),
+            description: t("c1.section3.slides.5.desc")
+        }
+    ];
 
     return (
         <div
@@ -55,8 +58,11 @@ const Section3C1 = () => {
         >
             {/* Título */}
             <div className="flex justify-center items-center pt-16 md:pt-20">
-                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-center" style={{fontFamily: "GothamBold"}}>
-                    EN NÚMEROS
+                <h2
+                    className="text-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-center uppercase"
+                    style={{ fontFamily: "GothamBold" }}
+                >
+                    {t("c1.section3.title")}
                 </h2>
             </div>
 
@@ -64,7 +70,6 @@ const Section3C1 = () => {
             <div className="flex justify-center items-center mt-25 px-4">
                 <CarrouselColor slides={slidesData} />
             </div>
-            
         </div>
     );
 };
