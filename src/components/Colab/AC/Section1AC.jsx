@@ -59,7 +59,7 @@ const Section1AC = () => {
 
                 {/* Botón de retroceso */}
                 <div className="absolute top-6 right-[112vh]">
-                    <BackButton onClick={() => navigate('/colab')} color="black" />
+                    <BackButton onClick={() => navigate('/colab/sac')} color="black" />
                 </div>
 
                 {/* Logo */}

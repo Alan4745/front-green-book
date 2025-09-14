@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next';
 import FormaAC from '../../../assets/Colab/ui/FormaAC.svg';
 import AnalabLogo from '../../../assets/Colab/CompleteLogos/AnalabLogo.svg';
 
+// 🖼️ Íconos de cada recuadro
+import IconSuelo from '../../../assets/Colab/Suelo.svg';
+import IconPlantas from '../../../assets/Colab/Plantas.svg';
+import IconAbono from '../../../assets/Colab/Abono.svg';
+
 const Section2AC = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
@@ -40,7 +45,13 @@ const Section2AC = () => {
             {/* 🔵 Recuadros analíticos */}
             <div className="relative flex flex-wrap justify-center items-center gap-8 px-8 z-10 mt-[35vh]">
                 {/* Card 1 */}
-                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-30 px-16 w-[50vh] h-[30vh] text-center">
+                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-12 px-16 w-[50vh] h-[30vh] text-center">
+                    <div className="flex justify-center mb-4">
+                        <img
+                            src={IconSuelo}
+                            alt={t('colab.sac.section2.cards.c1.title')}
+                        />
+                    </div>
                     <h3
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}
@@ -56,7 +67,13 @@ const Section2AC = () => {
                 </div>
 
                 {/* Card 2 */}
-                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-30 px-16 w-[50vh] h-[30vh] text-center">
+                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-12 px-16 w-[50vh] h-[30vh] text-center">
+                    <div className="flex justify-center mb-4">
+                        <img
+                            src={IconPlantas}
+                            alt={t('colab.sac.section2.cards.c2.title')}
+                        />
+                    </div>
                     <h3
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}
@@ -72,7 +89,13 @@ const Section2AC = () => {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-30 px-10 w-[50vh] h-[30vh] text-center">
+                <div className="bg-[#283778] text-white rounded-2xl shadow-md py-14 px-10 w-[50vh] h-[30vh] text-center">
+                    <div className="flex justify-center mb-4">
+                        <img
+                            src={IconAbono}
+                            alt={t('colab.sac.section2.cards.c3.title')}
+                        />
+                    </div>
                     <h3
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}

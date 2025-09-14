@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
+
+// ✅ Importa assets (evita rutas "src/..." para build)
+import Img1 from '../../assets/C6/F7.svg';
+import Img2 from '../../assets/C6/F8.svg';
 
 const Section4C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -13,6 +19,73 @@ const Section4C6 = () => {
 
     const handleCloseModal = () => {
         setSelectedImage(null);
+    };
+
+    // 🔒 Bloqueo de scroll del body cuando el lightbox está abierto (robusto: position: fixed + top)
+    useEffect(() => {
+        if (!selectedImage) return;
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+
+        const prev = {
+            position: document.body.style.position,
+            top: document.body.style.top,
+            left: document.body.style.left,
+            right: document.body.style.right,
+            width: document.body.style.width,
+            overflow: document.body.style.overflow
+        };
+
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.position = prev.position;
+            document.body.style.top = prev.top;
+            document.body.style.left = prev.left;
+            document.body.style.right = prev.right;
+            document.body.style.width = prev.width;
+            document.body.style.overflow = prev.overflow;
+            window.scrollTo(0, scrollY);
+        };
+    }, [selectedImage]);
+
+    // 🎛️ Animación de zoom (igual al patrón final)
+    const hoverAnim = {
+        whileHover: { scale: 1.08 },
+        transition: { type: 'tween', ease: 'easeOut', duration: 0.25 }
+    };
+
+    // 🧊 Lightbox montado en body (idéntico al patrón final)
+    const Lightbox = ({ src, alt, onClose }) => {
+        if (typeof document === 'undefined') return null;
+        return createPortal(
+            <div
+                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center"
+                role="dialog"
+                aria-modal="true"
+                aria-label={alt}
+                style={{ zIndex: 2147483647 }}
+            >
+                <div className="relative">
+                    <CloseButton
+                        onClick={onClose}
+                        className="absolute top-4 right-4 text-white"
+                        aria-label={t('c6.section4.buttons.close')}
+                        title={t('c6.section4.buttons.close')}
+                    />
+                    <img
+                        src={src}
+                        alt={alt}
+                        className="h-[90vh] w-auto object-contain"
+                    />
+                </div>
+            </div>,
+            document.body
+        );
     };
 
     return (
@@ -64,78 +137,79 @@ const Section4C6 = () => {
 
                 {/* Imágenes del centro - rectangulares tocando arriba y abajo */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                    {/* Primera imagen - rectangular, toca arriba */}
-                    <div className="relative w-[60vh] h-[50vh] overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:w-[70vh] hover:h-[60vh] hover:z-20 hover:-translate-x-[5vh] group">
-                        <img
-                            src="src/assets/C6/F7.svg"
-                            alt={t('c6.section4.images.img1Alt')}
-                            title={t('c6.section4.images.img1Alt')}
-                            className="w-full h-full object-cover"
-                        />
-                        {/* ZoomButton posicionado en la esquina inferior derecha */}
-                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Primera imagen */}
+                    <motion.div
+                        className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
+                        style={{ willChange: 'transform' }}
+                        whileHover={hoverAnim.withinHover}
+                        whileTap={{ scale: 1.02 }}
+                        {...hoverAnim}
+                    >
+                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                            <img
+                                src={Img1}
+                                alt={t('c6.section4.images.img1Alt')}
+                                title={t('c6.section4.images.img1Alt')}
+                                className="w-full h-full object-cover select-none pointer-events-none"
+                                draggable={false}
+                            />
+                        </div>
+                        {/* ZoomButton esquina inferior derecha */}
+                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div
-                                onClick={() => handleImageClick('src/assets/C6/F7.svg')}
+                                onClick={() => handleImageClick(Img1)}
                                 title={t('c6.section4.buttons.zoom')}
                                 aria-label={t('c6.section4.buttons.zoom')}
                                 role="button"
                                 tabIndex={0}
-                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleImageClick('src/assets/C6/F7.svg')}
+                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleImageClick(Img1)}
                             >
                                 <ZoomButton />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Segunda imagen - rectangular, toca abajo */}
-                    <div className="relative w-[60vh] h-[50vh] overflow-hidden mt-auto cursor-pointer transition-all duration-500 ease-in-out hover:w-[70vh] hover:h-[60vh] hover:z-20 hover:-translate-x-[5vh] group">
-                        <img
-                            src="src/assets/C6/F8.svg"
-                            alt={t('c6.section4.images.img2Alt')}
-                            title={t('c6.section4.images.img2Alt')}
-                            className="w-full h-full object-cover"
-                        />
-                        {/* ZoomButton posicionado en la esquina inferior derecha */}
-                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Segunda imagen */}
+                    <motion.div
+                        className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
+                        style={{ willChange: 'transform' }}
+                        whileHover={hoverAnim.withinHover}
+                        whileTap={{ scale: 1.02 }}
+                        {...hoverAnim}
+                    >
+                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                            <img
+                                src={Img2}
+                                alt={t('c6.section4.images.img2Alt')}
+                                title={t('c6.section4.images.img2Alt')}
+                                className="w-full h-full object-cover select-none pointer-events-none"
+                                draggable={false}
+                            />
+                        </div>
+                        {/* ZoomButton esquina inferior derecha */}
+                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div
-                                onClick={() => handleImageClick('src/assets/C6/F8.svg')}
+                                onClick={() => handleImageClick(Img2)}
                                 title={t('c6.section4.buttons.zoom')}
                                 aria-label={t('c6.section4.buttons.zoom')}
                                 role="button"
                                 tabIndex={0}
-                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleImageClick('src/assets/C6/F8.svg')}
+                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleImageClick(Img2)}
                             >
                                 <ZoomButton />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Modal para imagen ampliada */}
             {selectedImage && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label={t('c6.section4.modalAlt')}
-                >
-                    <div className="relative max-w-4xl max-h-4xl">
-                        <img
-                            src={selectedImage}
-                            alt={t('c6.section4.modalAlt')}
-                            className="max-w-full max-h-full object-contain"
-                        />
-                        {/* CloseButton posicionado fuera, alineado horizontalmente con la imagen */}
-                        <div className="absolute top-4 right-4">
-                            <CloseButton
-                                onClick={handleCloseModal}
-                                aria-label={t('c6.section4.buttons.close')}
-                                title={t('c6.section4.buttons.close')}
-                            />
-                        </div>
-                    </div>
-                </div>
+                <Lightbox
+                    src={selectedImage}
+                    alt={t('c6.section4.modalAlt')}
+                    onClose={handleCloseModal}
+                />
             )}
         </div>
     );
