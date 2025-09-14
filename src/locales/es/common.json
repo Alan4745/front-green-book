@@ -553,5 +553,157 @@
                 }
             }
         }
+    },
+    "c6": {
+        "cover": {
+            "title": {
+                "line1": "Sustentabilidad que",
+                "line2": "transforma el futuro",
+                "line3": "del café"
+            },
+            "subtitle": "Caficultura que evoluciona",
+            "body": "En Guatemala la caficultura evoluciona hacia un enfoque sustentable, que combina la protección ambiental y la producción de café de clase mundial.",
+            "alts": {
+                "chapter": "Capítulo {{num}}",
+                "greenBook": "Logo de Green Book"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Sustentabilidad: calidad y estándares"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "zoom": "Agrandar",
+                "close": "Cerrar"
+            },
+            "left": {
+                "title": {
+                    "top": "Calidad y",
+                    "bottom": "responsabilidad"
+                },
+                "desc": {
+                    "line1": "Cultivado en regiones montañosas",
+                    "line2": "entre 1,300 y 2,000 msnm."
+                }
+            },
+            "right": {
+                "title": {
+                    "line1": "Cumplimiento de",
+                    "line2": "estándares",
+                    "line3": "internacionales"
+                },
+                "desc": {
+                    "line1": "Volcanes activos, océanos, lagos y",
+                    "line2": "diversidad natural hacen que cada",
+                    "line3": "región de café tenga un perfil único."
+                }
+            },
+            "images": {
+                "img1Alt": "Calidad y responsabilidad (imagen)",
+                "img2Alt": "Cumplimiento de estándares internacionales (imagen)"
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Sustentabilidad: mitigación climática y desarrollo rural"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "zoom": "Agrandar",
+                "close": "Cerrar"
+            },
+            "left": {
+                "title": {
+                    "top": "Mitigando el",
+                    "bottom": "cambio climático"
+                },
+                "desc": {
+                    "line1": "Sistemas agroforestales que capturan el",
+                    "line2": "carbono y minimizan el impacto de la",
+                    "line3": "industria cafetalera."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "Desarrollo rural",
+                    "bottom": "integral"
+                },
+                "desc": {
+                    "line1": "Desarrollo económico y social a largo",
+                    "line2": "plazo para caficultores y comunidades",
+                    "line3": "enteras."
+                }
+            },
+            "images": {
+                "img1Alt": "Mitigando el cambio climático (imagen)",
+                "img2Alt": "Desarrollo rural integral (imagen)"
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": "Sustentabilidad: agua en el proceso del café"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "zoom": "Agrandar",
+                "close": "Cerrar"
+            },
+            "left": {
+                "title": {
+                    "top": "El agua en el proceso",
+                    "bottom": "del café"
+                },
+                "desc": {
+                    "line1": "Durante el despulpado y lavado del grano, el agua es un recurso clave",
+                    "line2": "que debe usarse y manejarse de",
+                    "line3": "forma responsable."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "Reducir y reutilizar",
+                    "bottom": "el recurso"
+                },
+                "desc": {
+                    "pre": "La mayor parte del agua se usa para transportar y despulpar el café. Con rediseño y buenas prácticas, ",
+                    "anacafe": "Anacafé",
+                    "post": " ha ayudado a los productores a reducir el consumo de agua a solamente {{liters}} litros por cada {{lbs}} libras procesadas."
+                }
+            },
+            "images": {
+                "img1Alt": "El agua en el proceso del café (imagen)",
+                "img2Alt": "Reducir y reutilizar el recurso (imagen)"
+            }
+        },
+        "section4": {
+            "aria": {
+                "section": "Sustentabilidad: manejo responsable y compostaje"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "zoom": "Agrandar",
+                "close": "Cerrar"
+            },
+            "left": {
+                "title": "Manejo responsable",
+                "desc": {
+                    "line1": "Desde 2006, en Guatemala es obligatorio manejar de forma responsable los subproductos del café, incluyendo",
+                    "line2": "el agua residual."
+                }
+            },
+            "right": {
+                "title": "Del residuo al compost",
+                "desc": {
+                    "line1": "Mediante pozos de infiltración, el mucílago",
+                    "line2": "del café puede atraparse y aprovecharse",
+                    "line3": "como insumo para compostaje."
+                }
+            },
+            "images": {
+                "img1Alt": "Manejo responsable (imagen)",
+                "img2Alt": "Del residuo al compost (imagen)"
+            }
+        }
     }
 }

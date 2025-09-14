@@ -553,5 +553,157 @@
                 }
             }
         }
+    },
+    "c6": {
+        "cover": {
+            "title": {
+                "line1": "Sustainability that",
+                "line2": "transforms the future",
+                "line3": "of coffee"
+            },
+            "subtitle": "Coffee farming that evolves",
+            "body": "In Guatemala, coffee cultivation is evolving toward a sustainable approach that combines environmental protection with the production of world-class coffee.",
+            "alts": {
+                "chapter": "Chapter {{num}}",
+                "greenBook": "Green Book logo"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Sustainability: quality and standards"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "zoom": "Enlarge",
+                "close": "Close"
+            },
+            "left": {
+                "title": {
+                    "top": "Quality and",
+                    "bottom": "responsibility"
+                },
+                "desc": {
+                    "line1": "Grown in mountainous regions",
+                    "line2": "between 1,300 and 2,000 meters above sea level."
+                }
+            },
+            "right": {
+                "title": {
+                    "line1": "Compliance with",
+                    "line2": "international",
+                    "line3": "standards"
+                },
+                "desc": {
+                    "line1": "Active volcanoes, oceans, lakes, and",
+                    "line2": "natural diversity make each coffee region",
+                    "line3": "have a unique profile."
+                }
+            },
+            "images": {
+                "img1Alt": "Quality and responsibility (image)",
+                "img2Alt": "Compliance with international standards (image)"
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Sustainability: climate mitigation and rural development"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "zoom": "Enlarge",
+                "close": "Close"
+            },
+            "left": {
+                "title": {
+                    "top": "Mitigating",
+                    "bottom": "climate change"
+                },
+                "desc": {
+                    "line1": "Agroforestry systems that capture",
+                    "line2": "carbon and minimize the impact of the",
+                    "line3": "coffee industry."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "Integrated rural",
+                    "bottom": "development"
+                },
+                "desc": {
+                    "line1": "Long-term economic and social development",
+                    "line2": "for coffee growers and entire",
+                    "line3": "communities."
+                }
+            },
+            "images": {
+                "img1Alt": "Mitigating climate change (image)",
+                "img2Alt": "Integrated rural development (image)"
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": "Sustainability: water in the coffee process"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "zoom": "Enlarge",
+                "close": "Close"
+            },
+            "left": {
+                "title": {
+                    "top": "Water in the coffee",
+                    "bottom": "process"
+                },
+                "desc": {
+                    "line1": "During depulping and washing, water is a",
+                    "line2": "key resource that must be used and",
+                    "line3": "managed responsibly."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "Reduce and reuse",
+                    "bottom": "the resource"
+                },
+                "desc": {
+                    "pre": "Most of the water is used to transport and depulp coffee. With redesign and good practices, ",
+                    "anacafe": "Anacafé",
+                    "post": " has helped producers reduce water consumption to only {{liters}} liters per every {{lbs}} pounds processed."
+                }
+            },
+            "images": {
+                "img1Alt": "Water in the coffee process (image)",
+                "img2Alt": "Reduce and reuse the resource (image)"
+            }
+        },
+        "section4": {
+            "aria": {
+                "section": "Sustainability: responsible management and composting"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "zoom": "Enlarge",
+                "close": "Close"
+            },
+            "left": {
+                "title": "Responsible management",
+                "desc": {
+                    "line1": "Since 2006, in Guatemala it is mandatory to responsibly manage coffee by-products,",
+                    "line2": "including wastewater."
+                }
+            },
+            "right": {
+                "title": "From waste to compost",
+                "desc": {
+                    "line1": "Through infiltration pits, the coffee",
+                    "line2": "mucilage can be captured and used",
+                    "line3": "as an input for composting."
+                }
+            },
+            "images": {
+                "img1Alt": "Responsible management (image)",
+                "img2Alt": "From waste to compost (image)"
+            }
+        }
     }
 }
