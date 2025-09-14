@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
@@ -11,78 +12,144 @@ const backgrounds = [
     "/Img/Start/Fondo4.svg",
 ];
 
-const Home = () => {
+const FADE_DURATION = 2; // seg (ajústalo a tu gusto: 0.9–1.4)
+const DISPLAY_TIME = 8;    // seg visibles antes de cambiar
+
+// Pre-decoder robusto (evita pops por carga)
+const decodeImage = (src) =>
+    new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        if (img.decode) {
+        img.decode().then(resolve).catch(resolve);
+        } else {
+        img.onload = resolve;
+        img.onerror = resolve;
+        }
+    });
+
+    const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(null);
-    const [fadeIn, setFadeIn] = useState(false);
+    const switchKeyRef = useRef(0); // fuerza remount para que initial se aplique siempre
+    const indexRef = useRef(0);
 
+    // Mantener ref actualizado
     useEffect(() => {
-        const interval = setInterval(() => {
-            const next = (currentIndex + 1) % backgrounds.length;
-            setPrevIndex(currentIndex);
-            setCurrentIndex(next);
-            setFadeIn(true);
-
-            setTimeout(() => {
-                setFadeIn(false);
-                setPrevIndex(null);
-            }, 1000);
-        }, 5000);
-
-        return () => clearInterval(interval);
+        indexRef.current = currentIndex;
     }, [currentIndex]);
+
+    // Pre-carga de todas las imágenes al montar (caché)
+    useEffect(() => {
+        backgrounds.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        });
+    }, []);
+
+    // Rotación con pre-decode antes del cambio (sin entradas bruscas)
+    useEffect(() => {
+        let isMounted = true;
+
+        const tick = async () => {
+        const current = indexRef.current;
+        const next = (current + 1) % backgrounds.length;
+        // Asegurar que la próxima esté lista antes de animar
+        await decodeImage(backgrounds[next]);
+        if (!isMounted) return;
+
+        setPrevIndex(current);
+        switchKeyRef.current += 1; // cambia key para remount del current layer
+        setCurrentIndex(next);
+        };
+
+        const id = setInterval(tick, DISPLAY_TIME * 1000);
+        return () => {
+        isMounted = false;
+        clearInterval(id);
+        };
+    }, []);
 
     const handleClick = () => {
         console.log("Botón clickeado");
-        window.location.href = "https://claude.ai/chat/bb1402d0-e534-4738-b6c9-a23b0143eb78";
+        window.location.href =
+        "https://claude.ai/chat/bb1402d0-e534-4738-b6c9-a23b0143eb78";
     };
 
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-            {/* Fondo actual */}
-            <div
-                className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-500 z-10`}
-                style={{ backgroundImage: `url(${backgrounds[currentIndex]})` }}
-            />
-
-            {/* Fondo anterior para transición */}
+        {/* 🎞️ Capas de crossfade (actual arriba, previa abajo) */}
+        <div className="absolute inset-0 z-10">
+            {/* Capa previa (fade-out) */}
             {prevIndex !== null && (
-                <div
-                className={`absolute inset-0 bg-no-repeat bg-center bg-cover transition-opacity duration-1000 z-20 ${
-                    fadeIn ? "opacity-0" : "opacity-100"
-                }`}
-                style={{ backgroundImage: `url(${backgrounds[prevIndex]})` }}
-                />
+            <motion.div
+                key={`prev-${switchKeyRef.current}`}
+                className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+                style={{
+                backgroundImage: `url(${backgrounds[prevIndex]})`,
+                willChange: "opacity, transform",
+                }}
+                initial={{ opacity: 1, scale: 1 }}
+                animate={{
+                opacity: 0,
+                scale: 1.0,
+                transition: {
+                    duration: FADE_DURATION,
+                    ease: [0.22, 1, 0.36, 1],
+                },
+                }}
+                onAnimationComplete={() => setPrevIndex(null)}
+            />
             )}
 
-            {/* Logo centrado */}
-            <div className="relative z-30 flex items-center justify-center h-full">
-                <img
-                src="/Logos/Greenbook.svg"
-                alt="Green Book Logo"
-                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
-                />
-            </div>
+            {/* Capa actual (fade-in) */}
+            <motion.div
+            key={`curr-${switchKeyRef.current}`}
+            className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+            style={{
+                backgroundImage: `url(${backgrounds[currentIndex]})`,
+                willChange: "opacity, transform",
+            }}
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{
+                opacity: 1,
+                scale: 1.0,
+                transition: {
+                duration: FADE_DURATION,
+                ease: [0.22, 1, 0.36, 1],
+                },
+            }}
+            />
+        </div>
 
-            {/* Carrusel de capítulos abajo */}
-            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
-                <Carrousel />
-            </div>
+        {/* Logo centrado */}
+        <div className="relative z-30 flex items-center justify-center h-full">
+            <img
+            src="/Logos/Greenbook.svg"
+            alt="Green Book Logo"
+            className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
+            />
+        </div>
 
-            {/* Selector de idioma */}
-            <div className="absolute bottom-6 left-6 z-50">
-                <LanguageSelector />
-            </div>
+        {/* Carrusel de capítulos abajo */}
+        <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
+            <Carrousel />
+        </div>
 
-            {/* ColabButton */}
-            <div className="absolute bottom-6 left-[18%] z-50 transform -translate-x-1/2">
-                <ColabButton progress={100} />
-            </div>
+        {/* Selector de idioma */}
+        <div className="absolute bottom-6 left-6 z-50">
+            <LanguageSelector />
+        </div>
 
-            {/* Menú desplegable */}
-            <div className="absolute top-[2vh] right-0 z-50">
-                <MainMenu />
-            </div>
+        {/* ColabButton */}
+        <div className="absolute bottom-6 left-[18%] z-50 transform -translate-x-1/2">
+            <ColabButton progress={100} />
+        </div>
+
+        {/* Menú desplegable */}
+        <div className="absolute top-[2vh] right-0 z-50">
+            <MainMenu />
+        </div>
         </div>
     );
 };
