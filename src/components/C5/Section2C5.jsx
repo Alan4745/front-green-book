@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import F1 from '../../assets/C5/S2/F1.svg';
 import F2 from '../../assets/C5/S2/F2.svg';
 import F3 from '../../assets/C5/S2/F3.svg';
@@ -7,9 +9,38 @@ import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
 
 const Section2C5 = () => {
-    const [isLightboxOpen, setIsLightboxOpen] = useState(false); // Estado para manejar la apertura del lightbox
-    const [currentImage, setCurrentImage] = useState(""); // Imagen actual del lightbox
-    const [hoveredSection, setHoveredSection] = useState(null); // Estado para manejar qué sección está siendo hover
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [currentImage, setCurrentImage] = useState("");
+    const [hoveredSection, setHoveredSection] = useState(null);
+    const { t } = useTranslation();
+
+    const keys = {
+        aria: {
+            section: 'c5.section2.aria.section',
+            modal: 'c5.section2.modalAlt'
+        },
+        buttons: {
+            expand: 'c5.section2.buttons.expand',
+            close: 'c5.section2.buttons.close'
+        },
+        cols: {
+            mariposas: {
+                title: 'c5.section2.cols.mariposas.title',
+                number: 'c5.section2.cols.mariposas.hover.number',
+                text: 'c5.section2.cols.mariposas.hover.text'
+            },
+            murcielagos: {
+                title: 'c5.section2.cols.murcielagos.title',
+                number: 'c5.section2.cols.murcielagos.hover.number',
+                text: 'c5.section2.cols.murcielagos.hover.text'
+            },
+            anfibios: {
+                title: 'c5.section2.cols.anfibios.title',
+                number: 'c5.section2.cols.anfibios.hover.number',
+                text: 'c5.section2.cols.anfibios.hover.text'
+            }
+        }
+    };
 
     // Función para abrir el lightbox
     const openLightbox = (img) => {
@@ -23,95 +54,149 @@ const Section2C5 = () => {
     };
 
     return (
-        <div className="relative min-h-screen w-full grid grid-cols-3 gap-0">
+        <div
+            className="relative min-h-screen w-full grid grid-cols-3 gap-0"
+            role="region"
+            aria-label={t(keys.aria.section)}
+        >
 
             {/* Sección 1 - MARIPOSAS */}
-            <div 
+            <div
                 className="relative w-full h-full bg-black flex items-center justify-center"
                 onMouseEnter={() => setHoveredSection('mariposas')}
                 onMouseLeave={() => setHoveredSection(null)}
             >
-                <div className="absolute w-full h-full bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${F1})` }}></div>
-                <h2 className="absolute top-8 left-8 text-white text-5xl" style={{ fontFamily: 'GothamBold' }}>
-                    MARIPOSAS
-                    <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div> {/* Línea debajo del título */}
+                <div
+                    className="absolute w-full h-full bg-cover bg-center opacity-40"
+                    style={{ backgroundImage: `url(${F1})` }}
+                    aria-hidden="true"
+                ></div>
+
+                <h2
+                    className="absolute top-8 left-8 text-white text-5xl uppercase"
+                    style={{ fontFamily: 'GothamBold' }}
+                >
+                    {t(keys.cols.mariposas.title)}
+                    <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div>
                 </h2>
 
                 {/* Texto hover */}
                 {hoveredSection === 'mariposas' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
                         <p className="text-2xl text-justify w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+80 </span>especies de mariposas solamente en el área de occidente.
+                            <span className="text-[#AC7EF0]">{t(keys.cols.mariposas.number)} </span>
+                            {t(keys.cols.mariposas.text)}
                         </p>
                     </div>
                 )}
 
                 {/* Botón de expandir - Abajo a la derecha */}
-                <ExpandButton onClick={() => openLightbox(F1)} title="Agrandar" className="absolute bottom-8 right-8" />
+                <ExpandButton
+                    onClick={() => openLightbox(F1)}
+                    title={t(keys.buttons.expand)}
+                    aria-label={t(keys.buttons.expand)}
+                    className="absolute bottom-8 right-8"
+                />
             </div>
 
             {/* Sección 2 - MURCIÉLAGOS */}
-            <div 
+            <div
                 className="relative w-full h-full bg-black flex items-center justify-center"
                 onMouseEnter={() => setHoveredSection('murcielagos')}
                 onMouseLeave={() => setHoveredSection(null)}
             >
-                <div className="absolute w-full h-full bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${F2})` }}></div>
-                <h2 className="absolute bottom-12 right-8 text-white text-5xl" style={{ fontFamily: 'GothamBold' }}>
-                    MURCIÉLAGOS
-                    <div className="absolute mt-2 w-[20vh] right-0 border-t-12 border-[#562E91]"></div> {/* Línea debajo del título */}
+                <div
+                    className="absolute w-full h-full bg-cover bg-center opacity-40"
+                    style={{ backgroundImage: `url(${F2})` }}
+                    aria-hidden="true"
+                ></div>
+
+                <h2
+                    className="absolute bottom-12 right-8 text-white text-5xl uppercase"
+                    style={{ fontFamily: 'GothamBold' }}
+                >
+                    {t(keys.cols.murcielagos.title)}
+                    <div className="absolute mt-2 w-[20vh] right-0 border-t-12 border-[#562E91]"></div>
                 </h2>
 
                 {/* Texto hover */}
                 {hoveredSection === 'murcielagos' && (
                     <div className="absolute top-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[45vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+24 </span>clases de murciélagos se refugian en los árboles de sombra
+                        <p className="text-2xl text-justify w/[45vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                            <span className="text-[#AC7EF0]">{t(keys.cols.murcielagos.number)} </span>
+                            {t(keys.cols.murcielagos.text)}
                         </p>
                     </div>
                 )}
 
                 {/* Botón de expandir - Arriba a la izquierda */}
-                <ExpandButton onClick={() => openLightbox(F2)} title="Agrandar" className="absolute top-8 left-8" />
+                <ExpandButton
+                    onClick={() => openLightbox(F2)}
+                    title={t(keys.buttons.expand)}
+                    aria-label={t(keys.buttons.expand)}
+                    className="absolute top-8 left-8"
+                />
             </div>
 
             {/* Sección 3 - ANFIBIOS Y REPTILES */}
-            <div 
+            <div
                 className="relative w-full h-full bg-black flex items-center justify-center"
                 onMouseEnter={() => setHoveredSection('anfibios')}
                 onMouseLeave={() => setHoveredSection(null)}
             >
-                <div className="absolute w-full h-full bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${F3})` }}></div>
-                <h2 className="absolute w-[35vh] top-8 left-8 text-white text-5xl" style={{ fontFamily: 'GothamBold' }}>
-                    ANFIBIOS Y REPTILES
-                    <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div> {/* Línea debajo del título */}
+                <div
+                    className="absolute w-full h-full bg-cover bg-center opacity-30"
+                    style={{ backgroundImage: `url(${F3})` }}
+                    aria-hidden="true"
+                ></div>
+
+                <h2
+                    className="absolute w-[45vh] top-8 left-8 text-white text-5xl uppercase"
+                    style={{ fontFamily: 'GothamBold' }}
+                >
+                    {t(keys.cols.anfibios.title)}
+                    <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div>
                 </h2>
 
                 {/* Texto hover */}
                 {hoveredSection === 'anfibios' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
                         <p className="text-2xl text-justify w-[40vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                            <span className='text-[#AC7EF0]'>+300 </span>especies de anfibios y reptiles como ranas y lagartijas.
+                            <span className="text-[#AC7EF0]">{t(keys.cols.anfibios.number)} </span>
+                            {t(keys.cols.anfibios.text)}
                         </p>
                     </div>
                 )}
 
                 {/* Botón de expandir - Abajo a la derecha */}
-                <ExpandButton onClick={() => openLightbox(F3)} title="Agrandar" className="absolute bottom-8 right-8" />
+                <ExpandButton
+                    onClick={() => openLightbox(F3)}
+                    title={t(keys.buttons.expand)}
+                    aria-label={t(keys.buttons.expand)}
+                    className="absolute bottom-8 right-8"
+                />
             </div>
 
             {/* Lightbox */}
             {isLightboxOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={t(keys.aria.modal)}
+                >
                     <div className="relative">
-
                         {/* Botón de cerrar */}
-                        <CloseButton onClick={closeLightbox} className="absolute top-4 right-4 text-white" />
-
+                        <CloseButton
+                            onClick={closeLightbox}
+                            className="absolute top-4 right-4 text-white"
+                            aria-label={t(keys.buttons.close)}
+                            title={t(keys.buttons.close)}
+                        />
                         {/* Imagen ampliada */}
                         <img
                             src={currentImage}
-                            alt="Imagen ampliada"
+                            alt={t(keys.aria.modal)}
                             className="h-[90vh] w-auto object-contain"
                         />
                     </div>

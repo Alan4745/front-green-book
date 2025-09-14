@@ -447,5 +447,111 @@
                 "imgAlt": "The power of volcanoes"
             }
         }
+    },
+    "c5": {
+        "cover": {
+            "title": {
+                "top": "A diverse environment",
+                "bottom": "to explore"
+            },
+            "subtitle": {
+                "line1": "Epicenter of biodiversity",
+                "line2": "in Mesoamerica"
+            },
+            "alts": {
+                "chapter": "Chapter {{num}}",
+                "greenBook": "Green Book logo"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Ecosystems in action"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "close": "Close"
+            },
+            "cta": "Explore more",
+            "title": "Ecosystems in action",
+            "intro": "For more than three million years, Guatemala has been an epicenter of biodiversity in Mesoamerica, where coffee agroforestry systems are key to conservation.",
+            "outro": "Plants, leaves, and trees interact to protect thousands of insects, arthropods, birds, and other species.",
+            "slides": {
+                "f1": {
+                    "title": "Leaf litter",
+                    "desc": "Leaf litter harbors insects such as ants, beetles, and worms.",
+                    "highlight": ["leaf litter"]
+                },
+                "f2": {
+                    "title": "Orchids, bromeliads, mosses and lichens",
+                    "desc": "Epiphytes such as orchids, bromeliads, mosses, and lichens host essential arthropods.",
+                    "highlight": ["orchids", "bromeliads", "mosses", "lichens"]
+                },
+                "f3": {
+                    "title": "Ingas",
+                    "desc": "Shade trees such as Ingas provide food and shelter for multiple species.",
+                    "highlight": ["Ingas"]
+                }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Biodiversity: butterflies, bats, amphibians and reptiles"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "expand": "Enlarge",
+                "close": "Close"
+            },
+            "cols": {
+                "mariposas": {
+                    "title": "Butterflies",
+                    "hover": {
+                        "number": "+80",
+                        "text": "species of butterflies just in the western region."
+                    }
+                },
+                "murcielagos": {
+                    "title": "Bats",
+                    "hover": {
+                        "number": "+24",
+                        "text": "species of bats take shelter in shade trees"
+                    }
+                },
+                "anfibios": {
+                    "title": "Amphibians and reptiles",
+                    "hover": {
+                        "number": "+300",
+                        "text": "species of amphibians and reptiles such as frogs and lizards."
+                    }
+                }
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": "Biodiversity: insects and migratory birds"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "expand": "Enlarge",
+                "close": "Close"
+            },
+            "cols": {
+                "insectos": {
+                    "title": "Insects",
+                    "hover": {
+                        "pre": "Thousands of ",
+                        "highlight": "insects",
+                        "post": " control pests, recycle nutrients, and feed other species"
+                    }
+                },
+                "aves": {
+                    "title": "Migratory birds",
+                    "hover": {
+                        "number": "+90",
+                        "text": "types of migratory birds feed and live in coffee farms"
+                    }
+                }
+            }
+        }
     }
 }

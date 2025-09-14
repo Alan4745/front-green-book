@@ -447,5 +447,111 @@
                 "imgAlt": "El poder de los volcanes"
             }
         }
+    },
+    "c5": {
+        "cover": {
+            "title": {
+                "top": "Un entorno diverso",
+                "bottom": "por explorar"
+            },
+            "subtitle": {
+                "line1": "Epicentro de la biodiversidad",
+                "line2": "en Mesoamérica"
+            },
+            "alts": {
+                "chapter": "Capítulo {{num}}",
+                "greenBook": "Logo de Green Book"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Ecosistemas en acción"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "close": "Cerrar"
+            },
+            "cta": "Explorar más",
+            "title": "Ecosistemas en acción",
+            "intro": "Desde hace más de tres millones de años Guatemala es un epicentro de la biodiversidad en Mesoamérica, donde los sistemas agroforestales de café son clave para la conservación.",
+            "outro": "Plantas, hojas y árboles interactúan para proteger a miles de insectos, artrópodos, aves y otras especies.",
+            "slides": {
+                "f1": {
+                    "title": "Hojarasca",
+                    "desc": "La hojarasca alberga insectos como hormigas, escarabajos y gusanos.",
+                    "highlight": ["hojarasca"]
+                },
+                "f2": {
+                    "title": "Orquídeas, bromelias, musgos y líquenes",
+                    "desc": "Las epífitas como orquídeas, bromelias, musgos y líquenes alojan artrópodos esenciales.",
+                    "highlight": ["orquídeas", "bromelias", "musgos", "líquenes"]
+                },
+                "f3": {
+                    "title": "Ingas",
+                    "desc": "Los árboles de sombra como las Ingas dan alimento y refugio a múltiples especies.",
+                    "highlight": ["Ingas"]
+                }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Biodiversidad: mariposas, murciélagos, anfibios y reptiles"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "expand": "Agrandar",
+                "close": "Cerrar"
+            },
+            "cols": {
+                "mariposas": {
+                    "title": "Mariposas",
+                    "hover": {
+                        "number": "+80",
+                        "text": "especies de mariposas solamente en el área de occidente."
+                    }
+                },
+                "murcielagos": {
+                    "title": "Murciélagos",
+                    "hover": {
+                        "number": "+24",
+                        "text": "especies de murciélagos se refugian en los árboles de sombra"
+                    }
+                },
+                "anfibios": {
+                    "title": "Anfibios y reptiles",
+                    "hover": {
+                        "number": "+300",
+                        "text": "especies de anfibios y reptiles como ranas y lagartijas."
+                    }
+                }
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": "Biodiversidad: insectos y aves migratorias"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "expand": "Agrandar",
+                "close": "Cerrar"
+            },
+            "cols": {
+                "insectos": {
+                    "title": "Insectos",
+                    "hover": {
+                        "pre": "Miles de ",
+                        "highlight": "insectos",
+                        "post": " controlan plagas, reciclan nutrientes y alimentan a otras especies"
+                    }
+                },
+                "aves": {
+                    "title": "Aves migratorias",
+                    "hover": {
+                        "number": "+90",
+                        "text": "tipos de aves migratorias se alimentan y viven en los cafetales"
+                    }
+                }
+            }
+        }
     }
 }
