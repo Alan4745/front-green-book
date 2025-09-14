@@ -331,5 +331,61 @@
                 }
             }
         }
+    },
+    "c3": {
+        "cover": {
+            "title": {
+                "top": "Agroforestry",
+                "bottom": "Systems"
+            },
+            "subtitle": "More than 200 years in the shade",
+            "alts": {
+                "chapter": "Chapter {{num}}",
+                "greenBook": "Green Book logo"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Agroforestry systems: introduction"
+            },
+            "intro": {
+                "start": "For more than two centuries,",
+                "highlight": "{{percent}}% of coffee farms in Guatemala",
+                "end": "grow under the shade of trees that:"
+            },
+            "outro": {
+                "line1": "Thus, the beans ripen slowly, enhancing their quality and cup profile."
+            },
+            "slider": {
+                "ingaLaurina": {
+                    "title": "Inga laurina",
+                    "subtitle": "Cushín",
+                    "desc": "Inga laurina is a tropical shade tree for coffee crops. It fixes nitrogen, improving soil, and bears pods with sweet pulp.",
+                    "alt": "Inga laurina"
+                },
+                "ingaEdulis": {
+                    "title": "Inga edulis",
+                    "subtitle": "Pepeto de Río",
+                    "desc": "Inga edulis is a tropical tree that enriches the soil and produces long pods with sweet, refreshing pulp.",
+                    "alt": "Inga edulis"
+                },
+                "ingaMicheliana": {
+                    "title": "Inga micheliana",
+                    "subtitle": "Chalum",
+                    "desc": "Inga micheliana is a fast-growing tropical tree used in agroforestry systems. It enriches the soil by fixing nitrogen and produces edible pods with sweet pulp.",
+                    "alt": "Inga micheliana"
+                }
+            },
+            "circles": {
+                "aria": {
+                    "list": "Benefits of the agroforestry system"
+                },
+                "itemLabel": "Item {{num}}: {{text}}",
+                "f1": "Filter sunlight",
+                "f2": "Buffer rainfall",
+                "f3": "Reduce soil erosion",
+                "f4": "Conserve up to {{pct}} moisture"
+            }
+        }
     }
 }

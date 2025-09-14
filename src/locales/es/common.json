@@ -331,5 +331,61 @@
                 }
             }
         }
+    },
+    "c3": {
+        "cover": {
+            "title": {
+                "top": "Sistemas",
+                "bottom": "Agroforestales"
+            },
+            "subtitle": "Más de 200 años a la sombra",
+            "alts": {
+                "chapter": "Capítulo {{num}}",
+                "greenBook": "Logo de Green Book"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Sistemas agroforestales: introducción"
+            },
+            "intro": {
+                "start": "Desde hace más de dos siglos, el",
+                "highlight": "{{percent}}% de los cafetales en Guatemala",
+                "end": "crecen bajo la sombra de árboles que:"
+            },
+            "outro": {
+                "line1": "Así, los granos maduran despacio, impulsando su calidad y perfil en taza."
+            },
+            "slider": {
+                "ingaLaurina": {
+                    "title": "Inga laurina",
+                    "subtitle": "Cushín",
+                    "desc": "La Inga laurina es un árbol tropical que da sombra a cultivos de café. Fija nitrógeno, mejorando el suelo, y tiene vainas con pulpa dulce.",
+                    "alt": "Inga laurina"
+                },
+                "ingaEdulis": {
+                    "title": "Inga edulis",
+                    "subtitle": "Pepeto de Río",
+                    "desc": "La Inga edulis es un árbol tropical que enriquece el suelo y produce vainas largas con pulpa dulce y refrescante.",
+                    "alt": "Inga edulis"
+                },
+                "ingaMicheliana": {
+                    "title": "Inga micheliana",
+                    "subtitle": "Chalum",
+                    "desc": "La Inga micheliana es un árbol tropical de rápido crecimiento que se usa en sistemas agroforestales. Enriquece el suelo fijando nitrógeno y produce vainas comestibles con pulpa dulce.",
+                    "alt": "Inga micheliana"
+                }
+            },
+            "circles": {
+                "aria": {
+                    "list": "Beneficios del sistema agroforestal"
+                },
+                "itemLabel": "Elemento {{num}}: {{text}}",
+                "f1": "Filtran la luz del sol",
+                "f2": "Amortiguan las lluvias",
+                "f3": "Reducen la erosión del suelo",
+                "f4": "Conservan hasta el {{pct}} de la humedad"
+            }
+        }
     }
 }
