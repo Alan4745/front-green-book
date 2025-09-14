@@ -705,5 +705,56 @@
                 "img2Alt": "From waste to compost (image)"
             }
         }
+    },
+    "colab": {
+        "cover": {
+            "aria": { "section": "Collaboration: Guatemalan Coffees & Anacafé" },
+            "alts": {
+            "gcLogo": "Guatemalan Coffees logo",
+            "gcLogotype": "Guatemalan Coffees logotype",
+            "acLogo": "Anacafé logo",
+            "acLogotype": "Anacafé logotype"
+            },
+            "buttons": {
+            "toGC": "Go to Guatemalan Coffees section",
+            "toAC": "Go to Anacafé section"
+            },
+            "videoFallback": "Your browser does not support the video format 😱"
+        },
+        "sac": {
+            "aria": { "section": "Anacafé section: video and description" },
+            "videoAlt": "Anacafé video",
+            "videoFallback": "Your browser does not support the video format 😱",
+            "desc": "At Anacafé we work to transform the future of Guatemalan coffee by developing and implementing the national coffee policy, and by connecting coffee growers and their product with commercial opportunities worldwide.",
+            "buttons": {
+            "readMore": "Read more",
+            "readMoreTitle": "Open Anacafé website",
+            "play": "Play video",
+            "pause": "Pause video",
+            "toggle": {
+                    "clean": "View video only",
+                    "show": "Show content"
+                }
+            }
+        },
+        "gc": {
+            "video": {
+                "title": "Guatemalan Coffees background video",
+                "unsupported": "Your browser does not support the video format 😱"
+            },
+            "overlay": {
+                "text": "Anacafé has positioned the Guatemalan Coffees brand to promote our country’s coffee, which is recognized and valued by the most demanding markets around the world.",
+                "cta": "Read more",
+                "ctaAria": "Open Anacafé website in a new tab"
+            },
+            "controls": {
+                "play": "Play video",
+                "pause": "Pause video",
+                "toggle": {
+                    "show": "Show content",
+                    "hide": "Video only"
+                }
+            }
+        }
     }
 }

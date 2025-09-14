@@ -705,5 +705,58 @@
                 "img2Alt": "Del residuo al compost (imagen)"
             }
         }
+    },
+    "colab": {
+        "cover": {
+            "aria": {
+                "section": "Colaboración: Guatemalan Coffees y Anacafé"
+            },
+            "alts": {
+                "gcLogo": "Logo Guatemalan Coffees",
+                "gcLogotype": "Logotipo Guatemalan Coffees",
+                "acLogo": "Logo Anacafé",
+                "acLogotype": "Logotipo Anacafé"
+            },
+            "buttons": {
+                "toGC": "Ir a sección Guatemalan Coffees",
+                "toAC": "Ir a sección Anacafé"
+            },
+            "videoFallback": "Tu navegador no soporta el formato de video 😱"
+        },
+        "sac": {
+            "aria": { "section": "Sección Anacafé: video y descripción" },
+            "videoAlt": "Video Anacafé",
+            "videoFallback": "Tu navegador no soporta el formato de video 😱",
+            "desc": "En Anacafé trabajamos por transformar el futuro del café de Guatemala, desarrollando y ejecutando la política cafetalera nacional, conectando a los caficultores y su producto con oportunidades comerciales a nivel mundial.",
+            "buttons": {
+                "readMore": "Leer más",
+                "readMoreTitle": "Abrir sitio de Anacafé",
+                "play": "Reproducir video",
+                "pause": "Pausar video",
+                "toggle": {
+                    "clean": "Ver solo video",
+                    "show": "Mostrar contenido"
+                }
+            }
+        },
+        "gc": {
+            "video": {
+                "title": "Video de fondo de Guatemalan Coffees",
+                "unsupported": "Tu navegador no soporta el formato de video 😱"
+            },
+            "overlay": {
+                "text": "Anacafé ha posicionado la marca Guatemalan Coffees, para promover el café de nuestro país, el cual es reconocido y valorado por los mercados más exigentes alrededor del mundo.",
+                "cta": "Leer más",
+                "ctaAria": "Abrir sitio de Anacafé en una nueva pestaña"
+            },
+            "controls": {
+                "play": "Reproducir video",
+                "pause": "Pausar video",
+                "toggle": {
+                    "show": "Mostrar contenido",
+                    "hide": "Ver solo video"
+                }
+            }
+        }
     }
 }
