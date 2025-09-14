@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import BackButton from "../Global/BackButton";
+import LanguageSelector from "../Global/LanguageSelector";
 import AltitudSteps from "./ui/AltitudSteps";
 
 import FS4 from "../../assets/C1/FS4.svg";
@@ -56,6 +57,11 @@ const Section4C1 = () => {
 
             {/* SECCIÓN DE ALTITUD */}
             <AltitudSteps />
+
+            {/* Botón cambio de idioma */}
+            <div className="absolute bottom-10 right-10 z-20">
+                <LanguageSelector />
+            </div>
         </div>
     );
 };

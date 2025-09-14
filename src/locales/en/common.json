@@ -117,5 +117,219 @@
                 { "title": "Prime – Extra Prime:", "subtitle": "762 – 1,066 m" }
             ]
         }
+    },
+    "c2": {
+        "cover": {
+            "title": {
+                "top": "THE 8 REGIONS",
+                "bottom": "OF COFFEE"
+            },
+            "subtitle": {
+                "top": "EACH REGION IS AN ADVENTURE",
+                "bottom": "WAITING TO BE DISCOVERED"
+            },
+            "chapterAlt": "Chapter {{num}}"
+        },
+        "section1": {
+            "mapAlt": "Base map",
+            "modalAlt": "Expanded image",
+            "cta": "COFFEE DIVERSITY",
+            "regions": {
+                "coban": { "alt": "Cobán Region" },
+                "huehue": { "alt": "Huehuetenango Region" },
+                "sanmarcos": { "alt": "San Marcos Region" },
+                "atitlan": { "alt": "Atitlán Region" },
+                "acatenango": { "alt": "Acatenango Region" },
+                "antigua": { "alt": "Antigua Region" },
+                "fraijanes": { "alt": "Fraijanes Region" },
+                "oriente": { "alt": "Oriente Region" }
+            },
+            "acatenango": {
+                "alts": {
+                    "bg": "Acatenango background",
+                    "regionLogo": "Acatenango logo",
+                    "profile": "Acatenango region profile",
+                    "chart": "Acatenango chart",
+                    "modalImage": "Acatenango (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "The energy of Volcán de Fuego, winds from the",
+                    "line2": "Pacific Ocean and mineral-rich soils."
+                },
+                "features": {
+                    "f1": "Pronounced acidity",
+                    "f2": "Fragrant aroma",
+                    "f3": "Balanced body",
+                    "f4": "Clean, lingering aftertaste"
+                }
+            },
+            "antigua": {
+                "alts": {
+                    "bg": "Antigua background",
+                    "regionLogo": "Antigua logo",
+                    "profile": "Antigua region profile",
+                    "chart": "Antigua chart",
+                    "modalImage": "Antigua (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "Cool climate, nestled among three imposing",
+                    "line2": "volcanoes: Agua, Fuego, and Acatenango."
+                },
+                "features": {
+                    "f1": "Elegant",
+                    "f2": "Balanced",
+                    "f3": "Aromatic",
+                    "f4": "Sweet"
+                }
+            },
+            "atitlan": {
+                "alts": {
+                    "bg": "Atitlán background",
+                    "regionLogo": "Atitlán logo",
+                    "profile": "Atitlán region profile",
+                    "chart": "Atitlán chart",
+                    "modalImage": "Atitlán (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "From the surroundings of the iconic Lake",
+                    "line2": "Atitlán and the strong Xocomil winds."
+                },
+                "features": {
+                    "f1": "Aromatic",
+                    "f2": "Pronounced citrus acidity",
+                    "f3": "Full body"
+                }
+            },
+            "coban": {
+                "alts": {
+                    "bg": "Cobán background",
+                    "regionLogo": "Cobán logo",
+                    "profile": "Cobán region profile",
+                    "chart": "Cobán chart",
+                    "modalImage": "Cobán (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "Drizzles that never stop,",
+                    "line2": "clouds and cold all year round."
+                },
+                "features": {
+                    "f1": "Fruity",
+                    "f2": "Pleasant aroma",
+                    "f3": "Fine, balanced body"
+                }
+            },
+            "fraijanes": {
+                "alts": {
+                    "bg": "Fraijanes background",
+                    "regionLogo": "Fraijanes logo",
+                    "profile": "Fraijanes region profile",
+                    "chart": "Fraijanes chart",
+                    "modalImage": "Fraijanes (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "Altitude, humidity, and the power",
+                    "line2": "of the active Pacaya Volcano."
+                },
+                "features": {
+                    "f1": "Pronounced, persistent acidity",
+                    "f2": "Aromatic",
+                    "f3": "Defined body"
+                }
+            },
+            "huehue": {
+                "alts": {
+                    "bg": "Huehuetenango background",
+                    "regionLogo": "Huehuetenango logo",
+                    "profile": "Huehuetenango region profile",
+                    "chart": "Huehuetenango chart",
+                    "modalImage": "Huehuetenango (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "From mountains over 2,000 m high",
+                    "line2": "that receive warm winds from Mexico."
+                },
+                "features": {
+                    "f1": "Fine, intense acidity",
+                    "f2": "Full body",
+                    "f3": "Pleasant wine-like notes"
+                }
+            },
+            "oriente": {
+                "alts": {
+                    "bg": "Oriente background",
+                    "regionLogo": "Oriente logo",
+                    "profile": "Oriente region profile",
+                    "chart": "Oriente charts",
+                    "modalImage": "Oriente (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "Grown in a majestic inactive volcanic",
+                    "line2": "range that crosses the country."
+                },
+                "features": {
+                    "f1": "Balanced",
+                    "f2": "Chocolate-like flavor",
+                    "f3": "Full body"
+                }
+            },
+            "sanmarcos": {
+                "alts": {
+                    "bg": "San Marcos background",
+                    "regionLogo": "San Marcos logo",
+                    "profile": "San Marcos region profile",
+                    "chart": "San Marcos chart",
+                    "modalImage": "San Marcos (full view)"
+                },
+                "buttons": {
+                    "back": "Back",
+                    "openZoom": "Open zoom",
+                    "close": "Close"
+                },
+                "desc": {
+                    "line1": "Continuous rains, warm climate",
+                    "line2": "and an early flowering."
+                },
+                "features": {
+                    "f1": "Full body",
+                    "f2": "Pronounced acidity",
+                    "f3": "Floral notes"
+                }
+            }
+        }
     }
 }

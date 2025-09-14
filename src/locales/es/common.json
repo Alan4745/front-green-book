@@ -117,5 +117,219 @@
                 { "title": "Prima - Extra Prima:", "subtitle": "762 – 1,066 m" }
             ]
         }
+    },
+    "c2": {
+        "cover": {
+            "title": {
+                "top": "LAS 8 REGIONES",
+                "bottom": "DEL CAFÉ"
+            },
+            "subtitle": {
+                "top": "CADA REGIÓN ES UNA AVENTURA",
+                "bottom": "POR DESCUBRIR"
+            },
+            "chapterAlt": "Capítulo {{num}}"
+        },
+        "section1": {
+            "mapAlt": "Mapa base",
+            "modalAlt": "Imagen ampliada",
+            "cta": "DIVERSIDAD CAFETELERA",
+            "regions": {
+                "coban": { "alt": "Región Cobán" },
+                "huehue": { "alt": "Región Huehuetenango" },
+                "sanmarcos": { "alt": "Región San Marcos" },
+                "atitlan": { "alt": "Región Atitlán" },
+                "acatenango": { "alt": "Región Acatenango" },
+                "antigua": { "alt": "Región Antigua" },
+                "fraijanes": { "alt": "Región Fraijanes" },
+                "oriente": { "alt": "Región Oriente" }
+            },
+            "acatenango": {
+                "alts": {
+                    "bg": "Fondo de Acatenango",
+                    "regionLogo": "Logo Acatenango",
+                    "profile": "Perfil de región Acatenango",
+                    "chart": "Gráfica de Acatenango",
+                    "modalImage": "Acatenango (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "La energía del volcán de Fuego, vientos del",
+                    "line2": "océano Pacífico y un suelo alto en minerales."
+                },
+                "features": {
+                    "f1": "Acidez marcada",
+                    "f2": "Aroma fragante",
+                    "f3": "Cuerpo balanceado",
+                    "f4": "Posgusto limpio y persistente"
+                }
+            },
+            "antigua": {
+                "alts": {
+                    "bg": "Fondo de Antigua",
+                    "regionLogo": "Logo Antigua",
+                    "profile": "Perfil de región Antigua",
+                    "chart": "Gráfica de Antigua",
+                    "modalImage": "Antigua (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "Clima frío, en medio de tres imponentes",
+                    "line2": "volcanes: Agua, Fuego y Acatenango."
+                },
+                "features": {
+                    "f1": "Elegante",
+                    "f2": "Balanceado",
+                    "f3": "Aromático",
+                    "f4": "Dulce"
+                }
+            },
+            "atitlan": {
+                "alts": {
+                    "bg": "Fondo de Atitlán",
+                    "regionLogo": "Logo Atitlán",
+                    "profile": "Perfil de región Atitlán",
+                    "chart": "Gráfica de Atitlán",
+                    "modalImage": "Atitlán (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "De los alrededores del icónico Lago de",
+                    "line2": "Atitlán y los fuertes vientos del Xocomil."
+                },
+                "features": {
+                    "f1": "Aromático",
+                    "f2": "Acidez cítrica pronunciada",
+                    "f3": "Mucho cuerpo"
+                }
+            },
+            "coban": {
+                "alts": {
+                    "bg": "Fondo de Cobán",
+                    "regionLogo": "Logo Cobán",
+                    "profile": "Perfil de región Cobán",
+                    "chart": "Gráfica de Cobán",
+                    "modalImage": "Cobán (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "Lloviznas que no se detienen,",
+                    "line2": "nubes y frío durante todo el año."
+                },
+                "features": {
+                    "f1": "Afrutado",
+                    "f2": "Aroma agradable",
+                    "f3": "Cuerpo fino y balanceado"
+                }
+            },
+            "fraijanes": {
+                "alts": {
+                    "bg": "Fondo de Fraijanes",
+                    "regionLogo": "Logo Fraijanes",
+                    "profile": "Perfil de región Fraijanes",
+                    "chart": "Gráficas de Fraijanes",
+                    "modalImage": "Fraijanes (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "Altura, humedad y la fuerza",
+                    "line2": "del activo Volcán Pacaya."
+                },
+                "features": {
+                    "f1": "Acidez pronunciada y persistente",
+                    "f2": "Aromático",
+                    "f3": "Cuerpo definido"
+                }
+            },
+            "huehue": {
+                "alts": {
+                    "bg": "Fondo de Huehuetenango",
+                    "regionLogo": "Logo Huehuetenango",
+                    "profile": "Perfil de región Huehuetenango",
+                    "chart": "Gráficas de Huehuetenango",
+                    "modalImage": "Huehuetenango (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "De montañas con más de 2,000m de altura",
+                    "line2": "que reciben vientos cálidos de México."
+                },
+                "features": {
+                    "f1": "Acidez fina e intensa",
+                    "f2": "Cuerpo lleno",
+                    "f3": "Agradables notas avinatadas"
+                }
+            },
+            "oriente": {
+                "alts": {
+                    "bg": "Fondo de Oriente",
+                    "regionLogo": "Logo Oriente",
+                    "profile": "Perfil de región Oriente",
+                    "chart": "Gráficas de Oriente",
+                    "modalImage": "Oriente (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "Cultivado en una majestuosa sierra",
+                    "line2": "volcánica inactiva que atraviesa el país."
+                },
+                "features": {
+                    "f1": "Equilibrado",
+                    "f2": "Sabor achocolatado",
+                    "f3": "Mucho cuerpo"
+                }
+            },
+            "sanmarcos": {
+                "alts": {
+                    "bg": "Fondo de San Marcos",
+                    "regionLogo": "Logo San Marcos",
+                    "profile": "Perfil de región San Marcos",
+                    "chart": "Gráficas de San Marcos",
+                    "modalImage": "San Marcos (vista completa)"
+                },
+                "buttons": {
+                    "back": "Regresar",
+                    "openZoom": "Abrir zoom",
+                    "close": "Cerrar"
+                },
+                "desc": {
+                    "line1": "Lluvias continuas, clima cálido",
+                    "line2": "y una floración anticipada."
+                },
+                "features": {
+                    "f1": "De buen cuerpo",
+                    "f2": "Acidez pronunciada",
+                    "f3": "Notas florales"
+                }
+            }
+        }
     }
 }
