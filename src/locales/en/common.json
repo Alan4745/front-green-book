@@ -1,0 +1,28 @@
+{
+    "carrousel": {
+        "prev": "Previous",
+        "next": "Next",
+        "cards": [
+        { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
+        { "text": "THE 8 COFFEE REGIONS", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+        { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
+        { "text": "ECOSYSTEM BENEFITS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+        { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
+        { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
+        ]
+    },
+    "menu": {
+        "open": "Open menu",
+        "close": "Close menu",
+        "items": {
+        "home": "Home",
+        "c1": "Coffee in Guatemala",
+        "c2": "The 8 coffee regions",
+        "c3": "Agroforestry systems",
+        "c4": "Ecosystem benefits",
+        "c5": "A refuge for diversity",
+        "c6": "Commitment to sustainability",
+        "colab": "Anacafé - Guatemalan Coffees"
+        }
+    }
+}

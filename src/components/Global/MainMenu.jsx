@@ -1,31 +1,44 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const menuItems = [
-    { label: "INICIO", path: "/" },
-    { label: "EL CAFÉ EN GUATEMALA", path: "/c1" },
-    { label: "LAS 8 REGIONES DEL CAFÉ", path: "/c2" },
-    { label: "SISTEMAS AGROFORESTALES", path: "/c3" },
-    { label: "BENEFICIOS ECOSISTÉMICOS", path: "/c4" },
-    { label: "REFUGIO PARA LA DIVERSIDAD", path: "/c5" },
-    { label: "COMPROMISO CON LA SOSTENIBILIDAD", path: "/c6" },
-    { label: "ANACAFÉ - GUATEMALAN COFFES", path: "/colab" },
-];
+// Mantenemos rutas aquí y pedimos etiquetas al i18n por id.
+const MENU = [
+    { id: "home", path: "/" },
+    { id: "c1", path: "/c1" },
+    { id: "c2", path: "/c2" },
+    { id: "c3", path: "/c3" },
+    { id: "c4", path: "/c4" },
+    { id: "c5", path: "/c5" },
+    { id: "c6", path: "/c6" },
+    { id: "colab", path: "/colab" }
+    ];
 
-function MainMenu() {
+    function MainMenu() {
+    const { t, i18n } = useTranslation();
     const [open, setOpen] = useState(false);
-    const menuRef = useRef();
+    const menuRef = useRef(null);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     // Cerrar menú si se hace clic fuera
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
-                setOpen(false);
-            }
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+            setOpen(false);
+        }
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Cerrar con ESC
+    useEffect(() => {
+        const onKey = (e) => {
+        if (e.key === "Escape") setOpen(false);
+        };
+        document.addEventListener("keydown", onKey);
+        return () => document.removeEventListener("keydown", onKey);
     }, []);
 
     // Navegación al hacer clic
@@ -34,30 +47,60 @@ function MainMenu() {
         setOpen(false);
     };
 
+    const ariaLabel = open ? t("menu.close") : t("menu.open");
+    const lng = i18n.resolvedLanguage || i18n.language || "es";
+
     return (
         <div className="relative z-50" ref={menuRef}>
-            {/* Botón Hamburguesa */}
-            <button
-                onClick={() => setOpen(!open)}
-                className="absolute top-6 right-6 flex flex-col space-y-1"
-            >
-                <span className="w-6 h-[2px] bg-white block"></span>
-                <span className="w-6 h-[2px] bg-white block"></span>
-                <span className="w-6 h-[2px] bg-white block"></span>
-            </button>
+        {/* Botón Hamburguesa */}
+        <button
+            onClick={() => setOpen((v) => !v)}
+            className="absolute top-6 right-6 flex flex-col space-y-1"
+            aria-label={ariaLabel}
+            aria-expanded={open}
+            aria-controls="mainmenu-popover"
+        >
+            <span className="w-6 h-[2px] bg-white block"></span>
+            <span className="w-6 h-[2px] bg-white block"></span>
+            <span className="w-6 h-[2px] bg-white block"></span>
+        </button>
 
-            {/* Menú desplegable */}
-            {open && (
-                <div className="absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[340px]">
-                    <ul className="flex flex-col space-y-4 text-white uppercase text-sm font-Gotham text-right" style={{ fontFamily: 'GothamNormal' }}>
-                        {menuItems.map(({ label, path }, idx) => (
-                            <li key={idx} className="hover:font-semibold transition">
-                                <button onClick={() => handleNavigate(path)}>{label}</button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+        {/* Menú desplegable */}
+        {open && (
+            <div
+            id="mainmenu-popover"
+            className="absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[380px]"
+            role="menu"
+            >
+            <ul
+                className="flex flex-col space-y-4 text-white text-sm text-right tracking-[0.08em]"
+                style={{ fontFamily: "GothamNormal" }}
+            >
+                {MENU.map(({ id, path }) => {
+                const raw = t(`menu.items.${id}`, id);
+                const labelUpper =
+                    typeof raw === "string" ? raw.toLocaleUpperCase(lng) : String(raw).toUpperCase();
+
+                const isActive = pathname === path;
+                return (
+                    <li key={id} className="transition">
+                    <button
+                        onClick={() => handleNavigate(path)}
+                        className={`hover:font-semibold ${
+                        isActive ? "font-semibold" : "font-normal"
+                        }`}
+                        role="menuitem"
+                        aria-current={isActive ? "page" : undefined}
+                        title={raw}
+                    >
+                        {labelUpper}
+                    </button>
+                    </li>
+                );
+                })}
+            </ul>
+            </div>
+        )}
         </div>
     );
 }

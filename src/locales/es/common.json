@@ -1,0 +1,28 @@
+{
+    "carrousel": {
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "cards": [
+        { "text": "EL CAFÉ EN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
+        { "text": "LAS 8 REGIONES DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+        { "text": "SISTEMAS AGROFORESTALES", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
+        { "text": "BENEFICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+        { "text": "UN ENTORNO DIVERSO POR EXPLORAR", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
+        { "text": "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
+        ]
+    },
+    "menu": {
+        "open": "Abrir menú",
+        "close": "Cerrar menú",
+        "items": {
+        "home": "Inicio",
+        "c1": "El café en Guatemala",
+        "c2": "Las 8 regiones del café",
+        "c3": "Sistemas agroforestales",
+        "c4": "Beneficios ecosistémicos",
+        "c5": "Refugio para la diversidad",
+        "c6": "Compromiso con la sostenibilidad",
+        "colab": "Anacafé - Guatemalan Coffees"
+        }
+    }
+}

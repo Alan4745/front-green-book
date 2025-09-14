@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
@@ -10,13 +11,13 @@ const backgrounds = [
     "/Img/Start/Fondo2.svg",
     "/Img/Start/Fondo3.svg",
     "/Img/Start/Fondo4.svg",
-];
+    ];
 
-const FADE_DURATION = 2; // seg (ajústalo a tu gusto: 0.9–1.4)
-const DISPLAY_TIME = 8;    // seg visibles antes de cambiar
+    const FADE_DURATION = 2; // seg (ajústalo a tu gusto)
+    const DISPLAY_TIME = 8;  // seg visibles antes de cambiar
 
-// Pre-decoder robusto (evita pops por carga)
-const decodeImage = (src) =>
+    // Pre-decoder robusto (evita pops por carga)
+    const decodeImage = (src) =>
     new Promise((resolve) => {
         const img = new Image();
         img.src = src;
@@ -29,6 +30,7 @@ const decodeImage = (src) =>
     });
 
     const Home = () => {
+    const { t, i18n } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(null);
     const switchKeyRef = useRef(0); // fuerza remount para que initial se aplique siempre
@@ -76,10 +78,13 @@ const decodeImage = (src) =>
         "https://claude.ai/chat/bb1402d0-e534-4738-b6c9-a23b0143eb78";
     };
 
+    // Idioma actual (para forzar remount en hijos si no usan useTranslation internamente)
+    const langKey = i18n.resolvedLanguage || i18n.language || "es";
+
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
         {/* 🎞️ Capas de crossfade (actual arriba, previa abajo) */}
-        <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 z-10" aria-hidden="true">
             {/* Capa previa (fade-out) */}
             {prevIndex !== null && (
             <motion.div
@@ -126,14 +131,14 @@ const decodeImage = (src) =>
         <div className="relative z-30 flex items-center justify-center h-full">
             <img
             src="/Logos/Greenbook.svg"
-            alt="Green Book Logo"
+            alt={t("app.title")} // ← se traduce el alt según idioma
             className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
             />
         </div>
 
         {/* Carrusel de capítulos abajo */}
         <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
-            <Carrousel />
+            <Carrousel key={`carrousel-${langKey}`} />
         </div>
 
         {/* Selector de idioma */}
@@ -143,12 +148,12 @@ const decodeImage = (src) =>
 
         {/* ColabButton */}
         <div className="absolute bottom-6 left-[18%] z-50 transform -translate-x-1/2">
-            <ColabButton progress={100} />
+            <ColabButton key={`colab-${langKey}`} progress={100} />
         </div>
 
         {/* Menú desplegable */}
         <div className="absolute top-[2vh] right-0 z-50">
-            <MainMenu />
+            <MainMenu key={`menu-${langKey}`} />
         </div>
         </div>
     );
