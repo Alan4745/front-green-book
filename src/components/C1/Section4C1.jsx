@@ -1,13 +1,49 @@
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+
 import BackButton from "../Global/BackButton";
 import LanguageSelector from "../Global/LanguageSelector";
 import AltitudSteps from "./ui/AltitudSteps";
+import CloseButton from "../Global/CloseButton";
 
 import FS4 from "../../assets/C1/FS4.svg";
 import IconoMontaña from "../../assets/C1/IconoMontaña.svg";
+import Vid1 from "../../assets/C1/Vid1.mp4";
 
 const Section4C1 = () => {
     const { t } = useTranslation();
+    const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+    const keys = {
+        alts: {
+            icon: "c1.section4.iconAlt",
+            play: "c1.section4.playBox.playAlt"
+        },
+        titles: {
+            pinkTop: "c1.section4.pink.title.top",
+            pinkBottom: "c1.section4.pink.title.bottom",
+            playTop: "c1.section4.playBox.title.top",
+            playBottom: "c1.section4.playBox.title.bottom"
+        },
+        aria: {
+            modal: "c1.section4.playBox.modalAria"
+        },
+        buttons: {
+            closeFallback: "Cerrar"
+        }
+    };
+
+    const openVideo = () => setIsVideoOpen(true);
+    const closeVideo = () => setIsVideoOpen(false);
+
+    useEffect(() => {
+        if (!isVideoOpen) return;
+        const onKeyDown = (e) => {
+            if (e.key === "Escape") closeVideo();
+        };
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [isVideoOpen]);
 
     return (
         <div
@@ -19,7 +55,7 @@ const Section4C1 = () => {
                 <div className="pt-2">
                     <img
                         src={IconoMontaña}
-                        alt={t("c1.section4.iconAlt")}
+                        alt={t(keys.alts.icon)}
                         className="w-[8vh] h-[8vh]"
                     />
                 </div>
@@ -28,23 +64,31 @@ const Section4C1 = () => {
                         className="text-white text-[5vh] uppercase leading-snug"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {t("c1.section4.pink.title.top")}<br />{t("c1.section4.pink.title.bottom")}
+                        {t(keys.titles.pinkTop)}<br />{t(keys.titles.pinkBottom)}
                     </h3>
                 </div>
             </div>
 
             {/* CUADRO BLANCO DE "REPRODUCE EL VIDEO" */}
-            <div className="absolute top-[40vh] left-[70vh] bg-white w-[22vh] h-[22vh] flex shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300">
+            <div
+                className="absolute top-[40vh] left-[70vh] bg-white w-[22vh] h-[22vh] flex shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+                onClick={openVideo}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && openVideo()}
+                aria-label={t(keys.alts.play)}
+                title={t(keys.alts.play)}
+            >
                 <div className="relative w-full h-full p-4">
                     <p
                         className="text-black text-[2vh] text-left uppercase"
                         style={{ fontFamily: "GothamNormal" }}
                     >
-                        {t("c1.section4.playBox.title.top")}<br />{t("c1.section4.playBox.title.bottom")}
+                        {t(keys.titles.playTop)}<br />{t(keys.titles.playBottom)}
                     </p>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/0/375.png"
-                        alt={t("c1.section4.playBox.playAlt")}
+                        alt={t(keys.alts.play)}
                         className="absolute bottom-4 right-4 w-[3.5vh] h-[3.5vh]"
                     />
                 </div>
@@ -62,6 +106,41 @@ const Section4C1 = () => {
             <div className="absolute bottom-10 right-10 z-20">
                 <LanguageSelector />
             </div>
+
+            {/* LIGHTBOX / MODAL DE VIDEO */}
+            {isVideoOpen && (
+                <div
+                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={t(keys.aria.modal, "Reproduciendo video")}
+                    onClick={closeVideo}
+                >
+                    <div
+                        className="relative"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Botón de cerrar ENCIMA del video */}
+                        <div className="absolute top-[-3.5vh] right-[5vh] z-20 pointer-events-auto">
+                            <CloseButton
+                                onClick={closeVideo}
+                                aria-label={t(keys.buttons.closeFallback)}
+                                title={t(keys.buttons.closeFallback)}
+                            />
+                        </div>
+
+                        {/* Video grande (debajo del botón) */}
+                        <video
+                            className="relative z-10 w-[160vh] max-w-[90vw] max-h-[80vh] rounded-md shadow-2xl object-contain"
+                            src={Vid1}
+                            controls
+                            autoPlay
+                            playsInline
+                            preload="metadata"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
