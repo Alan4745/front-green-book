@@ -387,5 +387,65 @@
                 "f4": "Conservan hasta el {{pct}} de la humedad"
             }
         }
+    },
+    "c4": {
+        "cover": {
+            "title": {
+                "top": "Beneficios",
+                "bottom": "Ecosistémicos"
+            },
+            "subtitle": {
+                "line1": "Una fuerza natural que defiende",
+                "line2": "la tierra"
+            },
+            "alts": {
+                "chapter": "Capítulo {{num}}",
+                "greenBook": "Logo de Green Book"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Beneficios ecosistémicos: galería"
+            },
+            "intro": {
+                "text": "En Guatemala los sistemas agroforestales son ecosistemas completos que fortalecen el equilibrio del medio ambiente."
+            },
+            "buttons": {
+                "expand": "Agrandar",
+                "close": "Cerrar"
+            },
+            "items": {
+                "f1": { "title": "Conservan el suelo", "alt": "Ecosistemas saludables" },
+                "f2": { "title": "Fijan el carbono y nitrógeno", "alt": "Fijan el carbono y nitrógeno" },
+                "f3": { "title": "Regulan los ciclos del agua", "alt": "Regulan los ciclos del agua" },
+                "f4": { "title": "Purifican el aire", "alt": "Purifican el aire" },
+                "f5": { "title": "Mitigan las sequías e inundaciones", "alt": "Mitigan las sequías e inundaciones" },
+                "f6": { "title": "Mantienen la biodiversidad", "alt": "Mantienen la biodiversidad" },
+                "f7": { "title": "Recreación y belleza natural", "alt": "Recreación y belleza natural" }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Beneficios ecosistémicos: suelos y volcanes"
+            },
+            "modalAlt": "Imagen ampliada",
+            "buttons": {
+                "expand": "Agrandar",
+                "close": "Cerrar"
+            },
+            "left": {
+                "title": "Suelos únicos",
+                "desc": "Los suelos volcánicos guatemaltecos, ricos en minerales y nutrientes se energizan gracias a las raíces y las hojas de los árboles de sombra.",
+                "imgAlt": "Suelos únicos"
+            },
+            "right": {
+                "title": {
+                    "line1": "El poder de los",
+                    "line2": "volcanes"
+                },
+                "desc": "El Anillo de Fuego, la cadena volcánica que atraviesa el país, refuerza la fertilidad de la tierra donde crecen los cafetos.",
+                "imgAlt": "El poder de los volcanes"
+            }
+        }
     }
 }

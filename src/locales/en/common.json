@@ -387,5 +387,65 @@
                 "f4": "Conserve up to {{pct}} moisture"
             }
         }
+    },
+    "c4": {
+        "cover": {
+            "title": {
+                "top": "Ecosystem",
+                "bottom": "Benefits"
+            },
+            "subtitle": {
+                "line1": "A natural force that defends",
+                "line2": "the land"
+            },
+            "alts": {
+                "chapter": "Chapter {{num}}",
+                "greenBook": "Green Book logo"
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": "Ecosystem benefits: gallery"
+            },
+            "intro": {
+                "text": "In Guatemala, agroforestry systems are complete ecosystems that strengthen environmental balance."
+            },
+            "buttons": {
+                "expand": "Enlarge",
+                "close": "Close"
+            },
+            "items": {
+                "f1": { "title": "Conserve the soil", "alt": "Healthy ecosystems" },
+                "f2": { "title": "Sequester carbon and nitrogen", "alt": "Sequester carbon and nitrogen" },
+                "f3": { "title": "Regulate water cycles", "alt": "Regulate water cycles" },
+                "f4": { "title": "Purify the air", "alt": "Purify the air" },
+                "f5": { "title": "Mitigate droughts and floods", "alt": "Mitigate droughts and floods" },
+                "f6": { "title": "Maintain biodiversity", "alt": "Maintain biodiversity" },
+                "f7": { "title": "Recreation and natural beauty", "alt": "Recreation and natural beauty" }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": "Ecosystem benefits: soils and volcanoes"
+            },
+            "modalAlt": "Enlarged image",
+            "buttons": {
+                "expand": "Enlarge",
+                "close": "Close"
+            },
+            "left": {
+                "title": "Unique soils",
+                "desc": "Guatemalan volcanic soils, rich in minerals and nutrients, are energized by the roots and leaves of shade trees.",
+                "imgAlt": "Unique soils"
+            },
+            "right": {
+                "title": {
+                    "line1": "The power of",
+                    "line2": "volcanoes"
+                },
+                "desc": "The Ring of Fire, the volcanic chain that crosses the country, reinforces the fertility of the land where coffee plants grow.",
+                "imgAlt": "The power of volcanoes"
+            }
+        }
     }
 }
