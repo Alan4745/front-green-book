@@ -15,6 +15,7 @@ import CloseButton from '../../Global/CloseButton';
 const Fraijanes = () => {
     const navigate = useNavigate();
     const [showZoom, setShowZoom] = useState(false);
+    const [bgReady, setBgReady] = useState(false);
     const { t } = useTranslation();
 
     const keys = {
@@ -41,6 +42,38 @@ const Fraijanes = () => {
         }
     };
 
+    // Logo: caída con 3 rebotes (decrecientes) + giro SOLO en el primer rebote
+    // Opacidad constante en 1 para evitar cualquier "desaparición"
+    const logoMotion = {
+        hidden: {
+            opacity: 0,
+            y: -640,
+            rotate: 0,
+            scaleX: 1,
+            scaleY: 1
+        },
+        show: {
+            y: [-640, 0, -30, 0, -16, 0, -8, 0],
+            rotate: [0, 0, 6, 0, 2, 0, 0, 0],
+            scaleY: [1, 0.96, 1, 0.985, 1, 0.993, 1, 1],
+            scaleX: [1, 1.05, 1, 1.018, 1, 1.007, 1, 1],
+            opacity: [1, 1, 1, 1, 1, 1, 1, 1],
+            transition: {
+                duration: 2.2,
+                times: [0, 0.70, 0.84, 0.92, 0.97, 0.985, 0.995, 1],
+                ease: [
+                    'easeIn',
+                    'easeOut',
+                    'easeInOut',
+                    'easeOut',
+                    'easeInOut',
+                    'easeOut',
+                    'easeOut'
+                ]
+            }
+        }
+    };
+
     return (
         <div className="flex w-screen h-screen overflow-hidden">
             {/* Columna izquierda con imagen y overlay */}
@@ -54,6 +87,7 @@ const Fraijanes = () => {
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 2, ease: 'easeInOut' }}
+                    onAnimationComplete={() => setBgReady(true)}
                 />
 
                 {/* Overlay negro con 50% de opacidad */}
@@ -70,10 +104,11 @@ const Fraijanes = () => {
 
                 {/* Animación del logo de región Fraijanes */}
                 <motion.div
-                    className="absolute top-[30vh] left-[48vh] z-20"
-                    initial={{ opacity: 0, y: -200 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut', delay: 2 }}
+                    className="absolute top-[30vh] left-[48vh] z-20 will-change-transform"
+                    style={{ transformOrigin: '50% 100%' }}
+                    variants={logoMotion}
+                    initial="hidden"
+                    animate={bgReady ? 'show' : 'hidden'}
                 >
                     <img
                         src={FraijanesR}
@@ -85,7 +120,7 @@ const Fraijanes = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left={[`2%`]} w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -186,7 +221,12 @@ const Fraijanes = () => {
             {/* Modal zoom */}
             {showZoom && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                    <div
+                        className="relative overflow-auto"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={t(keys.alts.modalImage)}
+                    >
                         <img
                             src={FondoFraijanes}
                             alt={t(keys.alts.modalImage)}

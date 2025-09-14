@@ -15,6 +15,7 @@ import CloseButton from '../../Global/CloseButton';
 const Oriente = () => {
     const navigate = useNavigate();
     const [showZoom, setShowZoom] = useState(false);
+    const [bgReady, setBgReady] = useState(false);
     const { t } = useTranslation();
 
     const keys = {
@@ -41,6 +42,37 @@ const Oriente = () => {
         }
     };
 
+    // Animación del logo (patrón aprobado): cae, 3 rebotes y giro solo en el primero
+    const logoMotion = {
+        hidden: {
+            opacity: 0,
+            y: -640,
+            rotate: 0,
+            scaleX: 1,
+            scaleY: 1
+        },
+        show: {
+            y: [-640, 0, -30, 0, -16, 0, -8, 0],
+            rotate: [0, 0, 6, 0, 2, 0, 0, 0],
+            scaleY: [1, 0.96, 1, 0.985, 1, 0.993, 1, 1],
+            scaleX: [1, 1.05, 1, 1.018, 1, 1.007, 1, 1],
+            opacity: [1, 1, 1, 1, 1, 1, 1, 1],
+            transition: {
+                duration: 2.2,
+                times: [0, 0.70, 0.84, 0.92, 0.97, 0.985, 0.995, 1],
+                ease: [
+                    'easeIn',
+                    'easeOut',
+                    'easeInOut',
+                    'easeOut',
+                    'easeInOut',
+                    'easeOut',
+                    'easeOut'
+                ]
+            }
+        }
+    };
+
     return (
         <div className="flex w-screen h-screen overflow-hidden">
             {/* Columna izquierda con imagen y overlay */}
@@ -54,6 +86,7 @@ const Oriente = () => {
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 2, ease: 'easeInOut' }}
+                    onAnimationComplete={() => setBgReady(true)}
                 />
 
                 {/* Overlay negro con 50% de opacidad */}
@@ -70,10 +103,11 @@ const Oriente = () => {
 
                 {/* Animación del logo de región Oriente */}
                 <motion.div
-                    className="absolute top-[30vh] left-[48vh] z-20"
-                    initial={{ opacity: 0, y: -200 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut', delay: 2 }}
+                    className="absolute top-[30vh] left-[48vh] z-20 will-change-transform"
+                    style={{ transformOrigin: '50% 100%' }}
+                    variants={logoMotion}
+                    initial="hidden"
+                    animate={bgReady ? 'show' : 'hidden'}
                 >
                     <img
                         src={OrienteR}
