@@ -1,9 +1,11 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import FormaAC from '../../../assets/Colab/ui/FormaAC.svg';
 import AnalabLogo from '../../../assets/Colab/CompleteLogos/AnalabLogo.svg';
 
 const Section2AC = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     return (
@@ -14,12 +16,14 @@ const Section2AC = () => {
                     className="text-[3vh] leading-snug text-black text-left w-[100vh]"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
-                    A través de <strong>Analab</strong>, realizamos análisis científicos para garantizar la
-                    calidad del café:
+                    {t('colab.sac.section2.top.pre')}{' '}
+                    <strong>{t('colab.sac.section2.top.brand')}</strong>
+                    {t('colab.sac.section2.top.post')}
                 </p>
                 <img
                     src={AnalabLogo}
-                    alt="Analab"
+                    alt={t('colab.sac.section2.alts.analabLogo')}
+                    title={t('colab.sac.section2.alts.analabLogo')}
                     className="h-[20vh] w-auto"
                 />
             </div>
@@ -27,7 +31,8 @@ const Section2AC = () => {
             <div className="absolute top-[-12vh] left-0 w-full z-0">
                 <img
                     src={FormaAC}
-                    alt="Forma AC"
+                    alt={t('colab.sac.section2.alts.shape')}
+                    title={t('colab.sac.section2.alts.shape')}
                     className="w-full h-auto select-none pointer-events-none"
                 />
             </div>
@@ -40,13 +45,13 @@ const Section2AC = () => {
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}
                     >
-                        Análisis de Suelos:
+                        {t('colab.sac.section2.cards.c1.title')}
                     </h3>
                     <p
                         className="text-[2vh] leading-snug"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
-                        Evaluamos las condiciones y nutrientes del suelo.
+                        {t('colab.sac.section2.cards.c1.desc')}
                     </p>
                 </div>
 
@@ -56,13 +61,13 @@ const Section2AC = () => {
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}
                     >
-                        Análisis de Plantas:
+                        {t('colab.sac.section2.cards.c2.title')}
                     </h3>
                     <p
                         className="text-[2vh] leading-snug"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
-                        Monitoreamos la salud y crecimiento de las plantas.
+                        {t('colab.sac.section2.cards.c2.desc')}
                     </p>
                 </div>
 
@@ -72,13 +77,13 @@ const Section2AC = () => {
                         className="text-[2.4vh] font-bold mb-2"
                         style={{ fontFamily: 'GothamBold' }}
                     >
-                        Análisis de Abonos y Aguas:
+                        {t('colab.sac.section2.cards.c3.title')}
                     </h3>
                     <p
                         className="text-[2vh] leading-snug"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
-                        Estudiamos los efectos en el cultivo.
+                        {t('colab.sac.section2.cards.c3.desc')}
                     </p>
                 </div>
             </div>
@@ -87,11 +92,11 @@ const Section2AC = () => {
             <div className="mt-20 flex flex-col md:flex-row justify-center items-center gap-16 px-12 max-w-[1400px] z-10">
                 {/* Texto destacado izquierda */}
                 <p
-                    className="text-[5vh] leading-snug text-[#0B312C] w-[80vh]"
+                    className="text-[5vh] leading-snug text-[#0B312C] w-[90vh]"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
-                    Garantizamos la calidad de cada taza en nuestro
-                    laboratorio de <strong>Catación.</strong>
+                    {t('colab.sac.section2.cupping.title.pre')}{' '}
+                    <strong>{t('colab.sac.section2.cupping.title.bold')}</strong>
                 </p>
 
                 {/* Texto explicativo derecha */}
@@ -99,10 +104,7 @@ const Section2AC = () => {
                     className="text-[2.2vh] leading-relaxed text-justify text-black w-[90vh]"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
-                    Monitoreamos cuidadosamente el sabor y aroma del café en cada proceso. 
-                    A través de nuestra Tostaduría, ofrecemos un servicio integral que abarca 
-                    desde la trilla, el tueste hasta el empaque, asegurando que cada etapa del 
-                    proceso sea controlada para mantener la calidad en todo momento.
+                    {t('colab.sac.section2.cupping.desc')}
                 </p>
             </div>
         </div>

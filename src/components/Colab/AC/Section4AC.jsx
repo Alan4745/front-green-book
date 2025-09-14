@@ -1,10 +1,12 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import LogoFuncafe from '../../../assets/Colab/CompleteLogos/LogoFuncafe.svg';
 import FormaFuncafe from '../../../assets/Colab/ui/FormaFuncafe.svg';
 
 const Section4AC = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     return (
         <div className="relative w-full bg-transparent overflow-hidden">
@@ -12,7 +14,8 @@ const Section4AC = () => {
             <img
                 src={FormaFuncafe}
                 className="w-full h-auto block select-none pointer-events-none"
-                alt="Forma Funcafe"
+                alt={t('colab.sac.section4.alts.shape')}
+                title={t('colab.sac.section4.alts.shape')}
             />
 
             {/* Contenido centrado dentro de la forma */}
@@ -20,7 +23,8 @@ const Section4AC = () => {
                 {/* Logo */}
                 <img
                     src={LogoFuncafe}
-                    alt="Funcafé"
+                    alt={t('colab.sac.section4.alts.funcafeLogo')}
+                    title={t('colab.sac.section4.alts.funcafeLogo')}
                     className="h-[30vh] w-auto"
                 />
 
@@ -29,8 +33,10 @@ const Section4AC = () => {
                     className="max-w-[90vh] text-[2.6vh] leading-snug text-white text-center md:text-left"
                     style={{ fontFamily: 'Arquitectalight' }}
                 >
-                    Y con el compromiso de contribuir al desarrollo social, a través de Funcafé, 
-                    brindamos servicios enfocados en <span className="text-white bg-[#CF7B24] px-2 py-0.5">salud, educación y seguridad alimentaria y nutricional.</span>
+                    {t('colab.sac.section4.body.pre')}{' '}
+                    <span className="text-white bg-[#CF7B24] px-2 py-0.5">
+                        {t('colab.sac.section4.body.highlight')}
+                    </span>
                 </p>
             </div>
         </div>

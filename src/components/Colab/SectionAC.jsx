@@ -61,7 +61,7 @@ const SectionAC = () => {
                     <button
                         type="button"
                         // 🔁 AHORA usa useNavigate para ir a /colab
-                        onClick={() => navigate('/colab')}
+                        onClick={() => navigate('/colab/sac/coverac')}
                         className="mt-4 text-black py-2 underline underline-offset-6 cursor-pointer uppercase"
                         title={t('colab.sac.buttons.readMoreTitle')}
                         aria-label={t('colab.sac.buttons.readMoreTitle')}

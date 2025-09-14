@@ -733,9 +733,92 @@
                 "readMoreTitle": "Abrir sitio de Anacafé",
                 "play": "Reproducir video",
                 "pause": "Pausar video",
+                "mute": "Silenciar video",
+                "unmute": "Activar sonido",
                 "toggle": {
                     "clean": "Ver solo video",
                     "show": "Mostrar contenido"
+                }
+            },
+            "points": {
+                "p1": { "text": "Impulsamos el uso de herramientas tecnológicas." },
+                "p2": { "text": "Fortalecemos la administración organizacional." },
+                "p3": {
+                    "line1": "Promovemos la investigación y la innovación a",
+                    "line2Before": "través de nuestro departamento de",
+                    "cedicafe": "Cedicafé"
+                }
+            },
+            "section2": {
+                "alts": {
+                    "shape": "Forma AC",
+                    "analabLogo": "Logo Analab"
+                },
+                "top": {
+                    "pre": "A través de",
+                    "brand": "Analab",
+                    "post": ", realizamos análisis científicos para garantizar la calidad del café:"
+                },
+                "cards": {
+                    "c1": {
+                        "title": "Análisis de Suelos:",
+                        "desc": "Evaluamos las condiciones y nutrientes del suelo."
+                    },
+                    "c2": {
+                        "title": "Análisis de Plantas:",
+                        "desc": "Monitoreamos la salud y crecimiento de las plantas."
+                    },
+                    "c3": {
+                        "title": "Análisis de Abonos y Aguas:",
+                        "desc": "Estudiamos los efectos en el cultivo."
+                    }
+                },
+                "cupping": {
+                    "title": {
+                        "pre": "Garantizamos la calidad de cada taza en nuestro laboratorio de",
+                        "bold": "Catación."
+                    },
+                    "desc": "Monitoreamos cuidadosamente el sabor y aroma del café en cada proceso. A través de nuestra Tostaduría, ofrecemos un servicio integral que abarca desde la trilla, el tueste hasta el empaque, asegurando que cada etapa del proceso sea controlada para mantener la calidad en todo momento."
+                }
+            },
+            "section3": {
+                "alts": {
+                    "cafe": "Ilustración de café"
+                },
+                "title": {
+                    "top": {
+                        "pre": "Promovemos el",
+                        "bold": "Café guatemalteco"
+                    },
+                    "bottom": "A nivel global"
+                },
+                "items": {
+                    "i1": {
+                        "title": "Análisis de Mercado",
+                        "desc": "Identificamos oportunidades comerciales"
+                    },
+                    "i2": {
+                        "title": "Herramientas para Productores",
+                        "desc": "Ofrecemos apoyo y recursos"
+                    },
+                    "i3": {
+                        "title": "Promoción Internacional",
+                        "desc": "Posicionamos el café guatemalteco tanto local como internacionalmente"
+                    }
+                },
+                "outro": {
+                    "pre": "En nuestra academia de café, compartimos conocimientos de",
+                    "highlight": "barismo, tueste y catación"
+                }
+            },
+            "section4": {
+                "alts": {
+                    "shape": "Forma Funcafé",
+                    "funcafeLogo": "Logo Funcafé"
+                },
+                "body": {
+                    "pre": "Y con el compromiso de contribuir al desarrollo social, a través de Funcafé, brindamos servicios enfocados en",
+                    "highlight": "salud, educación y seguridad alimentaria y nutricional"
                 }
             }
         },

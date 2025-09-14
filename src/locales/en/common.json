@@ -731,9 +731,92 @@
             "readMoreTitle": "Open Anacafé website",
             "play": "Play video",
             "pause": "Pause video",
+            "mute": "Mute video",
+            "unmute": "Unmute audio",
             "toggle": {
                     "clean": "View video only",
                     "show": "Show content"
+                }
+            },
+            "points": {
+                "p1": { "text": "We drive the use of technological tools." },
+                "p2": { "text": "We strengthen organizational management." },
+                "p3": {
+                    "line1": "We promote research and innovation",
+                    "line2Before": "through our department",
+                    "cedicafe": "Cedicafé"
+                }
+            },
+            "section2": {
+                "alts": {
+                    "shape": "AC shape",
+                    "analabLogo": "Analab logo"
+                },
+                "top": {
+                    "pre": "Through",
+                    "brand": "Analab",
+                    "post": ", we conduct scientific analyses to ensure coffee quality:"
+                },
+                "cards": {
+                    "c1": {
+                        "title": "Soil Analysis:",
+                        "desc": "We evaluate soil conditions and nutrients."
+                    },
+                    "c2": {
+                        "title": "Plant Analysis:",
+                        "desc": "We monitor plant health and growth."
+                    },
+                    "c3": {
+                        "title": "Fertilizer & Water Analysis:",
+                        "desc": "We study their effects on the crop."
+                    }
+                },
+                "cupping": {
+                    "title": {
+                        "pre": "We ensure the quality of every cup in our",
+                        "bold": "Cupping laboratory."
+                    },
+                    "desc": "We carefully monitor the coffee’s flavor and aroma at every stage. Through our Roastery, we offer an end-to-end service that covers hulling, roasting, and packaging, ensuring each step is controlled to maintain quality at all times."
+                }
+            },
+            "section3": {
+                "alts": {
+                    "cafe": "Coffee illustration"
+                },
+                "title": {
+                    "top": {
+                        "pre": "We promote",
+                        "bold": "Guatemalan coffee"
+                    },
+                    "bottom": "Worldwide"
+                },
+                "items": {
+                    "i1": {
+                        "title": "Market Analysis",
+                        "desc": "We identify commercial opportunities"
+                    },
+                    "i2": {
+                        "title": "Tools for Producers",
+                        "desc": "We provide support and resources"
+                    },
+                    "i3": {
+                        "title": "International Promotion",
+                        "desc": "We position Guatemalan coffee both locally and internationally"
+                    }
+                },
+                "outro": {
+                    "pre": "At our coffee academy, we share knowledge in",
+                    "highlight": "barista craft, roasting, and cupping"
+                }
+            },
+            "section4": {
+                "alts": {
+                    "shape": "Funcafé shape",
+                    "funcafeLogo": "Funcafé logo"
+                },
+                "body": {
+                    "pre": "And with the commitment to contribute to social development, through Funcafé, we provide services focused on",
+                    "highlight": "health, education, and food and nutrition security."
                 }
             }
         },
