@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import CarrouselColor from "../C1/ui/CarrouselColor";
+import LanguageSelector from "../Global/LanguageSelector";
+
 import FS3 from "../../assets/C1/FS3.svg";
 import MapaS3 from "../../assets/C1/MapaS3.svg";
 import Porcent98 from "../../assets/C1/Porcent98.svg";
@@ -69,6 +71,11 @@ const Section3C1 = () => {
             {/* Carrusel de tarjetas */}
             <div className="flex justify-center items-center mt-25 px-4">
                 <CarrouselColor slides={slidesData} />
+            </div>
+
+            {/* Botón de idioma */}
+            <div className="absolute bottom-10 right-10 z-20">
+                <LanguageSelector />
             </div>
         </div>
     );

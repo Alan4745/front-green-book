@@ -4,6 +4,7 @@ import MainC1 from './components/C1/MainC1';
 import Section4C1 from './components/C1/Section4C1';
 
 import MainC2 from './components/C2/MainC2';
+import Section1C2 from './components/C2/Section1C2';
 import Coban from './components/C2/Region/Coban';
 import Huehue from './components/C2/Region/Huehue';
 import SanMarcos from './components/C2/Region/SanMarcos';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/c1/section4" element={<Section4C1 />} />
 
         <Route path="/c2" element={<MainC2 />} />
+        <Route path="/c2/section1" element={<Section1C2 />} />
         {/* Rutas para las REGIONES de C2 */}
         <Route path="/c2/region/coban" element={<Coban />} />
         <Route path="/c2/region/huehue" element={<Huehue />} />
