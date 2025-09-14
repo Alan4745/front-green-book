@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router-dom'
-import { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import BackButton from '../../Global/BackButton';
 import AnacafeLogo from '../../../assets/Colab/CompleteLogos/GuatemalanLogo.svg';
@@ -7,6 +8,8 @@ import VideoGC from '../../../assets/Colab/Videos/GC.mp4';
 
 const Section1GC = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
+
     const [cleanView, setCleanView] = useState(false); // true = solo video
     const [isPlaying, setIsPlaying] = useState(true);  // true = reproduciendo
     const [isMuted, setIsMuted] = useState(false);     // true = silenciado
@@ -38,17 +41,16 @@ const Section1GC = () => {
                 loop
                 playsInline
                 muted={isMuted}
-                aria-label="Video de fondo Guatemalan Coffees"
+                title={t('colab.gc.video.title')}
+                aria-label={t('colab.gc.video.title')}
             >
                 <source src={VideoGC} type="video/mp4" />
-                Tu navegador no soporta el formato de video 😱
+                {t('colab.gc.video.unsupported')}
             </video>
 
             {/* 🖼️ Overlay: se oculta con fade para "solo video" */}
             <div
-                className={`absolute inset-0 z-20 transition-opacity duration-300 ${
-                    cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                }`}
+                className={`absolute inset-0 z-20 transition-opacity duration-300 ${cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
                 {/* 📦 Card inferior derecha (logo + botón dentro) */}
                 <div className="absolute bottom-18 right-10">
@@ -65,7 +67,8 @@ const Section1GC = () => {
                                 <img
                                     src={AnacafeLogo}
                                     className="h-[86px] md:h-[180px] w-auto"
-                                    alt="Guatemalan Coffees"
+                                    alt={t('colab.cover.alts.gcLogo')}
+                                    title={t('colab.cover.alts.gcLogo')}
                                 />
                             </div>
 
@@ -74,9 +77,7 @@ const Section1GC = () => {
                                 className="text-[2.2vh] max-w-[70vh] leading-snug text-black text-center mb-16"
                                 style={{ fontFamily: 'GothamNormal' }}
                             >
-                                Guatemalan Coffees engloba ocho regiones productoras con identidades diferenciadas,
-                                ligadas a su territorio. Conocer las fortalezas de cada región es clave para
-                                comprender la diversidad de los cafés de Guatemala.
+                                {t('colab.gc.section1.desc')}
                             </p>
                         </div>
                     </div>
@@ -90,8 +91,8 @@ const Section1GC = () => {
                     type="button"
                     onClick={togglePlayPause}
                     className="p-2 hover:bg-white/10 rounded-full transition"
-                    title={isPlaying ? 'Pausar video' : 'Reproducir video'}
-                    aria-label={isPlaying ? 'Pausar video' : 'Reproducir video'}
+                    title={isPlaying ? t('colab.gc.controls.pause') : t('colab.gc.controls.play')}
+                    aria-label={isPlaying ? t('colab.gc.controls.pause') : t('colab.gc.controls.play')}
                 >
                     {isPlaying ? (
                         // Icono pausa
@@ -111,8 +112,8 @@ const Section1GC = () => {
                     type="button"
                     onClick={toggleMute}
                     className="p-2 hover:bg-white/10 rounded-full transition"
-                    title={isMuted ? 'Activar sonido' : 'Silenciar video'}
-                    aria-label={isMuted ? 'Activar sonido' : 'Silenciar video'}
+                    title={isMuted ? t('colab.gc.controls.unmute') : t('colab.gc.controls.mute')}
+                    aria-label={isMuted ? t('colab.gc.controls.unmute') : t('colab.gc.controls.mute')}
                     aria-pressed={isMuted}
                 >
                     {isMuted ? (
@@ -135,7 +136,7 @@ const Section1GC = () => {
             <button
                 type="button"
                 aria-pressed={cleanView}
-                title={cleanView ? 'Mostrar contenido' : 'Ver solo video'}
+                title={cleanView ? t('colab.gc.controls.toggle.show') : t('colab.gc.controls.toggle.hide')}
                 onClick={() => setCleanView(v => !v)}
                 className="absolute bottom-10 left-6 z-30 inline-flex items-center gap-2 rounded-full bg-white/70 text-black px-4 py-2 backdrop-blur hover:bg-white/80 active:scale-[0.98] transition"
             >
@@ -153,7 +154,7 @@ const Section1GC = () => {
                     </svg>
                 )}
                 <span className="text-sm font-medium">
-                    {cleanView ? 'Mostrar contenido' : 'Ver solo video'}
+                    {cleanView ? t('colab.gc.controls.toggle.show') : t('colab.gc.controls.toggle.hide')}
                 </span>
             </button>
         </div>

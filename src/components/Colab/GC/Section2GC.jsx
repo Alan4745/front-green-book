@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import HoverButton from '../../Global/HoverButton';
 
@@ -6,6 +7,7 @@ import FormaGC from '../../../assets/Colab/ui/FormaGC.svg';
 
 const Section2GC = () => {
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="relative min-h-screen w-full flex">
@@ -14,9 +16,9 @@ const Section2GC = () => {
             <div className="absolute top-6 left-8 z-50">
                 <HoverButton
                     to="/c2"
-                    text="VER REGIONES" 
-                    textOffset={-110} 
-                    hoverOffset={30} 
+                    text={t('colab.gc.section2.cta').toLocaleUpperCase(i18n.language)}
+                    textOffset={-110}
+                    hoverOffset={30}
                     color="black"  // 🌟 Usa cualquier color aquí
                 />
             </div>
@@ -24,7 +26,7 @@ const Section2GC = () => {
             {/* Texto alineado con el botón */}
             <div className="absolute top-[20vh] left-18 z-50 w-[55%]">
                 <p className="text-left text-xl" style={{ fontFamily: "GothamNormal" }}>
-                    Guatemala ha logrado posicionarse como líder en la industria cafetera al resaltar cómo las regiones cafetaleras, los microclimas y los varietales influyen directamente en el sabor del café.
+                    {t('colab.gc.section2.intro')}
                 </p>
             </div>
 
@@ -47,10 +49,10 @@ const Section2GC = () => {
                     </div>
                     <div className="text-left">
                         <h3 className="text-[2.8vh] font-bold" style={{ fontFamily: 'GothamBold' }}>
-                            Regiones Cafetaleras Únicas:
+                            {t('colab.gc.section2.items.i1.title')}
                         </h3>
                         <p className="text-[2.2vh] text-black/80" style={{ fontFamily: 'GothamNormal' }}>
-                            Cada región tiene su propio perfil de sabor, lo que enriquece la diversidad.
+                            {t('colab.gc.section2.items.i1.desc')}
                         </p>
                     </div>
                 </div>
@@ -72,10 +74,10 @@ const Section2GC = () => {
                     </div>
                     <div className="text-left">
                         <h3 className="text-[2.8vh] font-bold" style={{ fontFamily: 'GothamBold' }}>
-                            Impacto del Terreno:
+                            {t('colab.gc.section2.items.i2.title')}
                         </h3>
                         <p className="text-[2.2vh] text-black/80" style={{ fontFamily: 'GothamNormal' }}>
-                            El clima y las condiciones del terreno determinan las características del café.
+                            {t('colab.gc.section2.items.i2.desc')}
                         </p>
                     </div>
                 </div>
@@ -97,10 +99,10 @@ const Section2GC = () => {
                     </div>
                     <div className="text-left">
                         <h3 className="text-[2.8vh] font-bold" style={{ fontFamily: 'GothamBold' }}>
-                            Trazabilidad y Transparencia:
+                            {t('colab.gc.section2.items.i3.title')}
                         </h3>
                         <p className="text-[2.2vh] text-black/80" style={{ fontFamily: 'GothamNormal' }}>
-                            Un proceso que asegura que cada lote sea completamente rastreable, brindando confianza a los compradores internacionales.
+                            {t('colab.gc.section2.items.i3.desc')}
                         </p>
                     </div>
                 </div>
@@ -110,7 +112,8 @@ const Section2GC = () => {
             <div className="absolute top-[-8vh] left-0 w-full z-0">
                 <img
                     src={FormaGC}
-                    alt="Forma AC"
+                    alt={t('colab.gc.section2.alts.shape')}
+                    title={t('colab.gc.section2.alts.shape')}
                     className="w-full h-auto select-none pointer-events-none"
                 />
             </div>

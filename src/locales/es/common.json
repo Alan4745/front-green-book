@@ -835,9 +835,45 @@
             "controls": {
                 "play": "Reproducir video",
                 "pause": "Pausar video",
+                "mute": "Silenciar video",
+                "unmute": "Activar sonido",
                 "toggle": {
                     "show": "Mostrar contenido",
                     "hide": "Ver solo video"
+                }
+            },
+            "section1": {
+                "desc": "Guatemalan Coffees engloba ocho regiones productoras con identidades diferenciadas, ligadas a su territorio. Conocer las fortalezas de cada región es clave para comprender la diversidad de los cafés de Guatemala."
+            },
+            "section2": {
+                "cta": "Ver regiones",
+                "intro": "Guatemala ha logrado posicionarse como líder en la industria cafetera al resaltar cómo las regiones cafetaleras, los microclimas y los varietales influyen directamente en el sabor del café.",
+                "alts": {
+                    "shape": "Forma GC"
+                },
+                "items": {
+                    "i1": {
+                        "title": "Regiones cafetaleras únicas:",
+                        "desc": "Cada región tiene su propio perfil de sabor, lo que enriquece la diversidad."
+                    },
+                    "i2": {
+                        "title": "Impacto del terreno:",
+                        "desc": "El clima y las condiciones del terreno determinan las características del café."
+                    },
+                    "i3": {
+                        "title": "Trazabilidad y transparencia:",
+                        "desc": "Un proceso que asegura que cada lote sea completamente rastreable, brindando confianza a los compradores internacionales."
+                    }
+                }
+            },
+            "section3": {
+                "alts": {
+                    "shape": "Forma GC (montañas)"
+                },
+                "body": {
+                    "pre": "Así, la marca",
+                    "brand": "Guatemalan Coffees",
+                    "post": "continúa consolidándose como un referente mundial de cafés de especialidad, combinando tradición, innovación y sustentabilidad."
                 }
             }
         }

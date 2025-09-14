@@ -833,9 +833,45 @@
             "controls": {
                 "play": "Play video",
                 "pause": "Pause video",
+                "mute": "Mute video",
+                "unmute": "Unmute audio",
                 "toggle": {
                     "show": "Show content",
                     "hide": "Video only"
+                }
+            },
+            "section1": {
+                "desc": "Guatemalan Coffees encompasses eight producing regions with distinct identities tied to their territories. Understanding each region’s strengths is key to grasping the diversity of Guatemala’s coffees."
+            },
+            "section2": {
+                "cta": "View regions",
+                "intro": "Guatemala has positioned itself as a leader in the coffee industry by highlighting how coffee regions, microclimates, and varietals directly influence flavor.",
+                "alts": {
+                    "shape": "GC shape"
+                },
+                "items": {
+                    "i1": {
+                        "title": "Unique coffee regions:",
+                        "desc": "Each region has its own flavor profile, enriching overall diversity."
+                    },
+                    "i2": {
+                        "title": "Terrain impact:",
+                        "desc": "Climate and terrain conditions determine coffee characteristics."
+                    },
+                    "i3": {
+                        "title": "Traceability and transparency:",
+                        "desc": "A process that ensures each lot is fully traceable, building trust with international buyers."
+                    }
+                }
+            },
+            "section3": {
+                "alts": {
+                    "shape": "GC mountains shape"
+                },
+                "body": {
+                    "pre": "Thus, the brand",
+                    "brand": "Guatemalan Coffees",
+                    "post": "continues to establish itself as a global benchmark for specialty coffees, combining tradition, innovation, and sustainability."
                 }
             }
         }

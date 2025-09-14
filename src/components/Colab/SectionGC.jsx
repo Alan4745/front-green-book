@@ -56,7 +56,7 @@ const SectionGC = () => {
                     <button
                         type="button"
                         // 🔁 Ahora usa useNavigate para navegación interna
-                        onClick={() => navigate('/colab')}
+                        onClick={() => navigate('/colab/sgc/covergc')}
                         className="mt-4 text-black py-2 underline underline-offset-6 cursor-pointer uppercase"
                         style={{ fontFamily: 'GothamBold' }}
                         title={t('colab.gc.overlay.ctaAria')}
