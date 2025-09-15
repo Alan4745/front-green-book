@@ -1,5 +1,5 @@
 // DiversidadC.jsx
-// Infografía base + títulos + ALTITUD + LLUVIA + TEMPERATURA (sin lupa)
+// Infografía base + títulos + ALTITUD + LLUVIA + TEMPERATURA + HUMEDAD + HARVEST (todas sin lupa)
 // Indentación: 4 espacios. UTF-8.
 
 import { motion } from 'framer-motion';
@@ -45,6 +45,24 @@ import TempHuehue from '../../../assets/C2/ui/TempHuehue.svg';
 import TempOriente from '../../../assets/C2/ui/TempOriente.svg';
 import TempSanMarcos from '../../../assets/C2/ui/TempSanMarcos.svg';
 
+import HumAcatenango from '../../../assets/C2/ui/HumAcatenango.svg';
+import HumAntigua from '../../../assets/C2/ui/HumAntigua.svg';
+import HumAtitlan from '../../../assets/C2/ui/HumAtitlan.svg';
+import HumCoban from '../../../assets/C2/ui/HumCoban.svg';
+import HumFraijanes from '../../../assets/C2/ui/HumFraijanes.svg';
+import HumHuehue from '../../../assets/C2/ui/HumHuehue.svg';
+import HumOriente from '../../../assets/C2/ui/HumOriente.svg';
+import HumSanMarcos from '../../../assets/C2/ui/HumSanMarcos.svg';
+
+import PointAcatenango from '../../../assets/C2/ui/PointAntigua.svg';
+import PointAntigua from '../../../assets/C2/ui/PointAcatenango.svg';
+import PointAtitlan from '../../../assets/C2/ui/PointAtitlan.svg';
+import PointCoban from '../../../assets/C2/ui/PointCoban.svg';
+import PointFraijanes from '../../../assets/C2/ui/PointFraijanes.svg';
+import PointHuehue from '../../../assets/C2/ui/PointHuehue.svg';
+import PointOriente from '../../../assets/C2/ui/PointOriente.svg';
+import PointSanMarcos from '../../../assets/C2/ui/PointSanMarcos.svg';
+
 const EASE = [0.5, 1, 0.36, 1];
 
 // 🟪 Banda superior para alinear títulos por abajo
@@ -72,11 +90,39 @@ const TEMP_BAND_TOP_VH = 68;
 const TEMP_BAND_HEIGHT_VH = 36;
 const TEMP_BASELINE_IN_BAND_VH = 3;
 
+// 💧 Banda HUMEDAD (animación diferente: radial reveal)
+const HUM_BAND_TOP_VH = 79;
+const HUM_BAND_HEIGHT_VH = 36;
+const HUM_BASELINE_IN_BAND_VH = 3;
+
+// 🍒 Banda HARVEST (puntitos por mes)
+const HAR_BAND_TOP_VH = 107.8;
+const HAR_BAND_HEIGHT_VH = 36;
+const HAR_BASELINE_IN_BAND_VH = 2.8;
+const HAR_DOT_HEIGHT_VH = 1.5;
+// Posiciones verticales de los meses (desde la baseline hacia arriba)
+const HAR_MONTH_OFFSET_VH = {
+    apr: 10.7,
+    mar: 13.2,
+    feb: 15.8,
+    jan: 18.5,
+    dec: 21
+};
+const HAR_MONTH_LABEL = {
+    dec: 'Diciembre',
+    jan: 'Enero',
+    feb: 'Febrero',
+    mar: 'Marzo',
+    apr: 'Abril'
+};
+
 /* ────────────────────────────────────────────────────────────────
     MetricItem: columna/ítem sin lupa
     variant:
         - 'bounce' → ALTITUD y LLUVIA
         - 'wipe'   → TEMPERATURA (reveal + skew/rotate)
+        - 'radial' → HUMEDAD (clipPath: circle + giro)
+        - 'dot'    → HARVEST (pop-in)
    ──────────────────────────────────────────────────────────────── */
 function MetricItem({
     src,
@@ -91,6 +137,10 @@ function MetricItem({
     const initialAnim =
         variant === 'wipe'
             ? { opacity: 0, clipPath: 'inset(100% 0% 0% 0%)', skewY: 6, rotate: 2, x: -10 }
+            : variant === 'radial'
+            ? { opacity: 0, clipPath: 'circle(0% at 50% 50%)', rotate: -15, scale: 0.9 }
+            : variant === 'dot'
+            ? { opacity: 0, scale: 0, y: 10 }
             : { opacity: 0, y: 12, scaleY: 0.6 };
 
     const animateAnim =
@@ -102,11 +152,24 @@ function MetricItem({
                     rotate: [2, -1, 0],
                     x: 0
                 }
+            : variant === 'radial'
+            ? {
+                    opacity: 1,
+                    clipPath: 'circle(75% at 50% 50%)',
+                    rotate: [-15, 6, 0],
+                    scale: [0.9, 1.06, 1]
+                }
+            : variant === 'dot'
+            ? { opacity: 1, scale: [0, 1.15, 1], y: [10, -2, 0] }
             : { opacity: 1, y: [12, -2, 0], scaleY: [0.6, 1.05, 1] };
 
     const transitionAnim =
         variant === 'wipe'
             ? { delay, duration: 0.9, ease }
+            : variant === 'radial'
+            ? { delay, duration: 0.95, ease }
+            : variant === 'dot'
+            ? { delay, duration: 0.6, ease }
             : { delay, duration: 0.75, ease };
 
     return (
@@ -118,7 +181,7 @@ function MetricItem({
                 height: `${heightVh}vh`,
                 width: 'auto',
                 transformOrigin: '50% 100%',
-                overflow: variant === 'wipe' ? 'hidden' : 'visible',
+                overflow: variant === 'wipe' || variant === 'radial' ? 'hidden' : 'visible',
                 willChange: 'transform, opacity, clip-path'
             }}
             initial={initialAnim}
@@ -190,16 +253,87 @@ const DiversidadC = ({
         { key: 'temp-sanmarcos', src: TempSanMarcos, alt: 'Temperatura San Marcos', left: '110vh', heightVh: 15, bottomFixVh: 0 }
     ];
 
+    // 💧 HUMEDAD: label + columnas (gráfico circular) con animación radial
+    const humItems = [
+        { key: 'hum-acatenango', src: HumAcatenango, alt: 'Humedad Acatenango', left: '33vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-antigua', src: HumAntigua, alt: 'Humedad Antigua', left: '44vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-atitlan', src: HumAtitlan, alt: 'Humedad Atitlán', left: '55vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-coban', src: HumCoban, alt: 'Humedad Cobán', left: '65.5vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-fraijanes', src: HumFraijanes, alt: 'Humedad Fraijanes', left: '76vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-huehue', src: HumHuehue, alt: 'Humedad Huehue', left: '87vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-oriente', src: HumOriente, alt: 'Humedad Oriente', left: '98vh', heightVh: 8, bottomFixVh: 0 },
+        { key: 'hum-sanmarcos', src: HumSanMarcos, alt: 'Humedad San Marcos', left: '109vh', heightVh: 8, bottomFixVh: 0 }
+    ];
+
+    // 🍒 HARVEST: puntos por mes y región
+    const HAR_LEFT = {
+        acatenango: '35vh',
+        antigua: '46vh',
+        atitlan: '57vh',
+        coban: '67.5vh',
+        fraijanes: '78vh',
+        huehue: '89vh',
+        oriente: '100vh',
+        sanmarcos: '111vh'
+    };
+    const REGION_LABEL = {
+        acatenango: 'Acatenango',
+        antigua: 'Antigua',
+        atitlan: 'Atitlán',
+        coban: 'Cobán',
+        fraijanes: 'Fraijanes',
+        huehue: 'Huehue',
+        oriente: 'Oriente',
+        sanmarcos: 'San Marcos'
+    };
+    const HAR_SRC = {
+        acatenango: PointAcatenango,
+        antigua: PointAntigua,
+        atitlan: PointAtitlan,
+        coban: PointCoban,
+        fraijanes: PointFraijanes,
+        huehue: PointHuehue,
+        oriente: PointOriente,
+        sanmarcos: PointSanMarcos
+    };
+    // Meses por región (a partir de tu referencia)
+    const HAR_PATTERN = {
+        acatenango: ['dec', 'jan', 'feb', 'mar'],
+        antigua: ['jan', 'feb', 'mar'],
+        atitlan: ['dec', 'jan', 'feb', 'mar'],
+        coban: ['dec', 'jan', 'feb'],
+        fraijanes: ['jan', 'feb', 'mar', 'apr'],
+        huehue: ['dec', 'jan', 'feb', 'mar'],
+        oriente: ['dec', 'jan', 'feb', 'mar'],
+        sanmarcos: ['dec', 'jan', 'feb', 'mar']
+    };
+    const harItems = [];
+    Object.keys(HAR_PATTERN).forEach((key) => {
+        const months = HAR_PATTERN[key];
+        months.forEach((m) => {
+            harItems.push({
+                key: `har-${key}-${m}`,
+                src: HAR_SRC[key],
+                alt: `Harvest ${REGION_LABEL[key]} – ${HAR_MONTH_LABEL[m]}`,
+                left: HAR_LEFT[key],
+                heightVh: HAR_DOT_HEIGHT_VH,
+                bottomFixVh: HAR_MONTH_OFFSET_VH[m]
+            });
+        });
+    });
+
     // Timings
     const altDelayStart = delayStart + titles.length * stagger + 0.25;
     const lluDelayStart = altDelayStart + altItems.length * 0.12 + 0.4;
     const tempDelayStart = lluDelayStart + lluItems.length * 0.12 + 0.4;
+    const humDelayStart = tempDelayStart + tempItems.length * 0.12 + 0.4;
+    const harDelayStart = humDelayStart + humItems.length * 0.12 + 0.4;
 
     return (
         <figure
             className={`relative ${className}`}
             role="region"
-            aria-label="Diversidad cafetalera – títulos + altitud + lluvia + temperatura"
+            aria-label="Diversidad cafetalera – títulos + altitud + lluvia + temperatura + humedad + harvest"
             style={{ width: `${baseWidthVh}vh` }}
         >
             {/* 🖼️ Base */}
@@ -419,6 +553,77 @@ const DiversidadC = ({
                         heightVh={a.heightVh}
                         delay={tempDelayStart + (i + 1) * 0.12}
                         variant="wipe"
+                    />
+                ))}
+            </div>
+
+            {/* 💧 BANDA HUMEDAD (radial reveal) */}
+            <div
+                className="absolute left-0"
+                style={{
+                    top: `${HUM_BAND_TOP_VH}vh`,
+                    width: `${baseWidthVh}vh`,
+                    height: `${HUM_BAND_HEIGHT_VH}vh`,
+                    pointerEvents: 'none',
+                    zIndex: 3
+                }}
+            >
+                {DEBUG_GUIDES && (
+                    <div style={{ position: 'absolute', left: 0, right: 0, bottom: `${HUM_BASELINE_IN_BAND_VH}vh`, height: 0, borderBottom: '2px dashed rgba(64,182,224,0.7)' }} />
+                )}
+
+                {/* Label (usando el primer item) */}
+                <MetricItem
+                    key="humedad-label"
+                    src={humItems[0].src}
+                    alt={humItems[0].alt}
+                    left={humItems[0].left}
+                    bottom={`${HUM_BASELINE_IN_BAND_VH + (humItems[0].bottomFixVh ?? 0)}vh`}
+                    heightVh={humItems[0].heightVh}
+                    delay={humDelayStart}
+                    variant="radial"
+                />
+
+                {/* Círculos por región (radial) */}
+                {humItems.slice(1).map((h, i) => (
+                    <MetricItem
+                        key={h.key}
+                        src={h.src}
+                        alt={h.alt}
+                        left={h.left}
+                        bottom={`${HUM_BASELINE_IN_BAND_VH + (h.bottomFixVh ?? 0)}vh`}
+                        heightVh={h.heightVh}
+                        delay={humDelayStart + (i + 1) * 0.12}
+                        variant="radial"
+                    />
+                ))}
+            </div>
+
+            {/* 🍒 BANDA HARVEST (puntitos por mes) */}
+            <div
+                className="absolute left-0"
+                style={{
+                    top: `${HAR_BAND_TOP_VH}vh`,
+                    width: `${baseWidthVh}vh`,
+                    height: `${HAR_BAND_HEIGHT_VH}vh`,
+                    pointerEvents: 'none',
+                    zIndex: 3
+                }}
+            >
+                {DEBUG_GUIDES && (
+                    <div style={{ position: 'absolute', left: 0, right: 0, bottom: `${HAR_BASELINE_IN_BAND_VH}vh`, height: 0, borderBottom: '2px dashed rgba(200,100,150,0.6)' }} />
+                )}
+
+                {harItems.map((d, i) => (
+                    <MetricItem
+                        key={d.key}
+                        src={d.src}
+                        alt={d.alt}
+                        left={d.left}
+                        bottom={`${HAR_BASELINE_IN_BAND_VH + (d.bottomFixVh ?? 0)}vh`}
+                        heightVh={d.heightVh}
+                        delay={harDelayStart + i * 0.06}
+                        variant="dot"
                     />
                 ))}
             </div>

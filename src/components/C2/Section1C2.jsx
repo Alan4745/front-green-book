@@ -99,7 +99,7 @@ const Section1C2 = () => {
                     <div className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white">
                         <DiversidadC baseWidthVh={130} />
                     </div>
-                    <div className="absolute top-[4vh] right-[45vh] z-50">
+                    <div className="absolute top-[2vh] right-[28vh] z-50">
                         <CloseButton onClick={() => setShowDiversidad(false)} />
                     </div>
                 </div>
