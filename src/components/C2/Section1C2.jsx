@@ -3,10 +3,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import HoverButton from "../Global/HoverButton";
 import CloseButton from "../Global/CloseButton";
-import LanguageSelector from "../Global/LanguageSelector";
 
 import MapaFlechasC2 from "../../assets/C2/MapaFlechasC2.svg";
-import DCF1 from "../../assets/C2/DCF1.svg";
+import DiversidadC from "./ui/DiversidadC";
 
 // Regiones
 import RegionCoban from "../../assets/C2/Region/CobanR.svg";
@@ -33,7 +32,7 @@ const REGION_PATHS = {
 const Section1C2 = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [showDiversidad, setShowDiversidad] = useState(false);
 
     const handleRegionClick = (regionKey) => {
         const path = REGION_PATHS[regionKey];
@@ -42,14 +41,6 @@ const Section1C2 = () => {
         } else {
             console.warn(`Ruta no encontrada para la región: ${regionKey}`);
         }
-    };
-
-    const handleImageClick = (image) => {
-        setSelectedImage(image);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedImage(null);
     };
 
     const regions = [
@@ -93,7 +84,7 @@ const Section1C2 = () => {
 
             {/* Botón de diversidad cafetalera */}
             <div className="absolute top-10 left-10 z-50">
-                <div onClick={() => handleImageClick(DCF1)}>
+                <div onClick={() => setShowDiversidad(true)}>
                     <HoverButton
                         text={t("c2.section1.cta")}
                         textOffset={-10}
@@ -102,18 +93,14 @@ const Section1C2 = () => {
                 </div>
             </div>
 
-            {/* Modal funcional */}
-            {selectedImage && (
+            {/* Modal: muestra DiversidadC en lugar de una imagen */}
+            {showDiversidad && (
                 <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-                    <div className="relative max-w-[90vw] max-h-[90vh] overflow-auto">
-                        <img
-                            src={selectedImage}
-                            alt={t("c2.section1.modalAlt")}
-                            className="w-[100vh] h-full object-contain"
-                        />
+                    <div className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white">
+                        <DiversidadC baseWidthVh={130} />
                     </div>
                     <div className="absolute top-[4vh] right-[45vh] z-50">
-                        <CloseButton onClick={handleCloseModal} />
+                        <CloseButton onClick={() => setShowDiversidad(false)} />
                     </div>
                 </div>
             )}
