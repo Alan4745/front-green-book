@@ -129,7 +129,7 @@ const Section2C4 = () => {
             {/* Lightbox */}
             {isLightboxOpen && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t(keys.aria.modal)}
