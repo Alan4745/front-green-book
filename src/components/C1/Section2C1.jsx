@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+// src/components/C1/Section1C2.jsx
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -9,9 +10,174 @@ import CloseButton from '../Global/CloseButton';
 import Img1 from '../../assets/C1/F3.svg';
 import Img2 from '../../assets/C1/F4.svg';
 
+/* =========================
+ * Utilidades de color + Skeleton
+ * ========================= */
+function hexToRgb(hex) {
+    const h = hex.replace('#', '');
+    const v = h.length === 3 ? h.split('').map((c) => c + c).join('') : h;
+    const i = parseInt(v, 16);
+    return { r: (i >> 16) & 255, g: (i >> 8) & 255, b: i & 255 };
+}
+
+function hexToRgba(hex, alpha = 1) {
+    const { r, g, b } = hexToRgb(hex);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+/* Oscurece un hex mezclándolo con negro */
+function darkenHex(hex, factor = 0.25) {
+    const { r, g, b } = hexToRgb(hex);
+    const nr = Math.round(r * (1 - factor));
+    const ng = Math.round(g * (1 - factor));
+    const nb = Math.round(b * (1 - factor));
+    return `#${[nr, ng, nb].map((n) => n.toString(16).padStart(2, '0')).join('')}`;
+}
+
+/* Bloque Skeleton con tinte programable (#DA2F7D por defecto) */
+function Skeleton({
+    className = '',
+    rounded = 'rounded-md',
+    tintHex = '#DA2F7D',
+    darken = 0.25,
+    alpha = 0.55,
+    as: Tag = 'div',
+    style,
+    ...rest
+}) {
+    const darker = darkenHex(tintHex, darken);
+    return (
+        <Tag
+            className={['animate-pulse', rounded, className].join(' ')}
+            style={{ backgroundColor: hexToRgba(darker, alpha), ...style }}
+            {...rest}
+        />
+    );
+}
+
+/* Pantalla Skeleton (fondo sólido + bloques oscurecidos) */
+function Section1C2Skeleton({ tintHex = '#DA2F7D' }) {
+    return (
+        <div
+            className="relative min-h-screen w-full flex bg-no-repeat bg-center bg-cover z-10"
+            style={{ backgroundColor: tintHex }}
+        >
+            {/* velo sutil para contraste */}
+            <div
+                className="absolute inset-0"
+                style={{ background: `linear-gradient(0deg, ${hexToRgba('#000', 0.06)}, ${hexToRgba('#000', 0.06)})` }}
+            />
+
+            {/* Izquierda: título + número 03 + párrafo */}
+            <div className="absolute top-[30vh] left-[15vh]">
+                <Skeleton className="h-8 w-[24vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
+                <div className="mt-[-13vh]">
+                    <Skeleton className="h-[30vh] w-[24vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
+                </div>
+            </div>
+            <div className="absolute top-[60vh] left-[15vh] max-w-[50vh] space-y-2">
+                <Skeleton className="h-[2.2vh] w-[40vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
+                <Skeleton className="h-[2.2vh] w-[30vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
+            </div>
+
+            {/* Derecha: título + número 04 + párrafo */}
+            <div className="absolute top-[30vh] right-[15vh] text-right">
+                <Skeleton className="h-8 w-[44vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
+                <div className="mt-2">
+                    <Skeleton className="h-8 w-[36vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
+                </div>
+                <div className="mt-[-17vh]">
+                    <Skeleton className="h-[30vh] w-[24vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
+                </div>
+            </div>
+            <div className="absolute top-[60vh] right-[15vh] text-right space-y-2">
+                <Skeleton className="h-[2.2vh] w-[40vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
+                <Skeleton className="h-[2.2vh] w-[34vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
+            </div>
+
+            {/* Centro: dos tarjetas verticales */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
+                <div className="relative w-[60vh] h-[50vh]">
+                    <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
+                </div>
+                <div className="relative w-[60vh] h-[50vh] mt-auto">
+                    <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 const Section1C2 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [showContent, setShowContent] = useState(false); // ⬅️ control de skeleton
     const { t } = useTranslation();
+
+    // 🎛️ Animación de zoom
+    const hoverAnim = useMemo(() => ({
+        whileHover: { scale: 1.08 },
+        transition: { type: 'tween', ease: 'easeOut', duration: 0.25 }
+    }), []);
+
+    // 🪄 Lightbox montado en body
+    const Lightbox = ({ src, alt, onClose }) => {
+        if (typeof document === 'undefined') return null;
+        return createPortal(
+            <div
+                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center"
+                role="dialog"
+                aria-modal="true"
+                aria-label={alt}
+                style={{ zIndex: 2147483647 }}
+            >
+                <div className="relative">
+                    <CloseButton
+                        onClick={onClose}
+                        className="absolute top-4 right-4 text-white"
+                        aria-label={alt}
+                        title={alt}
+                    />
+                    <img
+                        src={src}
+                        alt={alt}
+                        className="h-[90vh] w-auto object-contain"
+                    />
+                </div>
+            </div>,
+            document.body
+        );
+    };
+
+    /* =========
+     * CARGA + HOLGURA (2s)
+     * - Pre-carga Img1 y Img2
+     * - NO renderiza nada del contenido real hasta terminar + holgura
+     * ========= */
+    const GRACE_MS = 2000;
+    const graceTimerRef = useRef(null);
+
+    useEffect(() => {
+        const preloadImage = (src) =>
+            new Promise((resolve) => {
+                const img = new Image();
+                img.onload = img.onerror = () => resolve();
+                img.src = src;
+            });
+
+        let cancelled = false;
+
+        Promise.all([preloadImage(Img1), preloadImage(Img2)]).then(() => {
+            if (cancelled) return;
+            graceTimerRef.current = setTimeout(() => {
+                setShowContent(true);
+            }, GRACE_MS);
+        });
+
+        return () => {
+            cancelled = true;
+            if (graceTimerRef.current) clearTimeout(graceTimerRef.current);
+        };
+    }, []);
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -21,7 +187,7 @@ const Section1C2 = () => {
         setSelectedImage(null);
     };
 
-    // ⛔ Bloqueo de scroll del body (robusto: position: fixed + top)
+    // ⛔ Bloqueo de scroll del body (robusto) cuando el lightbox está abierto
     useEffect(() => {
         if (!selectedImage) return;
         const scrollY = window.scrollY || window.pageYOffset || 0;
@@ -53,41 +219,15 @@ const Section1C2 = () => {
         };
     }, [selectedImage]);
 
-    // 🎛️ Animación de zoom (igual a la estructura final que te gustó)
-    const hoverAnim = {
-        whileHover: { scale: 1.08 },
-        transition: { type: 'tween', ease: 'easeOut', duration: 0.25 }
-    };
+    // 🎨 Tinte del skeleton (capítulo 1)
+    const SKELETON_TINT = '#DA2F7D';
 
-    // 🪄 Lightbox montado en body (como tu ejemplo)
-    const Lightbox = ({ src, alt, onClose }) => {
-        if (typeof document === 'undefined') return null;
-        return createPortal(
-            <div
-                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center"
-                role="dialog"
-                aria-modal="true"
-                aria-label={alt}
-                style={{ zIndex: 2147483647 }}
-            >
-                <div className="relative">
-                    <CloseButton
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={alt}
-                        title={alt}
-                    />
-                    <img
-                        src={src}
-                        alt={alt}
-                        className="h-[90vh] w-auto object-contain"
-                    />
-                </div>
-            </div>,
-            document.body
-        );
-    };
+    // 🦴 Mientras carga: SOLO skeleton (no se ve nada del contenido real)
+    if (!showContent) {
+        return <Section1C2Skeleton tintHex={SKELETON_TINT} />;
+    }
 
+    // ✅ Contenido real (mismo layout/clases)
     return (
         <div className="relative min-h-screen w-full flex bg-[#DA2F7D] bg-no-repeat bg-center bg-cover z-10">
             {/* Contenido de la sección */}
@@ -150,7 +290,7 @@ const Section1C2 = () => {
 
                 {/* Imágenes centro */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                    {/* Primera imagen (zoom limpio, sin mover layout) */}
+                    {/* Primera imagen */}
                     <motion.div
                         className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}

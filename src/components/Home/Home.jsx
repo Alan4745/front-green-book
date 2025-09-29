@@ -72,89 +72,83 @@ const backgrounds = [
         };
     }, []);
 
-    const handleClick = () => {
-        console.log("Botón clickeado");
-        window.location.href =
-        "https://claude.ai/chat/bb1402d0-e534-4738-b6c9-a23b0143eb78";
-    };
-
     // Idioma actual (para forzar remount en hijos si no usan useTranslation internamente)
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
 
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-        {/* 🎞️ Capas de crossfade (actual arriba, previa abajo) */}
-        <div className="absolute inset-0 z-10" aria-hidden="true">
-            {/* Capa previa (fade-out) */}
-            {prevIndex !== null && (
-            <motion.div
-                key={`prev-${switchKeyRef.current}`}
+            {/* 🎞️ Capas de crossfade (actual arriba, previa abajo) */}
+            <div className="absolute inset-0 z-10" aria-hidden="true">
+                {/* Capa previa (fade-out) */}
+                {prevIndex !== null && (
+                <motion.div
+                    key={`prev-${switchKeyRef.current}`}
+                    className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+                    style={{
+                    backgroundImage: `url(${backgrounds[prevIndex]})`,
+                    willChange: "opacity, transform",
+                    }}
+                    initial={{ opacity: 1, scale: 1 }}
+                    animate={{
+                    opacity: 0,
+                    scale: 1.0,
+                    transition: {
+                        duration: FADE_DURATION,
+                        ease: [0.22, 1, 0.36, 1],
+                    },
+                    }}
+                    onAnimationComplete={() => setPrevIndex(null)}
+                />
+                )}
+
+                {/* Capa actual (fade-in) */}
+                <motion.div
+                key={`curr-${switchKeyRef.current}`}
                 className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
                 style={{
-                backgroundImage: `url(${backgrounds[prevIndex]})`,
-                willChange: "opacity, transform",
+                    backgroundImage: `url(${backgrounds[currentIndex]})`,
+                    willChange: "opacity, transform",
                 }}
-                initial={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 1.02 }}
                 animate={{
-                opacity: 0,
-                scale: 1.0,
-                transition: {
+                    opacity: 1,
+                    scale: 1.0,
+                    transition: {
                     duration: FADE_DURATION,
                     ease: [0.22, 1, 0.36, 1],
-                },
+                    },
                 }}
-                onAnimationComplete={() => setPrevIndex(null)}
-            />
-            )}
+                />
+            </div>
 
-            {/* Capa actual (fade-in) */}
-            <motion.div
-            key={`curr-${switchKeyRef.current}`}
-            className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
-            style={{
-                backgroundImage: `url(${backgrounds[currentIndex]})`,
-                willChange: "opacity, transform",
-            }}
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{
-                opacity: 1,
-                scale: 1.0,
-                transition: {
-                duration: FADE_DURATION,
-                ease: [0.22, 1, 0.36, 1],
-                },
-            }}
-            />
-        </div>
+            {/* Logo centrado */}
+            <div className="relative z-30 flex items-center justify-center h-full">
+                <img
+                src="/Logos/Greenbook.svg"
+                alt={t("app.title")} // ← se traduce el alt según idioma
+                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
+                />
+            </div>
 
-        {/* Logo centrado */}
-        <div className="relative z-30 flex items-center justify-center h-full">
-            <img
-            src="/Logos/Greenbook.svg"
-            alt={t("app.title")} // ← se traduce el alt según idioma
-            className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
-            />
-        </div>
+            {/* Carrusel de capítulos abajo */}
+            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
+                <Carrousel key={`carrousel-${langKey}`} />
+            </div>
 
-        {/* Carrusel de capítulos abajo */}
-        <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
-            <Carrousel key={`carrousel-${langKey}`} />
-        </div>
+            {/* Selector de idioma */}
+            <div className="absolute bottom-6 left-6 z-50">
+                <LanguageSelector />
+            </div>
 
-        {/* Selector de idioma */}
-        <div className="absolute bottom-6 left-6 z-50">
-            <LanguageSelector />
-        </div>
+            {/* ColabButton */}
+            <div className="absolute bottom-6 left-[19%] z-50 transform -translate-x-1/2">
+                <ColabButton key={`colab-${langKey}`} progress={100} />
+            </div>
 
-        {/* ColabButton */}
-        <div className="absolute bottom-6 left-[18%] z-50 transform -translate-x-1/2">
-            <ColabButton key={`colab-${langKey}`} progress={100} />
-        </div>
-
-        {/* Menú desplegable */}
-        <div className="absolute top-[2vh] right-0 z-50">
-            <MainMenu key={`menu-${langKey}`} />
-        </div>
+            {/* Menú desplegable */}
+            <div className="absolute top-[2vh] right-0 z-50">
+                <MainMenu key={`menu-${langKey}`} />
+            </div>
         </div>
     );
 };
