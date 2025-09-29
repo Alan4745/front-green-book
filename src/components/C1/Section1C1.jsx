@@ -128,12 +128,46 @@ const Section1C1 = () => {
         transition: { type: 'tween', ease: 'easeOut', duration: 0.25 }
     };
 
+    // ✨ Glow en texto (magenta) + micro-pulso
+    const ctaGlow = {
+        initial: { opacity: 0.3, scale: 1 },
+        animate: {
+            opacity: [0.36, 0.55, 0.36],
+            scale: [1, 1.015, 1],
+            color: ['#FAD0E3', '#FF4EA0', '#FAD0E3'],
+            textShadow: [
+                '0 0 0px rgba(218,47,125,0)',
+                '0 0 18px rgba(255,78,160,0.65), 0 0 36px rgba(218,47,125,0.35)',
+                '0 0 0px rgba(218,47,125,0)'
+            ],
+            transition: {
+                duration: 1.8,
+                repeat: Infinity,
+                ease: 'easeInOut'
+            }
+        }
+    };
+
+    // 🌸 Halo pulsante detrás (no afecta layout)
+    const haloPulse = {
+        initial: { scale: 0.98, opacity: 0.0 },
+        animate: {
+            scale: [0.98, 1.04, 0.98],
+            opacity: [0.0, 0.30, 0.0],
+            transition: {
+                duration: 1.8,
+                repeat: Infinity,
+                ease: 'easeInOut'
+            }
+        }
+    };
+
     // 🪄 Portal para el Lightbox (monta en body con z-index muy alto)
     const Lightbox = ({ src, onClose, alt }) => {
         if (typeof document === 'undefined') return null;
         return createPortal(
             <div
-                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center"
+                className="fixed inset-0 bg-black/80 flex items-center justify-center"
                 role="dialog"
                 aria-modal="true"
                 aria-label={alt}
@@ -163,35 +197,60 @@ const Section1C1 = () => {
             <div className="relative w-full text-white">
                 {/* Título "Altitud" en la esquina superior izquierda */}
                 <div className="absolute top-[30vh] left-[15vh]">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
+                    <h3
+                        className="text-3xl font-bold uppercase"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
                         {t('c1.section1.left.title')}
                     </h3>
-                    {/* Número grande 01 como botón que redirige */}
-                    <button
+                    {/* Número grande 01 como botón que redirige (con halo y glow magenta) */}
+                    <motion.button
                         onClick={() => navigate('/c1/section4')}
-                        className="text-[30vh] font-bold opacity-30 mt-[-13vh] cursor-pointer transition-transform hover:scale-105"
+                        className="relative text-[30vh] font-bold opacity-30 mt-[-13vh] cursor-pointer transition-transform hover:scale-105"
                         style={{ fontFamily: 'GothamBold' }}
                         aria-label={t('c1.section1.left.ctaAria')}
                         title={t('c1.section1.left.ctaAria')}
+                        whileHover={{ scale: 1.05, opacity: 0.6 }}
+                        {...ctaGlow}
                     >
+                        {/* Halo detrás (absoluto, decorativo) */}
+                        <motion.span
+                            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+                            style={{
+                                width: '46vh',
+                                height: '46vh',
+                                background: 'radial-gradient(closest-side, rgba(255,78,160,0.38), rgba(218,47,125,0.18), rgba(218,47,125,0))'
+                            }}
+                            {...haloPulse}
+                            aria-hidden="true"
+                        />
                         01
-                    </button>
+                    </motion.button>
                 </div>
 
                 {/* Título "Más de 300 microclimas" en la esquina superior derecha */}
                 <div className="absolute top-[30vh] right-[15vh] text-right">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
+                    <h3
+                        className="text-3xl font-bold uppercase"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
                         {t('c1.section1.right.title.top')} <br /> {t('c1.section1.right.title.bottom')}
                     </h3>
                     {/* Número grande 02 */}
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: 'GothamBold' }}>
+                    <div
+                        className="text-[30vh] font-bold opacity-30 mt-[-17vh]"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
                         02
                     </div>
                 </div>
 
                 {/* Texto descriptivo para Altitud */}
                 <div className="absolute top-[60vh] left-[15vh] max-w-[50vh]">
-                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                    <p
+                        className="text-[2vh] leading-relaxed"
+                        style={{ fontFamily: 'GothamNormal' }}
+                    >
                         {t('c1.section1.left.descLine1')} <br />
                         {t('c1.section1.left.descLine2')}
                     </p>
@@ -199,7 +258,10 @@ const Section1C1 = () => {
 
                 {/* Texto descriptivo para Microclimas */}
                 <div className="absolute top-[60vh] right-[15vh] text-right">
-                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                    <p
+                        className="text-[2vh] leading-relaxed"
+                        style={{ fontFamily: 'GothamNormal' }}
+                    >
                         {t('c1.section1.right.descLine1')} <br />
                         {t('c1.section1.right.descLine2')} <br />
                         {t('c1.section1.right.descLine3')}
