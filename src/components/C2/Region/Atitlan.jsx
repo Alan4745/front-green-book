@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
-import FondoAtitlan from '../../../assets/C2/FR/Atitlan.svg';
+import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
 import BackButton from '../../Global/BackButton';
@@ -108,7 +108,7 @@ const Atitlan = () => {
                 />
 
                 {/* Overlay negro con 50% de opacidad */}
-                <div className="absolute inset-0 bg-black opacity-50 z-10" />
+                <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
                 {/* Botón de regreso */}
                 <div className="absolute top-[3vh] left-[3vh] z-20">
@@ -121,7 +121,7 @@ const Atitlan = () => {
 
                 {/* Logo región Atitlán */}
                 <motion.div
-                    className="absolute top-[30vh] left-[50vh] z-20 will-change-transform"
+                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -137,7 +137,7 @@ const Atitlan = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[4%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[1%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
@@ -241,9 +241,9 @@ const Atitlan = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
                     <div
-                        className="relative overflow-auto"
+                        className="relative overflow-auto flex justify-center items-center"
                         role="dialog"
                         aria-modal="true"
                         aria-label={t(keys.alts.modalImage)}
@@ -252,10 +252,10 @@ const Atitlan = () => {
                             src={FondoAtitlan}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
+                            className="max-w-[36%] max-h-[90%] object-contain"
                         />
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
+                    <div className="absolute top-[4vh] right-[50vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

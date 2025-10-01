@@ -220,16 +220,16 @@ const SanMarcos = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
                     <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoSanMarcos}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
+                            className="w-[95%] h-auto object-contain"
                         />
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
+                    <div className="absolute top-[4vh] right-[50vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
 import OrienteG from '../../../assets/C2/Graficas/OrienteG.svg';
-import FondoOriente from '../../../assets/C2/FR/Oriente.svg';
+import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
 import BackButton from '../../Global/BackButton';
@@ -103,7 +103,7 @@ const Oriente = () => {
 
                 {/* Animación del logo de región Oriente */}
                 <motion.div
-                    className="absolute top-[30vh] left-[48vh] z-20 will-change-transform"
+                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -119,7 +119,7 @@ const Oriente = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[1%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -220,16 +220,16 @@ const Oriente = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                    <div className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoOriente}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
+                            className="max-w-[36%] max-h-[90%] object-contain"
                         />
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
+                    <div className="absolute top-[4vh] right-[50vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

@@ -220,16 +220,16 @@ const Huehue = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                    <div className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoHuehue}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
+                            className="max-w-[75%] max-h-auto object-contain"
                         />
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
+                    <div className="absolute top-[4vh] right-[54vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

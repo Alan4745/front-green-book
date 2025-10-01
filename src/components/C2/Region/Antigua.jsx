@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
-import FondoAntigua from '../../../assets/C2/FR/Antigua.svg';
+import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
 import BackButton from '../../Global/BackButton';
@@ -33,7 +33,9 @@ const Antigua = () => {
         },
         desc: {
             l1: 'c2.section1.antigua.desc.line1',
-            l2: 'c2.section1.antigua.desc.line2'
+            l2: 'c2.section1.antigua.desc.line2',
+            l3: 'c2.section1.antigua.desc.line3',
+            l4: 'c2.section1.antigua.desc.line4'
         },
         features: {
             f1: 'c2.section1.antigua.features.f1',
@@ -110,7 +112,7 @@ const Antigua = () => {
                 />
 
                 {/* Overlay negro con 50% de opacidad */}
-                <div className="absolute inset-0 bg-black opacity-50 z-10" />
+                <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
                 {/* Botón de regreso */}
                 <div className="absolute top-[3vh] left-[3vh] z-20">
@@ -123,7 +125,7 @@ const Antigua = () => {
 
                 {/* Logo región Antigua — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-[50vh] z-20 will-change-transform"
+                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -139,14 +141,16 @@ const Antigua = () => {
 
                 {/* Descripción con animación */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[4%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[28vh] left-[1%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
                     animate="show"
                 >
                     {t(keys.desc.l1)} <br />
-                    {t(keys.desc.l2)}
+                    {t(keys.desc.l2)} <br />
+                    {t(keys.desc.l3)} <br />
+                    {t(keys.desc.l4)}
                 </motion.p>
 
                 {/* Botón de zoom en esquina inferior derecha */}
@@ -252,9 +256,9 @@ const Antigua = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
                     <div
-                        className="relative overflow-auto"
+                        className="relative overflow-auto flex justify-center items-center"
                         role="dialog"
                         aria-modal="true"
                         aria-label={t(keys.alts.modalImage)}
@@ -263,10 +267,10 @@ const Antigua = () => {
                             src={FondoAntigua}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
+                            className="max-w-[70%] max-h-[90%] object-contain"
                         />
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
+                    <div className="absolute top-[4vh] right-[16vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

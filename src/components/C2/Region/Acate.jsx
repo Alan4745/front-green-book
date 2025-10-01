@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
-import FondoAcate from '../../../assets/C2/FR/Acate.svg';
+import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
 import BackButton from '../../Global/BackButton';
@@ -123,7 +123,7 @@ const Acate = () => {
 
                 {/* Logo región Acatenango — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-[50vh] z-20 will-change-transform"
+                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -140,7 +140,7 @@ const Acate = () => {
 
                 {/* Descripción */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[5%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
@@ -252,25 +252,25 @@ const Acate = () => {
             </div>
 
             {/* Modal zoom */}
-            {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto">
-                        <img
-                            src={FondoAcate}
-                            alt={t(keys.alts.modalImage)}
-                            title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
-                        />
+                {showZoom && (
+                    <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                        <div className="relative overflow-auto flex justify-center items-center">
+                            <img
+                                src={FondoAcate}
+                                alt={t(keys.alts.modalImage)}
+                                title={t(keys.alts.modalImage)}
+                                className="max-w-[70%] max-h-[90%] object-contain"  // Max size to avoid overflows
+                            />
+                        </div>
+                        <div className="absolute top-[4vh] right-[16vh] z-50">
+                            <CloseButton
+                                onClick={() => setShowZoom(false)}
+                                aria-label={t(keys.buttons.close)}
+                                title={t(keys.buttons.close)}
+                            />
+                        </div>
                     </div>
-                    <div className="absolute top-[4vh] right-[4vh] z-50">
-                        <CloseButton
-                            onClick={() => setShowZoom(false)}
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
-                    </div>
-                </div>
-            )}
+                )}
         </div>
     );
 };

@@ -183,8 +183,10 @@
                     "close": "Close"
                 },
                 "desc": {
-                    "line1": "Cool climate, nestled among three imposing",
-                    "line2": "volcanoes: Agua, Fuego, and Acatenango."
+                    "line1": "Each cup reflects the richness of its volcanic soils and the",
+                    "line2": "cool climate that enhances its sensory profile. They stand out",
+                    "line3": "for their intense aroma, pronounced sweetness, and a flawless",
+                    "line4": "balance between acidity and body."
                 },
                 "features": {
                     "f1": "Elegant",

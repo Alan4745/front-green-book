@@ -223,7 +223,7 @@ const Coban = () => {
 
             {/* Modal de imagen ampliada */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
                     <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoCoban}
@@ -233,7 +233,7 @@ const Coban = () => {
                         />
                     </div>
 
-                    <div className="absolute top-18 right-95">
+                    <div className="absolute top-18 right-[35vh]">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}
