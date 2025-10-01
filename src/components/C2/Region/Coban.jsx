@@ -169,7 +169,7 @@ const Coban = () => {
                 {/* Gráficas de Cobán */}
                 <motion.div
                     className="absolute top-1/2 left-[79%] transform -translate-x-1/2 -translate-y-[65%]"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 1.2 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                 >
@@ -178,6 +178,7 @@ const Coban = () => {
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
                         className="w-[50vh] h-auto object-contain"
+                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }} 
                     />
                 </motion.div>
 

@@ -195,6 +195,7 @@ const Antigua = () => {
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
                         className="w-[100vh] h-auto object-contain"
+                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }} 
                     />
                 </motion.div>
 
