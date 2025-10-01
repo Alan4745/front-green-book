@@ -66,8 +66,9 @@
         "section2": {
             "left": {
                 "title": "Rainfall",
-                "descLine1": "With averages from 800 to 5,000",
-                "descLine2": "mm per year for natural flowering."
+                "descLine1": "The optimal average rainfall for a good harvest is between 1,500 and 1,700 mm",
+                "descLine2": "per year, well-distributed throughout the production cycle. This amount promotes uniform flowering and optimal",
+                "descLine3": "grain development."
             },
             "right": {
                 "title": {
@@ -89,7 +90,7 @@
             "title": "IN NUMBERS",
             "slides": [
                 { "main": "376,019", "desc": "HECTARES\nCULTIVATED" },
-                { "main": "", "desc": "22 DEPARTMENTS \n OF GUATEMALA \n HAVE COFFEE \n PRODUCTION" },
+                { "main": "", "desc": "21 DEPARTMENTS \n OF GUATEMALA \n HAVE COFFEE \n PRODUCTION" },
                 { "main": "261", "desc": "OF THE 340\nMUNICIPALITIES IN THE\nCOUNTRY PRODUCE\nCOFFEE" },
                 { "main": "", "desc": "IS GROWN\nUNDER SHADE" },
                 { "main": "+125K", "desc": "COFFEE-GROWING\nFAMILIES" },
@@ -100,8 +101,8 @@
             "iconAlt": "Mountain icon",
             "pink": {
                 "title": {
-                    "top": "Classification",
-                    "bottom": "by altitude"
+                    "top": "Ranking of the",
+                    "bottom": "grain by altitude"
                 }
             },
             "playBox": {

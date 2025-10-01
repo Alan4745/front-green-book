@@ -267,13 +267,14 @@ const Section1C2 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[50vh]">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[42vh]">
                     <p
                         className="text-[2vh] leading-relaxed"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c1.section2.left.descLine1')} <br />
-                        {t('c1.section2.left.descLine2')}
+                        {t('c1.section2.left.descLine2')} <br />
+                        {t('c1.section2.left.descLine3')} 
                     </p>
                 </div>
 

@@ -66,8 +66,9 @@
         "section2": {
             "left": {
                 "title": "Lluvias",
-                "descLine1": "Con promedios de 800 a 5,000",
-                "descLine2": "mm por año para una floración natural."
+                "descLine1": "El promedio óptimo de lluvia para una buena cosecha es de 1,500 a 1,700 mm",
+                "descLine2": "al año, bien distribuidos a lo largo del ciclo productivo. Esta cantidad favorece una floración uniforme y un desarrollo",
+                "descLine3": "óptimo del grano."
             },
             "right": {
                 "title": {
@@ -89,7 +90,7 @@
             "title": "EN NÚMEROS",
             "slides": [
                 { "main": "376,019", "desc": "HECTÁREAS\nCULTIVADAS" },
-                { "main": "", "desc": "22 DEPARTAMENTOS \n DE GUATEMALA \n TIENEN PRODUCCIÓN \n CAFETALERA" },
+                { "main": "", "desc": "21 DEPARTAMENTOS \n DE GUATEMALA \n TIENEN PRODUCCIÓN \n CAFETALERA" },
                 { "main": "261", "desc": "DE LOS 340\nMUNICIPIOS DEL\nPAÍS PRODUCEN\nCAFÉ" },
                 { "main": "", "desc": "ES CULTIVADO\nBAJO SOMBRA" },
                 { "main": "+125K", "desc": "FAMILIAS\nCAFICULTORAS" },
@@ -100,8 +101,8 @@
             "iconAlt": "Icono Montaña",
             "pink": {
                 "title": {
-                    "top": "Clasificación",
-                    "bottom": "por altitud"
+                    "top": "Clasificación del",
+                    "bottom": "grano por altitud"
                 }
             },
             "playBox": {
