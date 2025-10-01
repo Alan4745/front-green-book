@@ -2,7 +2,7 @@ import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
 
-import IngaLaurina from "../../assets/C3/IngaLaurina.svg";
+import IngaSpuria from "../../assets/C3/IngaSpuria.jpg";
 import IngaEdulis from "../../assets/C3/IngaEdulis.svg";
 import IngaMicheliana from "../../assets/C3/IngaMicheliana.svg";
 
@@ -12,25 +12,26 @@ const Section1C3 = () => {
     // Slides i18n (dentro del componente para reaccionar a cambios de idioma)
     const slides = [
         {
-            src: IngaLaurina,
-            title: t("c3.section1.slider.ingaLaurina.title"),
-            subtitle: t("c3.section1.slider.ingaLaurina.subtitle"),
-            description: t("c3.section1.slider.ingaLaurina.desc"),
-            alt: t("c3.section1.slider.ingaLaurina.alt")
+            src: IngaSpuria,
+            title: t("c3.section1.slider.ingaSpuria.title"),
+            subtitle: t("c3.section1.slider.ingaSpuria.subtitle"),
+            description: t("c3.section1.slider.ingaSpuria.desc"),
+            alt: t("c3.section1.slider.ingaSpuria.alt"),
+            credits: t("c3.section1.slider.ingaSpuria.credits"),
         },
         {
             src: IngaEdulis,
             title: t("c3.section1.slider.ingaEdulis.title"),
             subtitle: t("c3.section1.slider.ingaEdulis.subtitle"),
             description: t("c3.section1.slider.ingaEdulis.desc"),
-            alt: t("c3.section1.slider.ingaEdulis.alt")
+            alt: t("c3.section1.slider.ingaEdulis.alt"),
         },
         {
             src: IngaMicheliana,
             title: t("c3.section1.slider.ingaMicheliana.title"),
             subtitle: t("c3.section1.slider.ingaMicheliana.subtitle"),
             description: t("c3.section1.slider.ingaMicheliana.desc"),
-            alt: t("c3.section1.slider.ingaMicheliana.alt")
+            alt: t("c3.section1.slider.ingaMicheliana.alt"),
         }
     ];
 

@@ -341,7 +341,7 @@
                 "top": "Agroforestry",
                 "bottom": "Systems"
             },
-            "subtitle": "More than 200 years in the shade",
+            "subtitle": "The largest in Guatemala",
             "alts": {
                 "chapter": "Chapter {{num}}",
                 "greenBook": "Green Book logo"
@@ -360,11 +360,12 @@
                 "line1": "Thus, the beans ripen slowly, enhancing their quality and cup profile."
             },
             "slider": {
-                "ingaLaurina": {
-                    "title": "Inga laurina",
+                "ingaSpuria": {
+                    "title": "Inga Spuria",
                     "subtitle": "Cushín",
-                    "desc": "Inga laurina is a tropical shade tree for coffee crops. It fixes nitrogen, improving soil, and bears pods with sweet pulp.",
-                    "alt": "Inga laurina"
+                    "desc": "Inga Spuria is a tropical shade tree for coffee crops. It fixes nitrogen, improving soil, and bears pods with sweet pulp.",
+                    "alt": "Inga Spuria",
+                    "credits": "Photo by Rocío Silva"
                 },
                 "ingaEdulis": {
                     "title": "Inga edulis",

@@ -341,7 +341,7 @@
                 "top": "Sistemas",
                 "bottom": "Agroforestales"
             },
-            "subtitle": "Más de 200 años a la sombra",
+            "subtitle": "El más grande de Guatemala",
             "alts": {
                 "chapter": "Capítulo {{num}}",
                 "greenBook": "Logo de Green Book"
@@ -360,11 +360,12 @@
                 "line1": "Así, los granos maduran despacio, impulsando su calidad y perfil en taza."
             },
             "slider": {
-                "ingaLaurina": {
-                    "title": "Inga laurina",
+                "ingaSpuria": {
+                    "title": "Inga Spuria",
                     "subtitle": "Cushín",
-                    "desc": "La Inga laurina es un árbol tropical que da sombra a cultivos de café. Fija nitrógeno, mejorando el suelo, y tiene vainas con pulpa dulce.",
-                    "alt": "Inga laurina"
+                    "desc": "La Inga Spuria es un árbol tropical que da sombra a cultivos de café. Fija nitrógeno, mejorando el suelo, y tiene vainas con pulpa dulce.",
+                    "alt": "Inga Spuria",
+                    "credits": "Créditos: Rocío Silva"
                 },
                 "ingaEdulis": {
                     "title": "Inga edulis",
