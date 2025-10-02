@@ -465,7 +465,8 @@
             "alts": {
                 "chapter": "Capítulo {{num}}",
                 "greenBook": "Logo de Green Book"
-            }
+            },
+            "credits": "Créditos: Rocío Silva"
         },
         "section1": {
             "aria": {
@@ -486,9 +487,10 @@
                     "highlight": ["hojarasca"]
                 },
                 "f2": {
-                    "title": "Orquídeas, bromelias, musgos y líquenes",
-                    "desc": "Las epífitas como orquídeas, bromelias, musgos y líquenes alojan artrópodos esenciales.",
-                    "highlight": ["orquídeas", "bromelias", "musgos", "líquenes"]
+                    "title": "Orquídeas, gallitos, musgos y líquenes",
+                    "desc": "Las epífitas como orquídeas, gallitos, musgos y líquenes alojan artrópodos esenciales.",
+                    "highlight": ["orquídeas", "gallitos", "musgos", "líquenes"],
+                    "credits": "Créditos: Rocío Silva"
                 },
                 "f3": {
                     "title": "Ingas",
@@ -526,7 +528,8 @@
                     "hover": {
                         "number": "+300",
                         "text": "especies de anfibios y reptiles como ranas y lagartijas."
-                    }
+                    },
+                    "credits": "Créditos: Rocío Silva"
                 }
             }
         },
@@ -553,7 +556,8 @@
                     "hover": {
                         "number": "+90",
                         "text": "tipos de aves migratorias se alimentan y viven en los cafetales"
-                    }
+                    },
+                    "credits": "Créditos: Rocío Silva"
                 }
             }
         }

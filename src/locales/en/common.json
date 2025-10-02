@@ -465,7 +465,8 @@
             "alts": {
                 "chapter": "Chapter {{num}}",
                 "greenBook": "Green Book logo"
-            }
+            },
+            "credits": "Photo by Rocío Silva"
         },
         "section1": {
             "aria": {
@@ -486,9 +487,10 @@
                     "highlight": ["leaf litter"]
                 },
                 "f2": {
-                    "title": "Orchids, bromeliads, mosses and lichens",
-                    "desc": "Epiphytes such as orchids, bromeliads, mosses, and lichens host essential arthropods.",
-                    "highlight": ["orchids", "bromeliads", "mosses", "lichens"]
+                    "title": "Orchids, roosters, mosses and lichens",
+                    "desc": "Epiphytes such as orchids, roosters, mosses, and lichens host essential arthropods.",
+                    "highlight": ["orchids", "roosters", "mosses", "lichens"],
+                    "credits": "Photo by Rocío Silva"
                 },
                 "f3": {
                     "title": "Ingas",
@@ -501,7 +503,7 @@
             "aria": {
                 "section": "Biodiversity: butterflies, bats, amphibians and reptiles"
             },
-            "modalAlt": "Enlarged image",
+            "modalAlt": "Expanded image",
             "buttons": {
                 "expand": "Enlarge",
                 "close": "Close"
@@ -511,14 +513,14 @@
                     "title": "Butterflies",
                     "hover": {
                         "number": "+80",
-                        "text": "species of butterflies just in the western region."
+                        "text": "butterfly species only in the western area."
                     }
                 },
                 "murcielagos": {
                     "title": "Bats",
                     "hover": {
                         "number": "+24",
-                        "text": "species of bats take shelter in shade trees"
+                        "text": "bat species take refuge in shade trees."
                     }
                 },
                 "anfibios": {
@@ -526,7 +528,8 @@
                     "hover": {
                         "number": "+300",
                         "text": "species of amphibians and reptiles such as frogs and lizards."
-                    }
+                    },
+                    "credits": "Photo by Rocío Silva"
                 }
             }
         },
@@ -536,7 +539,7 @@
             },
             "modalAlt": "Enlarged image",
             "buttons": {
-                "expand": "Enlarge",
+                "expand": "Expand",
                 "close": "Close"
             },
             "cols": {
@@ -552,8 +555,9 @@
                     "title": "Migratory birds",
                     "hover": {
                         "number": "+90",
-                        "text": "types of migratory birds feed and live in coffee farms"
-                    }
+                        "text": "types of migratory birds feed and live in coffee plantations"
+                    },
+                    "credits": "Photo by Rocío Silva"
                 }
             }
         }

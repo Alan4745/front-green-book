@@ -9,7 +9,7 @@ const CoverC5 = () => {
     return (
         <PageSkeleton
             assets={[
-                "/Img/C5/ImgC5.svg",
+                "/Img/C5/ImgC5.jpg",
                 "/Img/Global/Numbers/05.svg",
                 "/Logos/LogoPequeño.svg"
             ]}
@@ -19,10 +19,18 @@ const CoverC5 = () => {
         >
             <div
                 className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
-                style={{ backgroundImage: "url('/Img/C5/ImgC5.svg')" }}
+                style={{ backgroundImage: "url('/Img/C5/ImgC5.jpg')" }}
             >
                 {/* Overlay oscuro suave */}
-                <div className="absolute inset-0 bg-black/30 z-20" />
+                <div className="absolute inset-0 bg-black/50 z-20" />
+
+                {/* Créditos imagen de fondo */}
+                <figcaption
+                    className="absolute top-[2vh] left-[2vh] z-30 text-white text-sm bg-black/40 px-3 py-1 rounded"
+                    style={{ fontFamily: "GothamNormal" }}
+                >
+                    {t("c5.cover.credits", { defaultValue: "Créditos: Rocío Silva" })}
+                </figcaption>
 
                 {/* Número de capítulo */}
                 <div className="absolute top-[20vh] right-[25vh] z-30">
@@ -35,7 +43,7 @@ const CoverC5 = () => {
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[30vh] right-[55vh] z-30 text-white text-left">
+                <div className="absolute top-[30vh] right-[50vh] z-30 text-white text-left">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}

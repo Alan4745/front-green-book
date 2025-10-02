@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import F1 from '../../assets/C5/S3/F1.svg';
-import F2 from '../../assets/C5/S3/F2.svg';
+import F1 from '../../assets/C5/S3/F1.jpg';
+import F2 from '../../assets/C5/S3/F2.jpg';
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
@@ -36,7 +36,8 @@ const Section3C5 = () => {
                 hover: {
                     number: 'c5.section3.cols.aves.hover.number',
                     text: 'c5.section3.cols.aves.hover.text'
-                }
+                },
+                credits: 'c5.section3.cols.aves.credits'
             }
         }
     };
@@ -119,6 +120,14 @@ const Section3C5 = () => {
                     <div className="absolute mt-2 w-[20vh] right-0 border-t-12 border-[#562E91]"></div>
                 </h2>
 
+                {/* Créditos */}
+                <p
+                    className="absolute bottom-4 left-4 text-white text-sm opacity-80"
+                    style={{ fontFamily: "GothamNormal" }}
+                >
+                    {t(keys.cols.aves.credits)}
+                </p>
+
                 {/* Texto hover */}
                 {hoveredSection === 'murcielagos' && (
                     <div className="absolute top-20 right-10 text-white transition-all duration-300">
@@ -163,7 +172,6 @@ const Section3C5 = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

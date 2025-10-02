@@ -43,26 +43,37 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
     return (
         <div className="relative">
             {/* Contenedor de tarjetas */}
-            <div className="flex justify-center items-end mb-4">
+            <div className="flex justify-center items-end mb-4 relative">
                 {rearrangedSlides.map((slide, index) => (
-                    <Card
-                        key={`${slide.title}-${currentIndex}-${index}`}
-                        image={slide.image}
-                        Number={slide.Number}
-                        title={slide.title}
-                        description={slide.description}
-                        MaxW={slide.MaxW}
-                        highlightWords={slide.highlightWords}
-                        onExpandClick={index === 0 ? onExpandClick : null} // Solo la primera card (grande) puede expandir
-                        className={`flex-shrink-0 transition-all duration-700 ease-out ${
-                            index === 0 ? 'transform scale-y-220 scale-x-150' : 'transform scale-y-100 scale-x-100'
-                        }`}
-                        style={{
-                            transitionDelay: `${index * 100}ms`,
-                            transformOrigin: 'bottom center',
-                            marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
-                        }}
-                    />
+                    <div key={`${slide.title}-${currentIndex}-${index}`} className="relative">
+                        <Card
+                            image={slide.image}
+                            Number={slide.Number}
+                            title={slide.title}
+                            description={slide.description}
+                            MaxW={slide.MaxW}
+                            highlightWords={slide.highlightWords}
+                            onExpandClick={index === 0 ? onExpandClick : null} // Solo la primera card (grande) puede expandir
+                            className={`flex-shrink-0 transition-all duration-700 ease-out ${
+                                index === 0 ? 'transform scale-y-220 scale-x-150' : 'transform scale-y-100 scale-x-100'
+                            }`}
+                            style={{
+                                transitionDelay: `${index * 100}ms`,
+                                transformOrigin: 'bottom center',
+                                marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
+                            }}
+                        />
+
+                        {/* Créditos en la esquina inferior derecha SOLO si existen */}
+                        {slide.credits && index === 0 && (
+                            <span
+                                className="absolute bottom-2 right-[10vh] text-white text-xs bg-black/50 px-2 py-1 rounded"
+                                style={{ fontFamily: 'GothamNormal' }}
+                            >
+                                {slide.credits}
+                            </span>
+                        )}
+                    </div>
                 ))}
             </div>
 

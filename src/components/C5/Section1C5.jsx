@@ -4,9 +4,9 @@ import HoverButton from '../Global/HoverButton';
 import { useTranslation } from 'react-i18next';
 
 // Asegúrate de que las rutas sean correctas
-import F1 from '../../assets/C5/F1.svg';
+import F1 from '../../assets/C5/F1.jpg';
 import F2 from '../../assets/C5/F2.svg';
-import F3 from '../../assets/C5/F3.svg';
+import F3 from '../../assets/C5/F3.jpg';
 
 import Number1 from '../../assets/C5/Numbers/Number1.png';
 import Number2 from '../../assets/C5/Numbers/Number2.svg';
@@ -46,7 +46,7 @@ const Section1C5 = () => {
         );
     };
 
-    // Slides i18n (usamos returnObjects para arrays de highlight)
+    // Slides i18n
     const slidesData = [
         {
             image: F1,
@@ -60,7 +60,8 @@ const Section1C5 = () => {
             title: t('c5.section1.slides.f2.title'),
             description: t('c5.section1.slides.f2.desc'),
             Number: Number2,
-            highlightWords: t('c5.section1.slides.f2.highlight', { returnObjects: true })
+            highlightWords: t('c5.section1.slides.f2.highlight', { returnObjects: true }),
+            credits: t('c5.section1.slides.f3.credits', { defaultValue: 'Créditos: Rocío Silva' })
         },
         {
             image: F3,
@@ -88,7 +89,7 @@ const Section1C5 = () => {
                 />
             </div>
 
-            {/* Título ajustado */}
+            {/* Título */}
             <h2
                 className="absolute top-[18vh] left-[43.2vw] text-white text-[5vh] uppercase"
                 style={{ fontFamily: 'GothamBold' }}
@@ -96,7 +97,7 @@ const Section1C5 = () => {
                 {t('c5.section1.title')}
             </h2>
 
-            {/* Primer párrafo ajustado */}
+            {/* Intro */}
             <p
                 className="absolute w-[30%] text-justify text-white text-[2.2vh] top-[28vh] left-[43.2vw]"
                 style={{ fontFamily: 'GothamNormal' }}
@@ -104,7 +105,7 @@ const Section1C5 = () => {
                 {t('c5.section1.intro')}
             </p>
 
-            {/* Segundo párrafo ajustado */}
+            {/* Outro */}
             <p
                 className="relative w-[35%] text-justify text-white text-[2.2vh] left-[11vw] mb-10"
                 style={{ fontFamily: 'GothamNormal' }}
@@ -112,7 +113,7 @@ const Section1C5 = () => {
                 {t('c5.section1.outro')}
             </p>
 
-            {/* Slider al fondo */}
+            {/* Slider */}
             <div className="absolute bottom-[4vh] w-full flex justify-center">
                 <BigSlider slides={slidesData} onExpandClick={openLightbox} />
             </div>

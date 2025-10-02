@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import F1 from '../../assets/C5/S2/F1.svg';
 import F2 from '../../assets/C5/S2/F2.svg';
-import F3 from '../../assets/C5/S2/F3.svg';
+import F3 from '../../assets/C5/S2/F3.jpg';
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
@@ -37,18 +37,19 @@ const Section2C5 = () => {
             anfibios: {
                 title: 'c5.section2.cols.anfibios.title',
                 number: 'c5.section2.cols.anfibios.hover.number',
-                text: 'c5.section2.cols.anfibios.hover.text'
+                text: 'c5.section2.cols.anfibios.hover.text',
+                credits: 'c5.section2.cols.anfibios.credits' // 👈 nueva clave
             }
         }
     };
 
-    // Función para abrir el lightbox
+    // Abrir lightbox
     const openLightbox = (img) => {
         setCurrentImage(img);
         setIsLightboxOpen(true);
     };
 
-    // Función para cerrar el lightbox
+    // Cerrar lightbox
     const closeLightbox = () => {
         setIsLightboxOpen(false);
     };
@@ -80,7 +81,6 @@ const Section2C5 = () => {
                     <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div>
                 </h2>
 
-                {/* Texto hover */}
                 {hoveredSection === 'mariposas' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
                         <p className="text-2xl text-justify w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
@@ -90,7 +90,6 @@ const Section2C5 = () => {
                     </div>
                 )}
 
-                {/* Botón de expandir - Abajo a la derecha */}
                 <ExpandButton
                     onClick={() => openLightbox(F1)}
                     title={t(keys.buttons.expand)}
@@ -119,7 +118,6 @@ const Section2C5 = () => {
                     <div className="absolute mt-2 w-[20vh] right-0 border-t-12 border-[#562E91]"></div>
                 </h2>
 
-                {/* Texto hover */}
                 {hoveredSection === 'murcielagos' && (
                     <div className="absolute top-40 left-8 text-white transition-all duration-300">
                         <p className="text-2xl text-justify w/[45vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
@@ -129,7 +127,6 @@ const Section2C5 = () => {
                     </div>
                 )}
 
-                {/* Botón de expandir - Arriba a la izquierda */}
                 <ExpandButton
                     onClick={() => openLightbox(F2)}
                     title={t(keys.buttons.expand)}
@@ -158,7 +155,6 @@ const Section2C5 = () => {
                     <div className="mt-2 w-[20vh] border-t-12 border-[#562E91]"></div>
                 </h2>
 
-                {/* Texto hover */}
                 {hoveredSection === 'anfibios' && (
                     <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
                         <p className="text-2xl text-justify w-[40vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
@@ -168,7 +164,14 @@ const Section2C5 = () => {
                     </div>
                 )}
 
-                {/* Botón de expandir - Abajo a la derecha */}
+                {/* 👇 Créditos en esquina inferior izquierda */}
+                <figcaption
+                    className="absolute bottom-4 left-4 text-white text-sm bg-black/40 px-2 py-1 rounded"
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
+                    {t(keys.cols.anfibios.credits, { defaultValue: "Créditos: Rocío Silva" })}
+                </figcaption>
+
                 <ExpandButton
                     onClick={() => openLightbox(F3)}
                     title={t(keys.buttons.expand)}
@@ -186,14 +189,12 @@ const Section2C5 = () => {
                     aria-label={t(keys.aria.modal)}
                 >
                     <div className="relative">
-                        {/* Botón de cerrar */}
                         <CloseButton
                             onClick={closeLightbox}
                             className="absolute top-4 right-4 text-white"
                             aria-label={t(keys.buttons.close)}
                             title={t(keys.buttons.close)}
                         />
-                        {/* Imagen ampliada */}
                         <img
                             src={currentImage}
                             alt={t(keys.aria.modal)}
@@ -202,7 +203,6 @@ const Section2C5 = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };
