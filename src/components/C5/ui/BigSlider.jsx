@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Card from './Card';
 
 const BigSlider = ({ slides = [], onExpandClick = null }) => {
@@ -45,7 +46,19 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
             {/* Contenedor de tarjetas */}
             <div className="flex justify-center items-end mb-4 relative">
                 {rearrangedSlides.map((slide, index) => (
-                    <div key={`${slide.title}-${currentIndex}-${index}`} className="relative">
+                    <motion.div
+                        key={`${slide.title}-${currentIndex}-${index}`}
+                        className="relative"
+                        layout
+                        initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                        transition={{
+                            layout: { type: 'spring', stiffness: 260, damping: 28 },
+                            duration: 0.45,
+                            ease: [0.22, 1, 0.36, 1]
+                        }}
+                    >
                         <Card
                             image={slide.image}
                             Number={slide.Number}
@@ -66,14 +79,18 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
 
                         {/* Créditos en la esquina inferior derecha SOLO si existen */}
                         {slide.credits && index === 0 && (
-                            <span
+                            <motion.span
                                 className="absolute bottom-2 right-[10vh] text-white text-xs bg-black/50 px-2 py-1 rounded"
                                 style={{ fontFamily: 'GothamNormal' }}
+                                initial={{ opacity: 0, y: 6 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 6 }}
+                                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             >
                                 {slide.credits}
-                            </span>
+                            </motion.span>
                         )}
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
