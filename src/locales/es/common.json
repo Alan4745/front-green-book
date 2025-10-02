@@ -422,9 +422,9 @@
                 "f1": { "title": "Conservan el suelo", "alt": "Ecosistemas saludables" },
                 "f2": { "title": "Fijan el carbono y nitrógeno", "alt": "Fijan el carbono y nitrógeno" },
                 "f3": { "title": "Regulan los ciclos del agua", "alt": "Regulan los ciclos del agua" },
-                "f4": { "title": "Purifican el aire", "alt": "Purifican el aire" },
+                "f4": { "title": "Purifican el aire", "alt": "Purifican el aire", "credits": "Créditos: Miguel Teleguario" },
                 "f5": { "title": "Mitigan las sequías e inundaciones", "alt": "Mitigan las sequías e inundaciones" },
-                "f6": { "title": "Mantienen la biodiversidad", "alt": "Mantienen la biodiversidad" },
+                "f6": { "title": "Mantienen la biodiversidad", "alt": "Mantienen la biodiversidad", "credits": "Créditos: Rocío Silva" },
                 "f7": { "title": "Recreación y belleza natural", "alt": "Recreación y belleza natural" }
             }
         },
@@ -438,8 +438,8 @@
                 "close": "Cerrar"
             },
             "left": {
-                "title": "Suelos únicos",
-                "desc": "Los suelos volcánicos guatemaltecos, ricos en minerales y nutrientes se energizan gracias a las raíces y las hojas de los árboles de sombra.",
+                "title": "Diversidad de microclimas",
+                "desc": "Guatemala, un origen con una riqueza y diversidad de ecosistemas, en donde la altitud, los suelos de origen volcánico y la cultura cafetalera enfocada a la calidad, permiten ser un origen versátil de perfiles de taza únicos, que han sido reconocidos y valorados por la industria del café a lo largo de su historia.",
                 "imgAlt": "Suelos únicos"
             },
             "right": {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import F1 from "../../assets/C4/img/F1.svg"; // Asegúrate de que la ruta sea correcta
-import F2 from "../../assets/C4/img/F2.svg"; // Asegúrate de que la ruta sea correcta
+import F2 from "../../assets/C4/img/F2.jpg"; // Asegúrate de que la ruta sea correcta
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
 
@@ -56,10 +56,10 @@ const Section2C4 = () => {
             <div className="relative w-full text-white">
                 {/* Títulos */}
                 <div className="absolute top-[30vh] left-[15vh]">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                    <h3 className="text-3xl font-bold uppercase w-[30vh]" style={{ fontFamily: "GothamBold" }}>
                         {t(keys.left.title)}
                     </h3>
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-13vh]" style={{ fontFamily: "GothamBold" }}>
+                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
                         01
                     </div>
                 </div>

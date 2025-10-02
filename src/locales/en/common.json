@@ -422,9 +422,9 @@
                 "f1": { "title": "Conserve the soil", "alt": "Healthy ecosystems" },
                 "f2": { "title": "Sequester carbon and nitrogen", "alt": "Sequester carbon and nitrogen" },
                 "f3": { "title": "Regulate water cycles", "alt": "Regulate water cycles" },
-                "f4": { "title": "Purify the air", "alt": "Purify the air" },
+                "f4": { "title": "Purify the air", "alt": "Purify the air", "credits": "Photo by Miguel Teleguario" },
                 "f5": { "title": "Mitigate droughts and floods", "alt": "Mitigate droughts and floods" },
-                "f6": { "title": "Maintain biodiversity", "alt": "Maintain biodiversity" },
+                "f6": { "title": "Maintain biodiversity", "alt": "Maintain biodiversity", "credits": "Photo by Rocío Silva" },
                 "f7": { "title": "Recreation and natural beauty", "alt": "Recreation and natural beauty" }
             }
         },
@@ -438,7 +438,7 @@
                 "close": "Close"
             },
             "left": {
-                "title": "Unique soils",
+                "title": "Diversity of microclimates",
                 "desc": "Guatemalan volcanic soils, rich in minerals and nutrients, are energized by the roots and leaves of shade trees.",
                 "imgAlt": "Unique soils"
             },

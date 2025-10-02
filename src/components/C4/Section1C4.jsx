@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 import F1 from "../../assets/C4/F1.svg";
 import F2 from "../../assets/C4/F2.svg";
 import F3 from "../../assets/C4/F3.svg";
-import F4 from "../../assets/C4/F4.svg";
-import F5 from "../../assets/C4/F5.svg";
-import F6 from "../../assets/C4/F6.svg";
-import F7 from "../../assets/C4/F7.svg";
+import F4 from "../../assets/C4/F4.jpeg";
+import F5 from "../../assets/C4/F5.jpg";
+import F6 from "../../assets/C4/F6.jpg";
+import F7 from "../../assets/C4/F7.jpg";
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
@@ -30,10 +30,10 @@ const Section1C4 = () => {
             f1: { alt: "c4.section1.items.f1.alt", title: "c4.section1.items.f1.title" },
             f2: { alt: "c4.section1.items.f2.alt", title: "c4.section1.items.f2.title" },
             f3: { alt: "c4.section1.items.f3.alt", title: "c4.section1.items.f3.title" },
-            f4: { alt: "c4.section1.items.f4.alt", title: "c4.section1.items.f4.title" },
-            f5: { alt: "c4.section1.items.f5.alt", title: "c4.section1.items.f5.title" },
-            f6: { alt: "c4.section1.items.f6.alt", title: "c4.section1.items.f6.title" },
-            f7: { alt: "c4.section1.items.f7.alt", title: "c4.section1.items.f7.title" }
+            f4: { alt: "c4.section1.items.f4.alt", title: "c4.section1.items.f4.title", credits: "c4.section1.items.f4.credits" },
+            f5: { alt: "c4.section1.items.f5.alt", title: "c4.section1.items.f5.title", credits: "c4.section1.items.f5.credits" },
+            f6: { alt: "c4.section1.items.f6.alt", title: "c4.section1.items.f6.title", credits: "c4.section1.items.f6.credits" },
+            f7: { alt: "c4.section1.items.f7.alt", title: "c4.section1.items.f7.title", credits: "c4.section1.items.f7.credits" }
         }
     };
 
@@ -154,6 +154,13 @@ const Section1C4 = () => {
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
                     </div>
+                    {/* Créditos (inferior izquierda) */}
+                    <figcaption
+                        className="absolute left-4 bottom-4 text-white text-sm"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                        {t(keys.items.f4.credits)}
+                    </figcaption>
                     {/* Botón expandir */}
                     <ExpandButton
                         onClick={() => openLightbox(F4, keys.items.f4.alt)}
@@ -179,6 +186,12 @@ const Section1C4 = () => {
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
                     </div>
+                    {/* Créditos (inferior izquierda) */}
+                    <figcaption
+                        className="absolute left-4 bottom-4 text-white text-sm"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                    </figcaption>
                     {/* Botón expandir */}
                     <ExpandButton
                         onClick={() => openLightbox(F5, keys.items.f5.alt)}
@@ -204,6 +217,13 @@ const Section1C4 = () => {
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
                     </div>
+                    {/* Créditos (inferior izquierda) */}
+                    <figcaption
+                        className="absolute left-4 bottom-4 text-white text-sm"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                        {t(keys.items.f6.credits)}
+                    </figcaption>
                     {/* Botón expandir */}
                     <ExpandButton
                         onClick={() => openLightbox(F6, keys.items.f6.alt)}
@@ -229,6 +249,12 @@ const Section1C4 = () => {
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
                     </div>
+                    {/* Créditos (inferior izquierda) */}
+                    <figcaption
+                        className="absolute left-4 bottom-4 text-white text-sm"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                    </figcaption>
                     {/* Botón expandir */}
                     <ExpandButton
                         onClick={() => openLightbox(F7, keys.items.f7.alt)}
