@@ -6,8 +6,8 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
 
 // ✅ Importa assets (evita rutas "src/..." para que el build resuelva bien)
-import Img1 from '../../assets/C6/F5.svg';
-import Img2 from '../../assets/C6/F6.svg';
+import Img1 from '../../assets/C6/F5.jpg';
+import Img2 from '../../assets/C6/F6.jpg';
 
 const Section3C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -99,7 +99,8 @@ const Section3C6 = () => {
                 {/* Título izquierda */}
                 <div className="absolute top-[30vh] left-[15vh]">
                     <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
-                        {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
+                        {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")} 
+                        <br /> {t("c6.section3.left.title.tercera")}
                     </h3>
                     {/* Número grande 05 */}
                     <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -111,6 +112,7 @@ const Section3C6 = () => {
                 <div className="absolute top-[30vh] right-[15vh] text-right">
                     <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section3.right.title.top")} <br /> {t("c6.section3.right.title.bottom")}
+                        <br /> {t("c6.section3.right.title.tercera")}
                     </h3>
                     {/* Número grande 06 */}
                     <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -128,12 +130,9 @@ const Section3C6 = () => {
                 </div>
 
                 {/* Texto descriptivo derecha */}
-                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[40vh]">
+                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[42vh]">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section3.right.desc.pre")}
-                        <span style={{ fontFamily: "GothamBold", fontWeight: "bold" }}>
-                            {t("c6.section3.right.desc.anacafe")}
-                        </span>{" "}
                         {t("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
                     </p>
                 </div>

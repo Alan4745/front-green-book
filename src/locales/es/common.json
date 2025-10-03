@@ -659,7 +659,8 @@
             "left": {
                 "title": {
                     "top": "El agua en el proceso",
-                    "bottom": "del café"
+                    "bottom": "de transformación",
+                    "tercera": "del café"
                 },
                 "desc": {
                     "line1": "Durante el despulpado y lavado del grano,",
@@ -669,13 +670,13 @@
             },
             "right": {
                 "title": {
-                    "top": "Reducir y reutilizar",
-                    "bottom": "el recurso"
+                    "top": "Reducir, Reciclar",
+                    "bottom": "y Reutilizar",
+                    "tercera": "el recurso"
                 },
                 "desc": {
-                    "pre": "La mayor parte del agua se usa para transportar y despulpar el café. Con rediseño y buenas prácticas, ",
-                    "anacafe": "Anacafé",
-                    "post": " ha ayudado a los productores a reducir el consumo de agua a solamente {{liters}} litros por cada {{lbs}} libras procesadas."
+                    "pre": "Anacafé ha impulsado la implementación de tecnologías y buenas prácticas para reducir el uso del agua que",
+                    "post": "se emplea para transformar el café, hasta 100 litros por quintal café pergamino."
                 }
             },
             "images": {
@@ -695,16 +696,16 @@
             "left": {
                 "title": "Manejo responsable",
                 "desc": {
-                    "line1": "Desde 2006, en Guatemala es obligatorio manejar de forma responsable los subproductos del café, incluyendo",
-                    "line2": "el agua residual."
+                    "line1": "Los subproductos del beneficiado de café, la pulpa y el mucílago, son aprovechados para producir abonos orgánicos, que regresan a los sistemas",
+                    "line2": "agroforestales de café para aportar nutrientes y microbiología a los suelos."
                 }
             },
             "right": {
                 "title": "Del residuo al compost",
                 "desc": {
-                    "line1": "Mediante pozos de infiltración, el mucílago",
-                    "line2": "del café puede atraparse y aprovecharse",
-                    "line3": "como insumo para compostaje."
+                    "line1": "El proceso de beneficiado húmedo, significa",
+                    "line2": "una oportunidad de agregar valor, trazabilidad",
+                    "line3": "y competitividad a las familias productoras de café en Guatemala."
                 }
             },
             "images": {

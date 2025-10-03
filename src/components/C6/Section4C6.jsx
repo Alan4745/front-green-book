@@ -6,8 +6,8 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
 
 // ✅ Importa assets (evita rutas "src/..." para build)
-import Img1 from '../../assets/C6/F7.svg';
-import Img2 from '../../assets/C6/F8.svg';
+import Img1 from '../../assets/C6/F7.jpg';
+import Img2 from '../../assets/C6/F8.jpg';
 
 const Section4C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -119,7 +119,7 @@ const Section4C6 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[45vh]">
+                <div className="absolute top-[60vh] left-[15vh] max-w-[42vh] text-justify">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                         {t('c6.section4.left.desc.line1')} <br />
                         {t('c6.section4.left.desc.line2')}
@@ -127,7 +127,7 @@ const Section4C6 = () => {
                 </div>
 
                 {/* Texto descriptivo derecha */}
-                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[50vh]">
+                <div className="absolute top-[60vh] right-[15vh] text-right max-w-[47vh]">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                         {t('c6.section4.right.desc.line1')} <br />
                         {t('c6.section4.right.desc.line2')} <br />

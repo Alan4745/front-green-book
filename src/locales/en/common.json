@@ -658,8 +658,9 @@
             },
             "left": {
                 "title": {
-                    "top": "Water in the coffee",
-                    "bottom": "process"
+                    "top": "Water in the process",
+                    "bottom": "of transformation",
+                    "tercera": "of coffee"
                 },
                 "desc": {
                     "line1": "During depulping and washing, water is a",
@@ -669,8 +670,9 @@
             },
             "right": {
                 "title": {
-                    "top": "Reduce and reuse",
-                    "bottom": "the resource"
+                    "top": "Reduce, Recycle",
+                    "bottom": "and Reuse the",
+                    "tercera": "resource"
                 },
                 "desc": {
                     "pre": "Most of the water is used to transport and depulp coffee. With redesign and good practices, ",
@@ -695,16 +697,16 @@
             "left": {
                 "title": "Responsible management",
                 "desc": {
-                    "line1": "Since 2006, in Guatemala it is mandatory to responsibly manage coffee by-products,",
-                    "line2": "including wastewater."
+                    "line1": "The by-products of coffee processing, the pulp and mucilage, are used to produce organic fertilizers that return to the",
+                    "line2": "systems of coffee agroforestry to provide nutrients and microbiology to the soils."
                 }
             },
             "right": {
                 "title": "From waste to compost",
                 "desc": {
-                    "line1": "Through infiltration pits, the coffee",
-                    "line2": "mucilage can be captured and used",
-                    "line3": "as an input for composting."
+                    "line1": "The wet milling process means an",
+                    "line2": "opportunity to add value, traceability",
+                    "line3": "and competitiveness to coffee-producing families in Guatemala."
                 }
             },
             "images": {
