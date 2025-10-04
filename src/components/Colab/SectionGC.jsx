@@ -6,11 +6,83 @@ import BackButton from '../Global/BackButton';
 import LanguageSelector from '../Global/LanguageSelector';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 
+function TextMaskOverlay({
+    className = '',
+    rectOpacity = 0.9,
+    topText = 'GUATEM',
+    bottomText = 'COFFE',
+}) {
+    const VB_WIDTH = 1200;
+    const VB_HEIGHT = 900;
+
+    const TOP_Y = 480;
+    const BOTTOM_Y = 580;
+    const TOP_FONT = 240;
+    const BOTTOM_FONT = 80;
+    const X_START = VB_WIDTH - 0;
+    const TOP_TRACKING = 8;
+    const BOTTOM_TRACKING = 3;
+
+    return (
+        <svg
+            className={`absolute top-0 left-0 h-full w-3/5 ${className}`}
+            viewBox={`0 0 ${VB_WIDTH} ${VB_HEIGHT}`}
+            preserveAspectRatio="none"
+            role="img"
+            aria-label="Máscara de texto sobre video"
+            style={{ pointerEvents: 'none', fontFamily: 'FuenteGrande' }}
+        >
+            <defs>
+                <mask id="mask-cutout-gc" x="0" y="0" width="100%" height="100%">
+                    <rect
+                        x="0"
+                        y="0"
+                        width={VB_WIDTH}
+                        height={VB_HEIGHT}
+                        fill="white"
+                    />
+                    {/* Texto que recorta */}
+                    <text
+                        x={X_START}
+                        y={TOP_Y}
+                        fill="black"
+                        fontSize={TOP_FONT}
+                        letterSpacing={TOP_TRACKING}
+                        textAnchor="end"
+                    >
+                        {topText}
+                    </text>
+                    <text
+                        x={X_START}
+                        y={BOTTOM_Y}
+                        fill="black"
+                        fontSize={BOTTOM_FONT}
+                        letterSpacing={BOTTOM_TRACKING}
+                        textAnchor="end"
+                    >
+                        {bottomText}
+                    </text>
+                </mask>
+            </defs>
+
+            {/* Rectángulo con la máscara recortada */}
+            <rect
+                x="0"
+                y="0"
+                width={VB_WIDTH}
+                height={VB_HEIGHT}
+                fill={`rgba(255,255,255,${rectOpacity})`}
+                mask="url(#mask-cutout-gc)"
+            />
+        </svg>
+    );
+}
+
 const SectionGC = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
-    const [cleanView, setCleanView] = useState(false); // true = solo video
-    const [isPlaying, setIsPlaying] = useState(true); // true = reproduciendo
+    const [cleanView, setCleanView] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const videoRef = useRef(null);
     
     const togglePlayPause = () => {
@@ -25,42 +97,45 @@ const SectionGC = () => {
     };
 
     return (
-        <div className="relative min-h-screen w-full flex">
-            {/* 🎬 Video de fondo (NO se desmonta, por eso no se reinicia) */}
+        <div
+            className="relative min-h-screen w-full flex"
+            role="region"
+            aria-label={t('colab.gc.aria.section')}
+        >
             <video
                 ref={videoRef}
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 autoPlay
                 loop
                 playsInline
-                title={t('colab.gc.video.title')}
-                aria-label={t('colab.gc.video.title')}
+                aria-label={t('colab.gc.videoAlt')}
             >
                 <source src={VideoGC} type="video/mp4" />
-                {t('colab.gc.video.unsupported')}
+                {t('colab.gc.videoFallback')}
             </video>
 
-            {/* 🖼️ Overlays (se ocultan/mostran con fade) */}
             <div
                 className={`absolute inset-0 z-20 transition-opacity duration-300 ${
                     cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
             >
-                {/* Rectángulo izquierda con opacidad */}
-                <div className="absolute top-0 left-0 w-3/5 h-full bg-white/90" />
+                <TextMaskOverlay
+                    className=""
+                    rectOpacity={0.9}
+                    topText="GUATEM"
+                    bottomText="COFFE"
+                />
 
-                {/* Botón de retroceso */}
                 <div className="absolute top-6 left-6">
                     <BackButton onClick={() => navigate('/colab')} color="black" />
                 </div>
 
-                {/* 🌐 Selector de idioma (tema negro) */}
-                <div className="absolute bottom-6 left-[100vh] z-30">
+                <div className="absolute bottom-6 left-[95vh] z-30">
                     <LanguageSelector
                         textColor="#000000"
                         subtextColor="#00000099"
-                        buttonBg="#00000020"    // negro con ~12.5% de opacidad
-                        menuBg="#00000010"      // negro con ~6% de opacidad
+                        buttonBg="#00000020"
+                        menuBg="#00000010"
                         activeBg="#000000"  
                         activeTextColor="#ffffff"
                     />
@@ -75,19 +150,37 @@ const SectionGC = () => {
                     </p>
                     <button
                         type="button"
-                        // 🔁 Ahora usa useNavigate para navegación interna
                         onClick={() => navigate('/colab/sgc/covergc')}
                         className="mt-4 text-black py-2 underline underline-offset-6 cursor-pointer uppercase"
-                        style={{ fontFamily: 'GothamBold' }}
                         title={t('colab.gc.overlay.ctaAria')}
                         aria-label={t('colab.gc.overlay.ctaAria')}
+                        style={{ fontFamily: 'GothamBold' }}
                     >
                         {t('colab.gc.overlay.cta')}
                     </button>
                 </div>
             </div>
 
-            {/* 🎵 Botón de pausa/play en esquina superior derecha */}
+            {/* Texto FÉ y A en la derecha */}
+            <div className={`absolute top-0 right-0 h-full flex z-10 transition-opacity duration-300 ${
+                cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
+            }`}>
+                <div className="text-white text-left pr-[20vh] mt-69.5">
+                    <div 
+                        className="text-[16rem] leading-none tracking-wider font-bold"
+                        style={{ fontFamily: 'FuenteGrande' }}
+                    >
+                        ALAN
+                    </div>
+                    <div 
+                        className="text-[5rem] leading-none ml-1 mt-1.5 font-bold"
+                        style={{ fontFamily: 'FuenteGrande' }}
+                    >
+                        ES
+                    </div>
+                </div>
+            </div>
+
             <button
                 type="button"
                 onClick={togglePlayPause}
@@ -96,44 +189,37 @@ const SectionGC = () => {
                 aria-label={isPlaying ? t('colab.gc.controls.pause') : t('colab.gc.controls.play')}
             >
                 {isPlaying ? (
-                    // Icono de pausa
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-8 w-8 text-white"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-hidden="true"
-                        focusable="false"
                     >
                         <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                     </svg>
                 ) : (
-                    // Icono de play
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-8 w-8 text-white"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                         aria-hidden="true"
-                        focusable="false"
                     >
                         <path d="M8 5v14l11-7z" />
                     </svg>
                 )}
             </button>
 
-            {/* 🔘 Botón flotante para alternar "Solo video" / "Mostrar contenido" */}
             <button
                 type="button"
                 aria-pressed={cleanView}
                 title={cleanView ? t('colab.gc.controls.toggle.show') : t('colab.gc.controls.toggle.hide')}
                 aria-label={cleanView ? t('colab.gc.controls.toggle.show') : t('colab.gc.controls.toggle.hide')}
-                onClick={() => setCleanView(v => !v)}
+                onClick={() => setCleanView((v) => !v)}
                 className="absolute bottom-6 right-6 z-30 inline-flex items-center gap-2 rounded-full bg-white/70 text-black px-4 py-2 backdrop-blur hover:bg-white/80 active:scale-[0.98] transition"
             >
-                {/* Iconito inline (ojo / ojo tachado) */}
                 {cleanView ? (
-                    // Eye-off
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -141,7 +227,6 @@ const SectionGC = () => {
                         fill="none"
                         stroke="currentColor"
                         aria-hidden="true"
-                        focusable="false"
                     >
                         <path
                             strokeWidth="2"
@@ -149,7 +234,6 @@ const SectionGC = () => {
                         />
                     </svg>
                 ) : (
-                    // Eye
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -157,16 +241,23 @@ const SectionGC = () => {
                         fill="none"
                         stroke="currentColor"
                         aria-hidden="true"
-                        focusable="false"
                     >
                         <path
                             strokeWidth="2"
                             d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
                         />
-                        <circle cx="12" cy="12" r="3" strokeWidth="2" />
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="3"
+                            strokeWidth="2"
+                        />
                     </svg>
                 )}
-                <span className="text-sm font-medium">
+                <span
+                    className="text-sm font-medium"
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
                     {cleanView ? t('colab.gc.controls.toggle.show') : t('colab.gc.controls.toggle.hide')}
                 </span>
             </button>
