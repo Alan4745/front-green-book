@@ -12,11 +12,11 @@ const Carrousel = () => {
         // Fallback si aún no tienes las llaves en el JSON
         return [
             { text: "EL CAFÉ EN GUATEMALA", bgImage: "/Img/Start/Caps/bg1.svg", chapter: "c1" },
-            { text: "LAS 8 REGIONES DEL CAFÉ", bgImage: "/Img/Start/Caps/bg2.svg", chapter: "c2" },
-            { text: "SISTEMAS AGROFORESTALES", bgImage: "/Img/Start/Caps/bg3.svg", chapter: "c3" },
-            { text: "BENEFICIOS ECOSISTÉMICOS", bgImage: "/Img/Start/Caps/bg4.svg", chapter: "c4" },
-            { text: "UN ENTORNO DIVERSO POR EXPLORAR", bgImage: "/Img/Start/Caps/bg5.svg", chapter: "c5" },
-            { text: "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", bgImage: "/Img/Start/Caps/bg6.svg", chapter: "c6" },
+            { text: "LAS 8 REGIONES DEL CAFÉ", bgImage: "/Img/Start/Caps/bg2.png", chapter: "c2" },
+            { text: "SISTEMAS AGROFORESTALES", bgImage: "/Img/Start/Caps/bg3.png", chapter: "c3" },
+            { text: "BENEFICIOS ECOSISTÉMICOS", bgImage: "/Img/Start/Caps/bg4.png", chapter: "c4" },
+            { text: "UN ENTORNO DIVERSO POR EXPLORAR", bgImage: "/Img/Start/Caps/bg5.png", chapter: "c5" },
+            { text: "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", bgImage: "/Img/Start/Caps/bg6.png", chapter: "c6" },
         ];
         }
         return arr;

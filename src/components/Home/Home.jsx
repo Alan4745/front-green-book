@@ -7,10 +7,10 @@ import MainMenu from "../Global/MainMenu";
 import ColabButton from "./ui/ColabButton";
 
 const backgrounds = [
-    "/Img/Start/Fondo1.svg",
-    "/Img/Start/Fondo2.svg",
-    "/Img/Start/Fondo3.svg",
-    "/Img/Start/Fondo4.svg",
+    "/Img/Start/Fondo1.png",
+    "/Img/Start/Fondo2.png",
+    "/Img/Start/Fondo3.png",
+    "/Img/Start/Fondo4.png",
     ];
 
     const FADE_DURATION = 2; // seg (ajústalo a tu gusto)
