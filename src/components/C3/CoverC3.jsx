@@ -9,7 +9,7 @@ const CoverC3 = () => {
     return (
         <PageSkeleton
             assets={[
-                    "/Img/C3/ImgC3.svg",
+                    "/Img/C3/ImgC3.png",
                     "/Img/Global/Numbers/03.svg",
                     "/Logos/LogoPequeño.svg"
                 ]}
@@ -19,7 +19,7 @@ const CoverC3 = () => {
         >
             <div
                 className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
-                style={{ backgroundImage: "url('/Img/C3/ImgC3.svg')" }}
+                style={{ backgroundImage: "url('/Img/C3/ImgC3.png')" }}
             >
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
