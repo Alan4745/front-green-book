@@ -6,7 +6,7 @@ import LanguageSelector from "../Global/LanguageSelector";
 import AltitudSteps from "./ui/AltitudSteps";
 import CloseButton from "../Global/CloseButton";
 
-import FS4 from "../../assets/C1/FS4.svg";
+import FS4 from "../../assets/C1/FS4.png";
 import IconoMontaña from "../../assets/C1/IconoMontaña.svg";
 import Vid1 from "../../assets/C1/Vid1.mp4";
 
