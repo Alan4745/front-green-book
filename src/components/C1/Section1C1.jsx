@@ -7,7 +7,7 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
 
 // ✅ Importa assets
-import Vid2Mov from '../../assets/C1/Vid2.mov'; // el .mov original
+import Vid2Mov from '../../assets/C1/Vid2.mp4'; // el .mov original
 import Img1Fallback from '../../assets/C1/F1.png'; // fallback si no se puede leer el frame
 import Img2 from '../../assets/C1/F2.png';
 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
-import OrienteG from '../../../assets/C2/Graficas/OrienteG.svg';
+import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
 import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
