@@ -3,8 +3,8 @@ import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
 
 import IngaSpuria from "../../assets/C3/IngaSpuria.jpg";
-import IngaEdulis from "../../assets/C3/IngaEdulis.svg";
-import IngaMicheliana from "../../assets/C3/IngaMicheliana.svg";
+import IngaEdulis from "../../assets/C3/IngaEdulis.png";
+import IngaMicheliana from "../../assets/C3/IngaMicheliana.png";
 
 const Section1C3 = () => {
     const { t } = useTranslation();
