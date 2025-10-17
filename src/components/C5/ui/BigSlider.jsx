@@ -80,7 +80,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                         {/* Créditos en la esquina inferior derecha SOLO si existen */}
                         {slide.credits && index === 0 && (
                             <motion.span
-                                className="absolute bottom-2 right-[10vh] text-white text-xs bg-black/50 px-2 py-1 rounded"
+                                className="absolute bottom-2 right-[6vh] text-white text-xs px-2 py-1 rounded"
                                 style={{ fontFamily: 'GothamNormal' }}
                                 initial={{ opacity: 0, y: 6 }}
                                 animate={{ opacity: 1, y: 0 }}

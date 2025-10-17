@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import F1 from '../../assets/C5/S2/F1.svg';
-import F2 from '../../assets/C5/S2/F2.svg';
-import F3 from '../../assets/C5/S2/F3.jpg';
+import F1 from '../../assets/C5/S2/F1.png';
+import F2 from '../../assets/C5/S2/F2.png';
+import F3 from '../../assets/C5/S2/F3.png';
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
@@ -166,7 +166,7 @@ const Section2C5 = () => {
 
                 {/* 👇 Créditos en esquina inferior izquierda */}
                 <figcaption
-                    className="absolute bottom-4 left-4 text-white text-sm bg-black/40 px-2 py-1 rounded"
+                    className="absolute bottom-4 left-4 text-white text-sm px-2 py-1 rounded"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
                     {t(keys.cols.anfibios.credits, { defaultValue: "Créditos: Rocío Silva" })}

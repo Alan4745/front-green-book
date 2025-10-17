@@ -4,9 +4,9 @@ import HoverButton from '../Global/HoverButton';
 import { useTranslation } from 'react-i18next';
 
 // Asegúrate de que las rutas sean correctas
-import F1 from '../../assets/C5/F1.jpg';
-import F2 from '../../assets/C5/F2.svg';
-import F3 from '../../assets/C5/F3.jpg';
+import F1 from '../../assets/C5/F1.png';
+import F2 from '../../assets/C5/F2.png';
+import F3 from '../../assets/C5/F3.png';
 
 import Number1 from '../../assets/C5/Numbers/Number1.png';
 import Number2 from '../../assets/C5/Numbers/Number2.svg';
