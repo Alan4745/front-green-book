@@ -35,7 +35,7 @@ const CoverC6 = () => {
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[25vh] right-[55vh] z-30 text-white text-left">
+                <div className="absolute top-[25vh] right-[40vh] z-30 text-white text-left">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
