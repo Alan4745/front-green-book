@@ -141,7 +141,7 @@ const backgrounds = [
             </div>
 
             {/* ColabButton */}
-            <div className="absolute bottom-6 left-[19%] z-50 transform -translate-x-1/2">
+            <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2">
                 <ColabButton key={`colab-${langKey}`} progress={100} />
             </div>
 
