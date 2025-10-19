@@ -55,13 +55,13 @@ const Section3C1 = () => {
 
     return (
         <div
-            className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
+            className="relative h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
             style={{ backgroundImage: `url(${FS3})` }}
         >
             {/* Título */}
-            <div className="flex justify-center items-center pt-16 md:pt-20">
+            <div className="flex justify-center items-center pt-20">
                 <h2
-                    className="text-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-center uppercase"
+                    className="text-white text-6xl font-bold tracking-wider text-center uppercase"
                     style={{ fontFamily: "GothamBold" }}
                 >
                     {t("c1.section3.title")}
