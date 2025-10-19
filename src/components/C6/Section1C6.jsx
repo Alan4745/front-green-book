@@ -21,6 +21,31 @@ const Section1C6 = () => {
         setSelectedImage(null);
     };
 
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Ajuste dinámico del tamaño de los textos (título y descripción)
+    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-2xl"; // Título más grande para pantallas grandes
+    const descriptionTextSize = windowWidth > 1600 ? "text-xl" : "text-base"; // Descripción más grande para pantallas grandes
+
+    // Título izquierda y derecha
+    const titlePosition = windowWidth > 1600 ? "top-[30vh]" : "top-[20vh]";
+    const rightTitlePosition = windowWidth > 1600 ? "right-[15vh]" : "right-[10vh]";
+    const leftTitlePosition = windowWidth > 1600 ? "left-[15vh]" : "left-[10vh]";
+
+    // Descripción
+    const descriptionTop = windowWidth > 1600 ? "top-[60vh]" : "top-[50vh]"; // Ajustar la posición
+    const descriptionLeft = windowWidth > 1600 ? "left-[15vh]" : "left-[10vh]"; // Ajustar la posición
+    const descriptionRight = windowWidth > 1600 ? "right-[15vh]" : "right-[10vh]"; // Ajustar la posición
+
     // ⛔ Bloqueo de scroll del body (técnica robusta: position: fixed + top)
     useEffect(() => {
         if (!selectedImage) return;
@@ -52,12 +77,6 @@ const Section1C6 = () => {
             window.scrollTo(0, scrollY);
         };
     }, [selectedImage]);
-
-    // 🎛️ Animación de zoom (misma que las otras secciones)
-    const hoverAnim = {
-        whileHover: { scale: 1.08 },
-        transition: { type: 'tween', ease: 'easeOut', duration: 0.25 }
-    };
 
     // 🪄 Lightbox montado en body (igual a tu estructura de referencia)
     const Lightbox = ({ src, alt, onClose }) => {
@@ -97,8 +116,8 @@ const Section1C6 = () => {
             {/* Contenido de la sección */}
             <div className="relative w-full text-white">
                 {/* Título izquierda */}
-                <div className="absolute top-[30vh] left-[15vh]">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                <div className={`absolute ${titlePosition} ${leftTitlePosition}`}>
+                    <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section1.left.title.top")} <br /> {t("c6.section1.left.title.bottom")}
                     </h3>
                     {/* Número grande 01 */}
@@ -108,8 +127,8 @@ const Section1C6 = () => {
                 </div>
 
                 {/* Título derecha */}
-                <div className="absolute top-[30vh] right-[15vh] text-right">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                <div className={`absolute ${titlePosition} ${rightTitlePosition} text-right`}>
+                    <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section1.right.title.line1")} <br />
                         {t("c6.section1.right.title.line2")} <br />
                         {t("c6.section1.right.title.line3")}
@@ -121,16 +140,16 @@ const Section1C6 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[45vh]">
-                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className={`absolute ${descriptionTop} ${descriptionLeft} max-w-[45vh]`}>
+                    <p className={`leading-relaxed ${descriptionTextSize}`} style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.left.desc.line1")} <br />
                         {t("c6.section1.left.desc.line2")}
                     </p>
                 </div>
 
                 {/* Texto descriptivo derecha */}
-                <div className="absolute top-[60vh] right-[15vh] text-right">
-                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className={`absolute ${descriptionTop} ${descriptionRight} text-right`}>
+                    <p className={`leading-relaxed ${descriptionTextSize}`} style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.right.desc.line1")} <br />
                         {t("c6.section1.right.desc.line2")}
                     </p>
@@ -142,9 +161,8 @@ const Section1C6 = () => {
                     <motion.div
                         className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
-                        whileHover={hoverAnim.withinHover}
+                        whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
-                        {...hoverAnim}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
                             <img
@@ -174,9 +192,8 @@ const Section1C6 = () => {
                     <motion.div
                         className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
-                        whileHover={hoverAnim.withinHover}
+                        whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
-                        {...hoverAnim}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
                             <img
