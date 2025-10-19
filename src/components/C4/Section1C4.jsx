@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-import F1 from "../../assets/C4/F1.png";
-import F2 from "../../assets/C4/F2.png";
-import F3 from "../../assets/C4/F3.png";
-import F4 from "../../assets/C4/F4.jpeg";
-import F5 from "../../assets/C4/F5.png";
-import F6 from "../../assets/C4/F6.jpg";
-import F7 from "../../assets/C4/F7.png";
+import BackButton from '../Global/BackButton';
+import MainMenu from '../Global/MainMenu';
+import LanguageSelector from '../Global/LanguageSelector';
 
-import ExpandButton from "../Global/ExpandButton";
-import CloseButton from "../Global/CloseButton";
+import LogoGC from '../../assets/Colab/LogoGC.svg';
+import LogoAC from '../../assets/Colab/LogoAC.svg';
+import LogoACV from '../../assets/Colab/LogoACV.svg';
+import LogotipoGC from '../../assets/Colab/LogotipoGC.svg';
+import LogotipoAC from '../../assets/Colab/LogotipoAC.svg';
 
-const Section1C4 = () => {
-    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-    const [currentImage, setCurrentImage] = useState("");
-    const [currentAltKey, setCurrentAltKey] = useState("");
+import VideoAC from '../../assets/Colab/Videos/AC.mp4';
+import VideoGC from '../../assets/Colab/Videos/GC.mp4';
+
+const CoverColab = () => {
+    const navigate = useNavigate();
+    const sectionRef = useRef(null);
     const { t } = useTranslation();
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ['start start', 'end start'],
+    });
 
     // Estado para el tamaño de la ventana
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -32,264 +40,181 @@ const Section1C4 = () => {
         };
     }, []);
 
-    // Ajuste dinámico del tamaño de la fuente en el cuadro con fondo anaranjado
-    const introTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
+    // Ajuste dinámico del tamaño de la fuente para textos y logotipos
+    const introTextSize = windowWidth > 1600 ? "text-2xl" : "text-8xl";
+    const titleTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl";
 
-    // Ajuste dinámico del tamaño del texto de los títulos de cada cuadro
-    const titleTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
+    // ===== FASES Y TRANSFORMACIONES (se mantienen iguales) =====
+    const groupScale = useTransform(scrollYProgress, [0, 0.4, 0.9, 1], [1, 0.55, 0.55, 1.25]);
+    const groupY = useTransform(scrollYProgress, [0, 0.4, 1], ['0vh', '-12vh', '-12vh']);
 
-    // Keys para i18n
-    const keys = {
-        aria: { section: "c4.section1.aria.section" },
-        intro: { text: "c4.section1.intro.text" },
-        buttons: {
-            expand: "c4.section1.buttons.expand",
-            close: "c4.section1.buttons.close"
-        },
-        items: {
-            f1: { alt: "c4.section1.items.f1.alt", title: "c4.section1.items.f1.title" },
-            f2: { alt: "c4.section1.items.f2.alt", title: "c4.section1.items.f2.title" },
-            f3: { alt: "c4.section1.items.f3.alt", title: "c4.section1.items.f3.title" },
-            f4: { alt: "c4.section1.items.f4.alt", title: "c4.section1.items.f4.title", credits: "c4.section1.items.f4.credits" },
-            f5: { alt: "c4.section1.items.f5.alt", title: "c4.section1.items.f5.title", credits: "c4.section1.items.f5.credits" },
-            f6: { alt: "c4.section1.items.f6.alt", title: "c4.section1.items.f6.title", credits: "c4.section1.items.f6.credits" },
-            f7: { alt: "c4.section1.items.f7.alt", title: "c4.section1.items.f7.title", credits: "c4.section1.items.f7.credits" }
-        }
+    const leftX = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vw','-45vw','-45vw','-22vw','0vw']);
+    const rightX = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vw','45vw', '45vw', '22vw', '0vw']);
+
+    const leftY = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vh','18vh','0vh','20vh','0vh']);
+    const rightY = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vh','12vh','0vh','16vh','0vh']);
+
+    const logosOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 0.15, 0]);
+
+    const brandsScale = useTransform(scrollYProgress, [0.8, 0.9, 1], [1, 4, 1.4]);
+
+    const brandLeftX = useTransform(scrollYProgress, [0.5, 0.8], ['0vw',  '20vw']);
+    const brandRightX = useTransform(scrollYProgress, [0.5, 0.8], ['0vw', '-20vw']);
+
+    const brandLeftY = useTransform(scrollYProgress, [0.6, 0.8], ['0vh', '-15vh']);
+    const brandRightY = useTransform(scrollYProgress, [0.6, 0.8], ['0vh', '-15vh']);
+
+    // FASE 5: Entrada sutil de las tarjetas
+    const cardOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
+    // Redirigir a la sectionGC
+    const handleGoToSectionGC = () => {
+        navigate('/colab/sgc');
     };
 
-    // Abrir / cerrar lightbox
-    const openLightbox = (img, altKey) => {
-        setCurrentImage(img);
-        setCurrentAltKey(altKey);
-        setIsLightboxOpen(true);
+    // Redirigir a la sectionAC
+    const handleGoToSectionAC = () => {
+        navigate('/colab/sac');
     };
-    const closeLightbox = () => setIsLightboxOpen(false);
 
     return (
         <section
-            className="relative w-full h-screen bg-[#000000]"
+            ref={sectionRef}
+            className="relative h-[560vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
             role="region"
-            aria-label={t(keys.aria.section)}
+            aria-label={t('colab.cover.aria.section')}
         >
-            {/* Contenedor Grid */}
-            <div className="grid grid-cols-4 grid-rows-2 h-full">
-                {/* Primer cuadro con fondo anaranjado */}
-                <div className="relative bg-[#FF5200] h-[50vh] w-full flex items-center justify-center">
-                    <div className="text-left text-white">
-                        <p className={`w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
-                            {t(keys.intro.text)}
-                        </p>
-                    </div>
-                </div>
+            {/* ===== BOTONES FIJOS ===== */}
+            <div className="fixed top-6 left-6 md:top-8 md:left-8 z-50 pointer-events-auto">
+                <BackButton onClick={() => navigate('/')} />
+            </div>
 
-                {/* Imagen 1 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F1}
-                        alt={t(keys.items.f1.alt)}
-                        title={t(keys.items.f1.alt)}
-                        className="w-full h-full object-cover opacity-65"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f1.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F1, keys.items.f1.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
+            <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50 pointer-events-auto">
+                <MainMenu />
+            </div>
+            
+            <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 pointer-events-auto">
+                <LanguageSelector />
+            </div>
 
-                {/* Imagen 2 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F2}
-                        alt={t(keys.items.f2.alt)}
-                        title={t(keys.items.f2.alt)}
-                        className="w-full h-full object-cover opacity-65"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f2.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F2, keys.items.f2.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
-
-                {/* Imagen 3 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F3}
-                        alt={t(keys.items.f3.alt)}
-                        title={t(keys.items.f3.alt)}
-                        className="w-full h-full object-cover opacity-65"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[25vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f3.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F3, keys.items.f3.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
-
-                {/* Imagen 4 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F4}
-                        alt={t(keys.items.f4.alt)}
-                        title={t(keys.items.f4.alt)}
-                        className="w-full h-full object-cover opacity-55"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f4.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Créditos (inferior izquierda) */}
-                    <figcaption
-                        className="absolute left-4 bottom-4 text-white text-sm"
-                        style={{ fontFamily: "GothamNormal" }}
+            {/* ===== ESCENA STICKY ===== */}
+            <div className="sticky top-0 h-screen w-full">
+                <div className="h-full w-full flex justify-center items-start">
+                    {/* Contenedor general: escala + SUBE */}
+                    <motion.div
+                        style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
+                        className="mt-64 flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
                     >
-                        {t(keys.items.f4.credits)}
-                    </figcaption>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F4, keys.items.f4.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
+                        {/* IZQUIERDA: Guatemalan Coffees */}
+                        <motion.div
+                            style={{ x: leftX, y: leftY }}
+                            className="flex flex-col items-center justify-center mr-42 will-change-transform"
+                        >
+                            <motion.img
+                                src={LogoGC}
+                                alt={t('colab.cover.alts.gcLogo')}
+                                title={t('colab.cover.alts.gcLogo')}
+                                className={`w-52 h-auto mb-6 ${windowWidth > 1600 ? "w-72" : "w-52"}`} // Ajuste dinámico
+                                style={{ opacity: logosOpacity }}
+                            />
+                            <motion.img
+                                src={LogotipoGC}
+                                alt={t('colab.cover.alts.gcLogotype')}
+                                title={t('colab.cover.alts.gcLogotype')}
+                                className={`w-82 h-auto ${introTextSize}`}
+                                style={{ scale: brandsScale, x: brandLeftX, y: brandLeftY }}
+                            />
+                        </motion.div>
 
-                {/* Imagen 5 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F5}
-                        alt={t(keys.items.f5.alt)}
-                        title={t(keys.items.f5.alt)}
-                        className="w-full h-full object-cover opacity-55"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f5.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Créditos (inferior izquierda) */}
-                    <figcaption
-                        className="absolute left-4 bottom-4 text-white text-sm"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                    </figcaption>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F5, keys.items.f5.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
+                        {/* Línea centrada (decorativa) */}
+                        <div className="w-[0.6vh] h-64 rounded-full bg-white" aria-hidden="true" />
 
-                {/* Imagen 6 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F6}
-                        alt={t(keys.items.f6.alt)}
-                        title={t(keys.items.f6.alt)}
-                        className="w-full h-full object-cover opacity-65"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f6.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Créditos (inferior izquierda) */}
-                    <figcaption
-                        className="absolute left-4 bottom-4 text-white text-sm"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                        {t(keys.items.f6.credits)}
-                    </figcaption>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F6, keys.items.f6.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
-                </div>
-
-                {/* Imagen 7 */}
-                <div className="relative h-[50vh] w-full">
-                    <img
-                        src={F7}
-                        alt={t(keys.items.f7.alt)}
-                        title={t(keys.items.f7.alt)}
-                        className="w-full h-full object-cover opacity-65"
-                    />
-                    <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.items.f7.title)}
-                        </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
-                    </div>
-                    {/* Créditos (inferior izquierda) */}
-                    <figcaption
-                        className="absolute left-4 bottom-4 text-white text-sm"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                    </figcaption>
-                    {/* Botón expandir */}
-                    <ExpandButton
-                        onClick={() => openLightbox(F7, keys.items.f7.alt)}
-                        title={t(keys.buttons.expand)}
-                        aria-label={t(keys.buttons.expand)}
-                    />
+                        {/* DERECHA: ANACAFÉ */}
+                        <motion.div
+                            style={{ x: rightX, y: rightY }}
+                            className="flex flex-col items-center justify-center ml-42 will-change-transform"
+                        >
+                            <motion.img
+                                src={LogoAC}
+                                alt={t('colab.cover.alts.acLogo')}
+                                title={t('colab.cover.alts.acLogo')}
+                                className={`w-48 h-auto mb-6 ${windowWidth > 1600 ? "w-72" : "w-48"}`} // Ajuste dinámico
+                                style={{ opacity: logosOpacity }}
+                            />
+                            <motion.img
+                                src={LogotipoAC}
+                                alt={t('colab.cover.alts.acLogotype')}
+                                title={t('colab.cover.alts.acLogotype')}
+                                className={`w-82 h-auto ${introTextSize}`}
+                                style={{ scale: brandsScale, x: brandRightX, y: brandRightY }}
+                            />
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Lightbox */}
-            {isLightboxOpen && (
-                <div
-                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label={t(currentAltKey || keys.buttons.close)}
+            {/* ===== TARJETAS (con colores y videos) ===== */}
+            <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
+                {/* Tarjeta 1 con botón y logo GC */}
+                <motion.div
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center"
+                    style={{ opacity: cardOpacity }}
                 >
-                    <div className="relative">
-                        {/* Botón de cerrar */}
-                        <CloseButton
-                            onClick={closeLightbox}
-                            className="absolute top-4 right-4 text-white"
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
-                        {/* Imagen ampliada */}
-                        <img
-                            src={currentImage}
-                            alt={t(currentAltKey || keys.buttons.expand)}
-                            className="h-[90vh] w-auto object-contain"
-                        />
-                    </div>
-                </div>
-            )}
+                    <button
+                        onClick={handleGoToSectionGC}
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md hover:scale-110 transition"
+                        title={t('colab.cover.buttons.toGC')}
+                        aria-label={t('colab.cover.buttons.toGC')}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
+                </motion.div>
+
+                {/* Tarjeta 2 con video */}
+                <motion.div
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF]"
+                    style={{ opacity: cardOpacity }}
+                >
+                    <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
+                        <source src={VideoGC} type="video/mp4" />
+                        {t('colab.cover.videoFallback')}
+                    </video>
+                </motion.div>
+
+                {/* Tarjeta 3 con botón y logo AC */}
+                <motion.div
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center"
+                    style={{ opacity: cardOpacity }}
+                >
+                    <button
+                        onClick={handleGoToSectionAC}
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md hover:scale-110 transition"
+                        title={t('colab.cover.buttons.toAC')}
+                        aria-label={t('colab.cover.buttons.toAC')}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
+                </motion.div>
+
+                {/* Tarjeta 4 con video */}
+                <motion.div
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF]"
+                    style={{ opacity: cardOpacity }}
+                >
+                    <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
+                        <source src={VideoAC} type="video/mp4" />
+                        {t('colab.cover.videoFallback')}
+                    </video>
+                </motion.div>
+            </div>
         </section>
     );
 };
 
-export default Section1C4;
+export default CoverColab;
