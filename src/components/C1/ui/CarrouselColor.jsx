@@ -47,7 +47,7 @@ const CarrouselColor = ({ slides = [] }) => {
         animate: {
             opacity: 1,
             y: 0,
-            scale: window.innerWidth > 1600 ? 1 : 0.9,  // Escala dinámicamente (100% si pantalla grande, 95% si pequeña)
+            scale: window.innerWidth > 1600 ? 1 : 0.9,  // Escala dinámicamente (100% si pantalla grande, 90% si pequeña)
             transition: { duration: 0.35, ease: 'easeOut' }
         },
         exit: {
