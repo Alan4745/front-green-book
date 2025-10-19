@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import ExpandButton from '../../Global/ExpandButton';
 
 const Card = ({
@@ -23,11 +24,25 @@ const Card = ({
         
         wordsToHighlight.forEach(word => {
             const regex = new RegExp(`\\b(${word})\\b`, 'gi');
-            highlightedText = highlightedText.replace(regex, `<span style="color: #AC7EF0; font-weight: bold;">$1</span>`);
+            highlightedText = highlightedText.replace(regex, `<span style="color: #AC7EF0; font-weight:">$1</span>`);
         });
 
         return highlightedText;
     };
+
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Ajuste dinámico del margen superior
+    const marginTop = windowWidth > 1600 ? "mt-[50vw]" : "mt-[65vw]"; // Ajuste dinámico del margen superior
 
     // Verificar si es la card principal (grande)
     const isMainCard = className.includes('scale-y-220');
@@ -76,9 +91,7 @@ const Card = ({
 
                 {/* Título al lado del número */}
                 <p 
-                    className={`ml-4 w-[25vh] text-white text-[1.8vh] font-bold ${
-                        className.includes('scale-y-220') ? 'opacity-0' : 'opacity-100'
-                    }`} 
+                    className={`ml-4 w-[25vh] text-white text-lg ${className.includes('scale-y-220') ? 'opacity-0' : 'opacity-100'}`} 
                     style={{ 
                         fontFamily: 'GothamBold',
                         transition: 'opacity 0.7s ease-out'
@@ -89,7 +102,7 @@ const Card = ({
 
                 {/* Descripción en la esquina inferior izquierda, no afectada por el escalado */}
                 <div
-                    className="absolute mt-[95vh] text-white text-[2.8vh] z-10 leading-none"
+                    className={`absolute ${marginTop} text-white text-2xl z-10 leading-none`}
                     style={{
                         fontFamily: 'GothamNormal',
                         maxWidth: MaxW,
