@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import F1 from "../../assets/C4/img/F1.png"; // Asegúrate de que la ruta sea correcta
@@ -12,6 +12,27 @@ const Section2C4 = () => {
     const [currentAltKey, setCurrentAltKey] = useState("");
     const { t } = useTranslation();
 
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del tamaño del título en ambos lados
+    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-2xl"; // Título más grande para pantallas grandes
+
+    // Ajuste dinámico del tamaño del texto descriptivo
+    const descTextSize = windowWidth > 1600 ? "text-[2.1vh]" : "text-[2.1vh]"; // Texto más grande para pantallas grandes
+
+    // Keys para i18n
     const keys = {
         aria: {
             section: "c4.section2.aria.section",
@@ -55,8 +76,8 @@ const Section2C4 = () => {
         >
             <div className="relative w-full text-white">
                 {/* Títulos */}
-                <div className="absolute top-[30vh] left-[15vh]">
-                    <h3 className="text-3xl font-bold uppercase w-[30vh]" style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[25vh] left-[15vh]">
+                    <h3 className={`font-bold uppercase w-[30vh] ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                         {t(keys.left.title)}
                     </h3>
                     <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -64,8 +85,8 @@ const Section2C4 = () => {
                     </div>
                 </div>
 
-                <div className="absolute top-[30vh] right-[15vh] text-right">
-                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[25vh] right-[15vh] text-right">
+                    <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                         {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
                     </h3>
                     <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -74,14 +95,14 @@ const Section2C4 = () => {
                 </div>
 
                 {/* Texto descriptivo */}
-                <div className="absolute top-[60vh] left-[15vh] w-[40vh]">
-                    <p className="text-[2vh] text-justify leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
+                    <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
                         {t(keys.left.desc)}
                     </p>
                 </div>
 
-                <div className="absolute top-[60vh] right-[15vh] text-right w-[40vh]">
-                    <p className="text-[2vh] text-justify leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
+                    <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
                         {t(keys.right.desc)}
                     </p>
                 </div>

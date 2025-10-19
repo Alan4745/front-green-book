@@ -12,6 +12,29 @@ const CarrouselColor = ({ slides = [] }) => {
     const [startIndex, setStartIndex] = useState(0); // Índice de la tarjeta actual
     const [isPaused, setIsPaused] = useState(false); // Pausa el carrusel al pasar el ratón
 
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del margen superior (mt)
+    const marginTop = windowWidth > 1600 ? 'mt-12' : '-mt-16'; // 12 si es mayor a 1600px, 6 si no
+
+    // Ajuste dinámico del gap-y (espaciado vertical entre las tarjetas)
+    const gapYSize = windowWidth > 1600 ? 'gap-y-12' : 'gap-y-2'; // Ajuste dinámico, 12 si es mayor a 1600px, 8 si no
+
+    // Ajuste dinámico del gap-x (espaciado horizontal entre las tarjetas)
+    const gapXSize = windowWidth > 1600 ? 'gap-x-4' : '-gap-x-[2vh]'; // Ajuste dinámico, 4 si es mayor a 1600px, 2 si no
+
     // `getVisibleCards`: Función que obtiene las tarjetas visibles (en este caso, 4)
     const getVisibleCards = () => {
         if (totalCards === 0) return [];
@@ -47,7 +70,7 @@ const CarrouselColor = ({ slides = [] }) => {
         animate: {
             opacity: 1,
             y: 0,
-            scale: window.innerWidth > 1600 ? 1 : 0.9,  // Escala dinámicamente (100% si pantalla grande, 90% si pequeña)
+            scale: window.innerWidth > 1600 ? 1 : 0.8,  // Escala dinámicamente (100% si pantalla grande, 90% si pequeña)
             transition: { duration: 0.35, ease: 'easeOut' }
         },
         exit: {
@@ -58,12 +81,11 @@ const CarrouselColor = ({ slides = [] }) => {
         }
     };
 
-
     return (
-        <div className="relative w-full px-4">
+        <div className={`relative w-full px-4 ${marginTop}`}>
             {/* Contenedor de tarjetas */}
             <div
-                className="flex justify-center items-end lg:gap-[1rem] mb-8"
+                className={`flex justify-center items-end ${gapXSize} ${gapYSize} mb-8`}
                 onMouseEnter={() => setIsPaused(true)} // Pausa cuando el ratón pasa sobre el carrusel
                 onMouseLeave={() => setIsPaused(false)} // Reanuda cuando el ratón sale del carrusel
                 aria-live="polite"

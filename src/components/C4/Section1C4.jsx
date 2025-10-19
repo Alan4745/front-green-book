@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import F1 from "../../assets/C4/F1.png";
@@ -17,6 +17,26 @@ const Section1C4 = () => {
     const [currentImage, setCurrentImage] = useState("");
     const [currentAltKey, setCurrentAltKey] = useState("");
     const { t } = useTranslation();
+
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del tamaño de la fuente en el cuadro con fondo anaranjado
+    const introTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
+
+    // Ajuste dinámico del tamaño del texto de los títulos de cada cuadro
+    const titleTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
 
     // Keys para i18n
     const keys = {
@@ -56,7 +76,7 @@ const Section1C4 = () => {
                 {/* Primer cuadro con fondo anaranjado */}
                 <div className="relative bg-[#FF5200] h-[50vh] w-full flex items-center justify-center">
                     <div className="text-left text-white">
-                        <p className="w-[45vh] text-2xl" style={{ fontFamily: "GothamNormal" }}>
+                        <p className={`w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.intro.text)}
                         </p>
                     </div>
@@ -71,10 +91,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[20vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f1.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -96,10 +113,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[30vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f2.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -121,10 +135,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[25vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[25vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f3.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -146,10 +157,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-55"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[20vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f4.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -178,10 +186,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-55"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[40vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f5.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -209,10 +214,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[30vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f6.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -241,10 +243,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p
-                            className="text-2xl uppercase w-[40vh] text-right"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
+                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f7.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
