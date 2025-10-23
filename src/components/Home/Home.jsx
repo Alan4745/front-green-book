@@ -13,10 +13,85 @@ const backgrounds = [
     "/Img/Start/Fondo4.png",
     ];
 
-    const FADE_DURATION = 2; // seg (ajústalo a tu gusto)
-    const DISPLAY_TIME = 8;  // seg visibles antes de cambiar
+    const FADE_DURATION = 2;
+    const DISPLAY_TIME = 8;
 
-    // Pre-decoder robusto (evita pops por carga)
+    // Skeleton Loader Component
+    const SkeletonLoader = ({ isExiting }) => {
+    return (
+        <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: isExiting ? 0 : 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+        className="absolute inset-0 z-50 bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+        >
+        {/* Fondo animado */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-gray-900/50 animate-pulse" />
+        
+        {/* Logo skeleton */}
+        <div className="absolute top-[19vh] left-[22vh] w-[22%] h-auto aspect-square">
+            <div className="w-full h-full bg-gray-700/50 rounded-lg animate-pulse" />
+        </div>
+
+        {/* Carrousel skeleton */}
+        <div className="absolute bottom-10 left-[40%] w-[85%] z-40">
+            <div className="flex gap-6 overflow-hidden">
+            {[1, 2, 3, 4].map((i) => (
+                <div
+                key={i}
+                className="flex-shrink-0 w-64 h-40 bg-gray-700/50 rounded-xl animate-pulse"
+                style={{
+                    animationDelay: `${i * 0.1}s`,
+                }}
+                />
+            ))}
+            </div>
+        </div>
+
+        {/* Language selector skeleton */}
+        <div className="absolute bottom-6 left-6 z-50">
+            <div className="w-24 h-10 bg-gray-700/50 rounded-lg animate-pulse" />
+        </div>
+
+        {/* Colab button skeleton */}
+        <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2">
+            <div className="w-32 h-12 bg-gray-700/50 rounded-full animate-pulse" />
+        </div>
+
+        {/* Menu skeleton */}
+        <div className="absolute top-[2vh] right-6 z-50">
+            <div className="w-12 h-12 bg-gray-700/50 rounded-lg animate-pulse" />
+        </div>
+
+        {/* Shimmer effect overlay */}
+        <div className="absolute inset-0 overflow-hidden">
+            <div
+            className="absolute inset-0 -translate-x-full animate-shimmer"
+            style={{
+                background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent)",
+                animation: "shimmer 2s infinite",
+            }}
+            />
+        </div>
+
+        <style>{`
+            @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+            }
+            .animate-shimmer {
+            animation: shimmer 2s infinite;
+            }
+        `}</style>
+        </motion.div>
+    );
+    };
+
     const decodeImage = (src) =>
     new Promise((resolve) => {
         const img = new Image();
@@ -33,35 +108,81 @@ const backgrounds = [
     const { t, i18n } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(null);
-    const switchKeyRef = useRef(0); // fuerza remount para que initial se aplique siempre
+    const [isLoading, setIsLoading] = useState(true);
+    const [isExiting, setIsExiting] = useState(false);
+    const switchKeyRef = useRef(0);
     const indexRef = useRef(0);
 
-    // Mantener ref actualizado
     useEffect(() => {
         indexRef.current = currentIndex;
     }, [currentIndex]);
 
-    // Pre-carga de todas las imágenes al montar (caché)
+    // Pre-carga de todas las imágenes con skeleton
     useEffect(() => {
-        backgrounds.forEach((src) => {
-        const img = new Image();
-        img.src = src;
-        });
+        const loadImages = async () => {
+        try {
+            let loadedCount = 0;
+            const totalImages = backgrounds.length;
+
+            // Precargar todas las imágenes una por una
+            const loadPromises = backgrounds.map((src) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => {
+                loadedCount++;
+                console.log(`Imagen ${loadedCount}/${totalImages} cargada: ${src}`);
+                resolve();
+                };
+                img.onerror = () => {
+                console.error(`Error cargando imagen: ${src}`);
+                reject(new Error(`Failed to load ${src}`));
+                };
+            });
+            });
+
+            // Esperar a que TODAS las imágenes estén completamente cargadas
+            await Promise.all(loadPromises);
+            
+            console.log("Todas las imágenes cargadas exitosamente");
+            
+            // Esperar 2 segundos adicionales después de cargar
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+            
+            // Iniciar animación de salida
+            setIsExiting(true);
+            
+            // Esperar a que termine el fade out antes de ocultar el skeleton
+            await new Promise((resolve) => setTimeout(resolve, 1200));
+            
+            setIsLoading(false);
+        } catch (error) {
+            console.error("Error loading images:", error);
+            // Incluso con error, eventualmente quitar el skeleton con animación
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+            setIsExiting(true);
+            await new Promise((resolve) => setTimeout(resolve, 1200));
+            setIsLoading(false);
+        }
+        };
+
+        loadImages();
     }, []);
 
-    // Rotación con pre-decode antes del cambio (sin entradas bruscas)
+    // Rotación con pre-decode
     useEffect(() => {
+        if (isLoading) return;
+
         let isMounted = true;
 
         const tick = async () => {
         const current = indexRef.current;
         const next = (current + 1) % backgrounds.length;
-        // Asegurar que la próxima esté lista antes de animar
         await decodeImage(backgrounds[next]);
         if (!isMounted) return;
 
         setPrevIndex(current);
-        switchKeyRef.current += 1; // cambia key para remount del current layer
+        switchKeyRef.current += 1;
         setCurrentIndex(next);
         };
 
@@ -70,85 +191,95 @@ const backgrounds = [
         isMounted = false;
         clearInterval(id);
         };
-    }, []);
+    }, [isLoading]);
 
-    // Idioma actual (para forzar remount en hijos si no usan useTranslation internamente)
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
+
+    // Mostrar skeleton mientras carga
+    if (isLoading) {
+        return <SkeletonLoader isExiting={isExiting} />;
+    }
 
     return (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-            {/* 🎞️ Capas de crossfade (actual arriba, previa abajo) */}
+        {/* Fade in suave del contenido */}
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0"
+        >
+            {/* Capas de crossfade */}
             <div className="absolute inset-0 z-10" aria-hidden="true">
-                {/* Capa previa (fade-out) */}
-                {prevIndex !== null && (
+            {prevIndex !== null && (
                 <motion.div
-                    key={`prev-${switchKeyRef.current}`}
-                    className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
-                    style={{
-                    backgroundImage: `url(${backgrounds[prevIndex]})`,
-                    willChange: "opacity, transform",
-                    }}
-                    initial={{ opacity: 1, scale: 1 }}
-                    animate={{
-                    opacity: 0,
-                    scale: 1.0,
-                    transition: {
-                        duration: FADE_DURATION,
-                        ease: [0.22, 1, 0.36, 1],
-                    },
-                    }}
-                    onAnimationComplete={() => setPrevIndex(null)}
-                />
-                )}
-
-                {/* Capa actual (fade-in) */}
-                <motion.div
-                key={`curr-${switchKeyRef.current}`}
+                key={`prev-${switchKeyRef.current}`}
                 className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
                 style={{
-                    backgroundImage: `url(${backgrounds[currentIndex]})`,
+                    backgroundImage: `url(${backgrounds[prevIndex]})`,
                     willChange: "opacity, transform",
                 }}
-                initial={{ opacity: 0, scale: 1.02 }}
+                initial={{ opacity: 1, scale: 1 }}
                 animate={{
-                    opacity: 1,
+                    opacity: 0,
                     scale: 1.0,
                     transition: {
                     duration: FADE_DURATION,
                     ease: [0.22, 1, 0.36, 1],
                     },
                 }}
+                onAnimationComplete={() => setPrevIndex(null)}
                 />
+            )}
+
+            <motion.div
+                key={`curr-${switchKeyRef.current}`}
+                className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
+                style={{
+                backgroundImage: `url(${backgrounds[currentIndex]})`,
+                willChange: "opacity, transform",
+                }}
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{
+                opacity: 1,
+                scale: 1.0,
+                transition: {
+                    duration: FADE_DURATION,
+                    ease: [0.22, 1, 0.36, 1],
+                },
+                }}
+            />
             </div>
 
             {/* Logo centrado */}
             <div className="relative z-30 flex items-center justify-center h-full">
-                <img
+            <img
                 src="/Logos/Greenbook.svg"
-                alt={t("app.title")} // ← se traduce el alt según idioma
+                alt={t("app.title")}
                 className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
-                />
+            />
             </div>
 
-            {/* Carrusel de capítulos abajo */}
+            {/* Carrusel de capítulos */}
             <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
-                <Carrousel key={`carrousel-${langKey}`} />
+            <Carrousel key={`carrousel-${langKey}`} />
             </div>
 
             {/* Selector de idioma */}
             <div className="absolute bottom-6 left-6 z-50">
-                <LanguageSelector />
+            <LanguageSelector />
             </div>
 
             {/* ColabButton */}
             <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2">
-                <ColabButton key={`colab-${langKey}`} progress={100} />
+            <ColabButton key={`colab-${langKey}`} progress={100} />
             </div>
 
             {/* Menú desplegable */}
             <div className="absolute top-[2vh] right-0 z-50">
-                <MainMenu key={`menu-${langKey}`} />
+            <MainMenu key={`menu-${langKey}`} />
             </div>
+        </motion.div>
         </div>
     );
 };
