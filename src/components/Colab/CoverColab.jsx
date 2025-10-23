@@ -85,7 +85,7 @@ const CoverColab = () => {
                     {/* Contenedor general: escala + SUBE */}
                     <motion.div
                         style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
-                        className="mt-64 flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
+                        className="mt-[12vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
                     >
                         {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
@@ -96,14 +96,14 @@ const CoverColab = () => {
                                 src={LogoGC}
                                 alt={t('colab.cover.alts.gcLogo')}
                                 title={t('colab.cover.alts.gcLogo')}
-                                className="w-52 h-auto mb-6"
+                                className="w-[10vw] h-auto mb-6"
                                 style={{ opacity: logosOpacity }}
                             />
                             <motion.img
                                 src={LogotipoGC}
                                 alt={t('colab.cover.alts.gcLogotype')}
                                 title={t('colab.cover.alts.gcLogotype')}
-                                className="w-82 h-auto"
+                                className="w-[20vw] h-auto"
                                 style={{ scale: brandsScale, x: brandLeftX, y: brandLeftY }}
                             />
                         </motion.div>
@@ -120,14 +120,14 @@ const CoverColab = () => {
                                 src={LogoAC}
                                 alt={t('colab.cover.alts.acLogo')}
                                 title={t('colab.cover.alts.acLogo')}
-                                className="w-48 h-auto mb-6"
+                                className="w-[10vw] h-auto mb-6"
                                 style={{ opacity: logosOpacity }}
                             />
                             <motion.img
                                 src={LogotipoAC}
                                 alt={t('colab.cover.alts.acLogotype')}
                                 title={t('colab.cover.alts.acLogotype')}
-                                className="w-82 h-auto"
+                                className="w-[20vw] h-auto"
                                 style={{ scale: brandsScale, x: brandRightX, y: brandRightY }}
                             />
                         </motion.div>

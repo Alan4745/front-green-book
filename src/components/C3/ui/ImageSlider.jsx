@@ -186,11 +186,17 @@ export default function ImageSlider({
                             {/* encabezado */}
                             {(s.title || s.subtitle) && (
                                 <div className="absolute left-8 top-10 right-16 text-white">
-                                    <h2 className="text-5xl font-bold leading-tight drop-shadow-sm" style={{ fontFamily: "GothamBold" }}>
+                                    <h2
+                                        className={`text-${window.innerWidth > 1600 ? "5xl" : "3xl"} font-bold leading-tight drop-shadow-sm`}
+                                        style={{ fontFamily: "GothamBold" }}
+                                    >
                                         {s.title}
                                     </h2>
                                     {s.subtitle && (
-                                        <p className="text-white/85 text-xl mt-0.5 italic" style={{ fontFamily: "GothamNormal" }}>
+                                        <p
+                                            className={`text-white/85 text-${window.innerWidth > 1600 ? "xl" : "lg"} mt-0.5 italic`}
+                                            style={{ fontFamily: "GothamNormal" }}
+                                        >
                                             ({s.subtitle})
                                         </p>
                                     )}
@@ -203,7 +209,7 @@ export default function ImageSlider({
                             {/* descripción */}
                             {s.description && (
                                 <figcaption
-                                    className="absolute left-8 right-8 bottom-24 text-white text-lg text-justify leading-relaxed"
+                                    className={`absolute left-8 right-8 bottom-24 text-white text-${window.innerWidth > 1600 ? "lg" : "md"} text-justify leading-relaxed`}
                                     style={{ fontFamily: "GothamNormal" }}
                                 >
                                     {s.description}

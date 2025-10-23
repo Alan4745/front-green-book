@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
-import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.svg';
+import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 

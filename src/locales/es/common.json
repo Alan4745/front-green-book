@@ -626,9 +626,9 @@
                     "bottom": "cambio climático"
                 },
                 "desc": {
-                    "line1": "Sistemas agroforestales que capturan el",
-                    "line2": "carbono y minimizan el impacto de la",
-                    "line3": "industria cafetalera."
+                    "line1": "Sistemas agroforestales que capturan el carbono y minimizan",
+                    "line2": "el impacto de la industria",
+                    "line3": "cafetalera."
                 }
             },
             "right": {
@@ -704,8 +704,8 @@
                 "title": "Del residuo al compost",
                 "desc": {
                     "line1": "El proceso de beneficiado húmedo, significa",
-                    "line2": "una oportunidad de agregar valor, trazabilidad",
-                    "line3": "y competitividad a las familias productoras de café en Guatemala."
+                    "line2": "una oportunidad de agregar valor,",
+                    "line3": "trazabilidad y competitividad a las familias productoras de café en Guatemala."
                 }
             },
             "images": {

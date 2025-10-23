@@ -26,7 +26,7 @@ const CoverC5 = () => {
 
                 {/* Créditos imagen de fondo */}
                 <figcaption
-                    className="absolute top-[2vh] left-[2vh] z-30 text-white text-sm bg-black/40 px-3 py-1 rounded"
+                    className="absolute top-[2vh] left-[2vh] z-30 text-white text-sm px-3 py-1 rounded"
                     style={{ fontFamily: "GothamNormal" }}
                 >
                     {t("c5.cover.credits", { defaultValue: "Créditos: Rocío Silva" })}

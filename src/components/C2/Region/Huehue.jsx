@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
-import HuehueG from '../../../assets/C2/Graficas/HuehueG.svg';
+import HuehueG from '../../../assets/C2/Graficas/HuehueG.png';
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 

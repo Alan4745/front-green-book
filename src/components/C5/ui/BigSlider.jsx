@@ -7,6 +7,36 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
 
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del tamaño de la tarjeta
+    const cardScale = windowWidth > 1600 ? 1 : 0.8; // Escala más grande para pantallas grandes
+
+    // Ajuste dinámico del tamaño de la fuente para el título y la descripción
+    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-xl"; // Título más grande para pantallas grandes
+    const descriptionTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Descripción más grande para pantallas grandes
+
+    // Ajuste dinámico de las imágenes
+    const imageSize = windowWidth > 1600 ? "w-[60vh] h-[50vh]" : "w-[45vh] h-[40vh]"; // Imágenes más grandes para pantallas grandes
+
+    // Ajuste dinámico del gap entre las tarjetas
+    const gapSize = windowWidth > 1600 ? "gap-[0rem]" : "gap-[0rem]"; // Gap más grande para pantallas grandes
+
+    // Ajuste dinámico del margen inferior
+    const marginBottom = windowWidth > 1600 ? "mb-4" : "-mb-4"; // Margen inferior más grande para pantallas grandes
+
     useEffect(() => {
         const interval = setInterval(() => {
             if (!isChanging) {
@@ -44,14 +74,14 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
     return (
         <div className="relative">
             {/* Contenedor de tarjetas */}
-            <div className="flex justify-center items-end mb-4 relative">
+            <div className={`flex justify-center items-end relative ${gapSize} ${marginBottom}`}>
                 {rearrangedSlides.map((slide, index) => (
                     <motion.div
                         key={`${slide.title}-${currentIndex}-${index}`}
                         className="relative"
                         layout
                         initial={{ opacity: 0, y: 12, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        animate={{ opacity: 1, y: 0, scale: cardScale }} // Ajuste de escala dinámico
                         exit={{ opacity: 0, y: -12, scale: 0.98 }}
                         transition={{
                             layout: { type: 'spring', stiffness: 260, damping: 28 },
@@ -75,21 +105,10 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                                 transformOrigin: 'bottom center',
                                 marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
                             }}
+                            titleClassName={titleTextSize} // Clase para el título
+                            descriptionClassName={descriptionTextSize} // Clase para la descripción
+                            imageClassName={imageSize} // Clase para la imagen
                         />
-
-                        {/* Créditos en la esquina inferior derecha SOLO si existen */}
-                        {slide.credits && index === 0 && (
-                            <motion.span
-                                className="absolute bottom-2 right-[10vh] text-white text-xs bg-black/50 px-2 py-1 rounded"
-                                style={{ fontFamily: 'GothamNormal' }}
-                                initial={{ opacity: 0, y: 6 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: 6 }}
-                                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            >
-                                {slide.credits}
-                            </motion.span>
-                        )}
                     </motion.div>
                 ))}
             </div>

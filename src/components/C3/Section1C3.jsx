@@ -1,13 +1,34 @@
+import { useState, useEffect } from "react";
 import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
 
 import IngaSpuria from "../../assets/C3/IngaSpuria.jpg";
-import IngaEdulis from "../../assets/C3/IngaEdulis.svg";
-import IngaMicheliana from "../../assets/C3/IngaMicheliana.svg";
+import IngaEdulis from "../../assets/C3/IngaEdulis.png";
+import IngaMicheliana from "../../assets/C3/IngaMicheliana.png";
 
 const Section1C3 = () => {
     const { t } = useTranslation();
+
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del tamaño del texto en el primer párrafo
+    const textSizeStart = windowWidth > 1600 ? "text-2xl" : "text-lg"; // 2xl si es mayor a 1600px, xl si no
+
+    // Ajuste dinámico del tamaño del texto en el último párrafo
+    const textSizeEnd = windowWidth > 1600 ? "text-2xl" : "text-lg"; // 2xl si es mayor a 1600px, xl si no
 
     // Slides i18n (dentro del componente para reaccionar a cambios de idioma)
     const slides = [
@@ -32,7 +53,7 @@ const Section1C3 = () => {
             subtitle: t("c3.section1.slider.ingaMicheliana.subtitle"),
             description: t("c3.section1.slider.ingaMicheliana.desc"),
             alt: t("c3.section1.slider.ingaMicheliana.alt"),
-        }
+        },
     ];
 
     return (
@@ -58,7 +79,10 @@ const Section1C3 = () => {
                 <div className="hidden lg:flex flex-1 h-full">
                     <div className="w-full h-full text-white flex flex-col">
                         <div className="w-full p-20 flex items-start justify-start">
-                            <p className="text-2xl max-w-[90vh]" style={{ fontFamily: "GothamNormal" }}>
+                            <p
+                                className={`${textSizeStart} max-w-[90vh]`}
+                                style={{ fontFamily: "GothamNormal" }}
+                            >
                                 {t("c3.section1.intro.start")}{" "}
                                 <span style={{ fontFamily: "GothamBold" }}>
                                     {t("c3.section1.intro.highlight", { percent: 98 })}
@@ -71,7 +95,10 @@ const Section1C3 = () => {
                             <SectionCircles />
                         </div>
 
-                        <p className="text-2xl max-w-[120vh] px-20 mt-20" style={{ fontFamily: "GothamNormal" }}>
+                        <p
+                            className={`${textSizeEnd} max-w-[120vh] px-20 mt-20`}
+                            style={{ fontFamily: "GothamNormal" }}
+                        >
                             {t("c3.section1.outro.line1")}
                         </p>
                     </div>

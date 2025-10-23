@@ -171,15 +171,15 @@ const SectionAC = () => {
             <div className={`absolute top-0 right-0 h-full flex z-10 transition-opacity duration-300 ${
                 cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
             }`}>
-                <div className="text-white text-left pr-[39vh] mt-66.5">
+                <div className="text-white text-left pr-[23vw] mt-[14.5vw]">
                     <div 
-                        className="text-[17rem] leading-none tracking-wider font-bold"
+                        className="text-[12vw] leading-none tracking-wider font-bold"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         FÉ
                     </div>
                     <div 
-                        className="text-[5.1rem] leading-none ml-3 mt-0.5 font-bold"
+                        className="text-[4.6vw] leading-none ml-[0.1vw] mt-[0.2vw] font-bold"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         A

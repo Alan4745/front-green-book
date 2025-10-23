@@ -39,7 +39,7 @@ const ColabButton = ({ progress = 0, className = "" }) => {
             className={`relative overflow-hidden transition-colors duration-200 rounded-lg px-6 py-4 min-w-[300px] group ${className} cursor-pointer`}
         >
             {/* Texto principal */}
-            <div className="relative z-10 text-white font-medium text-lg">
+            <div className="relative z-10 text-white md:text-md animate-bounce" style={{ fontFamily: 'GothamBold' }}>
                 Anacafé - Guatemalan Coffees
             </div>
 

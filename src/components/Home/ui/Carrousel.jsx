@@ -12,11 +12,11 @@ const Carrousel = () => {
         // Fallback si aún no tienes las llaves en el JSON
         return [
             { text: "EL CAFÉ EN GUATEMALA", bgImage: "/Img/Start/Caps/bg1.svg", chapter: "c1" },
-            { text: "LAS 8 REGIONES DEL CAFÉ", bgImage: "/Img/Start/Caps/bg2.svg", chapter: "c2" },
-            { text: "SISTEMAS AGROFORESTALES", bgImage: "/Img/Start/Caps/bg3.svg", chapter: "c3" },
-            { text: "BENEFICIOS ECOSISTÉMICOS", bgImage: "/Img/Start/Caps/bg4.svg", chapter: "c4" },
-            { text: "UN ENTORNO DIVERSO POR EXPLORAR", bgImage: "/Img/Start/Caps/bg5.svg", chapter: "c5" },
-            { text: "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", bgImage: "/Img/Start/Caps/bg6.svg", chapter: "c6" },
+            { text: "LAS 8 REGIONES DEL CAFÉ", bgImage: "/Img/Start/Caps/bg2.png", chapter: "c2" },
+            { text: "SISTEMAS AGROFORESTALES", bgImage: "/Img/Start/Caps/bg3.png", chapter: "c3" },
+            { text: "BENEFICIOS ECOSISTÉMICOS", bgImage: "/Img/Start/Caps/bg4.png", chapter: "c4" },
+            { text: "UN ENTORNO DIVERSO POR EXPLORAR", bgImage: "/Img/Start/Caps/bg5.png", chapter: "c5" },
+            { text: "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", bgImage: "/Img/Start/Caps/bg6.png", chapter: "c6" },
         ];
         }
         return arr;
@@ -98,17 +98,24 @@ const Carrousel = () => {
             </div>
 
             {/* Barra + número pegados */}
-            <div className="flex items-center space-x-4">
-                <div className="w-[750px] h-[4px] bg-white/30 rounded-full overflow-hidden">
-                <div
-                    className="h-full bg-[#668B00] transition-all duration-300"
-                    style={{ width: `${progress}%` }}
-                />
+            <div className="flex items-center w-full">
+                {/* Barra de progreso */}
+                <div className="w-full max-w-[80vh] h-[4px] bg-white/30 rounded-full overflow-hidden">
+                    <div
+                        className="h-full bg-[#668B00] transition-all duration-300"
+                        style={{ width: `${progress}%` }}
+                    />
                 </div>
-                <div className="text-white text-[3rem] leading-none" style={{ fontFamily: "GothamBold" }}>
-                {String((startIndex % totalCards) + 1).padStart(2, "0")}
+
+                {/* Número con ajuste responsivo */}
+                <div 
+                    className="text-white leading-none ml-4 flex justify-center items-center" 
+                    style={{ fontFamily: "GothamBold", fontSize: "clamp(1.5rem, 2vw, 3rem)" }}
+                >
+                    {String((startIndex % totalCards) + 1).padStart(2, "0")}
                 </div>
             </div>
+
             </div>
         </div>
         </div>

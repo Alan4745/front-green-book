@@ -1,14 +1,41 @@
-import CircleFeature from "./CircleFeature";
+import { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
+import CircleFeature from "./CircleFeature";
 
 const SectionCircles = () => {
     const { t } = useTranslation();
+    
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del gap-x (espaciado horizontal)
+    const gapXSize = windowWidth > 1600 ? 'gap-x-2' : 'gap-x-0'; // Ajuste dinámico, 12 si es mayor a 1600px, 6 si no
+
+    // Ajuste dinámico del gap-y (espaciado vertical)
+    const gapYSize = windowWidth > 1600 ? 'gap-y-12' : 'gap-y-8'; // Ajuste dinámico, 12 si es mayor a 1600px, 8 si no
+
+    // Ajuste dinámico del margen izquierdo
+    const marginLeft = windowWidth > 1600 ? 'ml-0' : '-ml-22'; // 4px si es mayor a 1600px, 2px si no
+
+    // Ajuste dinámico del margen superior (mt)
+    const marginTop = windowWidth > 1600 ? 'mt-0' : '-mt-12'; // 12 si es mayor a 1600px, 6 si no
 
     return (
         <div className="w-full">
             {/* grid 2x2; la segunda fila se desplaza a la derecha */}
             <div
-                className="grid grid-cols-2 gap-y-12"
+                className={`grid grid-cols-2 ${gapXSize} ${gapYSize} ${marginLeft} ${marginTop}`} // Aplica el margen dinámico
                 role="list"
                 aria-label={t("c3.section1.circles.aria.list")}
             >

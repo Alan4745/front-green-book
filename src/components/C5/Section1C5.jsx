@@ -4,9 +4,9 @@ import HoverButton from '../Global/HoverButton';
 import { useTranslation } from 'react-i18next';
 
 // Asegúrate de que las rutas sean correctas
-import F1 from '../../assets/C5/F1.jpg';
-import F2 from '../../assets/C5/F2.svg';
-import F3 from '../../assets/C5/F3.jpg';
+import F1 from '../../assets/C5/F1.png';
+import F2 from '../../assets/C5/F2.png';
+import F3 from '../../assets/C5/F3.png';
 
 import Number1 from '../../assets/C5/Numbers/Number1.png';
 import Number2 from '../../assets/C5/Numbers/Number2.svg';
@@ -73,6 +73,28 @@ const Section1C5 = () => {
         }
     ];
 
+    // Estado para el tamaño de la ventana
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
+    React.useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Ajuste dinámico del margen superior para los textos
+    const marginTopTitle = windowWidth > 1600 ? "top-[18vh]" : "top-[10vh]"; // Título más abajo en pantallas pequeñas
+    const marginTopDesc = windowWidth > 1600 ? "top-[28vh]" : "top-[20vh]"; // Descripción más abajo en pantallas pequeñas
+    const marginTopOutro = windowWidth > 1600 ? "mt-[-2vh]" : "mt-[-15vh]"; // Outro más abajo en pantallas pequeñas
+
+    // Ajuste dinámico del margen derecho del botón
+    const marginRightButton = windowWidth > 1600 ? "right-[-6vh]" : "right-[-12vh]"; // Botón más a la derecha en pantallas pequeñas
+
     return (
         <div
             className="relative min-h-screen w-full flex bg-[#562E91] bg-no-repeat bg-center bg-cover items-center justify-center"
@@ -80,7 +102,7 @@ const Section1C5 = () => {
             aria-label={t('c5.section1.aria.section')}
         >
             {/* Botón de hover con link */}
-            <div className="absolute top-6 right-[-6vh] z-50">
+            <div className={`absolute top-6 ${marginRightButton} z-50`}>
                 <HoverButton
                     text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
                     textOffset={-80}
@@ -91,7 +113,7 @@ const Section1C5 = () => {
 
             {/* Título */}
             <h2
-                className="absolute top-[18vh] left-[43.2vw] text-white text-[5vh] uppercase"
+                className={`absolute left-[43.2vw] text-white text-[5vh] uppercase ${marginTopTitle}`}
                 style={{ fontFamily: 'GothamBold' }}
             >
                 {t('c5.section1.title')}
@@ -99,7 +121,7 @@ const Section1C5 = () => {
 
             {/* Intro */}
             <p
-                className="absolute w-[30%] text-justify text-white text-[2.2vh] top-[28vh] left-[43.2vw]"
+                className={`absolute w-[30%] text-justify text-white text-[2.2vh] ${marginTopDesc} left-[43.2vw]`}
                 style={{ fontFamily: 'GothamNormal' }}
             >
                 {t('c5.section1.intro')}
@@ -107,7 +129,7 @@ const Section1C5 = () => {
 
             {/* Outro */}
             <p
-                className="relative w-[35%] text-justify text-white text-[2.2vh] left-[11vw] mb-10"
+                className={`relative w-[35%] text-justify text-white text-[2.2vh] ${marginTopOutro} left-[11vw] mb-10`}
                 style={{ fontFamily: 'GothamNormal' }}
             >
                 {t('c5.section1.outro')}

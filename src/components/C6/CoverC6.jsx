@@ -9,7 +9,7 @@ const CoverC6 = () => {
     return (
         <PageSkeleton
             assets={[
-                "/Img/C6/ImgC6.svg",
+                "/Img/C6/ImgC6.png",
                 "/Img/Global/Numbers/06.svg",
                 "/Logos/LogoPequeño.svg"
             ]}
@@ -19,7 +19,7 @@ const CoverC6 = () => {
         >
             <div
                 className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
-                style={{ backgroundImage: "url('/Img/C6/ImgC6.svg')" }}
+                style={{ backgroundImage: "url('/Img/C6/ImgC6.png')" }}
             >
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
@@ -35,7 +35,7 @@ const CoverC6 = () => {
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[25vh] right-[55vh] z-30 text-white text-left">
+                <div className="absolute top-[25vh] right-[40vh] z-30 text-white text-left">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}

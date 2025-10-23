@@ -7,8 +7,8 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
 
 // ✅ Importa assets para rutas correctas en build
-import Img1 from '../../assets/C1/F3.svg';
-import Img2 from '../../assets/C1/F4.svg';
+import Img1 from '../../assets/C1/F3.png';
+import Img2 from '../../assets/C1/F4.png';
 
 /* =========================
  * Utilidades de color + Skeleton
