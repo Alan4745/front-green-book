@@ -120,12 +120,7 @@ const SectionGC = () => {
                     cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
             >
-                <TextMaskOverlay
-                    className=""
-                    rectOpacity={0.9}
-                    topText="GUATEM"
-                    bottomText="COFFE"
-                />
+              
 
                 <div className="absolute top-6 left-6">
                     <BackButton onClick={() => navigate('/colab')} color="black" />
@@ -142,7 +137,10 @@ const SectionGC = () => {
                     />
                 </div>
 
-                <div className="absolute bottom-6 left-6">
+                <div className="absolute bottom-0"   style={{backgroundColor: "rgba(255, 255, 255, 0.3)", // transparent red
+                            backdropFilter: "blur(10px)",
+                            WebkitBackdropFilter: "blur(10px)" // Safari support
+                        ,padding:"40px", }}>
                     <p
                         className="w-[100vh] text-xl"
                         style={{ fontFamily: 'GothamNormal' }}
@@ -166,20 +164,7 @@ const SectionGC = () => {
             <div className={`absolute top-0 right-0 h-full flex z-10 transition-opacity duration-300 ${
                 cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
             }`}>
-                <div className="text-white text-left pr-[13.8vw] mt-[14.6vw]">
-                    <div 
-                        className="text-[12vw] leading-none tracking-wider font-bold"
-                        style={{ fontFamily: 'FuenteGrande' }}
-                    >
-                        ALAN
-                    </div>
-                    <div 
-                        className="text-[3.8vw] leading-none ml-1 mt-[1.5vw] font-bold"
-                        style={{ fontFamily: 'FuenteGrande' }}
-                    >
-                        ES
-                    </div>
-                </div>
+
             </div>
 
             <div className="absolute top-6 left-6">
