@@ -173,13 +173,14 @@ const Section1C1 = () => {
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
             >
+            <CloseButton
+                onClick={onClose}
+                className="absolute top-4 right-7 text-white"
+                aria-label={alt}
+                title={alt}
+            />
                 <div className="relative">
-                    <CloseButton
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={alt}
-                        title={alt}
-                    />
+                   
                     <img
                         src={src}
                         alt={alt}
@@ -279,12 +280,13 @@ const Section1C1 = () => {
                         {...hoverAnim}
                     >
                         {/* Envolvente para recorte interno */}
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none"  onClick={() => handleImageClick(vid2Poster || Img1Fallback)}  >
                             <img
                                 src={vid2Poster || Img1Fallback}
                                 alt={t('c1.section1.images.img1Alt')}
                                 className="w-full h-full object-cover select-none pointer-events-none"
                                 draggable={false}
+                                
                             />
                         </div>
 
@@ -304,7 +306,7 @@ const Section1C1 = () => {
                         whileTap={{ scale: 1.02 }}
                         {...hoverAnim}
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
                             <img
                                 src={Img2}
                                 alt={t('c1.section1.images.img2Alt')}

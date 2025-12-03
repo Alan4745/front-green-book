@@ -156,7 +156,7 @@ const Coban = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
                 >
-                    <div className="absolute top-[5%] left-[28%] flex items-start h-full">
+                    <div className="absolute top-[5%] left-[20%] flex items-start h-full">
                         <img
                             src={PDRCoban}
                             alt={t(keys.alts.profile)}
@@ -168,7 +168,7 @@ const Coban = () => {
 
                 {/* Gráficas de Cobán */}
                 <motion.div
-                    className="absolute top-1/2 left-[79%] transform -translate-x-1/2 -translate-y-[65%]"
+                    className="relative left-[79%] transform -translate-x-[54%] -translate-y-[215%]"
                     initial={{ opacity: 0, scale: 1.2 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
@@ -178,13 +178,13 @@ const Coban = () => {
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
                         className="w-[50vh] h-auto object-contain"
-                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }} 
+                        style={{ width: '50%', height: '50%', transform: 'scale(1.25)' }} 
                     />
                 </motion.div>
 
                 {/* Lista de características */}
                 <motion.div
-                    className="absolute bottom-[12vh] left-[68%] z-20"
+                    className="relative left-[79%] transform -translate-x-[60%] -translate-y-[470%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
@@ -224,6 +224,17 @@ const Coban = () => {
             {/* Modal de imagen ampliada */}
             {showZoom && (
                 <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+
+                    
+                    <div className="absolute top-0 right-0">
+                        <CloseButton
+                            onClick={() => setShowZoom(false)}
+                            aria-label={t(keys.buttons.close)}
+                            title={t(keys.buttons.close)}
+                        />
+                    </div>
+
+
                     <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoCoban}
@@ -233,13 +244,7 @@ const Coban = () => {
                         />
                     </div>
 
-                    <div className="absolute top-18 right-[35vh]">
-                        <CloseButton
-                            onClick={() => setShowZoom(false)}
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
-                    </div>
+                    
                 </div>
             )}
         </div>

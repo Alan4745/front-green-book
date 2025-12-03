@@ -5,7 +5,7 @@ const CloseButton = ({ onClick }) => {
         <button
         onClick={onClick}
         aria-label="Cerrar"
-        className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/70 hover:bg-white/40 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white grid place-items-center"
+        className="absolute top-12 right-14 h-10 w-10 rounded-full bg-white/70 hover:bg-white/40 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white grid place-items-center"
         >
         <svg
             viewBox="0 0 24 24"

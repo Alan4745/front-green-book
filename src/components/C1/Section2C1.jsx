@@ -130,13 +130,14 @@ const Section1C2 = () => {
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
             >
+            <CloseButton
+                onClick={onClose}
+                className="absolute top-4 right-7 text-white"
+                aria-label={alt}
+                title={alt}
+            />
                 <div className="relative">
-                    <CloseButton
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={alt}
-                        title={alt}
-                    />
+
                     <img
                         src={src}
                         alt={alt}
@@ -290,7 +291,7 @@ const Section1C2 = () => {
                 </div>
 
                 {/* Imágenes centro */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full" >
                     {/* Primera imagen */}
                     <motion.div
                         className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
@@ -299,7 +300,7 @@ const Section1C2 = () => {
                         whileTap={{ scale: 1.02 }}
                         {...hoverAnim}
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img1)}>
                             <img
                                 src={Img1}
                                 alt={t('c1.section2.images.img1Alt')}
@@ -323,7 +324,7 @@ const Section1C2 = () => {
                         whileTap={{ scale: 1.02 }}
                         {...hoverAnim}
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
                             <img
                                 src={Img2}
                                 alt={t('c1.section2.images.img2Alt')}

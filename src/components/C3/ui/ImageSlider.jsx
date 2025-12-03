@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import "./Slider.css"
 
 export default function ImageSlider({
     slides = [],
@@ -232,7 +233,7 @@ export default function ImageSlider({
 
             {/* dots */}
             {count > 1 && showIndicators && (
-                <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+                <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-2">
                     {data.map((_, i) => (
                         <button
                             key={i}
@@ -244,8 +245,19 @@ export default function ImageSlider({
                             }`}
                         />
                     ))}
+
+                     <div className="absolute right-32 bottom-10" >
+                        <button className="absolute top-0 left-0 hover-expand" style={{color:"white" , fontSize:40}} onClick={prev}>{"←"}</button>
+                        <button className="absolute top-0 left-14 hover-expand" style={{color:"white", fontSize:40}} onClick={next}>{"→"}</button>
+                    </div>
+
+
                 </div>
             )}
+
+                
+
+
 
             {/* LIGHTBOX */}
             {isLightboxOpen && (
@@ -256,17 +268,20 @@ export default function ImageSlider({
                     aria-label="Vista ampliada de la imagen"
                     onClick={closeLightbox}
                 >
-                    <div className="relative" onClick={(e) => e.stopPropagation()}>
-                        <button
+
+                    <button
                             onClick={closeLightbox}
                             aria-label="Cerrar"
-                            className="absolute -top-3 -right-3 h-9 w-9 rounded-full bg-white/90 hover:bg-white shadow-md grid place-items-center focus:outline-none focus:ring-2 focus:ring-slate-300"
+                            className="absolute top-10 right-10 h-9 w-9 rounded-full bg-white/90 hover:bg-white shadow-md grid place-items-center focus:outline-none focus:ring-2 focus:ring-slate-300"
                             title="Cerrar"
                         >
                             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M6 6l12 12M18 6L6 18" />
                             </svg>
-                        </button>
+                    </button>
+
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
+                        
 
                         <img
                             src={data[index].src}

@@ -171,7 +171,7 @@ const Acate = () => {
             <div className="w-[42%] h-full bg-white relative">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[28%] flex items-start h-full will-change-transform"
+                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}

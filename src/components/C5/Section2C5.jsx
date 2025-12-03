@@ -183,18 +183,26 @@ const Section2C5 = () => {
             {/* Lightbox */}
             {isLightboxOpen && (
                 <div
+                    onClick={closeLightbox}
                     className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t(keys.aria.modal)}
                 >
-                    <div className="relative">
-                        <CloseButton
-                            onClick={closeLightbox}
-                            className="absolute top-4 right-4 text-white"
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
+                <CloseButton
+                        onClick={closeLightbox}
+                        className="absolute top-4 right-4 text-white"
+                        aria-label={t(keys.buttons.close)}
+                        title={t(keys.buttons.close)}
+                    />
+                    <div className="relative"
+                    
+                    onClick={(e) => {
+                        e.stopPropagation();     // evita que el click del botón llegue al overlay
+                        closeLightbox();
+                        }}
+                    >
+             
                         <img
                             src={currentImage}
                             alt={t(keys.aria.modal)}

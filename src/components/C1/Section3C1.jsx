@@ -75,7 +75,7 @@ const Section3C1 = () => {
 
             {/* Botón de idioma */}
             <div className="absolute bottom-10 right-10 z-20">
-                <LanguageSelector />
+                <LanguageSelector alignment="right"  />
             </div>
         </div>
     );

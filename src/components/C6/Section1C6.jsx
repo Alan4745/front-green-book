@@ -89,13 +89,15 @@ const Section1C6 = () => {
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
             >
-                <div className="relative">
-                    <CloseButton
+
+                 <CloseButton
                         onClick={onClose}
                         className="absolute top-4 right-4 text-white"
                         aria-label={t('c6.section1.buttons.close')}
                         title={t('c6.section1.buttons.close')}
                     />
+                <div className="relative">
+                   
                     <img
                         src={src}
                         alt={alt}
@@ -234,3 +236,4 @@ const Section1C6 = () => {
 };
 
 export default Section1C6;
+

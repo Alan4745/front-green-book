@@ -56,11 +56,11 @@ function App() {
 
         <Route path="/colab" element={<MainColab />} />
         
-        <Route path="/colab/sgc" element={<SectionGC />} />
-        <Route path="/colab/sgc/covergc" element={<CoverGC />} />
+        <Route path="/colab/sgc/covergc" element={<SectionGC />} />
+        <Route path="/colab/sgc/" element={<CoverGC />} />
 
-        <Route path="/colab/sac" element={<SectionAC />} />
-        <Route path="/colab/sac/coverac" element={<CoverAC />} />
+        <Route path="/colab/sac/coverac" element={<SectionAC />} />
+        <Route path="/colab/sac" element={<CoverAC />} />
 
       </Routes>
     </Router>

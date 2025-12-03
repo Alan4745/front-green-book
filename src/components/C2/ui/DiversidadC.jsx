@@ -627,6 +627,8 @@ const DiversidadC = ({
                     />
                 ))}
             </div>
+
+            
         </figure>
     );
 };

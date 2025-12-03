@@ -2,7 +2,6 @@
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
 import HoverButton from "../Global/HoverButton";
 import PageSkeleton from "../Global/PageSkeleton";
@@ -111,10 +110,6 @@ const CoverC1 = () => {
                     />
                 </div>
 
-                {/* Selector de idioma */}
-                <div className="absolute bottom-[5vh] right-15 z-50">
-                    <LanguageSelector />
-                </div>
 
                 {/* Menú desplegable */}
                 <div className="absolute top-[2vh] right-10 z-50">

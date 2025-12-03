@@ -749,10 +749,10 @@
                 }
             },
             "points": {
-                "p1": { "text": "Impulsamos el uso de herramientas tecnológicas." },
+                "p1": { "text": "Impulsamos el uso de herramientas tecnológicas avanzadas para el sector. " },
                 "p2": { "text": "Fortalecemos la administración organizacional." },
                 "p3": {
-                    "line1": "Promovemos la investigación y la innovación a",
+                    "line1": "Promovemos la investigación y la innovación a través de nuestro departamento de",
                     "line2Before": "través de nuestro departamento de",
                     "cedicafe": "Cedicafé"
                 }

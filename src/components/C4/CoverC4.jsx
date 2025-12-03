@@ -67,7 +67,7 @@ const CoverC4 = () => {
 
                 {/* Selector de idioma */}
                 <div className="absolute bottom-[5vh] right-6 z-50">
-                    <LanguageSelector />
+                    <LanguageSelector alignment="right" />
                 </div>
 
                 {/* Menú desplegable */}

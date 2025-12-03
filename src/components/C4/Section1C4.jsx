@@ -265,25 +265,31 @@ const Section1C4 = () => {
 
             {/* Lightbox */}
             {isLightboxOpen && (
-                <div
+               <div
+                    onClick={closeLightbox}
                     className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t(currentAltKey || keys.buttons.close)}
-                >
+                    >
+                    {/* Botón de cerrar */}
+                    <CloseButton
+                        onClick={(e) => {
+                        e.stopPropagation();     // evita que el click del botón llegue al overlay
+                        closeLightbox();
+                        }}
+                        className="absolute top-4 right-4 text-white"
+                        aria-label={t(keys.buttons.close)}
+                        title={t(keys.buttons.close)}
+                    />
+
                     <div className="relative">
-                        {/* Botón de cerrar */}
-                        <CloseButton
-                            onClick={closeLightbox}
-                            className="absolute top-4 right-4 text-white"
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
-                        {/* Imagen ampliada */}
+                        {/* Imagen ampliada — stopPropagation para que NO cierre al click */}
                         <img
-                            src={currentImage}
-                            alt={t(currentAltKey || keys.buttons.expand)}
-                            className="h-[90vh] w-auto object-contain"
+                        src={currentImage}
+                        alt={t(currentAltKey || keys.buttons.expand)}
+                        className="h-[90vh] w-auto object-contain"
+                        onClick={(e) => e.stopPropagation()} // <- aquí
                         />
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
 import PageSkeleton from "../Global/PageSkeleton";
 
@@ -63,10 +62,7 @@ const CoverC2 = () => {
                     />
                 </div>
 
-                {/* Selector de idioma */}
-                <div className="absolute bottom-[5vh] right-12 z-50">
-                    <LanguageSelector />
-                </div>
+    
 
                 {/* Menú desplegable */}
                 <div className="absolute top-[2vh] right-10 z-50">

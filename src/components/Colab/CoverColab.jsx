@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
@@ -15,6 +15,7 @@ import LogotipoAC from '../../assets/Colab/LogotipoAC.svg';
 
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
+import 'animate.css';
 
 const CoverColab = () => {
     const navigate = useNavigate();
@@ -26,28 +27,89 @@ const CoverColab = () => {
         offset: ['start start', 'end start'],
     });
 
-    // ===== FASES Y TRANSFORMACIONES (se mantienen iguales) =====
-    const groupScale = useTransform(scrollYProgress, [0, 0.4, 0.9, 1], [1, 0.55, 0.55, 1.25]);
-    const groupY = useTransform(scrollYProgress, [0, 0.4, 1], ['0vh', '-12vh', '-12vh']);
 
-    const leftX = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vw','-45vw','-45vw','-22vw','0vw']);
-    const rightX = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vw','45vw', '45vw', '22vw', '0vw']);
+// ===== TRANSFORMACIONES AJUSTADAS PARA 260vh =====
+const groupScale = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.9, 1],
+    [1, 0.88, 0.88, 1.30]   // +0.05 bigger at the end
+);
 
-    const leftY = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vh','18vh','0vh','20vh','0vh']);
-    const rightY = useTransform(scrollYProgress, [0, 0.4, 0.8, 0.9, 1], ['0vh','12vh','0vh','16vh','0vh']);
+const brandsScale = useTransform(
+    scrollYProgress,
+    [0.8, 0.9, 1],
+    [1, 4.2, 1.50]          // +0.4 expansion, +0.08 end scale
+);
 
-    const logosOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 0.15, 0]);
 
-    const brandsScale = useTransform(scrollYProgress, [0.8, 0.9, 1], [1, 4, 1.4]);
+const groupY = useTransform(scrollYProgress,
+    [0, 0.18, 1],
+    ['0vh', '-18vh', '-22vh']
+);
 
-    const brandLeftX = useTransform(scrollYProgress, [0.5, 0.8], ['0vw',  '20vw']);
-    const brandRightX = useTransform(scrollYProgress, [0.5, 0.8], ['0vw', '-20vw']);
 
-    const brandLeftY = useTransform(scrollYProgress, [0.6, 0.8], ['0vh', '-15vh']);
-    const brandRightY = useTransform(scrollYProgress, [0.6, 0.8], ['0vh', '-15vh']);
+// ===== MOVIMIENTOS LATERALES =====
+const leftX = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.36, 0.41, 1],
+    ['0vw', '5vw', '-10vw', '-5vw', '0vw']
+);
 
-    // FASE 5: Entrada sutil de las tarjetas
-    const cardOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);  // De 0 a 1 con el scroll
+const rightX = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.36, 0.41, 1],
+    ['0vw', '-5vw', '10vw', '5vw', '0vw']
+);
+
+
+const leftY = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.36, 0.41, 1],
+    ['0vh', '36vh', '0vh', '16vh', '0vh']   // big drop
+);
+
+const rightY = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.36, 0.41, 1],
+    ['0vh', '32vh', '0vh', '14vh', '0vh']   // big drop
+);
+
+// ===== OPACIDAD DE LOGOS =====
+const logosOpacity = useTransform(scrollYProgress,
+    [0, 0.18, 0.36],
+    [1, 0.15, 0]
+);
+
+
+
+// ===== MOVIMIENTOS DE MARCAS =====
+const brandLeftX = useTransform(scrollYProgress,
+    [0.23, 0.34],
+    ['0vw', '-3vw']
+);
+
+const brandRightX = useTransform(scrollYProgress,
+    [0.23, 0.36],
+    ['0vw', '2vw']
+);
+
+const brandLeftY = useTransform(scrollYProgress,
+    [0.27, 0.36],
+    ['0vh', '-20vh']
+);
+
+const brandRightY = useTransform(scrollYProgress,
+    [0.27, 0.36],
+    ['0vh', '-20vh']
+);
+
+
+// ===== TARJETAS =====
+const cardOpacity = useTransform(scrollYProgress,
+    [0, 0.12],
+    [0, 1]
+);
+
 
     // Redirigir a la sectionGC
     const handleGoToSectionGC = () => {
@@ -59,10 +121,18 @@ const CoverColab = () => {
         navigate('/colab/sac');
     };
 
+
+    const [showIndicator, setShowIndicator] = useState(true);
+
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        setShowIndicator(latest < 0.); 
+    });
+
+
     return (
         <section
             ref={sectionRef}
-            className="relative h-[560vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
+            className="relative h-[260vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
@@ -76,8 +146,41 @@ const CoverColab = () => {
             </div>
             
             <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 pointer-events-auto">
-                <LanguageSelector />
+                <LanguageSelector alignment='left' />
             </div>
+
+
+            {/* Indicador de Sigue Bajando */}
+
+
+            {showIndicator && (
+                <div className="fixed md:bottom-0 md:left-[48.5%] z-50 pointer-events animate__bounce">
+                    <div className="animate__animated animate__bounce animate__infinite">
+                        <div
+                            style={{ color: "white", fontFamily: "GothamBold", width: "10vw" }}
+                            className="fixed -left-5 -top-10"
+                        >
+                            Sigue Bajando
+                        </div>
+
+                        <div style={{ width: "5rem" }}>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+
+                        <div className="fixed bottom-8" style={{ width: "5rem" }}>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            ) }
+
+            
+
+            
 
             {/* ===== ESCENA STICKY ===== */}
             <div className="sticky top-0 h-screen w-full">

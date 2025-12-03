@@ -102,6 +102,7 @@ const SectionGC = () => {
             role="region"
             aria-label={t('colab.gc.aria.section')}
         >
+            
             <video
                 ref={videoRef}
                 className="absolute inset-0 w-full h-full object-cover z-0"
@@ -180,6 +181,11 @@ const SectionGC = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="absolute top-6 left-6">
+                <BackButton onClick={() => navigate('/colab')} color="black" />
+            </div>
+
 
             <button
                 type="button"

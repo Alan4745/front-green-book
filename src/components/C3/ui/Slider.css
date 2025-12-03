@@ -1,0 +1,16 @@
+.hover-expand {
+  /* 1. Add a smooth transition effect */
+  transition: transform 0.3s ease;
+  
+  /* 2. Ensure it is displayed as a block/inline-block to apply transform */
+  display: inline-block; 
+}
+
+/* 3. Define the hover state */
+.hover-expand:hover {
+  /* Scale the button to 1.1 times its original size (10% larger) */
+  transform: scale(1.1); 
+  
+  /* Optional: Make it slightly brighter on hover */
+  filter: brightness(1.2); 
+}
