@@ -88,6 +88,7 @@ const Section1C6 = () => {
                 aria-modal="true"
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
+                onClick={onClose}
             >
 
                  <CloseButton
@@ -102,6 +103,8 @@ const Section1C6 = () => {
                         src={src}
                         alt={alt}
                         className="h-[90vh] w-auto object-contain"
+                        onClick={(e) => e.stopPropagation()}
+
                     />
                 </div>
             </div>,
@@ -165,6 +168,8 @@ const Section1C6 = () => {
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
+                        onClick={() => handleImageClick(Img1)}
+
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
                             <img
@@ -173,6 +178,7 @@ const Section1C6 = () => {
                                 title={t("c6.section1.images.img1Alt")}
                                 className="w-full h-full object-cover select-none pointer-events-none"
                                 draggable={false}
+                                
                             />
                         </div>
                         {/* ZoomButton en la esquina inferior derecha */}
@@ -196,6 +202,8 @@ const Section1C6 = () => {
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
+                        onClick={() => handleImageClick(Img2)}
+
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
                             <img

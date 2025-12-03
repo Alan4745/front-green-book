@@ -154,20 +154,24 @@ const Section2C4 = () => {
                     role="dialog"
                     aria-modal="true"
                     aria-label={t(keys.aria.modal)}
+                    onClick={closeLightbox}
                 >
-                    <div className="relative">
-                        {/* Botón de cerrar */}
+                      {/* Botón de cerrar */}
                         <CloseButton
                             onClick={closeLightbox}
                             className="absolute top-4 right-4 text-white"
                             aria-label={t(keys.buttons.close)}
                             title={t(keys.buttons.close)}
                         />
+                    <div className="relative">
+                      
                         {/* Imagen ampliada */}
                         <img
                             src={currentImage}
                             alt={t(currentAltKey || keys.aria.modal)}
                             className="h-[90vh] w-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                 </div>

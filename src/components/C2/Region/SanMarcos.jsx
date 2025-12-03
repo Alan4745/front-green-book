@@ -8,7 +8,6 @@ import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -92,14 +91,6 @@ const SanMarcos = () => {
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-                {/* Botón regresar */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
 
                 {/* Logo de región San Marcos */}
                 <motion.div
@@ -220,13 +211,15 @@ const SanMarcos = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
+                    <div  className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} >
                         <img
                             src={FondoSanMarcos}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="w-[95%] h-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                     <div className="absolute top-[4vh] right-[50vh] z-50">

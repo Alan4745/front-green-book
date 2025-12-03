@@ -147,13 +147,17 @@ const Section1C5 = () => {
                     role="dialog"
                     aria-modal="true"
                     aria-label={t('c5.section1.modalAlt')}
+                    onClick={closeLightbox}
                 >
+                     <CloseButton onClick={closeLightbox} className="absolute top-4 right-4 text-white" />
                     <div className="relative">
-                        <CloseButton onClick={closeLightbox} className="absolute top-4 right-4 text-white" />
+                       
                         <img
                             src={currentImage}
                             alt={t('c5.section1.modalAlt')}
                             className="h-[90vh] w-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                 </div>

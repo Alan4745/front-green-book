@@ -87,14 +87,17 @@ const Section2C6 = () => {
                 aria-modal="true"
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
+                        onClick={onClose}
+
             >
-                <div className="relative">
-                    <CloseButton
+                 <CloseButton
                         onClick={onClose}
                         className="absolute top-4 right-4 text-white"
                         aria-label={t('c6.section2.buttons.close')}
                         title={t('c6.section2.buttons.close')}
                     />
+                <div className="relative">
+                   
                     <img
                         src={src}
                         alt={alt}
@@ -163,13 +166,14 @@ const Section2C6 = () => {
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none"  onClick={() => handleImageClick(Img1)}>
                             <img
                                 src={Img1}
                                 alt={t("c6.section2.images.img1Alt")}
                                 title={t("c6.section2.images.img1Alt")}
                                 className="w-full h-full object-cover select-none pointer-events-none"
                                 draggable={false}
+                                
                             />
                         </div>
                         {/* ZoomButton en la esquina inferior derecha */}
@@ -194,7 +198,7 @@ const Section2C6 = () => {
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-none">
+                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
                             <img
                                 src={Img2}
                                 alt={t("c6.section2.images.img2Alt")}

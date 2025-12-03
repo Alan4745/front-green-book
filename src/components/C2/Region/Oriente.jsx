@@ -8,7 +8,6 @@ import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
 import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -91,15 +90,6 @@ const Oriente = () => {
 
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-50 z-10" />
-
-                {/* Botón regresar */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
 
                 {/* Animación del logo de región Oriente */}
                 <motion.div
@@ -220,13 +210,15 @@ const Oriente = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                <div  onClick={() => setShowZoom(false)} className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                    <div className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} >
                         <img
                             src={FondoOriente}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="max-w-[36%] max-h-[90%] object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                     <div className="absolute top-[4vh] right-[50vh] z-50">

@@ -8,7 +8,6 @@ import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
 import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -114,11 +113,7 @@ const Acate = () => {
 
                 {/* Botón de regreso */}
                 <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
+                   
                 </div>
 
                 {/* Logo región Acatenango — entra después del fondo */}
@@ -253,13 +248,16 @@ const Acate = () => {
 
             {/* Modal zoom */}
                 {showZoom && (
-                    <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                        <div className="relative overflow-auto flex justify-center items-center">
+                    <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"  onClick={() => setShowZoom(false)}>
+                        <div className="relative overflow-auto flex justify-center items-center" >
                             <img
+                            
                                 src={FondoAcate}
                                 alt={t(keys.alts.modalImage)}
                                 title={t(keys.alts.modalImage)}
                                 className="max-w-[70%] max-h-[90%] object-contain"  // Max size to avoid overflows
+                                onClick={(e) => e.stopPropagation()}
+
                             />
                         </div>
                         <div className="absolute top-[4vh] right-[16vh] z-50">

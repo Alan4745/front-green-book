@@ -8,7 +8,6 @@ import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
 import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -110,14 +109,7 @@ const Atitlan = () => {
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
-                {/* Botón de regreso */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
+
 
                 {/* Logo región Atitlán */}
                 <motion.div
@@ -247,11 +239,14 @@ const Atitlan = () => {
                         role="dialog"
                         aria-modal="true"
                         aria-label={t(keys.alts.modalImage)}
+                        onClick={() => setShowZoom(false)}
                     >
                         <img
                             src={FondoAtitlan}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
+                            onClick={(e) => e.stopPropagation()}
+
                             className="max-w-[36%] max-h-[90%] object-contain"
                         />
                     </div>

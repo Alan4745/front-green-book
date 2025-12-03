@@ -117,9 +117,9 @@ const Section1C2 = () => {
 
                 {/* Modal: muestra DiversidadC en lugar de una imagen */}
                 {showDiversidad && (
-                    <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+                    <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 " onClick={() => setShowDiversidad(false)}>
                         <CloseButton onClick={() => setShowDiversidad(false)} />
-                        <div className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white">
+                        <div onClick={(e) => e.stopPropagation()}  className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white">
                             <DiversidadC baseWidthVh={130} />
                         </div>
                     </div>

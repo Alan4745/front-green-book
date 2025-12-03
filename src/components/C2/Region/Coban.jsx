@@ -8,7 +8,6 @@ import CobanG from '../../../assets/C2/Graficas/CobanG.png';
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -93,14 +92,7 @@ const Coban = () => {
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-                {/* Botón de regreso */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
+
 
                 {/* Logo de región Cobán — misma animación fiable */}
                 <motion.div
@@ -223,7 +215,7 @@ const Coban = () => {
 
             {/* Modal de imagen ampliada */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)} >
 
                     
                     <div className="absolute top-0 right-0">
@@ -241,6 +233,8 @@ const Coban = () => {
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="w-[90%] h-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
 

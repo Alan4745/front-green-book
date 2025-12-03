@@ -8,7 +8,6 @@ import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
 import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -115,13 +114,7 @@ const Antigua = () => {
                 <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
                 {/* Botón de regreso */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
+
 
                 {/* Logo región Antigua — entra después del fondo */}
                 <motion.div
@@ -262,12 +255,15 @@ const Antigua = () => {
                         role="dialog"
                         aria-modal="true"
                         aria-label={t(keys.alts.modalImage)}
+                        onClick={() => setShowZoom(false)}
                     >
                         <img
                             src={FondoAntigua}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="max-w-[70%] max-h-[90%] object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                     <div className="absolute top-[4vh] right-[16vh] z-50">

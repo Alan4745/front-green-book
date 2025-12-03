@@ -8,7 +8,6 @@ import HuehueG from '../../../assets/C2/Graficas/HuehueG.png';
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -92,14 +91,7 @@ const Huehue = () => {
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-                {/* Botón regresar */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
+
 
                 {/* Logo de región Huehue */}
                 <motion.div
@@ -220,13 +212,15 @@ const Huehue = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                    <div className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
+                <div  onClick={() => setShowZoom(false)} className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+                    <div  className="relative overflow-auto flex justify-center items-center" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
                         <img
                             src={FondoHuehue}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="max-w-[75%] max-h-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+
                         />
                     </div>
                     <div className="absolute top-[4vh] right-[54vh] z-50">

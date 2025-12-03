@@ -172,6 +172,7 @@ const Section1C1 = () => {
                 aria-modal="true"
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
+                onClick={onClose}
             >
             <CloseButton
                 onClick={onClose}
@@ -185,6 +186,7 @@ const Section1C1 = () => {
                         src={src}
                         alt={alt}
                         className="h-[90vh] w-auto object-contain"
+                        onClick={(e) => e.stopPropagation()}
                     />
                 </div>
             </div>,

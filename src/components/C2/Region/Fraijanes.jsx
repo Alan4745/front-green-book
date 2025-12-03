@@ -8,7 +8,6 @@ import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
 import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.jpg';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
-import BackButton from '../../Global/BackButton';
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
@@ -93,14 +92,7 @@ const Fraijanes = () => {
                 {/* Overlay negro con 50% de opacidad */}
                 <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-                {/* Botón de regreso */}
-                <div className="absolute top-[3vh] left-[3vh] z-20">
-                    <BackButton
-                        onClick={() => navigate('/c2')}
-                        aria-label={t(keys.buttons.back)}
-                        title={t(keys.buttons.back)}
-                    />
-                </div>
+
 
                 {/* Animación del logo de región Fraijanes */}
                 <motion.div
@@ -227,12 +219,15 @@ const Fraijanes = () => {
                         role="dialog"
                         aria-modal="true"
                         aria-label={t(keys.alts.modalImage)}
+                        onClick={() => setShowZoom(false)}
                     >
                         <img
                             src={FondoFraijanes}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="max-w-[70%] max-h-[90%] object-contain"
+                            onClick={(e) => e.stopPropagation()}
+                        
                         />
                     </div>
                     <div className="absolute top-[4vh] right-[16vh] z-50">
