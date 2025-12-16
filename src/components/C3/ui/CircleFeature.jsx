@@ -70,7 +70,7 @@ export default function CircleFeature({
                     width={dynamicSize}
                     height={dynamicSize}
                     viewBox={`0 0 ${dynamicSize} ${dynamicSize}`}
-                    className="absolute inset-0"
+                    className="absolute inset-0 "
                     aria-hidden="true"
                 >
                     {/* Aro claro */}

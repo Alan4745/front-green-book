@@ -247,8 +247,18 @@ export default function ImageSlider({
                     ))}
 
                      <div className="absolute right-32 bottom-10" >
-                        <button className="absolute top-0 left-0 hover-expand" style={{color:"white" , fontSize:40}} onClick={prev}>{"←"}</button>
-                        <button className="absolute top-0 left-14 hover-expand" style={{color:"white", fontSize:40}} onClick={next}>{"→"}</button>
+                        <button className="absolute top-0 left-0 hover-expand" style={{color:"white" , fontSize:40}} onClick={prev}>
+                            <svg className="w-10 h-10 text-white border-2 rounded-3xl " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                       </button>
+                        <button className="absolute top-0 left-14 hover-expand" style={{color:"white", fontSize:40}} onClick={next}>
+                            <svg className="w-10 h-10 text-white border-2 rounded-3xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                  strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </button>
                     </div>
 
 
