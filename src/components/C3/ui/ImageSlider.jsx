@@ -255,10 +255,6 @@ export default function ImageSlider({
                 </div>
             )}
 
-                
-
-
-
             {/* LIGHTBOX */}
             {isLightboxOpen && (
                 <div

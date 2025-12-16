@@ -16,18 +16,13 @@ import RegionAcatenango from "../../assets/C2/Region/AcatenangoR.svg";
 import RegionAntigua from "../../assets/C2/Region/AntiguaR.svg";
 import RegionFraijanes from "../../assets/C2/Region/FraijanesR.svg";
 import RegionOriente from "../../assets/C2/Region/OrienteR.svg";
-import Acate from "./Region/Acate";
-import Antigua from "./Region/Antigua";
-import Atitlan from "./Region/Atitlan";
-import Coban from "./Region/Coban";
-import Fraijanes from "./Region/Fraijanes";
-import Huehue from "./Region/Huehue";
-import SanMarcos from "./Region/SanMarcos";
-import Oriente from "./Region/Oriente";
+import RegionReutilizable from "./Region/RegionReutilizable";
 
 const Section1C2 = () => {
     const { t } = useTranslation();
     const [showDiversidad, setShowDiversidad] = useState(false);
+
+    const [regionActiva, setRegionActiva] = useState(null);
 
     // Create refs for each region component
     const cobanRef = useRef(null);
@@ -52,6 +47,11 @@ const Section1C2 = () => {
     };
 
     const handleRegionClick = (regionKey) => {
+        //controlando animacion al hacer click en una region
+        console.log("Se hizo click en", regionKey)
+        setRegionActiva(regionKey);
+        
+
         const ref = REGION_REFS[regionKey];
         if (ref && ref.current) {
             ref.current.scrollIntoView({ 
@@ -64,14 +64,14 @@ const Section1C2 = () => {
     };
 
     const regions = [
-        { src: RegionCoban, top: "14vh", left: "66vh", key: "coban" },
-        { src: RegionHuehue, top: "27vh", left: "50vh", key: "huehue" },
-        { src: RegionSanMarcos, top: "48vh", left: "48vh", key: "sanmarcos" },
-        { src: RegionAtitlan, top: "68vh", left: "57vh", key: "atitlan" },
-        { src: RegionAcatenango, top: "76vh", left: "78vh", key: "acatenango" },
-        { src: RegionAntigua, top: "75vh", right: "83vh", key: "antigua" },
-        { src: RegionFraijanes, top: "68vh", right: "62vh", key: "fraijanes" },
-        { src: RegionOriente, top: "47vh", right: "48vh", key: "oriente" }
+        { src: RegionAcatenango, top: "76vh", left: "78vh", key: "acatenango", ref: acatenangoRef, width:"mt-[200px]" },
+        { src: RegionAntigua, top: "75vh", right: "83vh", key: "antigua", ref: antiguaRef },
+        { src: RegionAtitlan, top: "68vh", left: "57vh", key: "atitlan", ref: atitlanRef },
+        { src: RegionCoban, top: "14vh", left: "66vh", key: "coban", ref: cobanRef,  },
+        { src: RegionFraijanes, top: "68vh", right: "62vh", key: "fraijanes", ref: fraijanesRef },
+        { src: RegionHuehue, top: "27vh", left: "50vh", key: "huehue", ref: huehueRef },
+        { src: RegionOriente, top: "47vh", right: "48vh", key: "oriente", ref: orienteRef }, 
+        { src: RegionSanMarcos, top: "48vh", left: "48vh", key: "sanmarcos" , ref: sanmarcosRef },
     ];
 
     return (
@@ -127,37 +127,14 @@ const Section1C2 = () => {
             </div>
 
             {/* Region Components - Each with its ref */}
-            <div ref={acatenangoRef} className="mt-[200px]">
-                <Acate />
-            </div>
-
-            <div ref={antiguaRef}>
-                <Antigua />
-            </div>
-
-            <div ref={atitlanRef}>
-                <Atitlan />
-            </div>
-
-            <div ref={cobanRef}>
-                <Coban />
-            </div>
-
-            <div ref={fraijanesRef}>
-                <Fraijanes />
-            </div>
-
-            <div ref={huehueRef}>
-                <Huehue />
-            </div>
-
-            <div ref={orienteRef}>
-                <Oriente />
-            </div>
-
-            <div ref={sanmarcosRef}>
-                <SanMarcos />
-            </div>
+            {regions.map((region, index) => (
+                <div key={index} ref={region.ref} className={region.width}  >
+                    <RegionReutilizable 
+                        tipo={region.key}  
+                        isActive={regionActiva === region.key}
+                    />
+                </div>
+            ))}
         </div>
     );
 };

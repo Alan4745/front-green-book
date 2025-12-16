@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
@@ -22,6 +22,7 @@ const Section1C3 = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
+
     }, []);
 
     // Ajuste dinámico del tamaño del texto en el primer párrafo
