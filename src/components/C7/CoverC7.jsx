@@ -22,7 +22,6 @@ const CoverC7 = () => {
               autoPlay
               loop
               playsInline
-              muted
               style={{
                 position: 'absolute',
                 width: '100%',
