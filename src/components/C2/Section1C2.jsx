@@ -66,12 +66,12 @@ const Section1C2 = () => {
     const regions = [
         { src: RegionAcatenango, top: "76vh", left: "78vh", key: "acatenango", ref: acatenangoRef, width:"mt-[200px]" },
         { src: RegionAntigua, top: "75vh", right: "83vh", key: "antigua", ref: antiguaRef },
+        { src: RegionSanMarcos, top: "48vh", left: "48vh", key: "sanmarcos" , ref: sanmarcosRef },
         { src: RegionAtitlan, top: "68vh", left: "57vh", key: "atitlan", ref: atitlanRef },
         { src: RegionCoban, top: "14vh", left: "66vh", key: "coban", ref: cobanRef,  },
         { src: RegionFraijanes, top: "68vh", right: "62vh", key: "fraijanes", ref: fraijanesRef },
         { src: RegionHuehue, top: "27vh", left: "50vh", key: "huehue", ref: huehueRef },
         { src: RegionOriente, top: "47vh", right: "48vh", key: "oriente", ref: orienteRef }, 
-        { src: RegionSanMarcos, top: "48vh", left: "48vh", key: "sanmarcos" , ref: sanmarcosRef },
     ];
 
     return (

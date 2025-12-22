@@ -16,6 +16,12 @@ import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
 import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
+//San Marcos
+import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
+import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
+import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
+import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
+
 // Atitlán
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
@@ -96,6 +102,12 @@ const regionImages = {
     logo: AntiguaR,
     perfil: PDRAntigua,
     grafica: AntiguaG,
+  },
+  sanmarcos:{
+    fondo: FondoSanMarcos,
+    logo: SanMarcosR,
+    perfil: PDRSanMarcos,
+    grafica: SanMarcosG,
   },
   atitlan: {
     fondo: FondoAtitlan,
