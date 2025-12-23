@@ -1,46 +1,59 @@
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import analab from '../../../../public/Img/C7/analab.png'
+import abono from '../../../assets/colab/Abono.svg'
+import plantas from '../../../assets/colab/Plantas.svg'
+import suelo from '../../../assets/colab/Suelo.svg'
 
-import LogoFuncafe from '../../../assets/Colab/CompleteLogos/LogoFuncafe.svg';
-import FormaFuncafe from '../../../assets/Colab/ui/FormaFuncafe.svg';
 
 const Section4AC = () => {
-    const navigate = useNavigate();
-    const { t } = useTranslation();
+  return (
+    <footer className="bg-[#283778] w-full py-20 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center text-white">
 
-    return (
-        <div className="relative w-full bg-transparent overflow-hidden">
-            {/* FormaFuncafe define la altura */}
-            <img
-                src={FormaFuncafe}
-                className="w-full h-auto block select-none pointer-events-none"
-                alt={t('colab.sac.section4.alts.shape')}
-                title={t('colab.sac.section4.alts.shape')}
-            />
-
-            {/* Contenido centrado dentro de la forma */}
-            <div className="absolute inset-0 z-10 flex flex-row items-center justify-center gap-[20vh] mt-[15vh]">
-                {/* Logo */}
-                <img
-                    src={LogoFuncafe}
-                    alt={t('colab.sac.section4.alts.funcafeLogo')}
-                    title={t('colab.sac.section4.alts.funcafeLogo')}
-                    className="h-[30vh] w-auto"
-                />
-
-                {/* Texto */}
-                <p
-                    className="max-w-[90vh] text-[2.6vh] leading-snug text-white text-center md:text-left"
-                    style={{ fontFamily: 'Arquitectalight' }}
-                >
-                    {t('colab.sac.section4.body.pre')}{' '}
-                    <span className="text-white bg-[#CF7B24] px-2 py-0.5">
-                        {t('colab.sac.section4.body.highlight')}
-                    </span>
-                </p>
-            </div>
+        {/* Bloque izquierdo */}
+        <div className="flex flex-col gap-6 max-w-sm">
+          <img src={analab} alt="Analab" className="w-40" />
+          <p className="text-sm md:text-base leading-relaxed text-white/80">
+            A través de Analab, realizamos análisis científicos para garantizar
+            la calidad del café.
+          </p>
         </div>
-    );
-};
 
-export default Section4AC;
+        {/* Bloque derecho */}
+        <div className="flex flex-col gap-10">
+          <div className="flex items-start gap-4">
+            <img src={suelo} alt="" className="w-10 h-10 mt-1" />
+            <div>
+              <p className="font-semibold">Análisis de Suelos</p>
+              <p className="text-sm text-white/80">
+                Evaluamos las condiciones y nutrientes del suelo.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <img src={plantas} alt="" className="w-10 h-10 mt-1" />
+            <div>
+              <p className="font-semibold">Análisis de Plantas</p>
+              <p className="text-sm text-white/80">
+                Monitoreamos la salud y crecimiento de las plantas.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <img src={abono} alt="" className="w-10 h-10 mt-1" />
+            <div>
+              <p className="font-semibold">Análisis de Abonos y Aguas</p>
+              <p className="text-sm text-white/80">
+                Estudiamos los efectos en el cultivo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  )
+}
+
+export default Section4AC

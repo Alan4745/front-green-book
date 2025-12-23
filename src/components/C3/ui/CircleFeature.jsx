@@ -14,6 +14,7 @@ export default function CircleFeature({
     colorNumero = "",
     colorAro = "",
     colorMovimiento = "",
+    numeroTamano = null,
 
 }) {
     // Estado para el tamaño dinámico basado en el ancho de la ventana
@@ -62,7 +63,7 @@ export default function CircleFeature({
                     color: {colorNumero},
                     opacity: 0.5,
                     fontFamily: "GothamBold",
-                    fontSize: Math.round(dynamicSize * 0.55),
+                    fontSize: numeroTamano ?? Math.round(dynamicSize * 0.4),
                     transform,
                 }}
             >

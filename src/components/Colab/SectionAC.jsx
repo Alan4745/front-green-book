@@ -7,6 +7,7 @@ import BackButton from '../Global/BackButton';
 import LanguageSelector from '../Global/LanguageSelector';
 
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
+import ancafe from '../../../public/Videos/ancafe.mp4'
 
 function TextMaskOverlay({
     className = '',
@@ -115,78 +116,9 @@ const SectionAC = () => {
                 playsInline
                 aria-label={t('colab.sac.videoAlt')}
             >
-                <source src={VideoAC} type="video/mp4" />
+                <source src={ancafe} type="video/mp4" />
                 {t('colab.sac.videoFallback')}
             </video>
-
-            <div
-                className={`absolute inset-0 z-20 transition-opacity duration-300 ${
-                    cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                }`}
-            >
-                <TextMaskOverlay
-                    className=""
-                    rectOpacity={0.9}
-                    topText="ANACA"
-                    bottomText="GUATEMAL"
-                    style={{ fontFamily: 'GothamBold' }}
-                />
-
-                <div className="absolute top-6 left-6">
-                    <BackButton onClick={() => navigate('/colab')} color="black" />
-                </div>
-
-                <div className="absolute bottom-6 left-[95vh] z-30">
-                    <LanguageSelector
-                        textColor="#000000"
-                        subtextColor="#00000099"
-                        buttonBg="#00000020"
-                        menuBg="#00000010"
-                        activeBg="#000000"
-                        activeTextColor="#ffffff"
-                    />
-                </div>
-
-                <div className="absolute bottom-6 left-6">
-                    <p
-                        className="w-[100vh] text-xl"
-                        style={{ fontFamily: 'GothamNormal' }}
-                    >
-                        {t('colab.sac.desc')}
-                    </p>
-                    <button
-                        type="button"
-                        onClick={() => navigate('/colab/sac/coverac')}
-                        className="mt-4 text-black py-2 underline underline-offset-6 cursor-pointer uppercase"
-                        title={t('colab.sac.buttons.readMoreTitle')}
-                        aria-label={t('colab.sac.buttons.readMoreTitle')}
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        {t('colab.sac.buttons.readMore')}
-                    </button>
-                </div>
-            </div>
-
-            {/* Texto FÉ y A en la derecha */}
-            <div className={`absolute top-0 right-0 h-full flex z-10 transition-opacity duration-300 ${
-                cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'
-            }`}>
-                <div className="text-white text-left pr-[23vw] mt-[14.5vw]">
-                    <div 
-                        className="text-[12vw] leading-none tracking-wider font-bold"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        FÉ
-                    </div>
-                    <div 
-                        className="text-[4.6vw] leading-none ml-[0.1vw] mt-[0.2vw] font-bold"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        A
-                    </div>
-                </div>
-            </div>
-
             <button
                 type="button"
                 onClick={togglePlayPause}

@@ -33,6 +33,7 @@ const Section2C7 = () => {
               number="01"
               size={110}
               arcDeg={140}
+              numeroTamano={"24px"}
             />
             <div>
               <h3 className="text-3xl font-semibold mb-2 text-[#562E91]">
@@ -53,6 +54,8 @@ const Section2C7 = () => {
               number="02"
               size={110}
               arcDeg={250}
+              numeroTamano={"24px"}
+
             />
             <div>
               <h3 className="text-3xl font-semibold mb-2 text-[#562E91]" >
@@ -73,6 +76,7 @@ const Section2C7 = () => {
               number="03"
               size={110}
               arcDeg={500}
+              numeroTamano={"24px"}
             />
             <div>
               <h3 className="text-3xl font-semibold mb-2 text-[#562E91]">
