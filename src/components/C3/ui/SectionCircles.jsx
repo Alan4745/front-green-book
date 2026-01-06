@@ -48,7 +48,7 @@ const SectionCircles = () => {
                         text: t("c3.section1.circles.f1")
                     })}
                 >
-                    <CircleFeature number="01" text={t("c3.section1.circles.f1")} position="top" speedSec={8} />
+                    <CircleFeature colorAro='#7AD7DD' colorMovimiento='#00333B' colorNumero='#073E58' transform='translate(100%, 0%)' number="01" text={t("c3.section1.circles.f1")} position="top" speedSec={8} />
                 </div>
 
                 <div
@@ -59,7 +59,7 @@ const SectionCircles = () => {
                         text: t("c3.section1.circles.f3")
                     })}
                 >
-                    <CircleFeature number="03" text={t("c3.section1.circles.f3")} position="right" speedSec={8} />
+                    <CircleFeature colorAro='#7AD7DD' colorMovimiento='#00333B' colorNumero='#073E58' transform='translate(100%, 0%)' number="03" text={t("c3.section1.circles.f3")} position="right" speedSec={8} />
                 </div>
 
                 {/* fila 2 (offset a la derecha) */}
@@ -71,7 +71,7 @@ const SectionCircles = () => {
                         text: t("c3.section1.circles.f2")
                     })}
                 >
-                    <CircleFeature number="02" text={t("c3.section1.circles.f2")} position="left" speedSec={8} />
+                    <CircleFeature colorAro='#7AD7DD' colorMovimiento='#00333B' colorNumero='#073E58' transform='translate(100%, 0%)' number="02" text={t("c3.section1.circles.f2")} position="left" speedSec={8} />
                 </div>
 
                 <div
@@ -82,7 +82,7 @@ const SectionCircles = () => {
                         text: t("c3.section1.circles.f4", { pct: "70%" })
                     })}
                 >
-                    <CircleFeature number="04" text={t("c3.section1.circles.f4", { pct: "70%" })} position="bottom" speedSec={8} />
+                    <CircleFeature colorAro='#7AD7DD' colorMovimiento='#00333B' colorNumero='#073E58' transform='translate(100%, 0%)' number="04" text={t("c3.section1.circles.f4", { pct: "70%" })} position="bottom" speedSec={8} />
                 </div>
             </div>
         </div>

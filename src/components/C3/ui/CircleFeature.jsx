@@ -10,6 +10,12 @@ export default function CircleFeature({
     speedSec = 6,
     phaseShiftDeg = 0,
     className = "",
+    transform = "",
+    colorNumero = "",
+    colorAro = "",
+    colorMovimiento = "",
+    numeroTamano = null,
+
 }) {
     // Estado para el tamaño dinámico basado en el ancho de la ventana
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -54,11 +60,11 @@ export default function CircleFeature({
             <span
                 className="absolute z-0 font-extrabold select-none pointer-events-none"
                 style={{
-                    color: "#073E58",
+                    color: {colorNumero},
                     opacity: 0.5,
                     fontFamily: "GothamBold",
-                    fontSize: Math.round(dynamicSize * 0.55),
-                    transform: "translate(100%, 0%)",
+                    fontSize: numeroTamano ?? Math.round(dynamicSize * 0.4),
+                    transform,
                 }}
             >
                 {number}
@@ -70,11 +76,11 @@ export default function CircleFeature({
                     width={dynamicSize}
                     height={dynamicSize}
                     viewBox={`0 0 ${dynamicSize} ${dynamicSize}`}
-                    className="absolute inset-0"
+                    className="absolute inset-0 "
                     aria-hidden="true"
                 >
                     {/* Aro claro */}
-                    <circle cx={cx} cy={cy} r={r} fill="none" stroke="#7AD7DD" strokeWidth={thickness} />
+                    <circle cx={cx} cy={cy} r={r} fill="none" stroke={colorAro} strokeWidth={thickness} />
 
                     {/* Grupo 1: Fija la posición inicial del arco */}
                     <g style={{ transformBox: "fill-box", transformOrigin: "50% 50%", transform: `rotate(${baseRotate}deg)` }}>
@@ -93,7 +99,7 @@ export default function CircleFeature({
                                 cy={cy}
                                 r={r}
                                 fill="none"
-                                stroke="#00333B"
+                                stroke={colorMovimiento}
                                 strokeWidth={thickness}
                                 strokeLinecap="round"
                                 strokeDasharray={`${seg} ${C - seg}`}

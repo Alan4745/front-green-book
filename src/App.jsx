@@ -26,6 +26,8 @@ import CoverGC from './components/Colab/GC/CoverGC';
 
 import SectionAC from './components/Colab/SectionAC';
 import CoverAC from './components/Colab/AC/CoverAC';
+import MainC7 from './components/C7/MainC7';
+import CoverColab from './components/Colab/CoverColab';
 
 function App() {
   return (
@@ -54,10 +56,11 @@ function App() {
         <Route path="/c5" element={<MainC5 />} />
         <Route path="/c6" element={<MainC6 />} />
 
-        <Route path="/colab" element={<MainColab />} />
+        <Route path="/colab" element={<CoverColab />} />
         
         <Route path="/colab/sgc/covergc" element={<SectionGC />} />
-        <Route path="/colab/sgc/" element={<CoverGC />} />
+        <Route path="/colab/sgc/" element={<MainC7 />} />
+        
 
         <Route path="/colab/sac/coverac" element={<SectionAC />} />
         <Route path="/colab/sac" element={<CoverAC />} />

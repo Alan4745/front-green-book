@@ -114,11 +114,13 @@ const cardOpacity = useTransform(scrollYProgress,
     // Redirigir a la sectionGC
     const handleGoToSectionGC = () => {
         navigate('/colab/sgc');
+        window.scrollTo(0, 0)
     };
 
     // Redirigir a la sectionAC
     const handleGoToSectionAC = () => {
         navigate('/colab/sac');
+        window.scrollTo(0, 0)
     };
 
 
