@@ -51,7 +51,7 @@ const MENU = [
     const lng = i18n.resolvedLanguage || i18n.language || "es";
 
     return (
-        <div className="relative z-50" ref={menuRef}>
+        <div className=" z-50 fixed " ref={menuRef}>
         {/* Botón Hamburguesa */}
         <button
             onClick={() => setOpen((v) => !v)}
@@ -60,9 +60,9 @@ const MENU = [
             aria-expanded={open}
             aria-controls="mainmenu-popover"
         >
-            <span className="w-6 h-[2px] bg-white block"></span>
-            <span className="w-6 h-[2px] bg-white block"></span>
-            <span className="w-6 h-[2px] bg-white block"></span>
+            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
+            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
+            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
         </button>
 
         {/* Menú desplegable */}

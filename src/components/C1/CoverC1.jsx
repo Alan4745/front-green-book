@@ -2,7 +2,6 @@
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import MainMenu from "../Global/MainMenu";
 import HoverButton from "../Global/HoverButton";
 import PageSkeleton from "../Global/PageSkeleton";
 
@@ -109,12 +108,7 @@ const CoverC1 = () => {
                         loading="eager"
                     />
                 </div>
-
-
-                {/* Menú desplegable */}
-                <div className="absolute top-[2vh] right-10 z-50">
-                    <MainMenu />
-                </div>
+                
 
                 {/* Botón de hover -> redirige a /c2 */}
                 <div

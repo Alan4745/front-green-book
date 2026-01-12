@@ -1,3 +1,4 @@
+import MainMenu from '../Global/MainMenu';
 import CoverC6 from './CoverC6';
 import Section1C6 from './Section1C6';
 import Section2C6 from './Section2C6';
@@ -21,6 +22,11 @@ const MainC6 = () => {
 
             {/* Sección 4 del capítulo */}
             <Section4C6 />
+
+            {/* Menú desplegable */}
+                            <div className="absolute top-[2vh] right-0 z-50">
+                                <MainMenu />
+                            </div>
         </div>
     );
 }

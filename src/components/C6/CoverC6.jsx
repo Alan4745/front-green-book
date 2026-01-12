@@ -1,5 +1,4 @@
 import LanguageSelector from "../Global/LanguageSelector";
-import MainMenu from "../Global/MainMenu";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 
@@ -81,10 +80,7 @@ const CoverC6 = () => {
                     <LanguageSelector />
                 </div>
 
-                {/* Menú desplegable */}
-                <div className="absolute top-[2vh] right-0 z-50">
-                    <MainMenu />
-                </div>
+                
             </div>
         </PageSkeleton>
     );
