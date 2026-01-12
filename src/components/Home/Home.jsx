@@ -276,7 +276,7 @@ const backgrounds = [
             </div>
 
             {/* Menú desplegable */}
-            <div className="absolute top-[2vh] right-0 z-50">
+            <div className="absolute top-[2vh] right-0 z-50 ">
             <MainMenu key={`menu-${langKey}`} />
             </div>
         </motion.div>

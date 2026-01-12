@@ -55,7 +55,7 @@ const MENU = [
         {/* Botón Hamburguesa */}
         <button
             onClick={() => setOpen((v) => !v)}
-            className="absolute top-6 right-6 flex flex-col space-y-1"
+            className="absolute top-6 right-6 flex flex-col space-y-1 cursor-pointer "
             aria-label={ariaLabel}
             aria-expanded={open}
             aria-controls="mainmenu-popover"

@@ -55,7 +55,7 @@ const Section3C1 = () => {
 
     return (
         <div
-            className="relative h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
+            className="relative h-auto w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10 pb-20"
             style={{ backgroundImage: `url(${FS3})` }}
         >
             {/* Título */}
@@ -69,7 +69,7 @@ const Section3C1 = () => {
             </div>
 
             {/* Carrusel de tarjetas */}
-            <div className="flex justify-center items-center mt-25 px-4">
+            <div className="flex justify-center items-center mt-25 px-4 ">
                 <CarrouselColor slides={slidesData} />
             </div>
 
