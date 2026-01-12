@@ -45,6 +45,7 @@ const MENU = [
     const handleNavigate = (path) => {
         navigate(path);
         setOpen(false);
+        window.scrollTo(0, 0)// Ir al tope de la página
     };
 
     const ariaLabel = open ? t("menu.close") : t("menu.open");
