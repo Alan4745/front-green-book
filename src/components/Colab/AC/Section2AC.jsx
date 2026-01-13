@@ -1,15 +1,18 @@
 import CircleFeature from "../../C3/ui/CircleFeature";
+import { useTranslation } from "react-i18next";
+
 
 const Section2AC = () => {
+    const { t } = useTranslation();
    
     return (
         <section className="relative min-h-[80vh] w-full bg-white flex flex-col items-center justify-center px-6 p-10">
              {/* Content */}
                   <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center lg:justify-end">
-                      <span className="text-[#0B312C] text-4xl">PROMOVEMOS EL</span>
-                      <span className="text-[#0B312C] font-bold text-4xl">CAFÉ GUATAMALTECO</span>
-                      <span className="text-[#0B312C] text-4xl">A NIVEL GLOBAL</span>
+                      <span className="text-[#0B312C] text-4xl">{t("colab.sac.section2.top.pre")}</span>
+                      <span className="text-[#0B312C] font-bold text-4xl">{t("colab.sac.section2.top.brand")}</span>
+                      <span className="text-[#0B312C] text-4xl">{t("colab.sac.section2.top.post")}</span>
                     </div>
                     {/* Features */}
                     <div className="flex flex-col gap-20">
@@ -27,10 +30,10 @@ const Section2AC = () => {
                         />
                         <div>
                           <h3 className="text-2xl font-bold mb-2 text-black">
-                            Análisis de Mercado:
+                            {t("colab.sac.section2.cards.c1.title")}
                           </h3>
                           <p className="text-gray-900 text-[16px] leading-relaxed">
-                            Identificamos oportunidades comerciales.
+                            {t("colab.sac.section2.cards.c1.desc")}
                           </p>
                         </div>
                       </div>
@@ -48,10 +51,10 @@ const Section2AC = () => {
                         />
                         <div>
                           <h3 className="text-2xl font-bold mb-2 text-black w-54" >
-                            Herramientas para Productores:
+                            {t("colab.sac.section2.cards.c2.title")}
                           </h3>
                           <p className="text-gray-900 text-[16px] leading-relaxed">
-                            Ofrecemos apoyo y recursos
+                            {t("colab.sac.section2.cards.c2.desc")}
                           </p>
                         </div>
                       </div>
@@ -69,10 +72,10 @@ const Section2AC = () => {
                         />
                         <div>
                           <h3 className="text-2xl font-bold mb-2 text-black w-52 ">
-                            Promoción Internacional:
+                            {t("colab.sac.section2.cards.c3.title")}
                           </h3>
                           <p className="text-gray-900 text-[16px] leading-relaxed w-69">
-                            Posicionamos el café guatemalteco tanto local como internacionalmente.
+                            {t("colab.sac.section2.cards.c3.desc")}
                           </p>
                         </div>
                       </div>

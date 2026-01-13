@@ -1,8 +1,11 @@
 
 import AnacafeLog from '../../../../public/Img/C7/anacefe_logo.png'
+import { useTranslation } from "react-i18next";
 
 const Section1AC = () => {
-   
+    const { t } = useTranslation();
+
+
 
     return (
         <section className="relative min-h-[80vh] w-full bg-[#012325] flex flex-col items-center justify-center px-6 p-10">
@@ -15,28 +18,29 @@ const Section1AC = () => {
            <div className="max-w-xs text-left">
                 <h2 className="text-8xl font-bold mb-4">01</h2>
                 <h3 className="text-2xl font-bold tracking-widest mb-2">
-                  INNOVACIÓN TECNOLÓGICA
+                  {t("colab.sac.points.p1.title")}
+                  {/* c1.cover.title.top */}
                 </h3>
                 <p className="text-sm text-white/70">
-                  Impulsamos el uso de herramientas tecnológicas.
+                {t("colab.sac.points.p1.text")}
                 </p>
             </div>
             <div className="max-w-xs text-left">
                 <h2 className="text-8xl font-bold mb-4">02</h2>
                 <h3 className="text-2xl font-bold tracking-widest mb-2">
-                  GESTIÓN ORGANIZACIONAL
+                  {t("colab.sac.points.p2.title")}
                 </h3>
                 <p className="text-sm text-white/70">
-                  Fortalecemos la administración organizacional.
+                  {t("colab.sac.points.p2.text")}
                 </p>
             </div>
            <div className="max-w-xs text-left">
                 <h2 className="text-8xl font-bold mb-4">03</h2>
                 <h3 className="text-2xl font-bold tracking-widest mb-2">
-                  INVESTIGACIÓN Y DESARROLLO
+                  {t("colab.sac.points.p3.title")}
                 </h3>
                 <p className="text-sm text-white/70">
-                  Promovemos la investigación y la innovación a través de nuestro departamento de Cedicafé.
+                  {t("colab.sac.points.p3.text")}
                 </p>
             </div>
          </div>

@@ -34,7 +34,7 @@
                 "top": "COFFEE IN",
                 "bottom": "GUATEMALA"
             },
-            "desc": "It is cultivated across 3.5% of the country's territory, within a unique geographic setting.",
+            "desc": "Grown in every department, Guatemalan coffee thrives in a truly unique geographical setting.",
             "subtitle": "WHAT MAKES THE DIFFERENCE",
             "cta": "VIEW MAP",
             "chapterAlt": "Chapter {{num}}"
@@ -717,6 +717,7 @@
     },
     "colab": {
         "cover": {
+            "bajar":"Scroll Down",
             "aria": { "section": "Collaboration: Guatemalan Coffees & Anacafé" },
             "alts": {
             "gcLogo": "Guatemalan Coffees logo",
@@ -748,13 +749,18 @@
                 }
             },
             "points": {
-                "p1": { "text": "We drive the use of technological tools." },
-                "p2": { "text": "We strengthen organizational management." },
-                "p3": {
-                    "line1": "We promote research and innovation",
-                    "line2Before": "through our department",
-                    "cedicafe": "Cedicafé"
-                }
+               "p1": { 
+                    "title": "TECHNOLOGICAL INNOVATION", 
+                    "text": "We drive the use of technological tools." 
+                    },
+                    "p2": { 
+                    "title": "ORGANIZATIONAL MANAGEMENT", 
+                    "text": "We strengthen organizational administration." 
+                    },
+                    "p3": { 
+                    "title": "RESEARCH AND DEVELOPMENT", 
+                    "text": "We promote research and innovation through our Cedicafé department." 
+                    }
             },
             "section2": {
                 "alts": {
@@ -762,70 +768,56 @@
                     "analabLogo": "Analab logo"
                 },
                 "top": {
-                    "pre": "Through",
-                    "brand": "Analab",
-                    "post": ", we conduct scientific analyses to ensure coffee quality:"
+                    "pre": "WE PROMOTE",
+                    "brand": "GUATEMALAN COFFEE",
+                    "post": "GLOBALLY"
                 },
                 "cards": {
-                    "c1": {
-                        "title": "Soil Analysis:",
-                        "desc": "We evaluate soil conditions and nutrients."
+                   "c1": {
+                        "title": "Market Analysis:",
+                        "desc": "We identify commercial opportunities."
                     },
                     "c2": {
-                        "title": "Plant Analysis:",
-                        "desc": "We monitor plant health and growth."
+                        "title": "Tools for Producers:",
+                        "desc": "We offer support and resources."
                     },
                     "c3": {
-                        "title": "Fertilizer & Water Analysis:",
-                        "desc": "We study their effects on the crop."
+                        "title": "International Promotion:",
+                        "desc": "We position Guatemalan coffee both locally and internationally."
                     }
-                },
-                "cupping": {
-                    "title": {
-                        "pre": "We ensure the quality of every cup in our",
-                        "bold": "Cupping laboratory."
-                    },
-                    "desc": "We carefully monitor the coffee’s flavor and aroma at every stage. Through our Roastery, we offer an end-to-end service that covers hulling, roasting, and packaging, ensuring each step is controlled to maintain quality at all times."
                 }
             },
             "section3": {
-                "alts": {
-                    "cafe": "Coffee illustration"
-                },
-                "title": {
-                    "top": {
-                        "pre": "We promote",
-                        "bold": "Guatemalan coffee"
-                    },
-                    "bottom": "Worldwide"
-                },
                 "items": {
                     "i1": {
-                        "title": "Market Analysis",
-                        "desc": "We identify commercial opportunities"
+                        "desc": "In our coffee academy, we share expertise in barista skills, roasting, and cupping."
                     },
                     "i2": {
-                        "title": "Tools for Producers",
-                        "desc": "We provide support and resources"
+                        "desc": "We carefully monitor the flavor and aroma of the coffee throughout every process. Through our Roastery, we offer comprehensive services from hulling to packaging."
                     },
                     "i3": {
-                        "title": "International Promotion",
-                        "desc": "We position Guatemalan coffee both locally and internationally"
+                        "desc": "We guarantee the quality of every cup in our Cupping Lab."
+                    },
+                    "i4": {
+                        "desc": "Through Funcafé, we contribute to social development with services focused on health, education, and food security."
                     }
-                },
-                "outro": {
-                    "pre": "At our coffee academy, we share knowledge in",
-                    "highlight": "barista craft, roasting, and cupping"
                 }
             },
             "section4": {
-                "alts": {
-                    "shape": "Funcafé shape",
-                    "funcafeLogo": "Funcafé logo"
+                "izquierdo": {
+                    "desc": "Through Analab, we conduct scientific analyses to guarantee coffee quality."
                 },
-                "body": {
-                    "pre": "And with the commitment to contribute to social development, through Funcafé, we provide services focused on",
-                    "highlight": "health, education, and food and nutrition security."
+                "derecho": {
+                    "title": "Soil Analysis",
+                    "desc": "We evaluate soil conditions and nutrient levels."
+                },
+                "derecho2": {
+                    "title": "Plant Analysis",
+                    "desc": "We monitor plant health and growth."
+                },
+                "derecho3": {
+                    "title": "Fertilizer and Water Analysis",
+                    "desc": "We study their effects on the crops."
                 }
             }
         },
@@ -836,7 +828,7 @@
             },
             "overlay": {
                 "text": "Anacafé has positioned the Guatemalan Coffees brand to promote our country’s coffee, which is recognized and valued by the most demanding markets around the world.",
-                "cta": "Read more",
+                "cta": "READ MORE",
                 "ctaAria": "Open Anacafé website in a new tab"
             },
             "controls": {

@@ -108,8 +108,8 @@ const Section1C2 = () => {
                     <div onClick={() => setShowDiversidad(true)}>
                         <HoverButton
                             text={t("c2.section1.cta")}
-                            textOffset={-10}
-                            hoverOffset={120}
+                            textOffset={10}
+                            hoverOffset={20}
                         />
                     </div>
                 </div>

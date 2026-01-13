@@ -34,7 +34,7 @@
                 "top": "EL CAFÉ EN",
                 "bottom": "GUATEMALA"
             },
-            "desc": "Se cultiva en el 3.5% del territorio del país, en un entorno geográfico irrepetible.",
+            "desc": "El café está presente en todos los departamentos de Guatemala, en un entorno geográfico irrepetible.",
             "subtitle": "LO QUE MARCA LA DIFERENCIA",
             "cta": "VER MAPA",
             "chapterAlt": "Capítulo {{num}}"
@@ -716,6 +716,7 @@
     },
     "colab": {
         "cover": {
+            "bajar":"Sigue Bajando",
             "aria": {
                 "section": "Colaboración: Guatemalan Coffees y Anacafé"
             },
@@ -749,13 +750,9 @@
                 }
             },
             "points": {
-                "p1": { "text": "Impulsamos el uso de herramientas tecnológicas avanzadas para el sector. " },
-                "p2": { "text": "Fortalecemos la administración organizacional." },
-                "p3": {
-                    "line1": "Promovemos la investigación y la innovación a través de nuestro departamento de",
-                    "line2Before": "través de nuestro departamento de",
-                    "cedicafe": "Cedicafé"
-                }
+                "p1": { "title":"INNOVACIÓN TECNOLÓGICA" ,"text": "Impulsamos el uso de herramientas tecnológicas." },
+                "p2": { "title":"GESTIÓN ORGANIZACIONAL" , "text": "Fortalecemos la administración organizacional." },
+                "p3": { "title":"INVESTIGACIÓN Y DESARROLLO" , "text": "Promovemos la investigación y la innovación a través de nuestro departamento de Cedicafé." }
             },
             "section2": {
                 "alts": {
@@ -763,70 +760,56 @@
                     "analabLogo": "Logo Analab"
                 },
                 "top": {
-                    "pre": "A través de",
-                    "brand": "Analab",
-                    "post": ", realizamos análisis científicos para garantizar la calidad del café:"
+                    "pre": "PROMOVEMOS EL",
+                    "brand": "CAFÉ GUATAMALTECO",
+                    "post": "A NIVEL GLOBAL"
                 },
                 "cards": {
                     "c1": {
-                        "title": "Análisis de Suelos:",
-                        "desc": "Evaluamos las condiciones y nutrientes del suelo."
+                        "title": "Análisis de Mercado:",
+                        "desc": "Identificamos oportunidades comerciales."
                     },
                     "c2": {
-                        "title": "Análisis de Plantas:",
-                        "desc": "Monitoreamos la salud y crecimiento de las plantas."
+                        "title": "Herramientas para Productores:",
+                        "desc": "Ofrecemos apoyo y recursos"
                     },
                     "c3": {
-                        "title": "Análisis de Abonos y Aguas:",
-                        "desc": "Estudiamos los efectos en el cultivo."
+                        "title": "Promoción Internacional:",
+                        "desc": "Posicionamos el café guatemalteco tanto local como internacionalmente."
                     }
-                },
-                "cupping": {
-                    "title": {
-                        "pre": "Garantizamos la calidad de cada taza en nuestro laboratorio de",
-                        "bold": "Catación."
-                    },
-                    "desc": "Monitoreamos cuidadosamente el sabor y aroma del café en cada proceso. A través de nuestra Tostaduría, ofrecemos un servicio integral que abarca desde la trilla, el tueste hasta el empaque, asegurando que cada etapa del proceso sea controlada para mantener la calidad en todo momento."
                 }
             },
             "section3": {
-                "alts": {
-                    "cafe": "Ilustración de café"
-                },
-                "title": {
-                    "top": {
-                        "pre": "Promovemos el",
-                        "bold": "Café guatemalteco"
-                    },
-                    "bottom": "A nivel global"
-                },
                 "items": {
                     "i1": {
-                        "title": "Análisis de Mercado",
-                        "desc": "Identificamos oportunidades comerciales"
+                        "desc": "En nuestra academia de café, compartimos conocimientos de barismo, tueste y catación."
                     },
                     "i2": {
-                        "title": "Herramientas para Productores",
-                        "desc": "Ofrecemos apoyo y recursos"
+                        "desc": "Monitoreamos cuidadosamente el sabor y aroma del café en cada proceso. A través de nuestra Tostaduría, ofrecemos un servicio integral desde la trilla hasta el empaque."
                     },
                     "i3": {
-                        "title": "Promoción Internacional",
-                        "desc": "Posicionamos el café guatemalteco tanto local como internacionalmente"
+                        "desc": "Garantizamos la calidad de cada taza en nuestro laboratorio de Catación."
+                    },
+                    "i4": {
+                        "desc": "A través de Funcafé, contribuimos al desarrollo social con servicios enfocados en salud, educación y seguridad alimentaria."
                     }
-                },
-                "outro": {
-                    "pre": "En nuestra academia de café, compartimos conocimientos de",
-                    "highlight": "barismo, tueste y catación"
                 }
             },
             "section4": {
-                "alts": {
-                    "shape": "Forma Funcafé",
-                    "funcafeLogo": "Logo Funcafé"
+                "izquierdo": {
+                    "desc": "A través de Analab, realizamos análisis científicos para garantizar la calidad del café."
                 },
-                "body": {
-                    "pre": "Y con el compromiso de contribuir al desarrollo social, a través de Funcafé, brindamos servicios enfocados en",
-                    "highlight": "salud, educación y seguridad alimentaria y nutricional"
+                "derecho": {
+                    "title":"Análisis de Suelos",
+                    "desc": "Evaluamos las condiciones y nutrientes del suelo."
+                },
+                "derecho2": {
+                    "title": "Análisis de Plantas",
+                    "desc": "Monitoreamos la salud y crecimiento de las plantas."
+                },
+                "derecho3": {
+                    "title": "Análisis de Abonos y Aguas",
+                    "desc": "Estudiamos los efectos en el cultivo."
                 }
             }
         },

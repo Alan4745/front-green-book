@@ -8,6 +8,8 @@ import tostaduria from '../../../../public/Img/C7/tostaduria.png'
 import laboratorio from '../../../../public/Img/C7/laboratorio.png'
 import funcafe from '../../../../public/Img/C7/funcafe.png'
 
+import { useTranslation } from "react-i18next";
+
 const Block = ({ bg, logo, text, img, imageRatio = "1/2" }) => {
   const imgWidth =
     imageRatio === "40" ? "md:w-[40%]" : "md:w-1/2";
@@ -40,13 +42,16 @@ const Block = ({ bg, logo, text, img, imageRatio = "1/2" }) => {
 
 
 const Section3AC = () => {
+
+  const { t } = useTranslation();
+
   return (
     <section className="w-full">
       <Block
         bg="bg-[#4B61A8]"
         logo={tazza}
         img={ancafeUno}
-        text="En nuestra academia de café, compartimos conocimientos de barismo, tueste y catación."
+        text={t("colab.sac.section3.items.i1.desc")}
       />
 
       <Block
@@ -54,14 +59,14 @@ const Section3AC = () => {
         logo={tostaduria}
         img={ancafeDos}
         imageRatio="40"
-        text="Monitoreamos cuidadosamente el sabor y aroma del café en cada proceso. A través de nuestra Tostaduría, ofrecemos un servicio integral desde la trilla hasta el empaque."
+        text={t("colab.sac.section3.items.i4.desc")}
       />
 
       <Block
         bg="bg-[#6A6A6A]"
         logo={laboratorio}
         img={ancafeTres}
-        text="Garantizamos la calidad de cada taza en nuestro laboratorio de Catación."
+        text={t("colab.sac.section3.items.i3.desc")}
       />
 
       <Block
@@ -69,7 +74,7 @@ const Section3AC = () => {
         logo={funcafe}
         img={ancafeCuatro}
         imageRatio="40"
-        text="A través de Funcafé, contribuimos al desarrollo social con servicios enfocados en salud, educación y seguridad alimentaria."
+        text={t("colab.sac.section3.items.i4.desc")}
       />
     </section>
   )

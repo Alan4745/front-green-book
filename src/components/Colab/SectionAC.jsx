@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import BackButton from '../Global/BackButton';
 import LanguageSelector from '../Global/LanguageSelector';
 
-import VideoAC from '../../assets/Colab/Videos/AC.mp4';
-import ancafe from '../../../public/Videos/ancafe.mp4'
+import ancafe from '../../assets/Colab/Videos/AC.mp4';
 
 function TextMaskOverlay({
     className = '',
@@ -122,7 +121,7 @@ const SectionAC = () => {
             <button
                 type="button"
                 onClick={togglePlayPause}
-                className="absolute top-6 right-6 z-30 p-2 hover:bg-white/10 rounded-full transition-colors"
+                className="absolute top-6 left-6 z-30 p-2 hover:bg-white/10 rounded-full transition-colors"
                 title={isPlaying ? t('colab.sac.buttons.pause') : t('colab.sac.buttons.play')}
                 aria-label={isPlaying ? t('colab.sac.buttons.pause') : t('colab.sac.buttons.play')}
             >

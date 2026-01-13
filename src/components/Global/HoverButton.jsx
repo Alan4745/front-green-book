@@ -45,15 +45,21 @@ const HoverButton = ({
         >
             {/* Círculo de borde */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full border transition-all duration-300 ${
+                className={`absolute top-[25px] left-[35px] w-[60px] h-[60px] rounded-full border transition-all duration-300 flex items-center justify-center ${
                     hover ? "scale-0" : "scale-100"
                 }`}
                 style={{ borderColor: color }}
-            ></div>
+                >
+                {/* The Chevron */}
+                <span 
+                    className="w-[15px] h-[15px] border-t-2 border-r-2 transform rotate-225 translate-x-[4px]"
+                    style={{ borderColor: color }}
+                ></span>
+            </div>
 
             {/* Círculo sólido con ícono */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[80px] h-[80px] rounded-full flex items-center justify-center transition-all duration-300 ${
+                className={`absolute top-[25px] left-[35px] w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 ${
                     hover ? "scale-100" : "scale-0"
                 }`}
                 style={{ backgroundColor: color }}
@@ -72,7 +78,7 @@ const HoverButton = ({
 
             {/* Texto */}
             <span
-                className="transition-all duration-300 mt-[1vh]"
+                className="transition-all duration-300 -mt-[1.5vh]"
                 style={{
                     fontFamily: "GothamNormal",
                     marginLeft: hover ? `${hoverOffset}px` : `${textOffset}px`,
