@@ -1,7 +1,7 @@
 // src/components/C1/CoverC1.jsx
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HoverButton from "../Global/HoverButton";
 import PageSkeleton from "../Global/PageSkeleton";
 
@@ -21,18 +21,7 @@ const CoverC1 = () => {
         [desc, commaIndex]
     );
 
-    // CTA
-    const goToMap = () => {
-        navigate("/c2/section1");
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            goToMap();
-        }
-    };
-
+    
     return (
         <PageSkeleton
             assets={[
@@ -100,6 +89,7 @@ const CoverC1 = () => {
                 </div>
 
                 {/* Logo inferior izquierdo */}
+                <Link to='/'>
                 <div className="absolute bottom-[5vh] left-[5vh] z-30">
                     <img
                         src="/Logos/LogoPequeño.svg"
@@ -108,19 +98,9 @@ const CoverC1 = () => {
                         loading="eager"
                     />
                 </div>
+                </Link>
                 
-
-                {/* Botón de hover -> redirige a /c2 */}
-                <div
-                    className="absolute top-10 left-10 z-50 cursor-pointer"
-                    onClick={goToMap}
-                    onKeyDown={handleKeyDown}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={t("c1.cover.cta")}
-                >
-                    <HoverButton text={t("c1.cover.cta")} />
-                </div>
+                
             </div>
         </PageSkeleton>
     );

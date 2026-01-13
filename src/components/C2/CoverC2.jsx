@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
+import { Link } from "react-router-dom";
 
 const CoverC2 = () => {
     const { t } = useTranslation();
@@ -53,6 +54,7 @@ const CoverC2 = () => {
                 </div>
 
                 {/* Logo inferior izquierdo */}
+                <Link to='/'>
                 <div className="absolute bottom-[5vh] left-[5vh] z-30">
                     <img
                         src="/Logos/LogoPequeño.svg"
@@ -60,6 +62,7 @@ const CoverC2 = () => {
                         className="w-[22vh] h-auto"
                     />
                 </div>
+                /</Link>
 
                 
             </div>

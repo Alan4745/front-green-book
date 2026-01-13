@@ -161,7 +161,7 @@ const CarrouselColor = ({ slides = [] }) => {
             </div>
 
             {/* Controles de navegación */}
-            <div className="flex justify-center items-center gap-8 ">
+            <div className="flex  items-center gap-8  pl-15 ">
                 {/* Botón de anterior */}
                 <button
                     onClick={prevSlide}

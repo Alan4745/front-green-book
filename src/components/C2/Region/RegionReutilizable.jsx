@@ -89,7 +89,6 @@ const RegionReutilizable = ({tipo, isActive}) => {
     const getColorRegion = (tipo) => {
   switch (tipo) {
     case 'sanmarcos': return 'bg-[#DC4C65]';
-    case 'oriente': return 'bg-[#5A3C9D]';
     case 'huehue': return 'bg-[#87247A]';
     case 'fraijanes': return 'bg-[#208DCB]';
     case 'coban': return 'bg-[#10AD8F]';
@@ -162,15 +161,6 @@ const regionImages = {
     grafica: {
       es: HuehueG_es,
       en: HuehueG,
-    },
-  },
-  oriente: {
-    fondo: FondoOriente,
-    logo: OrienteR,
-    perfil: PDROriente,
-    grafica: {
-      es: OrienteG_es,
-      en: OrienteG,
     },
   },
 };

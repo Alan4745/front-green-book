@@ -24,9 +24,9 @@ const MainC6 = () => {
             <Section4C6 />
 
             {/* Menú desplegable */}
-                            <div className="absolute top-[2vh] right-0 z-50">
-                                <MainMenu />
-                            </div>
+            <div className="absolute top-[2vh] right-10 z-50">
+                <MainMenu />
+            </div>
         </div>
     );
 }

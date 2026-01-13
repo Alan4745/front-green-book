@@ -1,6 +1,7 @@
 import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
+import { Link } from "react-router-dom";
 
 const CoverC6 = () => {
     const { t } = useTranslation();
@@ -64,6 +65,7 @@ const CoverC6 = () => {
                     </p>
                 </div>
 
+                <Link to='/'>
                 {/* Logo inferior izquierdo */}
                 <div className="absolute bottom-[5vh] left-[5vh] z-30">
                     <img
@@ -73,6 +75,7 @@ const CoverC6 = () => {
                         className="w-[22vh] h-auto"
                     />
                 </div>
+                /</Link>
 
                 {/* Selector de idioma */}
                 <div className="absolute bottom-[5vh] right-6 z-50">
