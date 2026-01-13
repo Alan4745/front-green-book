@@ -79,7 +79,6 @@ const CoverC6 = () => {
 
                 {/* Selector de idioma */}
                 <div className="absolute bottom-[5vh] right-6 z-50">
-
                     <LanguageSelector />
                 </div>
 

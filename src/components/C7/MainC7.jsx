@@ -14,6 +14,7 @@ const MainC7 = () => {
 
         <Section3C7 />
 
+
     </div>
   )
 }

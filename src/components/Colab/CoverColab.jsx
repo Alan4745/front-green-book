@@ -143,7 +143,7 @@ const cardOpacity = useTransform(scrollYProgress,
                 <BackButton onClick={() => navigate('/')} />
             </div>
 
-            <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50 pointer-events-auto">
+            <div className="absolute top-[2vh] right-6.5 z-50">
                 <MainMenu />
             </div>
             

@@ -53,7 +53,6 @@ const CoverC7 = () => {
             }
           </div>
         
-          {/* HACERLO FUNCIONAL */}
            <div className="absolute bottom-[5vh] right-6 z-50">
               <LanguageSelector alignment='right' />
            </div>
