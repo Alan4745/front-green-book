@@ -3,52 +3,61 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView  } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+
 // Assets específicos de la región
 // Acatenango
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
+import AcateG_es from '../../../assets/C2/Graficas/acateG_español.jpg'
 import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
 // Antigua
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
+import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.jpg'
 import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
 //San Marcos
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
 import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
+import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.jpg'
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
 // Atitlán
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
+import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.jpg'
 import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
 // Cobán
 import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
 import CobanG from '../../../assets/C2/Graficas/CobanG.png';
+import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.jpg'
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
 // Fraijanes
 import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
+import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.jpg'
 import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.jpg';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
 // Huehuetenango
 import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
 import HuehueG from '../../../assets/C2/Graficas/HuehueG.png';
+import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.jpg'
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
 // Oriente
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
 import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
+import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.jpg'
 import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
@@ -59,7 +68,8 @@ const RegionReutilizable = ({tipo, isActive}) => {
     const navigate = useNavigate();
     const [showZoom, setShowZoom] = useState(false);
     const [bgReady, setBgReady] = useState(false);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const lang = i18n.language; // 'es' | 'en'
     const ref = useRef(null);
 
     //manejo de scroll para iniciar animaciones(una sola vez)
@@ -95,51 +105,76 @@ const regionImages = {
     fondo: FondoAcate,
     logo: AcateR,
     perfil: PDRAcate,
-    grafica: AcateG,
+    grafica: {
+      es: AcateG_es,
+      en: AcateG,
+    },
   },
   antigua: {
     fondo: FondoAntigua,
     logo: AntiguaR,
     perfil: PDRAntigua,
-    grafica: AntiguaG,
+    grafica: {
+      es: AntiguaG_es,
+      en: AntiguaG,
+    },
   },
-  sanmarcos:{
+  sanmarcos: {
     fondo: FondoSanMarcos,
     logo: SanMarcosR,
     perfil: PDRSanMarcos,
-    grafica: SanMarcosG,
+    grafica: {
+      es: SanMarcosG_es,
+      en: SanMarcosG,
+    },
   },
   atitlan: {
     fondo: FondoAtitlan,
     logo: AtitlanR,
     perfil: PDRAtitlan,
-    grafica: AtitlanG,
+    grafica: {
+      es: AtitlanG_es,
+      en: AtitlanG,
+    },
   },
   coban: {
     fondo: FondoCoban,
     logo: CobanR,
     perfil: PDRCoban,
-    grafica: CobanG,
+    grafica: {
+      es: CobanG_es,
+      en: CobanG,
+    },
   },
   fraijanes: {
     fondo: FondoFraijanes,
     logo: FraijanesR,
     perfil: PDRFraijanes,
-    grafica: FraijanesG,
+    grafica: {
+      es: FraijanesG_es,
+      en: FraijanesG,
+    },
   },
   huehue: {
     fondo: FondoHuehue,
     logo: HuehueR,
     perfil: PDRHuehue,
-    grafica: HuehueG,
+    grafica: {
+      es: HuehueG_es,
+      en: HuehueG,
+    },
   },
   oriente: {
     fondo: FondoOriente,
     logo: OrienteR,
     perfil: PDROriente,
-    grafica: OrienteG,
+    grafica: {
+      es: OrienteG_es,
+      en: OrienteG,
+    },
   },
 };
+
 
 const region = regionImages[tipo];
 
@@ -323,7 +358,7 @@ if (!region) {
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                 >
                     <img
-                        src={region.grafica}
+                        src={region.grafica[lang] || region.grafica.es}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
                         className="w-[100vh] h-auto object-contain"
