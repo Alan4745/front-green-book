@@ -8,56 +8,56 @@ import { useTranslation } from 'react-i18next';
 // Acatenango
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
-import AcateG_es from '../../../assets/C2/Graficas/acateG_español.jpg'
+import AcateG_es from '../../../assets/C2/Graficas/acateG_español.png'
 import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
 // Antigua
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
-import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.jpg'
+import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.png'
 import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
 //San Marcos
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
 import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
-import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.jpg'
+import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.png'
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
 // Atitlán
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
-import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.jpg'
+import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.png'
 import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
 // Cobán
 import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
 import CobanG from '../../../assets/C2/Graficas/CobanG.png';
-import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.jpg'
+import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.png'
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
 // Fraijanes
 import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
-import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.jpg'
+import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.png'
 import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.jpg';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
 // Huehuetenango
 import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
 import HuehueG from '../../../assets/C2/Graficas/HuehueG.png';
-import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.jpg'
+import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.png'
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
 // Oriente
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
 import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
-import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.jpg'
+import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.png'
 import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
@@ -394,6 +394,7 @@ if (!region) {
                             <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)}  inline-block`}></span>
                             {t(keys.features.f3)}
                         </motion.li>
+                        {i18n.exists(keys.features.f4) && (
                         <motion.li
                             className="flex items-center gap-2"
                             initial={{ opacity: 0, scale: 0.5 }}
@@ -403,6 +404,7 @@ if (!region) {
                             <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
                             {t(keys.features.f4)}
                         </motion.li>
+                        )}
                     </ul>
                 </motion.div>
             </div>
