@@ -13,7 +13,7 @@ const MainC2 = () => {
             <div className="absolute bottom-[5vh] right-12 z-10">
                 <LanguageSelector alignment="left"/>
             </div>
-            <div className="absolute top-[2vh] right-10 z-50">
+            <div className="absolute top-[2vh] right-10 z-40">
                 <MainMenu />
             </div>
         </div>
