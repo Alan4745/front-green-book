@@ -117,7 +117,7 @@ const Card = ({
                 {/* Botón de expandir - solo visible en la card principal */}
                 {isMainCard && onExpandClick && (
                     <ExpandButton 
-                        className="relative top-[0.4vh] left-[5vh]"
+                        className="relative top-[0.4vh] left-[18vh]"
                         onClick={() => onExpandClick(image)} 
                         title="Ver imagen ampliada"
                     />

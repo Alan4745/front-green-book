@@ -10,7 +10,6 @@ const Section1GC = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
-    const [cleanView, setCleanView] = useState(false); // true = solo video
     const [isPlaying, setIsPlaying] = useState(true);  // true = reproduciendo
     const [isMuted, setIsMuted] = useState(false);     // true = silenciado
     const videoRef = useRef(null);

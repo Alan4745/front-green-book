@@ -19,7 +19,7 @@ const CoverAC = () => {
 
             {/* HACERLO FUNCIONAL */}
            <div className="absolute bottom-[5vh] right-6 z-50">
-              <LanguageSelector alignment='left' />
+              <LanguageSelector alignment='right' />
            </div>
           <div className="absolute top-[2vh] right-0 z-50">
               <MainMenu />
