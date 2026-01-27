@@ -161,18 +161,7 @@ const CarrouselColor = ({ slides = [] }) => {
             </div>
 
             {/* Controles de navegación */}
-            <div className="flex  items-center gap-14  pl-28 ">
-                {/* Botón de anterior */}
-                <button
-                    onClick={prevSlide}
-                    className="w-16 h-16 rounded-full border-[0.2vh] border-white flex items-center justify-center text-white transition-transform duration-200 hover:scale-110"
-                    aria-label="Anterior"
-                >
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-
+            <div className="flex  justify-end w-[85%] ">
                 {/* Botón de siguiente */}
                 <button
                     onClick={nextSlide}

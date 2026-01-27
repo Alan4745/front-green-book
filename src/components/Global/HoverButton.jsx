@@ -45,7 +45,7 @@ const HoverButton = ({
         >
             {/* Círculo de borde */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[60px] h-[60px] rounded-full border transition-all duration-300 flex items-center justify-center ${
+                className={`absolute top-[25px] left-[10px] w-[60px] h-[60px] rounded-full border transition-all duration-300 flex items-center justify-center ${
                     hover ? "scale-0" : "scale-100"
                 }`}
                 style={{ borderColor: color }}
@@ -59,7 +59,7 @@ const HoverButton = ({
 
             {/* Círculo sólido con ícono */}
             <div
-                className={`absolute top-[25px] left-[35px] w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 ${
+                className={`absolute top-[25px] left-[10px] w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 ${
                     hover ? "scale-100" : "scale-0"
                 }`}
                 style={{ backgroundColor: color }}

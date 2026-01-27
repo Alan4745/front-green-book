@@ -158,14 +158,6 @@ const cardOpacity = useTransform(scrollYProgress,
             {showIndicator && (
                 <div className="fixed md:bottom-0 md:left-[48%] z-50 pointer-events animate__bounce">
                     <div className="animate__animated animate__bounce animate__infinite">
-                        <div
-                            style={{ color: "white", fontFamily: "GothamBold", width: "10vw", fontSize:"1rem" }}
-                            className="fixed -left-6 -top-16"
-                        >
-                            {t("colab.cover.bajar")}
-                            
-                        </div>
-
                         <div style={{ width: "5rem" }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
