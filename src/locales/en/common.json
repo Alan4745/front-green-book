@@ -9,7 +9,7 @@
             { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
             { "text": "THE 8 COFFEE REGIONS", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
             { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
-            { "text": "ECOSYSTEM BENEFITS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+            { "text": "ECOSYSTEM SERVICES", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
             { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
             { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
         ]
@@ -22,7 +22,7 @@
             "c1": "Coffee in Guatemala",
             "c2": "The 8 coffee regions",
             "c3": "Agroforestry systems",
-            "c4": "Ecosystem benefits",
+            "c4": "Ecosystem services",
             "c5": "A refuge for diversity",
             "c6": "Commitment to sustainability",
             "colab": "Anacafé - Guatemalan Coffees"
@@ -43,7 +43,7 @@
             "left": {
                 "title": "Altitude",
                 "descLine1": "Grown in mountainous regions",
-                "descLine2": "between 1,300 and 2,000 msnm.",
+                "descLine2": "between 1,200 and 2,000 msnm.",
                 "ctaAria": "Press button"
             },
             "right": {
@@ -159,7 +159,7 @@
                     "close": "Close"
                 },
                 "desc": {
-                    "line1": "The energy of Volcán de Fuego, winds",
+                    "line1": "The energy of Volcán de Fuego and Acatenango, winds",
                     "line2": "from the Pacific Ocean and mineral-rich soils."
                 },
                 "features": {
@@ -279,7 +279,7 @@
                 },
                 "desc": {
                     "line1": "From mountains over 2,000 m high",
-                    "line2": "that receive warm winds from Mexico."
+                    "line2": "that receive winds from the north."
                 },
                 "features": {
                     "f1": "Fine, intense acidity",
@@ -388,7 +388,8 @@
                 "f1": "Filter sunlight",
                 "f2": "Buffer rainfall",
                 "f3": "Reduce soil erosion",
-                "f4": "Conserve up to {{pct}} moisture"
+                "f4": "Conserve up to {{pct}} moisture",
+                "f5": "Regulate ecosystem temperature"
             }
         }
     },
@@ -396,11 +397,11 @@
         "cover": {
             "title": {
                 "top": "Ecosystem",
-                "bottom": "Benefits"
+                "bottom": "Services"
             },
             "subtitle": {
-                "line1": "A natural force that defends",
-                "line2": "the land"
+                "line1": "A natural force of benefits for",
+                "line2": "Guatemala."
             },
             "alts": {
                 "chapter": "Chapter {{num}}",
@@ -412,7 +413,7 @@
                 "section": "Ecosystem benefits: gallery"
             },
             "intro": {
-                "text": "In Guatemala, agroforestry systems are complete ecosystems that strengthen environmental balance."
+                "text": "In Guatemala, coffee agroforestry systems are complete ecosystems that strengthen environmental balance."
             },
             "buttons": {
                 "expand": "Enlarge",
@@ -447,7 +448,7 @@
                     "line1": "The power of",
                     "line2": "volcanoes"
                 },
-                "desc": "The Ring of Fire, the volcanic chain that crosses the country, reinforces the fertility of the land where coffee plants grow.",
+                "desc": "The Ring of Fire, the volcanic chain that crosses the country, enhances the fertility of the land where coffee plants grow, functioning as a biological corridor in Guatemala",
                 "imgAlt": "The power of volcanoes"
             }
         }
@@ -664,7 +665,7 @@
                 },
                 "desc": {
                     "line1": "During depulping and washing, water is a",
-                    "line2": "key resource that must be used and",
+                    "line2": "key resource that is used and",
                     "line3": "managed responsibly."
                 }
             },
@@ -677,7 +678,7 @@
                 "desc": {
                     "pre": "Most of the water is used to transport and depulp coffee. With redesign and good practices, ",
                     "anacafe": "Anacafé",
-                    "post": " has helped producers reduce water consumption to only {{liters}} liters per every {{lbs}} pounds processed."
+                    "post": " has promoted the adoption of technologies and best practices to reduce water use in coffee processing."
                 }
             },
             "images": {
@@ -702,7 +703,7 @@
                 }
             },
             "right": {
-                "title": "From waste to compost",
+                "title": "Quality culture",
                 "desc": {
                     "line1": "The wet milling process means an",
                     "line2": "opportunity to add value, traceability",
@@ -711,7 +712,7 @@
             },
             "images": {
                 "img1Alt": "Responsible management (image)",
-                "img2Alt": "From waste to compost (image)"
+                "img2Alt": "Quality culture (image)"
             }
         }
     },

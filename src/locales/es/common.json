@@ -9,7 +9,7 @@
             { "text": "EL CAFÉ EN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
             { "text": "LAS 8 REGIONES DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
             { "text": "SISTEMAS AGROFORESTALES", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
-            { "text": "BENEFICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
+            { "text": "SERVICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
             { "text": "UN ENTORNO DIVERSO POR EXPLORAR", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
             { "text": "SUSTENTABILIDAD QUE TRANSFORMA EL FUTURO DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
         ]
@@ -22,7 +22,7 @@
             "c1": "El café en Guatemala",
             "c2": "Las 8 regiones del café",
             "c3": "Sistemas agroforestales",
-            "c4": "Beneficios ecosistémicos",
+            "c4": "Servicios ecosistémicos",
             "c5": "Refugio para la diversidad",
             "c6": "Compromiso con la sostenibilidad",
             "colab": "Anacafé - Guatemalan Coffees"
@@ -34,7 +34,7 @@
                 "top": "EL CAFÉ EN",
                 "bottom": "GUATEMALA"
             },
-            "desc": "El café está presente en todos los departamentos de Guatemala, en un entorno geográfico irrepetible.",
+            "desc": "El café está presente en todos los departamentos del país, en un entorno geográfico irrepetible.",
             "subtitle": "LO QUE MARCA LA DIFERENCIA",
             "cta": "VER MAPA",
             "chapterAlt": "Capítulo {{num}}"
@@ -43,7 +43,7 @@
             "left": {
                 "title": "Altitud",
                 "descLine1": "Cultivado en regiones montañosas",
-                "descLine2": "entre 1,300 y 2,000 msnm.",
+                "descLine2": "entre 1,200 y 2,000 msnm.",
                 "ctaAria": "Presionar"
             },
             "right": {
@@ -76,7 +76,7 @@
                     "bottom": "mano"
                 },
                 "descLine1": "Nada supera una selección manual",
-                "descLine2": "de los mejores granos."
+                "descLine2": "de los mejores frutos."
             },
             "images": {
                 "img1Alt": "Imagen 1",
@@ -159,7 +159,7 @@
                     "close": "Cerrar"
                 },
                 "desc": {
-                    "line1": "La energía del volcán de Fuego, vientos del",
+                    "line1": "La energía del volcán de Fuego y Acatenango, vientos del",
                     "line2": "océano Pacífico y un suelo alto en minerales."
                 },
                 "features": {
@@ -184,7 +184,7 @@
                 },
                 "desc": {
                     "line1": "Cada taza refleja la riqueza de sus suelos volcánicos",
-                    "line2": "y el clima fresco que potencia su perfil sensorial. Destacan",
+                    "line2": "y el clima fresco que potencia su perfil sensorial.",
                     "line3": "por su aroma intenso, dulzura marcada y un balance ",
                     "line4": "impecable entre acidez y cuerpo."
                 },
@@ -279,7 +279,7 @@
                 },
                 "desc": {
                     "line1": "De montañas con más de 2,000m de altura",
-                    "line2": "que reciben vientos cálidos de México."
+                    "line2": "que reciben vientos del norte."
                 },
                 "features": {
                     "f1": "Acidez fina e intensa",
@@ -386,21 +386,22 @@
                 },
                 "itemLabel": "Elemento {{num}}: {{text}}",
                 "f1": "Filtran la luz del sol",
-                "f2": "Amortiguan las lluvias",
+                "f2": "Amortiguan e infiltran las lluvias",
                 "f3": "Reducen la erosión del suelo",
-                "f4": "Conservan hasta el {{pct}} de la humedad"
+                "f4": "Conservan hasta el {{pct}} de la humedad",
+                "f5": "Regulan la temperatura del ecosistema"
             }
         }
     },
     "c4": {
         "cover": {
             "title": {
-                "top": "Beneficios",
+                "top": "Servicios",
                 "bottom": "Ecosistémicos"
             },
             "subtitle": {
-                "line1": "Una fuerza natural que defiende",
-                "line2": "la tierra"
+                "line1": "Una fuerza natural de beneficios para",
+                "line2": "Guatemala."
             },
             "alts": {
                 "chapter": "Capítulo {{num}}",
@@ -409,10 +410,10 @@
         },
         "section1": {
             "aria": {
-                "section": "Beneficios ecosistémicos: galería"
+                "section": "Servicios ecosistémicos: galería"
             },
             "intro": {
-                "text": "En Guatemala los sistemas agroforestales son ecosistemas completos que fortalecen el equilibrio del medio ambiente."
+                "text": "En Guatemala los sistemas agroforestales de café son ecosistemas completos que fortalecen el equilibrio del medio ambiente."
             },
             "buttons": {
                 "expand": "Agrandar",
@@ -447,7 +448,7 @@
                     "line1": "El poder de los",
                     "line2": "volcanes"
                 },
-                "desc": "El Anillo de Fuego, la cadena volcánica que atraviesa el país, refuerza la fertilidad de la tierra donde crecen los cafetos.",
+                "desc": "El Anillo de Fuego, la cadena volcánica que atraviesa el país, refuerza la fertilidad de la tierra donde crecen los cafetos y funcionan como corredores biológicos de Guatemala.",
                 "imgAlt": "El poder de los volcanes"
             }
         }
@@ -664,8 +665,8 @@
                 },
                 "desc": {
                     "line1": "Durante el despulpado y lavado del grano,",
-                    "line2": "el agua es un recurso clave que debe",
-                    "line3": "usarse de forma responsable."
+                    "line2": "el agua es un recurso clave que es",
+                    "line3": "utilizado de forma responsable."
                 }
             },
             "right": {
@@ -675,8 +676,8 @@
                     "tercera": "el recurso"
                 },
                 "desc": {
-                    "pre": "Anacafé ha impulsado la implementación de tecnologías y buenas prácticas para reducir el uso del agua que",
-                    "post": "se emplea para transformar el café, hasta 100 litros por quintal café pergamino."
+                    "pre": "Anacafé ha impulsado la implementación de tecnologías y buenas prácticas para reducir el uso del agua que ",
+                    "post": "se emplea para transformar el café."
                 }
             },
             "images": {
@@ -701,7 +702,7 @@
                 }
             },
             "right": {
-                "title": "Del residuo al compost",
+                "title": "Cultura de Calidad",
                 "desc": {
                     "line1": "El proceso de beneficiado húmedo, significa",
                     "line2": "una oportunidad de agregar valor,",
@@ -710,7 +711,7 @@
             },
             "images": {
                 "img1Alt": "Manejo responsable (imagen)",
-                "img2Alt": "Del residuo al compost (imagen)"
+                "img2Alt": "Cultura de Calidad (imagen)"
             }
         }
     },
