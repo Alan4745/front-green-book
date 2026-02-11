@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import F1 from "../../assets/C4/Img/F1.png"; // Asegúrate de que la ruta sea correcta
+import F1 from "../../assets/C4/Img/F1.jpeg"; // Asegúrate de que la ruta sea correcta
 import F2 from "../../assets/C4/Img/F2.png"; // Asegúrate de que la ruta sea correcta
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";

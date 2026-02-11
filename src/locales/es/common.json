@@ -361,23 +361,29 @@
             },
             "slider": {
                 "ingaSpuria": {
-                    "title": "Inga Spuria",
+                    "title": "Inga spuria",
                     "subtitle": "Cushín",
-                    "desc": "La Inga Spuria es un árbol tropical que da sombra a cultivos de café. Fija nitrógeno, mejorando el suelo, y tiene vainas con pulpa dulce.",
-                    "alt": "Inga Spuria",
+                    "desc": "La Inga spuria es un árbol tropical que da sombra a cultivos de café. Fija nitrógeno, mejorando el suelo, y tiene vainas con pulpa dulce.",
+                    "alt": "Inga spuria",
                     "credits": "Créditos: Rocío Silva"
                 },
                 "ingaEdulis": {
                     "title": "Inga edulis",
                     "subtitle": "Pepeto de Río",
-                    "desc": "La Inga edulis es un árbol tropical que enriquece el suelo y produce vainas largas con pulpa dulce y refrescante.",
+                    "desc": "La Inga Edulis es un árbol tropical que enriquece el suelo y produce vainas largas con pulpa dulce y refrescante.",
                     "alt": "Inga edulis"
                 },
                 "ingaMicheliana": {
                     "title": "Inga micheliana",
                     "subtitle": "Chalum",
-                    "desc": "La Inga micheliana es un árbol tropical de rápido crecimiento que se usa en sistemas agroforestales. Enriquece el suelo fijando nitrógeno y produce vainas comestibles con pulpa dulce.",
+                    "desc": "La Inga Micheliana es un árbol tropical de rápido crecimiento que se usa en sistemas agroforestales. Enriquece el suelo fijando nitrógeno y produce vainas comestibles con pulpa dulce.",
                     "alt": "Inga micheliana"
+                },
+                "gravileaInga": {
+                    "title": "Gravilea",
+                    "subtitle": "Grevillea robusta",
+                    "desc": "Gravilea (Grevillea robusta) árbol de porte alto que se le atribuye la capacidad de facilitar la disponibilidad de fósforo en los suelos y cuenta con una notable habilidad de resistencia a heladas.",
+                    "alt": "Gravilea"
                 }
             },
             "circles": {

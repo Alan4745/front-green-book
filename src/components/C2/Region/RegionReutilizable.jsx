@@ -23,7 +23,7 @@ import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
 import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
 import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.png'
-import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.svg';
+import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.jpg';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
 // Atitlán

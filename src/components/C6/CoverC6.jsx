@@ -18,7 +18,7 @@ const CoverC6 = () => {
             variant="cover"
         >
             <div
-                className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10"
+                className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black"
                 style={{ backgroundImage: "url('/Img/C6/ImgC6.png')" }}
             >
                 {/* Overlay oscuro suave */}
@@ -78,8 +78,8 @@ const CoverC6 = () => {
                 /</Link>
 
                 {/* Selector de idioma */}
-                <div className="absolute bottom-[5vh] right-6 z-50">
-                    <LanguageSelector />
+                   <div className="absolute bottom-[5vh] right-6 z-50">
+                    <LanguageSelector alignment="right" />
                 </div>
 
                 

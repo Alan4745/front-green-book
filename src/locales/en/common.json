@@ -184,7 +184,7 @@
                 },
                 "desc": {
                     "line1": "Each cup reflects the richness of its volcanic soils and the",
-                    "line2": "cool climate that enhances its sensory profile. They stand out",
+                    "line2": "cool climate that enhances its sensory profile.",
                     "line3": "for their intense aroma, pronounced sweetness, and a flawless",
                     "line4": "balance between acidity and body."
                 },
@@ -378,6 +378,12 @@
                     "subtitle": "Chalum",
                     "desc": "Inga micheliana is a fast-growing tropical tree used in agroforestry systems. It enriches the soil by fixing nitrogen and produces edible pods with sweet pulp.",
                     "alt": "Inga micheliana"
+                },
+                "gravileaInga": {
+                    "title": "Gravilea",
+                    "subtitle": "Grevillea robusta",
+                    "desc": "Gravilea (Grevillea robusta) is a tall-growing tree species attributed with the ability to enhance phosphorus availability in soils and notable resistance to frost.",
+                    "alt": "Inga Gravilea"
                 }
             },
             "circles": {

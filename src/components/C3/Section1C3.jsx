@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import IngaSpuria from "../../assets/C3/IngaSpuria.jpg";
 import IngaEdulis from "../../assets/C3/IngaEdulis.png";
 import IngaMicheliana from "../../assets/C3/IngaMicheliana.png";
+import GravileaInga from "../../assets/C3/IngaGravilea.jpg";
 
 const Section1C3 = () => {
     const { t } = useTranslation();
@@ -54,6 +55,13 @@ const Section1C3 = () => {
             subtitle: t("c3.section1.slider.ingaMicheliana.subtitle"),
             description: t("c3.section1.slider.ingaMicheliana.desc"),
             alt: t("c3.section1.slider.ingaMicheliana.alt"),
+        },
+        {
+            src: GravileaInga,
+            title: t("c3.section1.slider.gravileaInga.title"),
+            subtitle: t("c3.section1.slider.gravileaInga.subtitle"),
+            description: t("c3.section1.slider.gravileaInga.desc"),
+            alt: t("c3.section1.slider.gravileaInga.alt"),
         },
     ];
 
