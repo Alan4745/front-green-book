@@ -68,8 +68,8 @@ const Section3C1 = () => {
                 </h2>
             </div>
 
-            {/* Carrusel de tarjetas */}
-            <div className="flex justify-center items-center mt-25 px-4 ">
+            {/* Grid de tarjetas */}
+            <div className="flex justify-center items-center mt-10 px-10">
                 <CarrouselColor slides={slidesData} />
             </div>
 
