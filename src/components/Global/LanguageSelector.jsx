@@ -44,45 +44,36 @@ const LanguageSelector = ({
     return (
         <div style={positionStyle}>
 
-            {/* Fila: círculo con flecha + etiqueta del idioma actual */}
-            <div className="flex items-center gap-2">
-
-                {/* Círculo con flecha hacia arriba */}
-                <button
-                    onClick={() => setOpen((v) => !v)}
-                    aria-haspopup="listbox"
-                    aria-expanded={open}
-                    aria-label="Cambiar idioma"
-                    style={{ backgroundColor: buttonBg, color: textColor }}
-                    className="w-9 h-9 flex items-center justify-center rounded-full backdrop-blur-md hover:bg-white/30 transition flex-shrink-0"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        style={{
-                            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                            transition: "transform 0.2s ease"
-                        }}
-                    >
-                        <polyline points="18 15 12 9 6 15" />
-                    </svg>
-                </button>
-
-                {/* Idioma activo */}
-                <span
-                    className="text-sm font-bold font-Gotham select-none"
-                    style={{ color: textColor }}
-                >
+            {/* Botón unificado: label + flecha a la derecha */}
+            <button
+                onClick={() => setOpen((v) => !v)}
+                aria-haspopup="listbox"
+                aria-expanded={open}
+                aria-label="Cambiar idioma"
+                style={{ backgroundColor: buttonBg, color: textColor }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md hover:bg-white/30 transition"
+            >
+                <span className="text-sm font-bold font-Gotham select-none">
                     {selected.label}
                 </span>
-            </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{
+                        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.2s ease"
+                    }}
+                >
+                    <polyline points="18 15 12 9 6 15" />
+                </svg>
+            </button>
 
             {/* Dropdown — solo aparecen los OTROS idiomas */}
             {open && (
