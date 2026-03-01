@@ -82,8 +82,8 @@ const Section2C5 = () => {
                 </h2>
 
                 {hoveredSection === 'mariposas' && (
-                    <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                    <div className="absolute bottom-20 left-8 text-white transition-all duration-300">
+                        <p className="text-2xl text-left w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
                             <span className="text-[#AC7EF0]">{t(keys.cols.mariposas.number)} </span>
                             {t(keys.cols.mariposas.text)}
                         </p>
@@ -119,8 +119,8 @@ const Section2C5 = () => {
                 </h2>
 
                 {hoveredSection === 'murcielagos' && (
-                    <div className="absolute top-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w/[45vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                    <div className="absolute top-20 left-8 text-white transition-all duration-300">
+                        <p className="text-2xl text-left w-[35vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
                             <span className="text-[#AC7EF0]">{t(keys.cols.murcielagos.number)} </span>
                             {t(keys.cols.murcielagos.text)}
                         </p>
@@ -156,8 +156,8 @@ const Section2C5 = () => {
                 </h2>
 
                 {hoveredSection === 'anfibios' && (
-                    <div className="absolute bottom-40 left-8 text-white transition-all duration-300">
-                        <p className="text-2xl text-justify w-[40vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                    <div className="absolute bottom-20 left-8 text-white transition-all duration-300">
+                        <p className="text-2xl text-left w-[40vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
                             <span className="text-[#AC7EF0]">{t(keys.cols.anfibios.number)} </span>
                             {t(keys.cols.anfibios.text)}
                         </p>
