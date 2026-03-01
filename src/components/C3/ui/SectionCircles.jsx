@@ -64,47 +64,6 @@ const SectionCircles = () => {
           className="col-start-3 row-start-1 justify-self-center"
           role="listitem"
           aria-label={t("c3.section1.circles.itemLabel", {
-            num: "03",
-            text: t("c3.section1.circles.f3"),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="03"
-            text={t("c3.section1.circles.f3")}
-            position="right"
-            speedSec={8}
-          />
-        </div>
-
-        <div
-          className="col-start-5 row-start-1 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "05",
-            text: t("c3.section1.circles.f5", { pct: "70%" }),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="05"
-            text={t("c3.section1.circles.f5", { pct: "70%" })}
-            position="top"
-            speedSec={8}
-          />
-        </div>
-
-        {/* fila 2 (offset a la derecha) */}
-        <div
-          className="col-start-2 row-start-2 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
             num: "02",
             text: t("c3.section1.circles.f2"),
           })}
@@ -116,13 +75,34 @@ const SectionCircles = () => {
             transform="translate(100%, 0%)"
             number="02"
             text={t("c3.section1.circles.f2")}
-            position="left"
+            position="right"
             speedSec={8}
           />
         </div>
 
         <div
-          className="col-start-4 row-start-2 justify-self-center"
+          className="col-start-5 row-start-1 justify-self-center"
+          role="listitem"
+          aria-label={t("c3.section1.circles.itemLabel", {
+            num: "03",
+            text: t("c3.section1.circles.f3"),
+          })}
+        >
+          <CircleFeature
+            colorAro="#7AD7DD"
+            colorMovimiento="#00333B"
+            colorNumero="#073E58"
+            transform="translate(100%, 0%)"
+            number="03"
+            text={t("c3.section1.circles.f3")}
+            position="top"
+            speedSec={8}
+          />
+        </div>
+
+        {/* fila 2 (offset a la derecha) */}
+        <div
+          className="col-start-2 row-start-2 justify-self-center"
           role="listitem"
           aria-label={t("c3.section1.circles.itemLabel", {
             num: "04",
@@ -136,6 +116,26 @@ const SectionCircles = () => {
             transform="translate(100%, 0%)"
             number="04"
             text={t("c3.section1.circles.f4", { pct: "70%" })}
+            position="left"
+            speedSec={8}
+          />
+        </div>
+
+        <div
+          className="col-start-4 row-start-2 justify-self-center"
+          role="listitem"
+          aria-label={t("c3.section1.circles.itemLabel", {
+            num: "05",
+            text: t("c3.section1.circles.f5"),
+          })}
+        >
+          <CircleFeature
+            colorAro="#7AD7DD"
+            colorMovimiento="#00333B"
+            colorNumero="#073E58"
+            transform="translate(100%, 0%)"
+            number="05"
+            text={t("c3.section1.circles.f5")}
             position="bottom"
             speedSec={8}
           />
