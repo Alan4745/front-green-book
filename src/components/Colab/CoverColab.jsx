@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import BackButton from '../Global/BackButton';
 import MainMenu from '../Global/MainMenu';
 import LanguageSelector from '../Global/LanguageSelector';
+import CloseButton from '../Global/CloseButton';
 
 import LogoGC from '../../assets/Colab/LogoGC.svg';
 import LogoAC from '../../assets/Colab/LogoAC.svg';
@@ -16,6 +17,10 @@ import LogotipoAC from '../../assets/Colab/LogotipoAC.svg';
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 import 'animate.css';
+
+// ⚠️ Reemplazar con las URLs reales cuando las tengan
+const EXTERNAL_URL_GC = '#'; // TODO: URL Guatemalan Coffees
+const EXTERNAL_URL_AC = '#'; // TODO: URL Anacafé
 
 const CoverColab = () => {
     const navigate = useNavigate();
@@ -111,17 +116,18 @@ const cardOpacity = useTransform(scrollYProgress,
 );
 
 
-    // Redirigir a la sectionGC
+    // Redirigir a URL externa GC
     const handleGoToSectionGC = () => {
-        navigate('/colab/sgc');
-        window.scrollTo(0, 0)
+        if (EXTERNAL_URL_GC !== '#') window.open(EXTERNAL_URL_GC, '_blank', 'noopener noreferrer');
     };
 
-    // Redirigir a la sectionAC
+    // Redirigir a URL externa AC
     const handleGoToSectionAC = () => {
-        navigate('/colab/sac');
-        window.scrollTo(0, 0)
+        if (EXTERNAL_URL_AC !== '#') window.open(EXTERNAL_URL_AC, '_blank', 'noopener noreferrer');
     };
+
+    // Lightbox de video
+    const [activeVideo, setActiveVideo] = useState(null); // null | 'gc' | 'ac'
 
 
     const [showIndicator, setShowIndicator] = useState(true);
@@ -253,15 +259,25 @@ const cardOpacity = useTransform(scrollYProgress,
                     <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
                 </motion.div>
 
-                {/* Tarjeta 2 con video */}
+                {/* Tarjeta 2 con video GC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF]"
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                     style={{ opacity: cardOpacity }}
+                    onClick={() => setActiveVideo('gc')}
+                    title="Reproducir video"
                 >
                     <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
                         <source src={VideoGC} type="video/mp4" />
                         {t('colab.cover.videoFallback')}
                     </video>
+                    {/* Overlay play icon */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
                 </motion.div>
 
                 {/* Tarjeta 3 con botón y logo AC */}
@@ -282,17 +298,47 @@ const cardOpacity = useTransform(scrollYProgress,
                     <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
                 </motion.div>
 
-                {/* Tarjeta 4 con video */}
+                {/* Tarjeta 4 con video AC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF]"
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                     style={{ opacity: cardOpacity }}
+                    onClick={() => setActiveVideo('ac')}
+                    title="Reproducir video"
                 >
                     <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
                         <source src={VideoAC} type="video/mp4" />
                         {t('colab.cover.videoFallback')}
                     </video>
+                    {/* Overlay play icon */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
+
+            {/* ===== LIGHTBOX DE VIDEO ===== */}
+            {activeVideo && (
+                <div
+                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100]"
+                    onClick={() => setActiveVideo(null)}
+                >
+                    <CloseButton onClick={() => setActiveVideo(null)} />
+                    <div onClick={(e) => e.stopPropagation()} className="w-[90vw] max-w-5xl">
+                        <video
+                            className="w-full h-auto rounded-xl"
+                            autoPlay
+                            controls
+                            key={activeVideo}
+                        >
+                            <source src={activeVideo === 'gc' ? VideoGC : VideoAC} type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
