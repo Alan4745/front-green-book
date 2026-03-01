@@ -7,7 +7,7 @@
         "next": "Next",
         "cards": [
             { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
-            { "text": "THE 8 COFFEE REGIONS", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+            { "text": "8 COFFEE REGIONS OF GUATEMALA", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
             { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
             { "text": "ECOSYSTEM SERVICES", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
             { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
@@ -20,7 +20,7 @@
         "items": {
             "home": "Home",
             "c1": "Coffee in Guatemala",
-            "c2": "The 8 coffee regions",
+            "c2": "8 coffee regions of Guatemala",
             "c3": "Agroforestry systems",
             "c4": "Ecosystem services",
             "c5": "A refuge for diversity",
@@ -122,8 +122,8 @@
     "c2": {
         "cover": {
             "title": {
-                "top": "THE 8 REGIONS",
-                "bottom": "OF COFFEE"
+                "top": "8 COFFEE REGIONS",
+                "bottom": "OF GUATEMALA"
             },
             "subtitle": {
                 "top": "EACH REGION IS AN EXPERIENCE",
@@ -134,7 +134,7 @@
         "section1": {
             "mapAlt": "Base map",
             "modalAlt": "Expanded image",
-            "cta": "COFFEE DIVERSITY",
+            "cta": "Discover the\ncoffee diversity",
             "regions": {
                 "coban": { "alt": "Cobán Region" },
                 "huehue": { "alt": "Huehuetenango Region" },

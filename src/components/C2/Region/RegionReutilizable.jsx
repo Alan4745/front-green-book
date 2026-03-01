@@ -95,6 +95,7 @@ const RegionReutilizable = ({tipo, isActive}) => {
     case 'atitlan': return 'bg-[#123A88]';
     case 'antigua': return 'bg-[#F7942D]';
     case 'acatenango': return 'bg-[#F7941D]';
+    case 'oriente': return 'bg-[#6B3A2A]';
     default: return 'bg-gray-400';
   }
 };
@@ -161,6 +162,15 @@ const regionImages = {
     grafica: {
       es: HuehueG_es,
       en: HuehueG,
+    },
+  },
+  oriente: {
+    fondo: FondoOriente,
+    logo: OrienteR,
+    perfil: PDROriente,
+    grafica: {
+      es: OrienteG_es,
+      en: OrienteG,
     },
   },
 };

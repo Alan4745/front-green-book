@@ -7,7 +7,7 @@
         "next": "Siguiente",
         "cards": [
             { "text": "EL CAFÉ EN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
-            { "text": "LAS 8 REGIONES DEL CAFÉ", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
+            { "text": "8 REGIONES DEL CAFÉ DE GUATEMALA", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
             { "text": "SISTEMAS AGROFORESTALES", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
             { "text": "SERVICIOS ECOSISTÉMICOS", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
             { "text": "UN ENTORNO DIVERSO POR EXPLORAR", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
@@ -20,7 +20,7 @@
         "items": {
             "home": "Inicio",
             "c1": "El café en Guatemala",
-            "c2": "Las 8 regiones del café",
+            "c2": "8 regiones del café DE Guatemala",
             "c3": "Sistemas agroforestales",
             "c4": "Servicios ecosistémicos",
             "c5": "Refugio para la diversidad",
@@ -122,8 +122,8 @@
     "c2": {
         "cover": {
             "title": {
-                "top": "LAS 8 REGIONES",
-                "bottom": "DEL CAFÉ"
+                "top": "8 REGIONES DEL ",
+                "bottom": "CAFÉ DE GUATEMALA"
             },
             "subtitle": {
                 "top": "CADA REGIÓN ES UNA EXPERIENCIA",
@@ -134,7 +134,7 @@
         "section1": {
             "mapAlt": "Mapa base",
             "modalAlt": "Imagen ampliada",
-            "cta": "DIVERSIDAD CAFETELERA",
+            "cta": "Conoce la\ndiversidad cafetalera",
             "regions": {
                 "coban": { "alt": "Región Cobán" },
                 "huehue": { "alt": "Región Huehuetenango" },

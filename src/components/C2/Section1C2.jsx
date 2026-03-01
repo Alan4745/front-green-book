@@ -71,6 +71,7 @@ const Section1C2 = () => {
         { src: RegionCoban, top: "14vh", left: "66vh", key: "coban", ref: cobanRef,  },
         { src: RegionFraijanes, top: "68vh", right: "62vh", key: "fraijanes", ref: fraijanesRef },
         { src: RegionHuehue, top: "27vh", left: "50vh", key: "huehue", ref: huehueRef },
+        { src: RegionOriente, top: "50vh", right: "50vh", key: "oriente", ref: orienteRef },
     ];
 
     return (

@@ -82,6 +82,8 @@ const HoverButton = ({
                 style={{
                     fontFamily: "GothamNormal",
                     marginLeft: hover ? `${hoverOffset}px` : `${textOffset}px`,
+                    whiteSpace: "pre-line",
+                    lineHeight: "1.3"
                 }}
             >
                 {text}
