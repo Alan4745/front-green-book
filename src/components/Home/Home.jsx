@@ -16,19 +16,23 @@ const backgrounds = [
     const FADE_DURATION = 2;
     const DISPLAY_TIME = 8;
 
-    // Logo Pulse Loader Component
+    // Logo Pulse Loader Component con salida cinematográfica
     const SkeletonLoader = ({ isExiting }) => {
     return (
         <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: isExiting ? 0 : 1 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
         className="absolute inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
         >
         <style>{`
             @keyframes logoPulse {
             0%, 100% { transform: scale(1); opacity: 0.6; }
             50% { transform: scale(1.18); opacity: 1; }
+            }
+            @keyframes logoExit {
+            0% { transform: scale(1); opacity: 1; filter: blur(0px); }
+            100% { transform: scale(3.5); opacity: 0; filter: blur(12px); }
             }
         `}</style>
         <img
@@ -38,7 +42,9 @@ const backgrounds = [
             width: "180px",
             maxWidth: "45vw",
             height: "auto",
-            animation: "logoPulse 1.6s ease-in-out infinite",
+            animation: isExiting
+                ? "logoExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
+                : "logoPulse 1.6s ease-in-out infinite",
             }}
         />
         </motion.div>
