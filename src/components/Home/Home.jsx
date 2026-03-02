@@ -16,41 +16,6 @@ const backgrounds = [
     const FADE_DURATION = 2;
     const DISPLAY_TIME = 8;
 
-    // Logo Pulse Loader Component con salida cinematográfica
-    const SkeletonLoader = ({ isExiting }) => {
-    return (
-        <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: isExiting ? 0 : 1 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="absolute inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
-        >
-        <style>{`
-            @keyframes logoPulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.18); opacity: 1; }
-            }
-            @keyframes logoExit {
-            0% { transform: scale(1); opacity: 1; filter: blur(0px); }
-            100% { transform: scale(3.5); opacity: 0; filter: blur(12px); }
-            }
-        `}</style>
-        <img
-            src="/Logos/Logo.svg"
-            alt="Guatemalan Coffees"
-            style={{
-            width: "180px",
-            maxWidth: "45vw",
-            height: "auto",
-            animation: isExiting
-                ? "logoExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
-                : "logoPulse 1.6s ease-in-out infinite",
-            }}
-        />
-        </motion.div>
-    );
-    };
-
     const decodeImage = (src) =>
     new Promise((resolve) => {
         const img = new Image();
@@ -111,8 +76,8 @@ const backgrounds = [
             // Iniciar animación de salida
             setIsExiting(true);
             
-            // Esperar a que termine el fade out antes de ocultar el skeleton
-            await new Promise((resolve) => setTimeout(resolve, 1200));
+            // Esperar justo lo que dura la animación (0.9s)
+            await new Promise((resolve) => setTimeout(resolve, 900));
             
             setIsLoading(false);
         } catch (error) {
@@ -120,7 +85,7 @@ const backgrounds = [
             // Incluso con error, eventualmente quitar el skeleton con animación
             await new Promise((resolve) => setTimeout(resolve, 2000));
             setIsExiting(true);
-            await new Promise((resolve) => setTimeout(resolve, 1200));
+            await new Promise((resolve) => setTimeout(resolve, 900));
             setIsLoading(false);
         }
         };
@@ -154,18 +119,9 @@ const backgrounds = [
 
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
 
-    // Mostrar skeleton mientras carga
-    if (isLoading) {
-        return <SkeletonLoader isExiting={isExiting} />;
-    }
-
-    return (
+    const homeContent = (
         <div className="relative min-h-screen w-screen overflow-hidden bg-black">
-        {/* Fade in suave del contenido */}
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+        <div
             className="absolute inset-0"
         >
             {/* Capas de crossfade */}
@@ -238,8 +194,57 @@ const backgrounds = [
             <div className="absolute top-[2vh] right-0 z-50 ">
             <MainMenu key={`menu-${langKey}`} />
             </div>
-        </motion.div>
         </div>
+        </div>
+    );
+
+    // Siempre renderizar ambos: contenido (detrás) + loader (encima con z-9999).
+    // El contenido se pinta desde el inicio para que esté listo cuando el loader sale.
+    return (
+        <>
+            {homeContent}
+
+            {/* Loader: siempre en el DOM durante loading, se desvanece con CSS */}
+            {isLoading && (
+                <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+                    style={{
+                        pointerEvents: isExiting ? "none" : "auto",
+                        animation: isExiting
+                            ? "loaderBgExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
+                            : "none",
+                    }}
+                >
+                    <style>{`
+                        @keyframes logoPulseHome {
+                            0%, 100% { transform: scale(1); opacity: 0.6; }
+                            50% { transform: scale(1.18); opacity: 1; }
+                        }
+                        @keyframes logoExitHome {
+                            0% { transform: scale(1); opacity: 1; filter: blur(0px); }
+                            100% { transform: scale(3.5); opacity: 0; filter: blur(12px); }
+                        }
+                        @keyframes loaderBgExit {
+                            0% { background-color: rgba(0,0,0,1); }
+                            60% { background-color: rgba(0,0,0,0.6); }
+                            100% { background-color: transparent; background-image: none; opacity: 0; }
+                        }
+                    `}</style>
+                    <img
+                        src="/Logos/Logo.svg"
+                        alt="Guatemalan Coffees"
+                        style={{
+                            width: "180px",
+                            maxWidth: "45vw",
+                            height: "auto",
+                            animation: isExiting
+                                ? "logoExitHome 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
+                                : "logoPulseHome 1.6s ease-in-out infinite",
+                        }}
+                    />
+                </div>
+            )}
+        </>
     );
 };
 

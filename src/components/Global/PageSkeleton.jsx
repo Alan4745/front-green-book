@@ -200,10 +200,11 @@ export default function PageSkeleton({
         return renderSkeleton({ tintHex, SkeletonBlock });
     }
 
-    // El loader ocupa min-h-screen para no dejar que el contenido de abajo se vea
+    // Renderizar children detrás del loader durante "exiting" para evitar flash blanco
     return (
-        <div style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
+        <>
+            {phase === "exiting" && children}
             <LogoPulseLoader tintHex={tintHex} exiting={phase === "exiting"} />
-        </div>
+        </>
     );
 }
