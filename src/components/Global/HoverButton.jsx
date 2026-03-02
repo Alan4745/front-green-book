@@ -38,7 +38,7 @@ const HoverButton = ({
             {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
             onClick={handleClick}
             role="link"
-            className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-[2vh] tracking-wide no-underline transition-all duration-300"
+            className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-[2vh] tracking-wide no-underline transition-all duration-300 cursor-pointer"
             style={{ color: color }}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
