@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importar Link
+import { useTransitionNavigate } from '../../Global/PageTransition';
 
 const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chapter }) => {
+    const navigateTo = useTransitionNavigate();
+
     const backgroundStyle = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(${bgImage})`,
         backgroundSize: 'cover',
@@ -23,10 +25,10 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chap
 
             {/* Button Section */}
             <div className="flex justify-end">
-                {/* Link que redirige al capítulo */}
-                <Link
-                    to={`/${chapter}`} // Aquí va la ruta dinámica que lleva al capítulo
-                    className="border-1 border-white border-opacity-50 rounded-full p-2 bg-transparent hover:scale-110 transition-all duration-300"
+                {/* Botón que redirige al capítulo con transición */}
+                <button
+                    onClick={() => navigateTo(`/${chapter}`)}
+                    className="border-1 border-white border-opacity-50 rounded-full p-2 bg-transparent hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
                     <svg
                         className="w-4 h-4 text-white"
@@ -42,7 +44,7 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chap
                             d="M9 5l7 7-7 7"
                         />
                     </svg>
-                </Link>
+                </button>
             </div>
         </div>
     );

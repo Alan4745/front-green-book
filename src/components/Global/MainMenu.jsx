@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useTransitionNavigate } from "./PageTransition";
 
 // Mantenemos rutas aquí y pedimos etiquetas al i18n por id.
 const MENU = [
@@ -18,7 +19,7 @@ const MENU = [
     const { t, i18n } = useTranslation();
     const [open, setOpen] = useState(false);
     const menuRef = useRef(null);
-    const navigate = useNavigate();
+    const navigate = useTransitionNavigate();
     const { pathname } = useLocation();
 
     // Cerrar menú si se hace clic fuera

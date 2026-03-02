@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useTransitionNavigate } from '../Global/PageTransition';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
@@ -14,7 +14,7 @@ import Img2 from '../../assets/C1/F2.png';
 const Section1C1 = () => {
     const [selectedImage, setSelectedImage] = useState(null); // dataURL o asset (solo imagen)
     const [vid2Poster, setVid2Poster] = useState(null); // dataURL generado del .mov
-    const navigate = useNavigate();
+    const navigate = useTransitionNavigate();
     const { t } = useTranslation();
 
     // 🔧 Genera una miniatura (primer frame) del .mov como imagen

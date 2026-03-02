@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useTransitionNavigate } from "./PageTransition";
 
 const HoverButton = ({ 
     text = "Hover Me", 
@@ -10,7 +10,7 @@ const HoverButton = ({
     color = "white" 
 }) => {
     const [hover, setHover] = useState(false);
-    const navigate = useNavigate();
+    const navigate = useTransitionNavigate();
 
     // Detectamos si el link es externo
     const isExternal = link?.startsWith("http://") || link?.startsWith("https://");

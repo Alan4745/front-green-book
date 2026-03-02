@@ -1,11 +1,12 @@
 import React from 'react'
 import CircleFeature from "../C3/ui/CircleFeature";
-import { Link } from 'react-router-dom';
+import { useTransitionNavigate } from '../Global/PageTransition';
 import { useTranslation } from 'react-i18next';
 
 
 const Section2C7 = () => {
     const { t } = useTranslation();
+    const navigateTo = useTransitionNavigate();
 
   return (
     <section className=" px-6 py-16 md:px-20">
@@ -15,10 +16,10 @@ const Section2C7 = () => {
           {t('colab.gc.section2.intro')}
         </p>
 
-        <Link to={"/c2"}
+        <button onClick={() => navigateTo('/c2')}
          className="text-amber-50 self-start md:self-auto bg-[#C23074] px-6 py-2 rounded-2xl font-medium tracking-wide hover:bg-[#a92763] transition-colors cursor-pointer">
           {t('colab.gc.section2.cta')}
-        </Link>
+        </button>
       </div>
 
       {/* Content */}

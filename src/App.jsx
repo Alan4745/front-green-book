@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { TransitionProvider } from './components/Global/PageTransition';
 import Home from './components/Home/Home';
 import MainC1 from './components/C1/MainC1';
 import Section4C1 from './components/C1/Section4C1';
@@ -32,6 +33,7 @@ import CoverColab from './components/Colab/CoverColab';
 function App() {
   return (
     <Router>
+      <TransitionProvider>
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -66,6 +68,7 @@ function App() {
         <Route path="/colab/sac" element={<CoverAC />} />
 
       </Routes>
+      </TransitionProvider>
     </Router>
   );
 }

@@ -59,6 +59,13 @@ function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
         tintHex.toLowerCase() === "#ffffff";
     const bgColor = isWhite ? "#1C1C1C" : tintHex;
 
+    const [entered, setEntered] = useState(false);
+    useEffect(() => {
+        // Activar la transición de entrada en el siguiente frame
+        const raf = requestAnimationFrame(() => setEntered(true));
+        return () => cancelAnimationFrame(raf);
+    }, []);
+
     return (
         <div
             className="fixed inset-0 flex items-center justify-center z-[9999]"
@@ -78,6 +85,10 @@ function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
                     0% { transform: scale(1); opacity: 1; filter: blur(0px); }
                     100% { transform: scale(3.5); opacity: 0; filter: blur(12px); }
                 }
+                @keyframes logoEnter {
+                    0% { transform: scale(0.5); opacity: 0; }
+                    100% { transform: scale(1); opacity: 0.6; }
+                }
             `}</style>
             <img
                 src="/Logos/Logo.svg"
@@ -88,7 +99,9 @@ function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
                     height: "auto",
                     animation: exiting
                         ? "logoExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
-                        : "logoPulse 1.6s ease-in-out infinite",
+                        : entered
+                            ? "logoEnter 0.6s ease-out forwards, logoPulse 1.6s ease-in-out 0.6s infinite"
+                            : "none",
                 }}
             />
         </div>

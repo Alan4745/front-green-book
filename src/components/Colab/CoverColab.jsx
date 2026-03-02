@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTransitionNavigate } from '../Global/PageTransition';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +24,7 @@ const EXTERNAL_URL_AC = 'https://www.anacafe.org/';
 
 const CoverColab = () => {
     const navigate = useNavigate();
+    const navigateTo = useTransitionNavigate();
     const sectionRef = useRef(null);
     const { t } = useTranslation();
 
@@ -145,7 +147,7 @@ const cardOpacity = useTransform(scrollYProgress,
         >
             {/* ===== BOTONES FIJOS ===== */}
             <div className="fixed top-6 left-6 md:top-8 md:left-8 z-50 pointer-events-auto">
-                <BackButton onClick={() => navigate('/')} />
+                <BackButton onClick={() => navigateTo('/')} />
             </div>
 
             <div className="absolute top-[2vh] right-6.5 z-50">

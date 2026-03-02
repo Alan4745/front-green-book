@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useTransitionNavigate } from '../../Global/PageTransition';
 
 const ColabButton = ({ progress = 0, className = "" }) => {
     const [animatedProgress, setAnimatedProgress] = useState(0);
-    const navigate = useNavigate();  // Usamos el hook useNavigate para redirigir a rutas internas
+    const navigateTo = useTransitionNavigate();
 
     useEffect(() => {
         // Si el progreso cambia, animamos hacia el nuevo valor
@@ -29,8 +29,7 @@ const ColabButton = ({ progress = 0, className = "" }) => {
     }, [animatedProgress]);
 
     const handleClick = () => {
-        // Redirige inmediatamente cuando se haga clic, sin importar el progreso
-        navigate('/colab');  // Usamos navigate para redirigir a la ruta /colab
+        navigateTo('/colab');
     };
 
     return (

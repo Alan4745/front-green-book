@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useTransitionNavigate } from '../Global/PageTransition';
 import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
@@ -80,7 +80,7 @@ function TextMaskOverlay({
 
 const SectionGC = () => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
+    const navigate = useTransitionNavigate();
     const [cleanView, setCleanView] = useState(false);
     const [isPlaying, setIsPlaying] = useState(true);
     const videoRef = useRef(null);
