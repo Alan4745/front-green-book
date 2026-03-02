@@ -16,78 +16,31 @@ const backgrounds = [
     const FADE_DURATION = 2;
     const DISPLAY_TIME = 8;
 
-    // Skeleton Loader Component
+    // Logo Pulse Loader Component
     const SkeletonLoader = ({ isExiting }) => {
     return (
         <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: isExiting ? 0 : 1 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
-        className="absolute inset-0 z-50 bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+        className="absolute inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
         >
-        {/* Fondo animado */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-gray-900/50 animate-pulse" />
-        
-        {/* Logo skeleton */}
-        <div className="absolute top-[19vh] left-[22vh] w-[22%] h-auto aspect-square">
-            <div className="w-full h-full bg-gray-700/50 rounded-lg animate-pulse" />
-        </div>
-
-        {/* Carrousel skeleton */}
-        <div className="absolute bottom-10 left-[40%] w-[85%] z-40">
-            <div className="flex gap-6 overflow-hidden">
-            {[1, 2, 3, 4].map((i) => (
-                <div
-                key={i}
-                className="flex-shrink-0 w-64 h-40 bg-gray-700/50 rounded-xl animate-pulse"
-                style={{
-                    animationDelay: `${i * 0.1}s`,
-                }}
-                />
-            ))}
-            </div>
-        </div>
-
-        {/* Language selector skeleton */}
-        <div className="absolute bottom-6 left-6 z-50">
-            <div className="w-24 h-10 bg-gray-700/50 rounded-lg animate-pulse" />
-        </div>
-
-        {/* Colab button skeleton */}
-        <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2">
-            <div className="w-32 h-12 bg-gray-700/50 rounded-full animate-pulse" />
-        </div>
-
-        {/* Menu skeleton */}
-        <div className="absolute top-[2vh] right-6 z-50">
-            <div className="w-12 h-12 bg-gray-700/50 rounded-lg animate-pulse" />
-        </div>
-
-        {/* Shimmer effect overlay */}
-        <div className="absolute inset-0 overflow-hidden">
-            <div
-            className="absolute inset-0 -translate-x-full animate-shimmer"
-            style={{
-                background:
-                "linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent)",
-                animation: "shimmer 2s infinite",
-            }}
-            />
-        </div>
-
         <style>{`
-            @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-            }
-            .animate-shimmer {
-            animation: shimmer 2s infinite;
+            @keyframes logoPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.18); opacity: 1; }
             }
         `}</style>
+        <img
+            src="/Logos/Logo.svg"
+            alt="Guatemalan Coffees"
+            style={{
+            width: "180px",
+            maxWidth: "45vw",
+            height: "auto",
+            animation: "logoPulse 1.6s ease-in-out infinite",
+            }}
+        />
         </motion.div>
     );
     };
