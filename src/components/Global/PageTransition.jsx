@@ -42,20 +42,20 @@ export function useTransitionNavigate() {
             // doble rAF para que el browser pinte el estado inicial
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                    // Blur progresivo + oscurecer ligeramente
-                    overlay.style.backdropFilter = "blur(20px)";
-                    overlay.style.WebkitBackdropFilter = "blur(20px)";
-                    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+                    // Blur progresivo — sin oscurecer, solo desenfoque total
+                    overlay.style.backdropFilter = "blur(40px)";
+                    overlay.style.WebkitBackdropFilter = "blur(40px)";
+                    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.15)";
                 });
             });
 
             // cuando la animación termina → navegar
             setTimeout(() => {
-                // Poner negro total justo antes de navegar para cubrir el cambio
+                // Blur extremo para que no se distinga nada durante el cambio
                 overlay.style.transition = "none";
-                overlay.style.backgroundColor = "rgba(0, 0, 0, 1)";
-                overlay.style.backdropFilter = "blur(0px)";
-                overlay.style.WebkitBackdropFilter = "blur(0px)";
+                overlay.style.backdropFilter = "blur(80px)";
+                overlay.style.WebkitBackdropFilter = "blur(80px)";
+                overlay.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
 
                 navigate(to);
 

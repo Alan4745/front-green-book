@@ -190,12 +190,6 @@ export default function PageSkeleton({
         if (phase !== "exiting") return;
         const t = setTimeout(() => {
             setPhase("done");
-            // Doble raf para que el browser ya haya pintado el children
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-                });
-            });
         }, 1000);
         return () => clearTimeout(t);
     }, [phase]);
