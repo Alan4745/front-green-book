@@ -227,7 +227,7 @@ if (!region) {
             scaleX: [1, 1.05, 1, 1.018, 1, 1.007, 1, 1],
             opacity: [1, 1, 1, 1, 1, 1, 1, 1],
             transition: {
-                duration: 2.2,
+                duration: 1.2,
                 times: [0, 0.70, 0.84, 0.92, 0.97, 0.985, 0.995, 1],
                 ease: [
                     'easeIn',
