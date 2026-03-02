@@ -19,8 +19,8 @@ import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 import 'animate.css';
 
 // ⚠️ Reemplazar con las URLs reales cuando las tengan
-const EXTERNAL_URL_GC = '#'; // TODO: URL Guatemalan Coffees
-const EXTERNAL_URL_AC = '#'; // TODO: URL Anacafé
+const EXTERNAL_URL_GC = 'https://www.guatemalancoffees.com/'; // TODO: URL Guatemalan Coffees
+const EXTERNAL_URL_AC = 'https://www.anacafe.org/'; // TODO: URL Anacafé
 
 const CoverColab = () => {
     const navigate = useNavigate();
