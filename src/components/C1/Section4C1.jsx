@@ -134,6 +134,8 @@ const Section4C1 = () => {
                             className="relative z-10 w-[160vh] max-w-[90vw] max-h-[80vh] rounded-md shadow-2xl object-contain"
                             src={Vid1}
                             controls
+                            controlsList="nodownload noplaybackrate"
+                            disablePictureInPicture
                             autoPlay
                             playsInline
                             preload="metadata"

@@ -331,6 +331,8 @@ const cardOpacity = useTransform(scrollYProgress,
                             className="w-full h-auto rounded-xl"
                             autoPlay
                             controls
+                            controlsList="nodownload noplaybackrate"
+                            disablePictureInPicture
                             key={activeVideo}
                         >
                             <source src={activeVideo === 'gc' ? VideoGC : VideoAC} type="video/mp4" />
