@@ -242,19 +242,20 @@ const cardOpacity = useTransform(scrollYProgress,
             <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
                 {/* Tarjeta 1 con botón y logo GC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center"
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                     style={{ opacity: cardOpacity }}
+                    onClick={handleGoToSectionGC}
+                    role="button"
+                    title={t('colab.cover.buttons.toGC')}
                 >
-                    <button
-                        onClick={handleGoToSectionGC}
-                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md hover:scale-110 transition"
-                        title={t('colab.cover.buttons.toGC')}
-                        aria-label={t('colab.cover.buttons.toGC')}
+                    <div
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
+                        aria-hidden="true"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                    </button>
+                    </div>
                     <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
                 </motion.div>
 
@@ -281,19 +282,20 @@ const cardOpacity = useTransform(scrollYProgress,
 
                 {/* Tarjeta 3 con botón y logo AC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center"
+                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                     style={{ opacity: cardOpacity }}
+                    onClick={handleGoToSectionAC}
+                    role="button"
+                    title={t('colab.cover.buttons.toAC')}
                 >
-                    <button
-                        onClick={handleGoToSectionAC}
-                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md hover:scale-110 transition"
-                        title={t('colab.cover.buttons.toAC')}
-                        aria-label={t('colab.cover.buttons.toAC')}
+                    <div
+                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                        aria-hidden="true"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                    </button>
+                    </div>
                     <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
                 </motion.div>
 
