@@ -56,7 +56,7 @@ function App() {
         <Route path="/c5" element={<MainC5 />} />
         <Route path="/c6" element={<MainC6 />} />
 
-        <Route path="/colab" element={<CoverColab />} />
+        <Route path="/colab" element={<MainColab />} />
         
         <Route path="/colab/sgc/covergc" element={<SectionGC />} />
         <Route path="/colab/sgc/" element={<MainC7 />} />
