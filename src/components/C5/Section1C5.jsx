@@ -102,7 +102,7 @@ const Section1C5 = () => {
             aria-label={t('c5.section1.aria.section')}
         >
             {/* Botón de hover con link */}
-            <div className={`absolute top-6 ${marginRightButton} z-50`}>
+            <div className={`absolute -top-1 ${marginRightButton} z-50`}>
                 <HoverButton
                     text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
                     textOffset={-80}
