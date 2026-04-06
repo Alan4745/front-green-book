@@ -24,8 +24,41 @@ const CoverC4 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
-                {/* Número de capítulo */}
-                <div className="absolute top-[20vh] right-[25vh] z-30">
+                {/* MOBILE: bloque título + número + subtítulo */}
+                <div
+                    className="lg:hidden absolute left-0 right-0 z-20"
+                    style={{ top: 'calc(30vh)' }}
+                >
+                    {/* Row: solo h2 + número, centrados entre sí */}
+                    <div className="relative flex items-center">
+                        <h2
+                            className="relative z-30 pl-4 text-white text-[9vw] leading-[1.1] max-w-[65vw] uppercase"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
+                        </h2>
+                        <img
+                            src="/Img/Global/Numbers/04.svg"
+                            alt={t("c4.cover.alts.chapter", { num: 4 })}
+                            title={t("c4.cover.alts.chapter", { num: 4 })}
+                            className="absolute right-0 w-[60vw] h-auto z-20"
+                        />
+                    </div>
+
+                    {/* Subtítulo y línea — debajo del row */}
+                    <div className="pl-4 mt-[5vh]">
+                        <h3
+                            className="text-white text-[4.5vw] uppercase"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c4.cover.subtitle.line1")} <br /> {t("c4.cover.subtitle.line2")}
+                        </h3>
+                        <div className="w-[20vw] h-[1vh] bg-[#FF5200] mt-[1vh]"></div>
+                    </div>
+                </div>
+
+                {/* DESKTOP: número de capítulo — intacto */}
+                <div className="hidden lg:block absolute top-[20vh] right-[25vh] z-30">
                     <img
                         src="/Img/Global/Numbers/04.svg"
                         alt={t("c4.cover.alts.chapter", { num: 4 })}
@@ -34,35 +67,31 @@ const CoverC4 = () => {
                     />
                 </div>
 
-                {/* Título y descripción */}
-                <div className="absolute top-[30vh] right-[50vh] z-30 text-white text-left">
+                {/* DESKTOP: título y descripción — intacto */}
+                <div className="hidden lg:block absolute top-[30vh] right-[50vh] z-30 text-white text-left">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[50vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
                     </h2>
-
-                    {/* Subtítulo */}
                     <h3
                         className="text-white text-[4vh] mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c4.cover.subtitle.line1")} <br /> {t("c4.cover.subtitle.line2")}
                     </h3>
-
-                    {/* Línea azul (naranja en C4) */}
                     <div className="w-[10vw] h-[1.5vh] bg-[#FF5200] mt-[0.5vh]"></div>
                 </div>
 
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
-                <div className="absolute bottom-[5vh] left-[5vh] z-30">
+                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[5vh]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c4.cover.alts.greenBook")}
                         title={t("c4.cover.alts.greenBook")}
-                        className="w-[22vh] h-auto"
+                        className="w-[35vw] h-auto lg:w-[22vh]"
                     />
                 </div>
                 /</Link>
@@ -71,8 +100,6 @@ const CoverC4 = () => {
                 <div className="absolute bottom-[5vh] right-6 z-50">
                     <LanguageSelector alignment="right" />
                 </div>
-
-                
             </div>
         </PageSkeleton>
     );
