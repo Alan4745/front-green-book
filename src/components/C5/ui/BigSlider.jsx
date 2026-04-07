@@ -21,21 +21,16 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
         };
     }, []);
 
+    const isMobile = windowWidth < 1024;
+
     // Ajuste dinámico del tamaño de la tarjeta
-    const cardScale = windowWidth > 1600 ? 1 : 0.8; // Escala más grande para pantallas grandes
-
-    // Ajuste dinámico del tamaño de la fuente para el título y la descripción
-    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-xl"; // Título más grande para pantallas grandes
-    const descriptionTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Descripción más grande para pantallas grandes
-
-    // Ajuste dinámico de las imágenes
-    const imageSize = windowWidth > 1600 ? "w-[60vh] h-[50vh]" : "w-[45vh] h-[40vh]"; // Imágenes más grandes para pantallas grandes
+    const cardScale = isMobile ? 1 : windowWidth > 1600 ? 1 : 0.8;
 
     // Ajuste dinámico del gap entre las tarjetas
-    const gapSize = windowWidth > 1600 ? "gap-[0rem]" : "gap-[0rem]"; // Gap más grande para pantallas grandes
+    const gapSize = windowWidth > 1600 ? "gap-[0rem]" : "gap-[0rem]";
 
     // Ajuste dinámico del margen inferior
-    const marginBottom = windowWidth > 1600 ? "mb-4" : "-mb-4"; // Margen inferior más grande para pantallas grandes
+    const marginBottom = windowWidth > 1600 ? "mb-4" : "-mb-4";
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -75,13 +70,43 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
         <div className="relative">
             {/* Contenedor de tarjetas */}
             <div className={`flex justify-center items-end relative ${gapSize} ${marginBottom}`}>
-                {rearrangedSlides.map((slide, index) => (
+
+                {/* ===== MOBILE: single card ===== */}
+                {isMobile && (
+                    <motion.div
+                        key={`${rearrangedSlides[0].title}-${currentIndex}-mobile`}
+                        className="relative"
+                        layout
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -12 }}
+                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        <Card
+                            image={rearrangedSlides[0].image}
+                            Number={rearrangedSlides[0].Number}
+                            title={rearrangedSlides[0].title}
+                            description={rearrangedSlides[0].description}
+                            MaxW={rearrangedSlides[0].MaxW}
+                            highlightWords={rearrangedSlides[0].highlightWords}
+                            width="w-[85vw]"
+                            height="h-[55vw]"
+                            forceExpand={true}
+                            onExpandClick={onExpandClick}
+                            className="flex-shrink-0 transform scale-y-100 scale-x-100"
+                            style={{ transformOrigin: 'bottom center' }}
+                        />
+                    </motion.div>
+                )}
+
+                {/* ===== DESKTOP: 3 cards (blindado) ===== */}
+                {!isMobile && rearrangedSlides.map((slide, index) => (
                     <motion.div
                         key={`${slide.title}-${currentIndex}-${index}`}
                         className="relative"
                         layout
                         initial={{ opacity: 0, y: 12, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: cardScale }} // Ajuste de escala dinámico
+                        animate={{ opacity: 1, y: 0, scale: cardScale }}
                         exit={{ opacity: 0, y: -12, scale: 0.98 }}
                         transition={{
                             layout: { type: 'spring', stiffness: 260, damping: 28 },
@@ -96,7 +121,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                             description={slide.description}
                             MaxW={slide.MaxW}
                             highlightWords={slide.highlightWords}
-                            onExpandClick={index === 0 ? onExpandClick : null} // Solo la primera card (grande) puede expandir
+                            onExpandClick={index === 0 ? onExpandClick : null}
                             className={`flex-shrink-0 transition-all duration-700 ease-out ${
                                 index === 0 ? 'transform scale-y-220 scale-x-150' : 'transform scale-y-100 scale-x-100'
                             }`}
@@ -105,9 +130,6 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                                 transformOrigin: 'bottom center',
                                 marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
                             }}
-                            titleClassName={titleTextSize} // Clase para el título
-                            descriptionClassName={descriptionTextSize} // Clase para la descripción
-                            imageClassName={imageSize} // Clase para la imagen
                         />
                     </motion.div>
                 ))}

@@ -12,7 +12,8 @@ const Card = ({
     height = "h-85",
     style = {},
     highlightWords = [],
-    onExpandClick = null
+    onExpandClick = null,
+    forceExpand = false
 }) => {
     // Función para resaltar palabras específicas
     const highlightText = (text, wordsToHighlight) => {
@@ -42,10 +43,11 @@ const Card = ({
     }, []);
 
     // Ajuste dinámico del margen superior
-    const marginTop = windowWidth > 1600 ? "mt-[50vw]" : "mt-[65vw]"; // Ajuste dinámico del margen superior
+    const isMobile = windowWidth < 1024;
+    const marginTop = isMobile ? "mt-[25vw]" : windowWidth > 1600 ? "mt-[50vw]" : "mt-[65vw]";
 
     // Verificar si es la card principal (grande)
-    const isMainCard = className.includes('scale-y-220');
+    const isMainCard = forceExpand || className.includes('scale-y-220');
 
     return (
         <div
