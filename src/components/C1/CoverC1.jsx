@@ -43,17 +43,17 @@ const CoverC1 = () => {
                 <div className="absolute inset-0 bg-black/5 z-20" />
 
                 {/* Número de capítulo + Título (móvil: juntos centrados) */}
-                <div className="absolute top-[20vh] right-[17vw] z-30 max-lg:top-[28vh] max-lg:right-[5vw] max-lg:left-auto">
+                <div className="absolute top-[20vh] right-[25vh] z-30 max-lg:top-[28vh] max-lg:right-[5vw] max-lg:left-auto">
                     <img
                         src="/Img/Global/Numbers/01.svg"
                         alt={t("c1.cover.chapterAlt", { num: 1 })}
-                        className="w-[28vw] h-auto max-lg:w-[35vw]"
+                        className="w-[50vh] h-auto max-lg:w-[35vw]"
                         loading="eager"
                     />
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[35vh] right-[25vw] z-30 text-white text-left min-[1024px]:max-[1200px]:top-[30vh] min-[1024px]:max-[1200px]:right-[18vw] max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
+                <div className="absolute top-[35vh] right-[50vh] z-30 text-white text-left min-[1024px]:max-[1200px]:top-[30vh] min-[1024px]:max-[1200px]:right-[18vw] max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[30vw] uppercase min-[1024px]:max-[1200px]:text-[6.5vh] min-[1024px]:max-[1200px]:max-w-[40vw] max-lg:text-[6vh] max-lg:max-w-[65vw]"
                         style={{ fontFamily: "GothamBold" }}
@@ -90,11 +90,11 @@ const CoverC1 = () => {
 
                 {/* Logo inferior izquierdo */}
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
+                <div className="absolute bottom-[5vh] left-[5vh] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("app.title")}
-                        className="w-[12vw] h-auto max-lg:w-[15vh]"
+                        className="w-[22vh] h-auto max-lg:w-[15vh]"
                         loading="eager"
                     />
                 </div>
