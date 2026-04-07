@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
 const LANGS = [
@@ -27,7 +28,6 @@ const LanguageSelector = ({
         [current]
     );
 
-    // Solo muestra los idiomas que NO están seleccionados
     const others = LANGS.filter((l) => l.code !== current);
 
     const handleSelect = (lang) => {
@@ -40,18 +40,16 @@ const LanguageSelector = ({
         setOpen(false);
     };
 
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
-
     const positionStyle = inline ? {} : {
         position: "fixed",
-        bottom: isMobile ? "calc(env(safe-area-inset-bottom) + 6vh)" : "2vh",
+        bottom: "2vh",
+        zIndex: 2147483646,
+        maxWidth: "calc(100vw - 16px)",
         ...(alignment === "left" ? { left: "1vw" } : { right: "1vw" })
     };
 
-    return (
+    const content = (
         <div style={positionStyle}>
-
-            {/* Botón unificado: label + flecha a la derecha */}
             <button
                 onClick={() => setOpen((v) => !v)}
                 aria-haspopup="listbox"
@@ -82,12 +80,16 @@ const LanguageSelector = ({
                 </svg>
             </button>
 
-            {/* Dropdown — solo aparecen los OTROS idiomas */}
             {open && (
                 <div
-                    className="absolute bottom-full left-0 mb-2 backdrop-blur-md rounded-xl shadow-lg z-50 min-w-max p-1"
+                    className="absolute bottom-full left-0 mb-2 backdrop-blur-md rounded-xl shadow-lg min-w-max p-1"
                     role="listbox"
-                    style={{ backgroundColor: menuBg, color: textColor }}
+                    style={{
+                        backgroundColor: menuBg,
+                        color: textColor,
+                        zIndex: 2147483646,
+                        ...(alignment === "right" ? { left: "auto", right: 0 } : {})
+                    }}
                 >
                     {others.map((lang) => (
                         <button
@@ -105,6 +107,10 @@ const LanguageSelector = ({
             )}
         </div>
     );
+
+    // Portal al body para evitar problemas de stacking context en Safari iOS
+    if (inline || typeof document === "undefined") return content;
+    return createPortal(content, document.body);
 };
 
 export default LanguageSelector;

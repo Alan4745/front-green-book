@@ -61,7 +61,7 @@ const Section3C1 = () => {
             {/* Título */}
             <div className="flex justify-center items-center pt-20">
                 <h2
-                    className="text-white text-6xl font-bold tracking-wider text-center uppercase"
+                    className="text-white text-6xl font-bold tracking-wider text-center uppercase max-lg:text-3xl max-lg:px-4"
                     style={{ fontFamily: "GothamBold" }}
                 >
                     {t("c1.section3.title")}

@@ -25,7 +25,7 @@ const AltitudSteps = () => {
     }, [steps.length]);
 
     return (
-        <div className="absolute top-[50vh] right-[15vh] flex flex-col gap-[4vh]">
+        <div className="absolute top-[50vh] right-[8vw] flex flex-col gap-[4vh] max-lg:relative max-lg:top-auto max-lg:right-auto max-lg:px-[5vw] max-lg:py-[4vh] max-lg:gap-[3vh]">
             {steps.map((step, i) => {
                 const active = i === currentIndex;
 
