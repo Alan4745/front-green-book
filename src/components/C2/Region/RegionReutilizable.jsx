@@ -263,9 +263,9 @@ if (!region) {
 
 
     return (
-        <div ref={ref} className="flex w-screen h-screen overflow-hidden">
+        <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto">
             {/* Columna izquierda con imagen y overlay */}
-            <div className="w-[58%] h-full relative">
+            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh]">
                 {/* Imagen de fondo con animación */}
                 <motion.img
                     key={`bg-${tipo}-${isActive}`}//FUERZA EL INICIO DE LA ANIMACION AL CAMBIAR isActive
@@ -289,7 +289,7 @@ if (!region) {
 
                 {/* Logo región  — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform"
+                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform min-[1024px]:max-[1200px]:top-[28vh] min-[1024px]:max-[1200px]:left-[32vh] max-lg:top-[18vh] max-lg:left-1/2 max-lg:-translate-x-1/2"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -299,14 +299,14 @@ if (!region) {
                         src={region.logo}
                         alt={t(keys.alts.regionLogo)}
                         title={t(keys.alts.regionLogo)}
-                        className="w-[28vh] h-auto select-none"
+                        className="w-[28vh] h-auto select-none min-[1024px]:max-[1200px]:w-[22vh] max-lg:w-[20vh]"
                         draggable={false}
                     />
                 </motion.div>
 
                 {/* Descripción */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20"
+                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20 min-[1024px]:max-[1200px]:bottom-[28vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:bottom-[14vh] max-lg:text-[1.8vh]"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
@@ -334,10 +334,10 @@ if (!region) {
             </div>
 
             {/* Columna derecha */}
-            <div className="w-[42%] h-full bg-white relative">
+            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[70vh]">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform"
+                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] max-lg:left-[8%] max-lg:h-[80%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
@@ -352,7 +352,7 @@ if (!region) {
 
                 {/* Gráficas */}
                 <motion.div
-                    className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-[60%] will-change-transform"
+                    className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-[60%] will-change-transform min-[1024px]:max-[1200px]:top-[45%] max-lg:top-[45%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}//depende de active
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
@@ -361,20 +361,20 @@ if (!region) {
                         src={region.grafica[lang] || region.grafica.es}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
-                        className="w-[100vh] h-auto object-contain"
-                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }} 
+                        className="w-[100vh] h-auto object-contain scale-125 min-[1024px]:max-[1200px]:scale-100 max-lg:scale-95"
+                        style={{ width: '100%', height: '100%' }}
                     />
                 </motion.div>
 
                 {/* Lista de características */}
                 <motion.div
-                    className="absolute bottom-[10vh] left-[20%] z-20"
+                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] max-lg:bottom-[5vh] max-lg:left-[8%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
                 >
                     <ul
-                        className="space-y-2 text-[2.3vh]"
+                        className="space-y-2 text-[2.3vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:text-[1.8vh]"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         <motion.li

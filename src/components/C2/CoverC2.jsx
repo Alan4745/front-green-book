@@ -24,18 +24,18 @@ const CoverC2 = () => {
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
                 {/* Número de capítulo */}
-                <div className="absolute top-[20vh] right-[25vh] z-30">
+                <div className="absolute top-[20vh] right-[25vh] z-30 min-[1024px]:max-[1200px]:right-[17vw] max-lg:top-[28vh] max-lg:right-[5vw]">
                     <img
                         src="/Img/Global/Numbers/02.svg"
                         alt={t("c2.cover.chapterAlt", { num: 2 })}
-                        className="w-[50vh] h-auto"
+                        className="w-[50vh] h-auto min-[1024px]:max-[1200px]:w-[28vw] max-lg:w-[35vw]"
                     />
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[30vh] right-[60vh] z-30 text-white text-left">
+                <div className="absolute top-[30vh] right-[60vh] z-30 text-white text-left min-[1024px]:max-[1200px]:right-[40vw] max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
                     <h2
-                        className="text-white text-[8vh] leading-[1] max-w-[50vw]"
+                        className="text-white text-[8vh] leading-[1] max-w-[50vw] min-[1024px]:max-[1200px]:text-[6.5vh] min-[1024px]:max-[1200px]:max-w-[45vw] max-lg:text-[6vh] max-lg:max-w-[70vw]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c2.cover.title.top")} <br /> {t("c2.cover.title.bottom")}
@@ -43,23 +43,23 @@ const CoverC2 = () => {
 
                     {/* Subtítulo */}
                     <h3
-                        className="text-white text-[4vh] mt-[20vh]"
+                        className="text-white text-[4vh] mt-[20vh] min-[1024px]:max-[1200px]:text-[3vh] min-[1024px]:max-[1200px]:mt-[8vh] max-lg:text-[2.5vh] max-lg:mt-[4vh] md:max-lg:mt-[2vh]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c2.cover.subtitle.top")} <br /> {t("c2.cover.subtitle.bottom")}
                     </h3>
 
                     {/* Línea azul */}
-                    <div className="w-[10vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
+                    <div className="w-[10vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh] max-lg:w-[15vw]" />
                 </div>
 
                 {/* Logo inferior izquierdo */}
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-[5vh] z-30">
+                <div className="absolute bottom-[5vh] left-[5vh] z-30 min-[1024px]:max-[1200px]:left-[3vw] max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("app.title")}
-                        className="w-[22vh] h-auto"
+                        className="w-[22vh] h-auto min-[1024px]:max-[1200px]:w-[12vw] max-lg:w-[15vh]"
                     />
                 </div>
                 /</Link>

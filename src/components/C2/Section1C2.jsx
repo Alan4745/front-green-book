@@ -64,48 +64,49 @@ const Section1C2 = () => {
     };
 
     const regions = [
-        { src: RegionAcatenango, top: "76vh", left: "78vh", key: "acatenango", ref: acatenangoRef, width:"mt-[200px]" },
-        { src: RegionAntigua, top: "75vh", right: "83vh", key: "antigua", ref: antiguaRef },
-        { src: RegionSanMarcos, top: "48vh", left: "48vh", key: "sanmarcos" , ref: sanmarcosRef },
-        { src: RegionAtitlan, top: "68vh", left: "57vh", key: "atitlan", ref: atitlanRef },
-        { src: RegionCoban, top: "14vh", left: "66vh", key: "coban", ref: cobanRef,  },
-        { src: RegionFraijanes, top: "68vh", right: "62vh", key: "fraijanes", ref: fraijanesRef },
-        { src: RegionHuehue, top: "27vh", left: "50vh", key: "huehue", ref: huehueRef },
-        { src: RegionOriente, top: "50vh", right: "50vh", key: "oriente", ref: orienteRef },
+        { src: RegionAcatenango, top: "99.0%", left: "35.0%", key: "acatenango", ref: acatenangoRef, width:"mt-[200px]" },
+        { src: RegionAntigua, top: "100.5%", left: "60.5%", key: "antigua", ref: antiguaRef },
+        { src: RegionSanMarcos, top: "56.0%", left: "-0.0%", key: "sanmarcos" , ref: sanmarcosRef },
+        { src: RegionAtitlan, top: "85.5%", left: "3.5%", key: "atitlan", ref: atitlanRef },
+        { src: RegionCoban, top: "13.5%", left: "17.0%", key: "coban", ref: cobanRef },
+        { src: RegionFraijanes, top: "88.0%", left: "88.0%", key: "fraijanes", ref: fraijanesRef },
+        { src: RegionHuehue, top: "30.5%", left: "0.0%", key: "huehue", ref: huehueRef },
+        { src: RegionOriente, top: "61.5%", left: "102.0%", key: "oriente", ref: orienteRef },
     ];
 
     return (
         <div className="w-full bg-[#5FCAD0]">
             {/* Map Section */}
-            <div className="relative min-h-screen w-full">
+            <div className="relative min-h-screen w-full max-lg:min-h-[75vh] max-lg:py-[8vh]">
                 {/* Imagen de fondo centrada */}
                 <div className="flex items-center justify-center">
+                    <div className="relative mt-[15vh] w-[40vw] max-w-[821px] aspect-[821/683] min-[1024px]:max-[1200px]:w-[58vw] max-lg:w-[85vw] max-lg:mt-[10vh]">
                     <img
                         src={MapaFlechasC2}
                         alt={t("c2.section1.mapAlt")}
-                        className="w-[40%] h-auto mt-[15vh]"
+                        className="absolute inset-0 w-full h-full"
                     />
+
+                    {/* Regiones clickeables con hover */}
+                    {regions.map((region, idx) => (
+                        <img
+                            key={idx}
+                            src={region.src}
+                            alt={t(`c2.section1.regions.${region.key}.alt`)}
+                            title={t(`c2.section1.regions.${region.key}.alt`)}
+                            onClick={() => handleRegionClick(region.key)}
+                            className="absolute w-[19%] -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-300 hover:scale-110 min-[1024px]:max-[1200px]:w-[16%] max-lg:w-[18%]"
+                            style={{
+                                top: region.top,
+                                left: region.left
+                            }}
+                        />
+                    ))}
+                    </div>
                 </div>
 
-                {/* Regiones clickeables con hover */}
-                {regions.map((region, idx) => (
-                    <img
-                        key={idx}
-                        src={region.src}
-                        alt={t(`c2.section1.regions.${region.key}.alt`)}
-                        title={t(`c2.section1.regions.${region.key}.alt`)}
-                        onClick={() => handleRegionClick(region.key)}
-                        className="absolute w-[15vh] cursor-pointer transition-transform duration-300 hover:scale-120"
-                        style={{
-                            top: region.top,
-                            left: region.left,
-                            right: region.right
-                        }}
-                    />
-                ))}
-
                 {/* Botón de diversidad cafetalera */}
-                <div className="absolute top-10 left-10 z-50">
+                <div className="absolute top-10 left-10 z-50 max-lg:top-4 max-lg:left-4">
                     <div onClick={() => setShowDiversidad(true)}>
                         <HoverButton
                             text={t("c2.section1.cta")}
