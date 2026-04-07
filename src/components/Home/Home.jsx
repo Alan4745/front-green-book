@@ -67,18 +67,18 @@ const backgrounds = [
 
             // Esperar a que TODAS las imágenes estén completamente cargadas
             await Promise.all(loadPromises);
-            
+
             console.log("Todas las imágenes cargadas exitosamente");
-            
+
             // Esperar 2 segundos adicionales después de cargar
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            
+
             // Iniciar animación de salida
             setIsExiting(true);
-            
+
             // Esperar justo lo que dura la animación (0.9s)
             await new Promise((resolve) => setTimeout(resolve, 900));
-            
+
             setIsLoading(false);
         } catch (error) {
             console.error("Error loading images:", error);
@@ -120,7 +120,7 @@ const backgrounds = [
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
 
     const homeContent = (
-        <div className="relative min-h-screen w-screen overflow-hidden bg-black">
+        <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
         <div
             className="absolute inset-0"
         >
@@ -166,17 +166,17 @@ const backgrounds = [
             />
             </div>
 
-            {/* Logo centrado */}
+            {/* Logo */}
             <div className="relative z-30 flex items-center justify-center h-full">
             <img
                 src="/Logos/Greenbook.svg"
                 alt={t("app.title")}
-                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto"
+                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto max-lg:top-[3vh] max-lg:left-[5vw] max-lg:w-[42%] max-sm:w-[50%]"
             />
             </div>
 
             {/* Carrusel de capítulos */}
-            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40">
+            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[34vh]">
             <Carrousel key={`carrousel-${langKey}`} />
             </div>
 
@@ -186,7 +186,7 @@ const backgrounds = [
             </div>
 
             {/* ColabButton */}
-            <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2">
+            <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2 max-lg:hidden">
             <ColabButton key={`colab-${langKey}`} progress={100} />
             </div>
 

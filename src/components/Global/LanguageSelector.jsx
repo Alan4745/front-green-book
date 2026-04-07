@@ -10,7 +10,8 @@ const LanguageSelector = ({
     textColor = "#FFFFFF",
     buttonBg = "rgba(255,255,255,0.2)",
     menuBg = "rgba(255,255,255,0.2)",
-    alignment = "left"
+    alignment = "left",
+    inline = false
 }) => {
     const { i18n } = useTranslation();
     const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ const LanguageSelector = ({
         setOpen(false);
     };
 
-    const positionStyle = {
+    const positionStyle = inline ? {} : {
         position: "fixed",
         bottom: "2vh",
         ...(alignment === "left" ? { left: "1vw" } : { right: "1vw" })
