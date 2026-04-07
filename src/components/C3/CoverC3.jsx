@@ -25,7 +25,7 @@ const CoverC3 = () => {
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
                 {/* Número de capítulo */}
-                <div className="absolute top-[20vh] right-[25vh] z-30 max-lg:top-[28vh] max-lg:right-[5vw]">
+                <div className="absolute top-[20vh] right-[14vw] z-30 max-lg:top-[28vh] max-lg:right-[5vw]">
                     <img
                         src="/Img/Global/Numbers/03.svg"
                         alt={t("c3.cover.alts.chapter", { num: 3 })}
@@ -35,9 +35,9 @@ const CoverC3 = () => {
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[30vh] right-[50vh] z-30 text-white text-left max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
+                <div className="absolute top-[30vh] right-[28vw] z-30 text-white text-left max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
                     <h2
-                        className="text-white text-[8vh] leading-[1] max-w-[50vw] uppercase max-lg:text-[4.6vh] max-lg:max-w-[90vw]"
+                        className="text-white text-[4.5vw] leading-[1] max-w-[50vw] uppercase max-lg:text-[4.6vh] max-lg:max-w-[90vw]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c3.cover.title.top")} <br /> {t("c3.cover.title.bottom")}
@@ -45,7 +45,7 @@ const CoverC3 = () => {
 
                     {/* Subtítulo */}
                     <h3
-                        className="text-white text-[4vh] mt-[20vh] uppercase max-lg:text-[2.5vh] max-lg:mt-[4vh] md:max-lg:mt-[2vh]"
+                        className="text-white text-[2vw] mt-[3vw] uppercase max-lg:text-[2.5vh] max-lg:mt-[4vh] md:max-lg:mt-[2vh]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c3.cover.subtitle")}
@@ -57,7 +57,7 @@ const CoverC3 = () => {
 
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
-                <div className="absolute bottom-[5vh] left-[5vh] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c3.cover.alts.greenBook")}

@@ -210,7 +210,7 @@ const Section1C1 = () => {
                     {/* Número grande 01 como botón que redirige (con halo y glow magenta) */}
                     <motion.button
                         onClick={() => navigate('/c1/section4')}
-                        className="relative text-[30vh] font-bold opacity-30 mt-[-13vh] cursor-pointer transition-transform hover:scale-105 min-[1024px]:max-[1200px]:text-[24vh]"
+                        className="relative text-[17vw] font-bold opacity-30 mt-[-7vw] cursor-pointer transition-transform hover:scale-105"
                         style={{ fontFamily: 'GothamBold' }}
                         aria-label={t('c1.section1.left.ctaAria')}
                         title={t('c1.section1.left.ctaAria')}
@@ -242,7 +242,7 @@ const Section1C1 = () => {
                     </h3>
                     {/* Número grande 02 */}
                     <div
-                        className="text-[30vh] font-bold opacity-30 mt-[-17vh] min-[1024px]:max-[1200px]:text-[24vh]"
+                        className="text-[17vw] font-bold opacity-30 mt-[-9vw]"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         02

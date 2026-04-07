@@ -97,10 +97,10 @@ function Section1C2Skeleton({ tintHex = '#DA2F7D' }) {
 
             {/* Centro: dos tarjetas verticales */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                <div className="relative w-[34vw] h-[50vh] min-[1024px]:max-[1200px]:w-[30vw]">
+                <div className="relative w-[34vw] h-[50vh] ">
                     <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
                 </div>
-                <div className="relative w-[34vw] h-[50vh] mt-auto min-[1024px]:max-[1200px]:w-[30vw]">
+                <div className="relative w-[34vw] h-[50vh] mt-auto ">
                     <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
                 </div>
             </div>
@@ -238,14 +238,14 @@ const Section1C2 = () => {
             <div className="relative w-full text-white max-lg:hidden">
                 <div className="absolute top-[30vh] left-[8vw]">
                     <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>{t('c1.section2.left.title')}</h3>
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-13vh] min-[1024px]:max-[1200px]:text-[24vh]" style={{ fontFamily: 'GothamBold' }}>03</div>
+                    <div className="text-[17vw] font-bold opacity-30 mt-[-7vw]" style={{ fontFamily: 'GothamBold' }}>03</div>
                 </div>
 
                 <div className="absolute top-[30vh] right-[8vw] text-right">
                     <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
                         {t('c1.section2.right.title.top')} <br /> {t('c1.section2.right.title.bottom')}
                     </h3>
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh] min-[1024px]:max-[1200px]:text-[24vh]" style={{ fontFamily: 'GothamBold' }}>04</div>
+                    <div className="text-[17vw] font-bold opacity-30 mt-[-9vw]" style={{ fontFamily: 'GothamBold' }}>04</div>
                 </div>
 
                 <div className="absolute top-[60vh] left-[8vw] max-w-[22vw]">
@@ -261,7 +261,7 @@ const Section1C2 = () => {
                 </div>
 
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                    <motion.div className="relative w-[34vw] h-[50vh] cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]" style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
+                    <motion.div className="relative w-[34vw] h-[50vh] cursor-pointer origin-center group hover:z-30 " style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img1)}>
                             <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
                         </div>
@@ -270,7 +270,7 @@ const Section1C2 = () => {
                         </div>
                     </motion.div>
 
-                    <motion.div className="relative w-[34vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]" style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
+                    <motion.div className="relative w-[34vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30 " style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
                             <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
                         </div>
