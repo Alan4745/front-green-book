@@ -41,7 +41,7 @@ const CoverC4 = () => {
                             src="/Img/Global/Numbers/04.svg"
                             alt={t("c4.cover.alts.chapter", { num: 4 })}
                             title={t("c4.cover.alts.chapter", { num: 4 })}
-                            className="absolute right-0 w-[60vw] h-auto z-20"
+                            className="absolute right-[5vw] w-[50vw] h-auto z-20"
                         />
                     </div>
 
