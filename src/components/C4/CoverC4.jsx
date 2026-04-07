@@ -46,7 +46,7 @@ const CoverC4 = () => {
                     </div>
 
                     {/* Subtítulo y línea — debajo del row */}
-                    <div className="pl-4 mt-[5vh]">
+                    <div className="pl-4 mt-[8vh]">
                         <h3
                             className="text-white text-[4.5vw] uppercase"
                             style={{ fontFamily: "GothamBold" }}
