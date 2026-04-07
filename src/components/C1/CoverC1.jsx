@@ -42,20 +42,20 @@ const CoverC1 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/5 z-20" />
 
-                {/* Número de capítulo */}
-                <div className="absolute top-[20vh] right-[30vh] z-30">
+                {/* Número de capítulo + Título (móvil: juntos centrados) */}
+                <div className="absolute top-[20vh] right-[17vw] z-30 max-lg:top-[28vh] max-lg:right-[5vw] max-lg:left-auto">
                     <img
                         src="/Img/Global/Numbers/01.svg"
                         alt={t("c1.cover.chapterAlt", { num: 1 })}
-                        className="w-[50vh] h-auto"
+                        className="w-[28vw] h-auto max-lg:w-[35vw]"
                         loading="eager"
                     />
                 </div>
 
                 {/* Título y descripción */}
-                <div className="absolute top-[35vh] right-[45vh] z-30 text-white text-left">
+                <div className="absolute top-[35vh] right-[25vw] z-30 text-white text-left min-[1024px]:max-[1200px]:top-[30vh] min-[1024px]:max-[1200px]:right-[18vw] max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
                     <h2
-                        className="text-white text-[8vh] leading-[1] max-w-[30vw] uppercase"
+                        className="text-white text-[8vh] leading-[1] max-w-[30vw] uppercase min-[1024px]:max-[1200px]:text-[6.5vh] min-[1024px]:max-[1200px]:max-w-[40vw] max-lg:text-[6vh] max-lg:max-w-[65vw]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.title.top")}
@@ -64,7 +64,7 @@ const CoverC1 = () => {
                     </h2>
 
                     <p
-                        className="text-[3vh] text-white/90 mt-[5vh] max-w-[60vw] leading-tight"
+                        className="text-[3vh] text-white/90 mt-[5vh] max-w-[60vw] leading-tight min-[1024px]:max-[1200px]:text-[2.4vh] min-[1024px]:max-[1200px]:mt-[3vh] min-[1024px]:max-[1200px]:max-w-[55vw] max-lg:text-[1.8vh] max-lg:mt-[3vh] max-lg:max-w-[80vw]"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {descFirst}
@@ -78,23 +78,23 @@ const CoverC1 = () => {
 
                     {/* Subtítulo */}
                     <h3
-                        className="text-white text-[4vh] uppercase mt-[6vh] tracking-wider"
+                        className="text-white text-[4vh] uppercase mt-[6vh] tracking-wider min-[1024px]:max-[1200px]:text-[3vh] min-[1024px]:max-[1200px]:mt-[2vh] max-lg:text-[2.5vh] max-lg:mt-[4vh] md:max-lg:mt-[2vh]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.subtitle")}
                     </h3>
 
                     {/* Línea rosada */}
-                    <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh]" />
+                    <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh] max-lg:w-[15vw]" />
                 </div>
 
                 {/* Logo inferior izquierdo */}
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-[5vh] z-30">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("app.title")}
-                        className="w-[22vh] h-auto"
+                        className="w-[12vw] h-auto max-lg:w-[15vh]"
                         loading="eager"
                     />
                 </div>

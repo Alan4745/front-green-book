@@ -69,38 +69,38 @@ function Section1C2Skeleton({ tintHex = '#DA2F7D' }) {
             />
 
             {/* Izquierda: título + número 03 + párrafo */}
-            <div className="absolute top-[30vh] left-[15vh]">
+            <div className="absolute top-[30vh] left-[8vw]">
                 <Skeleton className="h-8 w-[24vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
                 <div className="mt-[-13vh]">
-                    <Skeleton className="h-[30vh] w-[24vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
+                    <Skeleton className="h-[30vh] w-[24vh] min-[1024px]:max-[1200px]:h-[24vh] min-[1024px]:max-[1200px]:w-[19vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
                 </div>
             </div>
-            <div className="absolute top-[60vh] left-[15vh] max-w-[50vh] space-y-2">
+            <div className="absolute top-[60vh] left-[8vw] max-w-[26vw] space-y-2">
                 <Skeleton className="h-[2.2vh] w-[40vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
                 <Skeleton className="h-[2.2vh] w-[30vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
             </div>
 
             {/* Derecha: título + número 04 + párrafo */}
-            <div className="absolute top-[30vh] right-[15vh] text-right">
+            <div className="absolute top-[30vh] right-[8vw] text-right">
                 <Skeleton className="h-8 w-[44vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
                 <div className="mt-2">
                     <Skeleton className="h-8 w-[36vh]" rounded="rounded-sm" tintHex={tintHex} darken={0.22} alpha={0.6} />
                 </div>
                 <div className="mt-[-17vh]">
-                    <Skeleton className="h-[30vh] w-[24vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
+                    <Skeleton className="h-[30vh] w-[24vh] min-[1024px]:max-[1200px]:h-[24vh] min-[1024px]:max-[1200px]:w-[19vh]" rounded="rounded-md" tintHex={tintHex} darken={0.22} alpha={0.3} />
                 </div>
             </div>
-            <div className="absolute top-[60vh] right-[15vh] text-right space-y-2">
+            <div className="absolute top-[60vh] right-[8vw] text-right space-y-2">
                 <Skeleton className="h-[2.2vh] w-[40vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
                 <Skeleton className="h-[2.2vh] w-[34vh]" tintHex={tintHex} darken={0.3} alpha={0.5} />
             </div>
 
             {/* Centro: dos tarjetas verticales */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                <div className="relative w-[60vh] h-[50vh]">
+                <div className="relative w-[34vw] h-[50vh] min-[1024px]:max-[1200px]:w-[30vw]">
                     <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
                 </div>
-                <div className="relative w-[60vh] h-[50vh] mt-auto">
+                <div className="relative w-[34vw] h-[50vh] mt-auto min-[1024px]:max-[1200px]:w-[30vw]">
                     <Skeleton className="w-full h-full" rounded="rounded-none" tintHex={tintHex} darken={0.18} alpha={0.6} />
                 </div>
             </div>
@@ -124,26 +124,27 @@ const Section1C2 = () => {
         if (typeof document === 'undefined') return null;
         return createPortal(
             <div
-                className="fixed inset-0 bg-black/80 flex items-center justify-center"
+                className="fixed inset-0 bg-black/80 flex items-center justify-center p-4"
                 role="dialog"
                 aria-modal="true"
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
                 onClick={onClose}
             >
-            <CloseButton
-                onClick={onClose}
-                className="absolute top-4 right-7 text-white"
-                aria-label={alt}
-                title={alt}
-            />
+            <div className="absolute top-4 right-4 z-10" onClick={(e) => { e.stopPropagation(); onClose(); }}>
+                <CloseButton
+                    onClick={onClose}
+                    className="text-white"
+                    aria-label={alt}
+                    title={alt}
+                />
+            </div>
                 <div className="relative">
-
                     <img
                         src={src}
                         alt={alt}
                         onClick={(e) => e.stopPropagation()}
-                        className="h-[90vh] w-auto object-contain"
+                        className="max-h-[85vh] max-w-[90vw] w-auto object-contain"
                     />
                 </div>
             </div>,
@@ -232,125 +233,103 @@ const Section1C2 = () => {
 
     // ✅ Contenido real (mismo layout/clases)
     return (
-        <div className="relative min-h-screen w-full flex bg-[#DA2F7D] bg-no-repeat bg-center bg-cover z-10">
-            {/* Contenido de la sección */}
-            <div className="relative w-full text-white">
-                {/* Título izquierda */}
-                <div className="absolute top-[30vh] left-[15vh]">
-                    <h3
-                        className="text-3xl font-bold uppercase"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        {t('c1.section2.left.title')}
-                    </h3>
-                    {/* Número grande 03 */}
-                    <div
-                        className="text-[30vh] font-bold opacity-30 mt-[-13vh]"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        03
-                    </div>
+        <div className="relative min-h-screen w-full flex bg-[#DA2F7D] bg-no-repeat bg-center bg-cover z-10 max-lg:flex-col max-lg:min-h-0 max-lg:h-auto">
+            {/* === DESKTOP layout === */}
+            <div className="relative w-full text-white max-lg:hidden">
+                <div className="absolute top-[30vh] left-[8vw]">
+                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>{t('c1.section2.left.title')}</h3>
+                    <div className="text-[30vh] font-bold opacity-30 mt-[-13vh] min-[1024px]:max-[1200px]:text-[24vh]" style={{ fontFamily: 'GothamBold' }}>03</div>
                 </div>
 
-                {/* Título derecha */}
-                <div className="absolute top-[30vh] right-[15vh] text-right">
-                    <h3
-                        className="text-3xl font-bold uppercase"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
+                <div className="absolute top-[30vh] right-[8vw] text-right">
+                    <h3 className="text-3xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
                         {t('c1.section2.right.title.top')} <br /> {t('c1.section2.right.title.bottom')}
                     </h3>
-                    {/* Número grande 04 */}
-                    <div
-                        className="text-[30vh] font-bold opacity-30 mt-[-17vh]"
-                        style={{ fontFamily: 'GothamBold' }}
-                    >
-                        04
-                    </div>
+                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh] min-[1024px]:max-[1200px]:text-[24vh]" style={{ fontFamily: 'GothamBold' }}>04</div>
                 </div>
 
-                {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[42vh]">
-                    <p
-                        className="text-[2vh] leading-relaxed"
-                        style={{ fontFamily: 'GothamNormal' }}
-                    >
-                        {t('c1.section2.left.descLine1')} <br />
-                        {t('c1.section2.left.descLine2')} <br />
-                        {t('c1.section2.left.descLine3')} 
+                <div className="absolute top-[60vh] left-[8vw] max-w-[22vw]">
+                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')} <br />{t('c1.section2.left.descLine3')}
                     </p>
                 </div>
 
-                {/* Texto descriptivo derecha */}
-                <div className="absolute top-[60vh] right-[15vh] text-right">
-                    <p
-                        className="text-[2vh] leading-relaxed"
-                        style={{ fontFamily: 'GothamNormal' }}
-                    >
-                        {t('c1.section2.right.descLine1')} <br />
-                        {t('c1.section2.right.descLine2')}
+                <div className="absolute top-[60vh] right-[8vw] text-right">
+                    <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        {t('c1.section2.right.descLine1')} <br />{t('c1.section2.right.descLine2')}
                     </p>
                 </div>
 
-                {/* Imágenes centro */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full" >
-                    {/* Primera imagen */}
-                    <motion.div
-                        className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
-                        style={{ willChange: 'transform' }}
-                        whileHover={hoverAnim.withinHover}
-                        whileTap={{ scale: 1.02 }}
-                        {...hoverAnim}
-                    >
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
+                    <motion.div className="relative w-[34vw] h-[50vh] cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]" style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img1)}>
-                            <img
-                                src={Img1}
-                                alt={t('c1.section2.images.img1Alt')}
-                                className="w-full h-full object-cover select-none pointer-events-none"
-                                draggable={false}
-                            />
+                            <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
                         </div>
-                        {/* Zoom */}
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <div onClick={() => handleImageClick(Img1)}>
-                                <ZoomButton />
-                            </div>
+                            <div onClick={() => handleImageClick(Img1)}><ZoomButton /></div>
                         </div>
                     </motion.div>
 
-                    {/* Segunda imagen */}
-                    <motion.div
-                        className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
-                        style={{ willChange: 'transform' }}
-                        whileHover={hoverAnim.withinHover}
-                        whileTap={{ scale: 1.02 }}
-                        {...hoverAnim}
-                    >
+                    <motion.div className="relative w-[34vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]" style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
-                            <img
-                                src={Img2}
-                                alt={t('c1.section2.images.img2Alt')}
-                                className="w-full h-full object-cover select-none pointer-events-none"
-                                draggable={false}
-                            />
+                            <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
                         </div>
-                        {/* Zoom */}
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <div onClick={() => handleImageClick(Img2)}>
-                                <ZoomButton />
-                            </div>
+                            <div onClick={() => handleImageClick(Img2)}><ZoomButton /></div>
                         </div>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Modal / Lightbox */}
+            {/* === MOBILE/TABLET layout === */}
+            <div className="hidden max-lg:flex flex-col text-white">
+                {/* Bloque 03 */}
+                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
+                    <div className="flex-shrink-0">
+                        <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>{t('c1.section2.left.title')}</h3>
+                        <div className="text-[10vh] font-bold opacity-30 mt-[-2vh]" style={{ fontFamily: 'GothamBold' }}>03</div>
+                    </div>
+                    <div className="flex items-center">
+                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                            {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')} <br />{t('c1.section2.left.descLine3')}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Dos imágenes lado a lado */}
+                <div className="flex w-full">
+                    <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img1)}>
+                        <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover" />
+                        <div className="absolute bottom-2 right-2">
+                            <ZoomButton />
+                        </div>
+                    </div>
+                    <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img2)}>
+                        <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover" />
+                        <div className="absolute bottom-2 right-2">
+                            <ZoomButton />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bloque 04 */}
+                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
+                    <div className="flex items-center flex-1">
+                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                            {t('c1.section2.right.descLine1')} <br />{t('c1.section2.right.descLine2')}
+                        </p>
+                    </div>
+                    <div className="flex-shrink-0 text-right">
+                        <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
+                            {t('c1.section2.right.title.top')} <br /> {t('c1.section2.right.title.bottom')}
+                        </h3>
+                        <div className="text-[10vh] font-bold opacity-30 mt-[-2vh]" style={{ fontFamily: 'GothamBold' }}>04</div>
+                    </div>
+                </div>
+            </div>
+
             {selectedImage && (
-                <Lightbox
-                    src={selectedImage}
-                    alt={t('c1.section2.modal.alt')}
-                    onClose={handleCloseModal}
-                />
+                <Lightbox src={selectedImage} alt={t('c1.section2.modal.alt')} onClose={handleCloseModal} />
             )}
         </div>
     );
