@@ -118,10 +118,27 @@ const Section1C2 = () => {
 
                 {/* Modal: muestra DiversidadC en lugar de una imagen */}
                 {showDiversidad && (
-                    <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 " onClick={() => setShowDiversidad(false)}>
-                        <CloseButton onClick={() => setShowDiversidad(false)} />
-                        <div onClick={(e) => e.stopPropagation()}  className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white">
-                            <DiversidadC baseWidthVh={130} />
+                    <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4 max-lg:items-start max-lg:pt-[8vh]" onClick={() => setShowDiversidad(false)}>
+                        <div onClick={(e) => e.stopPropagation()}  className="relative max-w-[90vw] max-h-[90vh] overflow-auto bg-white max-lg:max-w-[94vw] max-lg:max-h-[84vh]">
+                            <CloseButton
+                                onClick={() => setShowDiversidad(false)}
+                                positionClass="absolute top-[7vh] left-[111vh] z-50 max-lg:hidden"
+                            />
+                            <div className="max-lg:hidden">
+                                <DiversidadC baseWidthVh={130} />
+                            </div>
+                            <div
+                                className="relative hidden max-lg:block overflow-hidden"
+                                style={{ width: '46.8vh', height: '60.6vh' }}
+                            >
+                                <CloseButton
+                                    onClick={() => setShowDiversidad(false)}
+                                    positionClass="absolute top-[2.5vh] left-[40vh] z-50"
+                                />
+                                <div style={{ transform: 'scale(0.36)', transformOrigin: 'top left' }}>
+                                    <DiversidadC baseWidthVh={130} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}
