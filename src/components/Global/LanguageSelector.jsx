@@ -3,8 +3,8 @@ import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
 const LANGS = [
-    { code: "en", label: "English" },
-    { code: "es", label: "Español" }
+    { code: "en", label: "English", region: "United States" },
+    { code: "es", label: "Español", region: "Guatemala" }
 ];
 
 const LanguageSelector = ({
@@ -59,7 +59,7 @@ const LanguageSelector = ({
                 className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md hover:bg-white/30 transition"
             >
                 <span className="text-sm font-bold font-Gotham select-none">
-                    {selected.label}
+                    {selected.label} {selected.region}
                 </span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,12 +95,12 @@ const LanguageSelector = ({
                         <button
                             key={lang.code}
                             onClick={() => handleSelect(lang)}
-                            className="block px-4 py-2 rounded-md text-sm w-full text-left font-Gotham transition hover:bg-white/30"
+                            className="px-4 py-2 w-full text-sm font-bold font-Gotham transition hover:opacity-70"
                             role="option"
                             aria-selected={false}
                             style={{ color: textColor }}
                         >
-                            {lang.label}
+                            {lang.label} {lang.region}
                         </button>
                     ))}
                 </div>
