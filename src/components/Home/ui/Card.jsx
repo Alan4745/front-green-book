@@ -18,7 +18,7 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chap
         >
             {/* Text Section */}
             <div className="flex-grow flex items-center justify-center">
-                <h2 className="text-white text-[2.5vh] text-left leading-[1.15] mt-[15vh] max-lg:mt-[6vh]" style={{ fontFamily: 'GothamBold' }}>
+                <h2 className="text-white text-[2.5vh] max-lg:text-[2vh] text-left leading-[1.15] mt-[15vh] max-lg:mt-[6vh]" style={{ fontFamily: 'GothamBold' }}>
                     {text}
                 </h2>
             </div>

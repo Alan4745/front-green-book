@@ -35,10 +35,11 @@ const Carrousel = () => {
     const isDesktop = windowWidth >= 1024;
     const isTablet = windowWidth >= 640 && windowWidth < 1024;
 
-    const visibleCards = isDesktop ? 4 : isTablet ? 3 : 2;
+    const visibleCards = isDesktop ? 4 : isTablet ? 2.5 : 2;
     const mobileCardWidth = Math.floor((windowWidth - 32) * 0.65);
-    const cardWidth = isDesktop ? 220 : isTablet ? Math.floor((windowWidth * 0.8) / 3) : mobileCardWidth;
-    const gap = isDesktop ? 75 : isTablet ? 18 : 12;
+    const tabletCardWidth = Math.floor((windowWidth * 0.85) / 2.5);
+    const cardWidth = isDesktop ? 220 : isTablet ? tabletCardWidth : mobileCardWidth;
+    const gap = isDesktop ? 75 : isTablet ? 20 : 12;
     const totalCards = cards.length;
 
     // 2) Siguiente / Anterior

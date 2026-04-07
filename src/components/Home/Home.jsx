@@ -176,7 +176,7 @@ const backgrounds = [
             </div>
 
             {/* Carrusel de capítulos */}
-            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[34vh]">
+            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-sm:top-[34vh] max-lg:top-[40vh]">
             <Carrousel key={`carrousel-${langKey}`} />
             </div>
 
