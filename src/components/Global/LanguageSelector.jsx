@@ -32,13 +32,19 @@ const LanguageSelector = ({
 
     const handleSelect = (lang) => {
         i18n.changeLanguage(lang.code);
-        try { localStorage.setItem("lang", lang.code); } catch (_) {}
+        try {
+            localStorage.setItem("lang", lang.code);
+        } catch {
+            // localStorage can fail in restricted browser contexts.
+        }
         setOpen(false);
     };
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+
     const positionStyle = inline ? {} : {
         position: "fixed",
-        bottom: "2vh",
+        bottom: isMobile ? "calc(env(safe-area-inset-bottom) + 6vh)" : "2vh",
         ...(alignment === "left" ? { left: "1vw" } : { right: "1vw" })
     };
 
