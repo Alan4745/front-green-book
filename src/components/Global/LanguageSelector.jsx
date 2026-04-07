@@ -58,7 +58,7 @@ const LanguageSelector = ({
                 style={{ backgroundColor: buttonBg, color: textColor }}
                 className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md hover:bg-white/30 transition"
             >
-                <span className="text-sm font-bold font-Gotham select-none">
+                <span className="text-sm font-bold font-Gotham select-none whitespace-nowrap">
                     {selected.label} {selected.region}
                 </span>
                 <svg

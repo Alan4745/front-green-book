@@ -1,5 +1,4 @@
 import LanguageSelector from "../Global/LanguageSelector";
-import MainMenu from "../Global/MainMenu";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 import { Link } from "react-router-dom";
@@ -25,16 +24,49 @@ const CoverC5 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/50 z-20" />
 
-                {/* Créditos imagen de fondo */}
+                {/* Créditos imagen de fondo — solo desktop */}
                 <figcaption
-                    className="absolute top-[2vh] left-[2vh] z-30 text-white text-sm px-3 py-1 rounded"
+                    className="hidden lg:block absolute top-[2vh] left-[2vh] z-30 text-white text-sm px-3 py-1 rounded"
                     style={{ fontFamily: "GothamNormal" }}
                 >
                     {t("c5.cover.credits", { defaultValue: "Créditos: Rocío Silva" })}
                 </figcaption>
 
-                {/* Número de capítulo */}
-                <div className="absolute top-[20vh] right-[25vh] z-30">
+                {/* MOBILE: bloque título + número + subtítulo */}
+                <div
+                    className="lg:hidden absolute left-0 right-0 z-20"
+                    style={{ top: 'calc(30vh)' }}
+                >
+                    {/* Row: solo h2 + número, centrados entre sí */}
+                    <div className="relative flex items-center">
+                        <h2
+                            className="relative z-30 pl-4 text-white text-[7vw] leading-[1.1] max-w-[60vw] uppercase"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c5.cover.title.top")} <br /> {t("c5.cover.title.bottom")}
+                        </h2>
+                        <img
+                            src="/Img/Global/Numbers/05.svg"
+                            alt={t("c5.cover.alts.chapter", { num: 5 })}
+                            title={t("c5.cover.alts.chapter", { num: 5 })}
+                            className="absolute right-[5vw] w-[48vw] h-auto z-20"
+                        />
+                    </div>
+
+                    {/* Subtítulo y línea — debajo del row */}
+                    <div className="pl-4 mt-[8vh]">
+                        <h3
+                            className="text-white text-[4.5vw] uppercase"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c5.cover.subtitle.line1")} <br /> {t("c5.cover.subtitle.line2")}
+                        </h3>
+                        <div className="w-[20vw] h-[1vh] bg-[#562E91] mt-[1vh]"></div>
+                    </div>
+                </div>
+
+                {/* DESKTOP: número de capítulo — intacto */}
+                <div className="hidden lg:block absolute top-[20vh] right-[25vh] z-30">
                     <img
                         src="/Img/Global/Numbers/05.svg"
                         alt={t("c5.cover.alts.chapter", { num: 5 })}
@@ -43,35 +75,31 @@ const CoverC5 = () => {
                     />
                 </div>
 
-                {/* Título y descripción */}
-                <div className="absolute top-[30vh] right-[50vh] z-30 text-white text-left">
+                {/* DESKTOP: título y descripción — intacto */}
+                <div className="hidden lg:block absolute top-[30vh] right-[50vh] z-30 text-white text-left">
                     <h2
                         className="text-white text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c5.cover.title.top")} <br /> {t("c5.cover.title.bottom")}
                     </h2>
-
-                    {/* Subtítulo */}
                     <h3
                         className="text-white text-[4vh] mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c5.cover.subtitle.line1")} <br /> {t("c5.cover.subtitle.line2")}
                     </h3>
-
-                    {/* Línea morada */}
                     <div className="w-[10vw] h-[1.5vh] bg-[#562E91] mt-[0.5vh]"></div>
                 </div>
 
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
-                <div className="absolute bottom-[5vh] left-[5vh] z-30">
+                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[5vh]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c5.cover.alts.greenBook")}
                         title={t("c5.cover.alts.greenBook")}
-                        className="w-[22vh] h-auto"
+                        className="w-[35vw] h-auto lg:w-[22vh]"
                     />
                 </div>
                 /</Link>
@@ -79,11 +107,6 @@ const CoverC5 = () => {
                 {/* Selector de idioma */}
                 <div className="absolute bottom-[5vh] right-6 z-50">
                     <LanguageSelector alignment="right" />
-                </div>
-
-                {/* Menú desplegable */}
-                <div className="absolute top-[2vh] right-10 z-50">
-                    <MainMenu />
                 </div>
             </div>
         </PageSkeleton>
