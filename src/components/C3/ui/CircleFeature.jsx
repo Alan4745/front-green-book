@@ -32,7 +32,13 @@ export default function CircleFeature({
     }, []);
 
     // Calcular el tamaño dinámico: 240px por defecto, pero con un cambio basado en el ancho de la ventana
-    const dynamicSize = windowWidth > 1600 ? size : size * 0.8; // Ajuste de tamaño si la pantalla es mayor a 1600px
+    const dynamicSize = windowWidth > 1600
+        ? size
+        : windowWidth > 1200
+            ? size * 0.8
+            : windowWidth >= 641
+                ? size * 0.62
+                : size * 0.5; // Ajuste de tamaño si la pantalla es mayor a 1600px
 
     // Geometría
     const r = useMemo(() => (dynamicSize - thickness) / 2, [dynamicSize, thickness]);
@@ -60,7 +66,7 @@ export default function CircleFeature({
             <span
                 className="absolute z-0 font-extrabold select-none pointer-events-none"
                 style={{
-                    color: {colorNumero},
+                    color: colorNumero,
                     opacity: 0.5,
                     fontFamily: "GothamBold",
                     fontSize: numeroTamano ?? Math.round(dynamicSize * 0.4),

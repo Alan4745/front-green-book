@@ -4,14 +4,11 @@ import CircleFeature from "./CircleFeature";
 
 const SectionCircles = () => {
   const { t } = useTranslation();
-
-  // Estado para el tamaño de la ventana
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -19,126 +16,132 @@ const SectionCircles = () => {
     };
   }, []);
 
-  // Ajuste dinámico del gap-x (espaciado horizontal)
-  const gapXSize = windowWidth > 1600 ? "gap-x-2" : "gap-x-0"; // Ajuste dinámico, 12 si es mayor a 1600px, 6 si no
+  const items = [
+    {
+      number: "01",
+      text: t("c3.section1.circles.f1"),
+      position: "top",
+      className: "col-start-1 row-start-1 justify-self-center max-lg:col-start-1 max-lg:col-span-2 max-lg:row-start-1",
+    },
+    {
+      number: "02",
+      text: t("c3.section1.circles.f2"),
+      position: "right",
+      className: "col-start-3 row-start-1 justify-self-center max-lg:col-start-3 max-lg:col-span-2 max-lg:row-start-1",
+    },
+    {
+      number: "03",
+      text: t("c3.section1.circles.f3"),
+      position: "top",
+      className: "col-start-5 row-start-1 justify-self-center max-lg:col-start-5 max-lg:col-span-2 max-lg:row-start-1",
+    },
+    {
+      number: "04",
+      text: t("c3.section1.circles.f4", { pct: "70%" }),
+      position: "left",
+      className: "col-start-2 row-start-2 justify-self-center max-lg:col-start-2 max-lg:col-span-2 max-lg:row-start-2",
+    },
+    {
+      number: "05",
+      text: t("c3.section1.circles.f5"),
+      position: "bottom",
+      className: "col-start-4 row-start-2 justify-self-center max-lg:col-start-4 max-lg:col-span-2 max-lg:row-start-2",
+    },
+  ];
 
-  // Ajuste dinámico del gap-y (espaciado vertical)
-  const gapYSize = windowWidth > 1600 ? "gap-y-12" : "gap-y-8"; // Ajuste dinámico, 12 si es mayor a 1600px, 8 si no
+  const gapXSize = windowWidth > 1600 ? "gap-x-2" : windowWidth >= 1024 ? "gap-x-0" : "gap-x-1";
+  const gapYSize = windowWidth > 1600 ? "gap-y-12" : windowWidth >= 1024 ? "gap-y-6" : "gap-y-6";
+  const marginLeft = windowWidth > 1600 ? "ml-0" : windowWidth >= 1024 ? "-ml-8" : "ml-0";
+  const marginTop = windowWidth > 1600 ? "mt-0" : windowWidth >= 1024 ? "-mt-8" : "mt-0";
 
-  // Ajuste dinámico del margen izquierdo
-  const marginLeft = windowWidth > 1600 ? "ml-0" : "-ml-22"; // 4px si es mayor a 1600px, 2px si no
-
-  // Ajuste dinámico del margen superior (mt)
-  const marginTop = windowWidth > 1600 ? "mt-0" : "-mt-12"; // 12 si es mayor a 1600px, 6 si no
+  const activeItem = items[activeIndex];
+  const goToPrev = () => setActiveIndex((current) => (current === 0 ? items.length - 1 : current - 1));
+  const goToNext = () => setActiveIndex((current) => (current === items.length - 1 ? 0 : current + 1));
 
   return (
     <div className="w-full">
-      {/* grid; la segunda fila se desplaza a la derecha */}
       <div
-        className={`grid grid-cols-5 ${gapXSize} ${gapYSize} ${marginLeft} ${marginTop}`} // Aplica el margen dinámico
+        className={`grid grid-cols-5 max-lg:grid-cols-6 max-sm:hidden ${gapXSize} ${gapYSize} ${marginLeft} ${marginTop}`}
         role="list"
         aria-label={t("c3.section1.circles.aria.list")}
       >
-        {/* fila 1 */}
-        <div
-          className="col-start-1 row-start-1 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "01",
-            text: t("c3.section1.circles.f1"),
-          })}
-        >
+        {items.map((item) => (
+          <div
+            key={item.number}
+            className={item.className}
+            role="listitem"
+            aria-label={t("c3.section1.circles.itemLabel", {
+              num: item.number,
+              text: item.text,
+            })}
+          >
+            <CircleFeature
+              colorAro="#7AD7DD"
+              colorMovimiento="#00333B"
+              colorNumero="#073E58"
+              transform="translate(100%, 0%)"
+              number={item.number}
+              text={item.text}
+              position={item.position}
+              speedSec={8}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="hidden max-sm:flex flex-col items-center gap-5"
+        role="group"
+        aria-label={t("c3.section1.circles.aria.list")}
+      >
+        <div className="grid w-full grid-cols-[40px_minmax(0,1fr)_40px] items-center gap-3 px-1">
+          <button
+            type="button"
+            onClick={goToPrev}
+            className="h-10 w-10 rounded-full border-2 border-white text-white grid place-items-center justify-self-start"
+            aria-label="Anterior"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
           <CircleFeature
             colorAro="#7AD7DD"
             colorMovimiento="#00333B"
             colorNumero="#073E58"
             transform="translate(100%, 0%)"
-            number="01"
-            text={t("c3.section1.circles.f1")}
-            position="top"
+            number={activeItem.number}
+            text={activeItem.text}
+            position={activeItem.position}
             speedSec={8}
+            size={280}
+            className="justify-self-center"
           />
+
+          <button
+            type="button"
+            onClick={goToNext}
+            className="h-10 w-10 rounded-full border-2 border-white text-white grid place-items-center justify-self-end"
+            aria-label="Siguiente"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
-        <div
-          className="col-start-3 row-start-1 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "02",
-            text: t("c3.section1.circles.f2"),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="02"
-            text={t("c3.section1.circles.f2")}
-            position="right"
-            speedSec={8}
-          />
-        </div>
-
-        <div
-          className="col-start-5 row-start-1 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "03",
-            text: t("c3.section1.circles.f3"),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="03"
-            text={t("c3.section1.circles.f3")}
-            position="top"
-            speedSec={8}
-          />
-        </div>
-
-        {/* fila 2 (offset a la derecha) */}
-        <div
-          className="col-start-2 row-start-2 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "04",
-            text: t("c3.section1.circles.f4", { pct: "70%" }),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="04"
-            text={t("c3.section1.circles.f4", { pct: "70%" })}
-            position="left"
-            speedSec={8}
-          />
-        </div>
-
-        <div
-          className="col-start-4 row-start-2 justify-self-center"
-          role="listitem"
-          aria-label={t("c3.section1.circles.itemLabel", {
-            num: "05",
-            text: t("c3.section1.circles.f5"),
-          })}
-        >
-          <CircleFeature
-            colorAro="#7AD7DD"
-            colorMovimiento="#00333B"
-            colorNumero="#073E58"
-            transform="translate(100%, 0%)"
-            number="05"
-            text={t("c3.section1.circles.f5")}
-            position="bottom"
-            speedSec={8}
-          />
+        <div className="flex items-center justify-center gap-2">
+          {items.map((item, index) => (
+            <button
+              key={item.number}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-white" : "w-2 bg-white/60"}`}
+              aria-label={`Ver beneficio ${item.number}`}
+              aria-current={index === activeIndex ? "true" : "false"}
+            />
+          ))}
         </div>
       </div>
     </div>
