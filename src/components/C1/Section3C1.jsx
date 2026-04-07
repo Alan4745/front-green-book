@@ -21,8 +21,8 @@ const Section3C1 = () => {
             bgColor: "#852885",
             circleColor: "#852885",
             image: MapaS3,
-            imageWidth: "18vh",
-            imageHeight: "18vh",
+            imageWidth: "10vw",
+            imageHeight: "10vw",
             description: t("c1.section3.slides.1.desc")
         },
         {
@@ -35,8 +35,8 @@ const Section3C1 = () => {
             bgColor: "#EF7D00",
             circleColor: "#EF7D00",
             image: Porcent98,
-            imageWidth: "15vh",
-            imageHeight: "15vh",
+            imageWidth: "8vw",
+            imageHeight: "8vw",
             description: t("c1.section3.slides.3.desc")
         },
         {

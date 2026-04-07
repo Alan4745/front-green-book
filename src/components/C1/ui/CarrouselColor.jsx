@@ -16,7 +16,7 @@ const CarrouselColor = ({ slides = [] }) => {
     const cardContent = (card) => (
         <div className="flex flex-col items-center h-full py-4">
             <div
-                className="flex items-center justify-center h-[13vh] w-[13vh] rounded-full"
+                className="flex items-center justify-center h-[7vw] w-[7vw] rounded-full"
                 style={{ backgroundColor: card.circleColor }}
             >
                 {card.image ? (
@@ -25,8 +25,8 @@ const CarrouselColor = ({ slides = [] }) => {
                         alt="Imagen"
                         className="object-contain"
                         style={{
-                            width: card.imageWidth || '10vh',
-                            height: card.imageHeight || '10vh'
+                            width: card.imageWidth || '5.5vw',
+                            height: card.imageHeight || '5.5vw'
                         }}
                     />
                 ) : (
@@ -89,7 +89,7 @@ const CarrouselColor = ({ slides = [] }) => {
                             bgColor={card.bgColor}
                             circleColor={card.circleColor}
                             width="w-full"
-                            height="h-[36vh]"
+                            height="h-[24vw]"
                         >
                             {cardContent(card)}
                         </CardColor>

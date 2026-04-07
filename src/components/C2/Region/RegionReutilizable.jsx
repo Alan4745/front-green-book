@@ -263,9 +263,9 @@ if (!region) {
 
 
     return (
-        <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto">
+        <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto max-lg:landscape:flex-row max-lg:landscape:h-screen">
             {/* Columna izquierda con imagen y overlay */}
-            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh]">
+            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
                 {/* Imagen de fondo con animación */}
                 <motion.img
                     key={`bg-${tipo}-${isActive}`}//FUERZA EL INICIO DE LA ANIMACION AL CAMBIAR isActive
@@ -289,7 +289,7 @@ if (!region) {
 
                 {/* Logo región  — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-[45vh] z-20 will-change-transform min-[1024px]:max-[1200px]:top-[28vh] min-[1024px]:max-[1200px]:left-[32vh] max-lg:top-[18vh] max-lg:left-1/2 max-lg:-translate-x-1/2"
+                    className="absolute top-[30vh] left-1/2 -translate-x-1/2 z-20 will-change-transform max-lg:top-[18vh]"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -334,7 +334,7 @@ if (!region) {
             </div>
 
             {/* Columna derecha */}
-            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[70vh]">
+            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[70vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full">
                 {/* Perfil de la región */}
                 <motion.div
                     className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] max-lg:left-[8%] max-lg:h-[80%]"

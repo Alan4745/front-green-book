@@ -94,7 +94,7 @@ const CoverC5 = () => {
 
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
-                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[5vh]">
+                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[3vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c5.cover.alts.greenBook")}
