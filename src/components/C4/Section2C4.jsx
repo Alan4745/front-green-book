@@ -74,74 +74,152 @@ const Section2C4 = () => {
             role="region"
             aria-label={t(keys.aria.section)}
         >
-            <div className="relative w-full text-white">
-                {/* Títulos */}
-                <div className="absolute top-[25vh] left-[15vh]">
-                    <h3 className={`font-bold uppercase w-[30vh] ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                        {t(keys.left.title)}
-                    </h3>
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+            {/* ===== MOBILE LAYOUT ===== */}
+            <div className="lg:hidden flex flex-col text-white">
+                {/* Bloque 1: Suelos Únicos */}
+                <div className="relative px-6 pt-8 pb-4">
+                    <div
+                        className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none"
+                        style={{ fontFamily: "GothamBold" }}
+                    >
                         01
                     </div>
-                </div>
-
-                <div className="absolute top-[25vh] right-[15vh] text-right">
-                    <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
-                        {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                    <h3
+                        className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]"
+                        style={{ fontFamily: "GothamBold" }}
+                    >
+                        {t(keys.left.title)}
                     </h3>
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
-                        02
-                    </div>
-                </div>
-
-                {/* Texto descriptivo */}
-                <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
-                    <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                    <p
+                        className="text-[3.8vw] md:text-[2.5vw] text-justify mt-4 leading-relaxed"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
                         {t(keys.left.desc)}
                     </p>
-                </div>
-
-                <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
-                    <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
-                        {t(keys.right.desc)}
-                    </p>
-                </div>
-
-                {/* Imágenes del centro */}
-                <div className="flex flex-col justify-center items-center h-full relative">
-                    {/* Imagen superior con botón */}
-                    <div className="relative group">
+                    <div className="relative mt-4">
                         <img
                             src={F1}
-                            className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-10"
+                            className="w-full h-[60vw] md:h-[45vw] object-cover cursor-pointer"
                             alt={t(keys.left.imgAlt)}
                             title={t(keys.left.imgAlt)}
                             onClick={() => openLightbox(F1, keys.left.imgAlt)}
                         />
-                        <div>
-                            <ExpandButton
-                                onClick={() => openLightbox(F1, keys.left.imgAlt)}
-                                title={t(keys.buttons.expand)}
-                                aria-label={t(keys.buttons.expand)}
-                            />
-                        </div>
+                        <ExpandButton
+                            onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                            title={t(keys.buttons.expand)}
+                            aria-label={t(keys.buttons.expand)}
+                        />
                     </div>
+                </div>
 
-                    {/* Imagen inferior con botón */}
-                    <div className="relative group">
+                {/* Bloque 2: El Poder de los Volcanes */}
+                <div className="relative px-6 pt-4 pb-8">
+                    <div
+                        className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none"
+                        style={{ fontFamily: "GothamBold" }}
+                    >
+                        02
+                    </div>
+                    <h3
+                        className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]"
+                        style={{ fontFamily: "GothamBold" }}
+                    >
+                        {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                    </h3>
+                    <p
+                        className="text-[3.8vw] md:text-[2.5vw] text-justify mt-4 leading-relaxed"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                        {t(keys.right.desc)}
+                    </p>
+                    <div className="relative mt-4">
                         <img
                             src={F2}
-                            className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-0"
+                            className="w-full h-[60vw] md:h-[45vw] object-cover cursor-pointer"
                             alt={t(keys.right.imgAlt)}
                             title={t(keys.right.imgAlt)}
                             onClick={() => openLightbox(F2, keys.right.imgAlt)}
                         />
-                        <div>
-                            <ExpandButton
-                                onClick={() => openLightbox(F2, keys.right.imgAlt)}
-                                title={t(keys.buttons.expand)}
-                                aria-label={t(keys.buttons.expand)}
+                        <ExpandButton
+                            onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                            title={t(keys.buttons.expand)}
+                            aria-label={t(keys.buttons.expand)}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (blindado) ===== */}
+            <div className="hidden lg:block h-full">
+                <div className="relative w-full text-white">
+                    {/* Títulos */}
+                    <div className="absolute top-[25vh] left-[15vh]">
+                        <h3 className={`font-bold uppercase w-[30vh] ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                            {t(keys.left.title)}
+                        </h3>
+                        <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+                            01
+                        </div>
+                    </div>
+
+                    <div className="absolute top-[25vh] right-[15vh] text-right">
+                        <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                            {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                        </h3>
+                        <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+                            02
+                        </div>
+                    </div>
+
+                    {/* Texto descriptivo */}
+                    <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
+                        <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                            {t(keys.left.desc)}
+                        </p>
+                    </div>
+
+                    <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
+                        <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                            {t(keys.right.desc)}
+                        </p>
+                    </div>
+
+                    {/* Imágenes del centro */}
+                    <div className="flex flex-col justify-center items-center h-full relative">
+                        {/* Imagen superior con botón */}
+                        <div className="relative group">
+                            <img
+                                src={F1}
+                                className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-10"
+                                alt={t(keys.left.imgAlt)}
+                                title={t(keys.left.imgAlt)}
+                                onClick={() => openLightbox(F1, keys.left.imgAlt)}
                             />
+                            <div>
+                                <ExpandButton
+                                    onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                                    title={t(keys.buttons.expand)}
+                                    aria-label={t(keys.buttons.expand)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Imagen inferior con botón */}
+                        <div className="relative group">
+                            <img
+                                src={F2}
+                                className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-0"
+                                alt={t(keys.right.imgAlt)}
+                                title={t(keys.right.imgAlt)}
+                                onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                            />
+                            <div>
+                                <ExpandButton
+                                    onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                                    title={t(keys.buttons.expand)}
+                                    aria-label={t(keys.buttons.expand)}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
