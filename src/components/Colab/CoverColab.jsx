@@ -34,85 +34,83 @@ const CoverColab = () => {
     });
 
 
-// ===== TRANSFORMACIONES AJUSTADAS PARA 260vh =====
+// ===== TRANSFORMACIONES PARA 200vh =====
+// Timeline: 0→0.30 logos dance + fade | 0.30→0.65 brands grow | 0.65→1 brands settle over cards
 const groupScale = useTransform(
     scrollYProgress,
-    [0, 0.4, 0.9, 1],
-    [1, 0.88, 0.88, 1.30]   // +0.05 bigger at the end
+    [0, 0.30, 0.65, 1],
+    [1, 0.90, 1.10, 1.20]
 );
 
 const brandsScale = useTransform(
     scrollYProgress,
-    [0.8, 0.9, 1],
-    [1, 4.2, 1.50]          // +0.4 expansion, +0.08 end scale
+    [0.30, 0.65, 1],
+    [1, 2.8, 1.60]
 );
 
-
 const groupY = useTransform(scrollYProgress,
-    [0, 0.18, 1],
-    ['0vh', '-18vh', '-22vh']
+    [0, 0.30, 0.65, 1],
+    ['0vh', '-5vh', '10vh', '18vh']
 );
 
 
 // ===== MOVIMIENTOS LATERALES =====
 const leftX = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vw', '5vw', '-10vw', '-5vw', '0vw']
+    [0, 0.12, 0.25, 0.30, 0.65],
+    ['0vw', '5vw', '-8vw', '-3vw', '0vw']
 );
 
 const rightX = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vw', '-5vw', '10vw', '5vw', '0vw']
+    [0, 0.12, 0.25, 0.30, 0.65],
+    ['0vw', '-5vw', '8vw', '3vw', '0vw']
 );
-
 
 const leftY = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vh', '36vh', '0vh', '16vh', '0vh']   // big drop
+    [0, 0.12, 0.25, 0.30, 0.65],
+    ['0vh', '20vh', '0vh', '8vh', '0vh']
 );
 
 const rightY = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vh', '32vh', '0vh', '14vh', '0vh']   // big drop
+    [0, 0.12, 0.25, 0.30, 0.65],
+    ['0vh', '18vh', '0vh', '6vh', '0vh']
 );
 
-// ===== OPACIDAD DE LOGOS =====
+// ===== OPACIDAD DE LOGOS (iconos) =====
 const logosOpacity = useTransform(scrollYProgress,
-    [0, 0.18, 0.36],
+    [0, 0.12, 0.30],
     [1, 0.15, 0]
 );
 
 
-
-// ===== MOVIMIENTOS DE MARCAS =====
+// ===== MOVIMIENTOS DE MARCAS (logotipos) =====
 const brandLeftX = useTransform(scrollYProgress,
-    [0.23, 0.34],
-    ['0vw', '-3vw']
+    [0.15, 0.30, 0.65],
+    ['0vw', '-3vw', '0vw']
 );
 
 const brandRightX = useTransform(scrollYProgress,
-    [0.23, 0.36],
-    ['0vw', '2vw']
+    [0.15, 0.30, 0.65],
+    ['0vw', '2vw', '0vw']
 );
 
 const brandLeftY = useTransform(scrollYProgress,
-    [0.27, 0.36],
-    ['0vh', '-20vh']
+    [0.20, 0.30, 0.65],
+    ['0vh', '-10vh', '0vh']
 );
 
 const brandRightY = useTransform(scrollYProgress,
-    [0.27, 0.36],
-    ['0vh', '-20vh']
+    [0.20, 0.30, 0.65],
+    ['0vh', '-10vh', '0vh']
 );
 
 
 // ===== TARJETAS =====
 const cardOpacity = useTransform(scrollYProgress,
-    [0, 0.12],
+    [0, 0.15],
     [0, 1]
 );
 
@@ -141,7 +139,7 @@ const cardOpacity = useTransform(scrollYProgress,
     return (
         <section
             ref={sectionRef}
-            className="relative h-[260vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
+            className="relative h-[200vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
