@@ -30,7 +30,7 @@ const CoverColab = () => {
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ['start start', 'end end'],
+        offset: ['start start', 'end start'],
     });
 
     const groupScale = useTransform(
