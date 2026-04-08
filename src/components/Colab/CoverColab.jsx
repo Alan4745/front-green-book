@@ -35,82 +35,82 @@ const CoverColab = () => {
 
 
 // ===== TRANSFORMACIONES PARA 200vh =====
-// Timeline: 0→0.30 logos dance + fade | 0.30→0.65 brands grow | 0.65→1 brands settle over cards
+// Timeline: 0→0.25 logos dance + fade | 0.25→0.55 brands settle | 0.55→1 cards appear
 const groupScale = useTransform(
     scrollYProgress,
-    [0, 0.30, 0.65, 1],
-    [1, 0.90, 1.10, 1.20]
+    [0, 0.25, 0.50, 1],
+    [1, 0.95, 1.0, 1.0]
 );
 
 const brandsScale = useTransform(
     scrollYProgress,
-    [0.30, 0.65, 1],
-    [1, 2.8, 1.60]
+    [0.25, 0.55, 1],
+    [1, 1.4, 1.2]
 );
 
 const groupY = useTransform(scrollYProgress,
-    [0, 0.30, 0.65, 1],
-    ['0vh', '-5vh', '10vh', '18vh']
+    [0, 0.25, 0.55, 1],
+    ['0vh', '-3vh', '5vh', '15vh']
 );
 
 
 // ===== MOVIMIENTOS LATERALES =====
 const leftX = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.25, 0.30, 0.65],
+    [0, 0.10, 0.20, 0.28, 0.50],
     ['0vw', '5vw', '-8vw', '-3vw', '0vw']
 );
 
 const rightX = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.25, 0.30, 0.65],
+    [0, 0.10, 0.20, 0.28, 0.50],
     ['0vw', '-5vw', '8vw', '3vw', '0vw']
 );
 
 const leftY = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.25, 0.30, 0.65],
-    ['0vh', '20vh', '0vh', '8vh', '0vh']
+    [0, 0.10, 0.20, 0.28, 0.50],
+    ['0vh', '15vh', '0vh', '5vh', '0vh']
 );
 
 const rightY = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.25, 0.30, 0.65],
-    ['0vh', '18vh', '0vh', '6vh', '0vh']
+    [0, 0.10, 0.20, 0.28, 0.50],
+    ['0vh', '12vh', '0vh', '3vh', '0vh']
 );
 
 // ===== OPACIDAD DE LOGOS (iconos) =====
 const logosOpacity = useTransform(scrollYProgress,
-    [0, 0.12, 0.30],
+    [0, 0.10, 0.25],
     [1, 0.15, 0]
 );
 
 
 // ===== MOVIMIENTOS DE MARCAS (logotipos) =====
 const brandLeftX = useTransform(scrollYProgress,
-    [0.15, 0.30, 0.65],
+    [0.10, 0.25, 0.50],
     ['0vw', '-3vw', '0vw']
 );
 
 const brandRightX = useTransform(scrollYProgress,
-    [0.15, 0.30, 0.65],
+    [0.10, 0.25, 0.50],
     ['0vw', '2vw', '0vw']
 );
 
 const brandLeftY = useTransform(scrollYProgress,
-    [0.20, 0.30, 0.65],
-    ['0vh', '-10vh', '0vh']
+    [0.15, 0.25, 0.50],
+    ['0vh', '-8vh', '0vh']
 );
 
 const brandRightY = useTransform(scrollYProgress,
-    [0.20, 0.30, 0.65],
-    ['0vh', '-10vh', '0vh']
+    [0.15, 0.25, 0.50],
+    ['0vh', '-8vh', '0vh']
 );
 
 
 // ===== TARJETAS =====
 const cardOpacity = useTransform(scrollYProgress,
-    [0, 0.15],
+    [0.55, 0.75],
     [0, 1]
 );
 
@@ -236,14 +236,15 @@ const cardOpacity = useTransform(scrollYProgress,
                         </motion.div>
                     </motion.div>
                 </div>
-            </div>
 
-            {/* ===== TARJETAS (con colores y videos) ===== */}
-            <div className="absolute bottom-8 lg:bottom-26 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8">
+                {/* ===== TARJETAS (con colores y videos) ===== */}
+                <motion.div
+                    style={{ opacity: cardOpacity }}
+                    className="absolute bottom-8 lg:bottom-26 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
+                >
                 {/* Tarjeta 1 con botón y logo GC */}
                 <motion.div
                     className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                    style={{ opacity: cardOpacity }}
                     onClick={handleGoToSectionGC}
                     role="button"
                     title={t('colab.cover.buttons.toGC')}
@@ -262,7 +263,6 @@ const cardOpacity = useTransform(scrollYProgress,
                 {/* Tarjeta 2 con video GC */}
                 <motion.div
                     className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                    style={{ opacity: cardOpacity }}
                     onClick={() => setActiveVideo('gc')}
                     title="Reproducir video"
                 >
@@ -283,7 +283,6 @@ const cardOpacity = useTransform(scrollYProgress,
                 {/* Tarjeta 3 con botón y logo AC */}
                 <motion.div
                     className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                    style={{ opacity: cardOpacity }}
                     onClick={handleGoToSectionAC}
                     role="button"
                     title={t('colab.cover.buttons.toAC')}
@@ -302,7 +301,6 @@ const cardOpacity = useTransform(scrollYProgress,
                 {/* Tarjeta 4 con video AC */}
                 <motion.div
                     className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                    style={{ opacity: cardOpacity }}
                     onClick={() => setActiveVideo('ac')}
                     title="Reproducir video"
                 >
@@ -318,6 +316,7 @@ const cardOpacity = useTransform(scrollYProgress,
                             </svg>
                         </div>
                     </div>
+                </motion.div>
                 </motion.div>
             </div>
 
