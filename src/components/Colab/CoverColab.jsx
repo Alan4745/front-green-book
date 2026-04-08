@@ -190,49 +190,49 @@ const cardOpacity = useTransform(scrollYProgress,
                     {/* Contenedor general: escala + SUBE */}
                     <motion.div
                         style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
-                        className="mt-[12vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
+                        className="mt-[12vw] flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
                     >
                         {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
                             style={{ x: leftX, y: leftY }}
-                            className="flex flex-col items-center justify-center mr-42 will-change-transform"
+                            className="flex flex-col items-center justify-center mr-0 lg:mr-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoGC}
                                 alt={t('colab.cover.alts.gcLogo')}
                                 title={t('colab.cover.alts.gcLogo')}
-                                className="w-[10vw] h-auto mb-6"
+                                className="w-[20vw] lg:w-[10vw] h-auto mb-6"
                                 style={{ opacity: logosOpacity }}
                             />
                             <motion.img
                                 src={LogotipoGC}
                                 alt={t('colab.cover.alts.gcLogotype')}
                                 title={t('colab.cover.alts.gcLogotype')}
-                                className="w-[20vw] h-auto"
+                                className="w-[35vw] lg:w-[20vw] h-auto"
                                 style={{ scale: brandsScale, x: brandLeftX, y: brandLeftY }}
                             />
                         </motion.div>
 
                         {/* Línea centrada (decorativa) */}
-                        <div className="w-[0.6vh] h-64 rounded-full bg-white" aria-hidden="true" />
+                        <div className="w-[0.6vh] h-24 lg:h-64 rounded-full bg-white" aria-hidden="true" />
 
                         {/* DERECHA: ANACAFÉ */}
                         <motion.div
                             style={{ x: rightX, y: rightY }}
-                            className="flex flex-col items-center justify-center ml-42 will-change-transform"
+                            className="flex flex-col items-center justify-center ml-0 lg:ml-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoAC}
                                 alt={t('colab.cover.alts.acLogo')}
                                 title={t('colab.cover.alts.acLogo')}
-                                className="w-[10vw] h-auto mb-6"
+                                className="w-[20vw] lg:w-[10vw] h-auto mb-6"
                                 style={{ opacity: logosOpacity }}
                             />
                             <motion.img
                                 src={LogotipoAC}
                                 alt={t('colab.cover.alts.acLogotype')}
                                 title={t('colab.cover.alts.acLogotype')}
-                                className="w-[20vw] h-auto"
+                                className="w-[35vw] lg:w-[20vw] h-auto"
                                 style={{ scale: brandsScale, x: brandRightX, y: brandRightY }}
                             />
                         </motion.div>
@@ -241,10 +241,10 @@ const cardOpacity = useTransform(scrollYProgress,
             </div>
 
             {/* ===== TARJETAS (con colores y videos) ===== */}
-            <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
+            <div className="absolute bottom-8 lg:bottom-26 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8">
                 {/* Tarjeta 1 con botón y logo GC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                     style={{ opacity: cardOpacity }}
                     onClick={handleGoToSectionGC}
                     role="button"
@@ -263,7 +263,7 @@ const cardOpacity = useTransform(scrollYProgress,
 
                 {/* Tarjeta 2 con video GC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                     style={{ opacity: cardOpacity }}
                     onClick={() => setActiveVideo('gc')}
                     title="Reproducir video"
@@ -284,7 +284,7 @@ const cardOpacity = useTransform(scrollYProgress,
 
                 {/* Tarjeta 3 con botón y logo AC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                     style={{ opacity: cardOpacity }}
                     onClick={handleGoToSectionAC}
                     role="button"
@@ -303,7 +303,7 @@ const cardOpacity = useTransform(scrollYProgress,
 
                 {/* Tarjeta 4 con video AC */}
                 <motion.div
-                    className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                     style={{ opacity: cardOpacity }}
                     onClick={() => setActiveVideo('ac')}
                     title="Reproducir video"
