@@ -35,92 +35,92 @@ const CoverColab = () => {
 
     const groupScale = useTransform(
         scrollYProgress,
-        [0, 0.28, 0.62, 1],
-        [1, 0.98, 0.94, 0.92]
+        [0, 0.32, 0.58, 1],
+        [1, 0.998, 0.97, 0.95]
     );
 
     const brandsScale = useTransform(
         scrollYProgress,
-        [0, 0.28, 0.62, 1],
-        [1, 1.08, 1.16, 1.12]
+        [0, 0.32, 0.58, 1],
+        [1, 1.02, 1.08, 1.06]
     );
 
     const heroOpacity = useTransform(
         scrollYProgress,
-        [0, 0.58, 0.72, 0.88],
-        [1, 1, 0.2, 0]
+        [0, 0.48, 0.62, 0.74],
+        [1, 1, 0.28, 0]
     );
 
     const groupY = useTransform(
         scrollYProgress,
-        [0, 0.28, 0.62, 1],
-        ['0vh', '-2vh', '-8vh', '-10vh']
+        [0, 0.32, 0.58, 1],
+        ['0vh', '0vh', '-1vh', '-2vh']
     );
 
     const leftX = useTransform(
         scrollYProgress,
-        [0, 0.12, 0.24, 0.42, 0.62],
-        ['0vw', '3vw', '-4vw', '-2vw', '0vw']
+        [0, 0.12, 0.24, 0.42, 0.58],
+        ['0vw', '1.4vw', '-1.8vw', '-0.8vw', '0vw']
     );
 
     const rightX = useTransform(
         scrollYProgress,
-        [0, 0.12, 0.24, 0.42, 0.62],
-        ['0vw', '-3vw', '4vw', '2vw', '0vw']
+        [0, 0.12, 0.24, 0.42, 0.58],
+        ['0vw', '-1.4vw', '1.8vw', '0.8vw', '0vw']
     );
 
     const leftY = useTransform(
         scrollYProgress,
-        [0, 0.12, 0.24, 0.42, 0.62],
-        ['0vh', '7vh', '1vh', '3vh', '0vh']
+        [0, 0.12, 0.24, 0.42, 0.58],
+        ['0vh', '2vh', '0.4vh', '1vh', '0vh']
     );
 
     const rightY = useTransform(
         scrollYProgress,
-        [0, 0.12, 0.24, 0.42, 0.62],
-        ['0vh', '6vh', '1vh', '2vh', '0vh']
+        [0, 0.12, 0.24, 0.42, 0.58],
+        ['0vh', '2vh', '0.4vh', '1vh', '0vh']
     );
 
     const logosOpacity = useTransform(
         scrollYProgress,
-        [0, 0.14, 0.3, 0.44],
+        [0, 0.14, 0.28, 0.4],
         [1, 0.4, 0.1, 0]
     );
 
     const brandLeftX = useTransform(
         scrollYProgress,
-        [0, 0.22, 0.5, 0.8],
-        ['0vw', '-1vw', '-3vw', '-2vw']
+        [0, 0.18, 0.38, 0.58],
+        ['0vw', '-0.3vw', '-1vw', '-0.8vw']
     );
 
     const brandRightX = useTransform(
         scrollYProgress,
-        [0, 0.22, 0.5, 0.8],
-        ['0vw', '1vw', '3vw', '2vw']
+        [0, 0.18, 0.38, 0.58],
+        ['0vw', '0.3vw', '1vw', '0.8vw']
     );
 
     const brandLeftY = useTransform(
         scrollYProgress,
-        [0, 0.22, 0.5, 0.8],
-        ['0vh', '-3vh', '-8vh', '-7vh']
+        [0, 0.18, 0.38, 0.58],
+        ['0vh', '-0.4vh', '-1.8vh', '-1.8vh']
     );
 
     const brandRightY = useTransform(
         scrollYProgress,
-        [0, 0.22, 0.5, 0.8],
-        ['0vh', '-3vh', '-8vh', '-7vh']
+        [0, 0.18, 0.38, 0.58],
+        ['0vh', '-0.4vh', '-1.8vh', '-1.8vh']
     );
 
     const finalStageOpacity = useTransform(
         scrollYProgress,
-        [0.62, 0.82, 1],
+        [0.56, 0.7, 1],
         [0, 1, 1]
     );
 
     const finalStageY = useTransform(
         scrollYProgress,
-        [0.62, 0.82, 1],
-        ['10vh', '0vh', '0vh']
+        [0.56, 0.7, 1],
+        ['12vh', '0vh', '0vh']
     );
 
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -138,7 +138,7 @@ const CoverColab = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative h-[145vh] lg:h-[155vh] w-full overflow-hidden bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
+            className="relative h-[195vh] lg:h-[210vh] w-full overflow-hidden bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
@@ -173,10 +173,10 @@ const CoverColab = () => {
             )}
 
             <div className="sticky top-0 h-screen w-full">
-                <div className="h-full w-full flex justify-center items-start">
+                <div className="h-full w-full flex items-center justify-center">
                     <motion.div
                         style={{ scale: groupScale, y: groupY, opacity: heroOpacity, transformOrigin: 'top center' }}
-                        className="mt-[26vh] md:mt-[22vh] lg:mt-[18vh] flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
+                        className="flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
                     >
                         <motion.div
                             style={{ x: leftX, y: leftY }}
@@ -224,7 +224,7 @@ const CoverColab = () => {
 
                 <motion.div
                     style={{ opacity: finalStageOpacity, y: finalStageY }}
-                    className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
+                    className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
                 >
                     <div className="w-[92vw] lg:w-auto flex flex-col items-center gap-4 lg:gap-5">
                         <div className="w-full grid grid-cols-2 lg:flex lg:items-end gap-4 lg:gap-6">
