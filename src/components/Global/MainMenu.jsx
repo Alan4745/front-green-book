@@ -89,7 +89,7 @@ const MENU = [
         {open && (
             <div
             id="mainmenu-popover"
-            className="pointer-events-auto absolute top-12 right-0 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[380px]"
+            className="pointer-events-auto absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[380px]"
             role="menu"
             >
             <ul
