@@ -45,6 +45,12 @@ const CoverColab = () => {
         [1, 1.08, 1.16, 1.12]
     );
 
+    const heroOpacity = useTransform(
+        scrollYProgress,
+        [0, 0.62, 0.76, 1],
+        [1, 1, 0.35, 0]
+    );
+
     const groupY = useTransform(
         scrollYProgress,
         [0, 0.28, 0.62, 1],
@@ -107,14 +113,26 @@ const CoverColab = () => {
 
     const cardOpacity = useTransform(
         scrollYProgress,
-        [0.58, 0.78],
+        [0.62, 0.82],
         [0, 1]
     );
 
     const cardY = useTransform(
         scrollYProgress,
-        [0.58, 0.78, 1],
-        ['10vh', '0vh', '0vh']
+        [0.62, 0.82, 1],
+        ['12vh', '0vh', '0vh']
+    );
+
+    const finalHeaderOpacity = useTransform(
+        scrollYProgress,
+        [0.68, 0.84, 1],
+        [0, 1, 1]
+    );
+
+    const finalHeaderY = useTransform(
+        scrollYProgress,
+        [0.68, 0.84, 1],
+        ['4vh', '0vh', '0vh']
     );
 
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -169,7 +187,7 @@ const CoverColab = () => {
             <div className="sticky top-0 h-screen w-full">
                 <div className="h-full w-full flex justify-center items-start">
                     <motion.div
-                        style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
+                        style={{ scale: groupScale, y: groupY, opacity: heroOpacity, transformOrigin: 'top center' }}
                         className="mt-[26vh] md:mt-[22vh] lg:mt-[18vh] flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
                     >
                         <motion.div
@@ -218,7 +236,7 @@ const CoverColab = () => {
 
                 <motion.div
                     style={{ opacity: cardOpacity, y: cardY }}
-                    className="absolute bottom-6 md:bottom-8 lg:bottom-18 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
+                    className="absolute left-1/2 top-[58%] md:top-[60%] lg:top-[62%] -translate-x-1/2 -translate-y-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
                 >
                     <motion.div
                         className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -289,6 +307,35 @@ const CoverColab = () => {
                             </div>
                         </div>
                     </motion.div>
+                </motion.div>
+
+                <motion.div
+                    style={{ opacity: finalHeaderOpacity, y: finalHeaderY }}
+                    className="absolute left-1/2 top-[38%] md:top-[40%] lg:top-[41%] -translate-x-1/2 -translate-y-1/2 w-[92vw] lg:w-auto z-10"
+                >
+                    <div className="grid grid-cols-2 lg:flex items-end gap-4 lg:gap-8">
+                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh] flex items-end justify-center">
+                            <img
+                                src={LogotipoGC}
+                                alt={t('colab.cover.alts.gcLogotype')}
+                                title={t('colab.cover.alts.gcLogotype')}
+                                className="w-[26vw] lg:w-[13vw] h-auto"
+                            />
+                        </div>
+
+                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh]" aria-hidden="true" />
+
+                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh] flex items-end justify-center">
+                            <img
+                                src={LogotipoAC}
+                                alt={t('colab.cover.alts.acLogotype')}
+                                title={t('colab.cover.alts.acLogotype')}
+                                className="w-[28vw] lg:w-[14vw] h-auto"
+                            />
+                        </div>
+
+                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh]" aria-hidden="true" />
+                    </div>
                 </motion.div>
             </div>
 
