@@ -47,8 +47,8 @@ const CoverColab = () => {
 
     const heroOpacity = useTransform(
         scrollYProgress,
-        [0, 0.62, 0.76, 1],
-        [1, 1, 0.35, 0]
+        [0, 0.58, 0.72, 0.88],
+        [1, 1, 0.2, 0]
     );
 
     const groupY = useTransform(
@@ -111,28 +111,16 @@ const CoverColab = () => {
         ['0vh', '-3vh', '-8vh', '-7vh']
     );
 
-    const cardOpacity = useTransform(
-        scrollYProgress,
-        [0.62, 0.82],
-        [0, 1]
-    );
-
-    const cardY = useTransform(
+    const finalStageOpacity = useTransform(
         scrollYProgress,
         [0.62, 0.82, 1],
-        ['12vh', '0vh', '0vh']
-    );
-
-    const finalHeaderOpacity = useTransform(
-        scrollYProgress,
-        [0.68, 0.84, 1],
         [0, 1, 1]
     );
 
-    const finalHeaderY = useTransform(
+    const finalStageY = useTransform(
         scrollYProgress,
-        [0.68, 0.84, 1],
-        ['4vh', '0vh', '0vh']
+        [0.62, 0.82, 1],
+        ['10vh', '0vh', '0vh']
     );
 
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -235,106 +223,105 @@ const CoverColab = () => {
                 </div>
 
                 <motion.div
-                    style={{ opacity: cardOpacity, y: cardY }}
-                    className="absolute left-1/2 top-[58%] md:top-[60%] lg:top-[62%] -translate-x-1/2 -translate-y-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
+                    style={{ opacity: finalStageOpacity, y: finalStageY }}
+                    className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
                 >
-                    <motion.div
-                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={handleGoToSectionGC}
-                        role="button"
-                        title={t('colab.cover.buttons.toGC')}
-                    >
-                        <div
-                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
-                            aria-hidden="true"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
-                    </motion.div>
-
-                    <motion.div
-                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                        onClick={() => setActiveVideo('gc')}
-                        title="Reproducir video"
-                    >
-                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
-                            <source src={VideoGC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
+                    <div className="w-[92vw] lg:w-auto flex flex-col items-center gap-4 lg:gap-5">
+                        <div className="w-full grid grid-cols-2 lg:flex lg:items-end gap-4 lg:gap-6">
+                            <div className="w-full lg:w-[18vw] xl:w-[17vw] h-[10vw] lg:h-[4vw] xl:h-[3.5vw] flex items-end justify-center">
+                                <img
+                                    src={LogotipoGC}
+                                    alt={t('colab.cover.alts.gcLogotype')}
+                                    title={t('colab.cover.alts.gcLogotype')}
+                                    className="w-[26vw] lg:w-[9vw] xl:w-[8.5vw] h-auto"
+                                />
                             </div>
-                        </div>
-                    </motion.div>
 
-                    <motion.div
-                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={handleGoToSectionAC}
-                        role="button"
-                        title={t('colab.cover.buttons.toAC')}
-                    >
-                        <div
-                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
-                            aria-hidden="true"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
-                    </motion.div>
+                            <div className="w-full lg:w-[18vw] xl:w-[17vw] h-[10vw] lg:h-[4vw] xl:h-[3.5vw]" aria-hidden="true" />
 
-                    <motion.div
-                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                        onClick={() => setActiveVideo('ac')}
-                        title="Reproducir video"
-                    >
-                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
-                            <source src={VideoAC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
+                            <div className="w-full lg:w-[18vw] xl:w-[17vw] h-[10vw] lg:h-[4vw] xl:h-[3.5vw] flex items-end justify-center">
+                                <img
+                                    src={LogotipoAC}
+                                    alt={t('colab.cover.alts.acLogotype')}
+                                    title={t('colab.cover.alts.acLogotype')}
+                                    className="w-[28vw] lg:w-[9.5vw] xl:w-[9vw] h-auto"
+                                />
                             </div>
-                        </div>
-                    </motion.div>
-                </motion.div>
 
-                <motion.div
-                    style={{ opacity: finalHeaderOpacity, y: finalHeaderY }}
-                    className="absolute left-1/2 top-[38%] md:top-[40%] lg:top-[41%] -translate-x-1/2 -translate-y-1/2 w-[92vw] lg:w-auto z-10"
-                >
-                    <div className="grid grid-cols-2 lg:flex items-end gap-4 lg:gap-8">
-                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh] flex items-end justify-center">
-                            <img
-                                src={LogotipoGC}
-                                alt={t('colab.cover.alts.gcLogotype')}
-                                title={t('colab.cover.alts.gcLogotype')}
-                                className="w-[26vw] lg:w-[13vw] h-auto"
-                            />
+                            <div className="w-full lg:w-[18vw] xl:w-[17vw] h-[10vw] lg:h-[4vw] xl:h-[3.5vw]" aria-hidden="true" />
                         </div>
 
-                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh]" aria-hidden="true" />
+                        <div className="w-full grid grid-cols-2 lg:flex gap-4 lg:gap-6 pointer-events-auto">
+                            <motion.div
+                                className="relative w-full h-[42vw] lg:w-[18vw] lg:h-[18vw] xl:w-[17vw] xl:h-[17vw] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                                onClick={handleGoToSectionGC}
+                                role="button"
+                                title={t('colab.cover.buttons.toGC')}
+                            >
+                                <div
+                                    className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
+                                    aria-hidden="true"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                                <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
+                            </motion.div>
 
-                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh] flex items-end justify-center">
-                            <img
-                                src={LogotipoAC}
-                                alt={t('colab.cover.alts.acLogotype')}
-                                title={t('colab.cover.alts.acLogotype')}
-                                className="w-[28vw] lg:w-[14vw] h-auto"
-                            />
+                            <motion.div
+                                className="relative w-full h-[42vw] lg:w-[18vw] lg:h-[18vw] xl:w-[17vw] xl:h-[17vw] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                                onClick={() => setActiveVideo('gc')}
+                                title="Reproducir video"
+                            >
+                                <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
+                                    <source src={VideoGC} type="video/mp4" />
+                                    {t('colab.cover.videoFallback')}
+                                </video>
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            <motion.div
+                                className="relative w-full h-[42vw] lg:w-[18vw] lg:h-[18vw] xl:w-[17vw] xl:h-[17vw] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                                onClick={handleGoToSectionAC}
+                                role="button"
+                                title={t('colab.cover.buttons.toAC')}
+                            >
+                                <div
+                                    className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                                    aria-hidden="true"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                                <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
+                            </motion.div>
+
+                            <motion.div
+                                className="relative w-full h-[42vw] lg:w-[18vw] lg:h-[18vw] xl:w-[17vw] xl:h-[17vw] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                                onClick={() => setActiveVideo('ac')}
+                                title="Reproducir video"
+                            >
+                                <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
+                                    <source src={VideoAC} type="video/mp4" />
+                                    {t('colab.cover.videoFallback')}
+                                </video>
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
-
-                        <div className="w-full lg:w-[42vh] h-[16vw] lg:h-[10vh]" aria-hidden="true" />
                     </div>
                 </motion.div>
             </div>
