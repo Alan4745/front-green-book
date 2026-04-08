@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTransitionNavigate } from '../Global/PageTransition';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -23,127 +22,120 @@ const EXTERNAL_URL_GC = 'https://www.guatemalancoffees.com/';
 const EXTERNAL_URL_AC = 'https://www.anacafe.org/';
 
 const CoverColab = () => {
-    const navigate = useNavigate();
     const navigateTo = useTransitionNavigate();
     const sectionRef = useRef(null);
     const { t } = useTranslation();
+    const [activeVideo, setActiveVideo] = useState(null);
+    const [showIndicator, setShowIndicator] = useState(true);
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start start', 'end end'],
     });
 
+    const groupScale = useTransform(
+        scrollYProgress,
+        [0, 0.28, 0.62, 1],
+        [1, 0.98, 0.94, 0.92]
+    );
 
-// ===== TRANSFORMACIONES PARA 200vh =====
-// Timeline: 0→0.25 logos dance + fade | 0.25→0.55 brands settle | 0.55→1 cards appear
-const groupScale = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.50, 1],
-    [1, 0.95, 1.0, 1.0]
-);
+    const brandsScale = useTransform(
+        scrollYProgress,
+        [0, 0.28, 0.62, 1],
+        [1, 1.08, 1.16, 1.12]
+    );
 
-const brandsScale = useTransform(
-    scrollYProgress,
-    [0.25, 0.55, 1],
-    [1, 1.4, 1.2]
-);
+    const groupY = useTransform(
+        scrollYProgress,
+        [0, 0.28, 0.62, 1],
+        ['0vh', '-2vh', '-8vh', '-10vh']
+    );
 
-const groupY = useTransform(scrollYProgress,
-    [0, 0.25, 0.55, 1],
-    ['0vh', '-3vh', '5vh', '15vh']
-);
+    const leftX = useTransform(
+        scrollYProgress,
+        [0, 0.12, 0.24, 0.42, 0.62],
+        ['0vw', '3vw', '-4vw', '-2vw', '0vw']
+    );
 
+    const rightX = useTransform(
+        scrollYProgress,
+        [0, 0.12, 0.24, 0.42, 0.62],
+        ['0vw', '-3vw', '4vw', '2vw', '0vw']
+    );
 
-// ===== MOVIMIENTOS LATERALES =====
-const leftX = useTransform(
-    scrollYProgress,
-    [0, 0.10, 0.20, 0.28, 0.50],
-    ['0vw', '5vw', '-8vw', '-3vw', '0vw']
-);
+    const leftY = useTransform(
+        scrollYProgress,
+        [0, 0.12, 0.24, 0.42, 0.62],
+        ['0vh', '7vh', '1vh', '3vh', '0vh']
+    );
 
-const rightX = useTransform(
-    scrollYProgress,
-    [0, 0.10, 0.20, 0.28, 0.50],
-    ['0vw', '-5vw', '8vw', '3vw', '0vw']
-);
+    const rightY = useTransform(
+        scrollYProgress,
+        [0, 0.12, 0.24, 0.42, 0.62],
+        ['0vh', '6vh', '1vh', '2vh', '0vh']
+    );
 
-const leftY = useTransform(
-    scrollYProgress,
-    [0, 0.10, 0.20, 0.28, 0.50],
-    ['0vh', '15vh', '0vh', '5vh', '0vh']
-);
+    const logosOpacity = useTransform(
+        scrollYProgress,
+        [0, 0.14, 0.3, 0.44],
+        [1, 0.4, 0.1, 0]
+    );
 
-const rightY = useTransform(
-    scrollYProgress,
-    [0, 0.10, 0.20, 0.28, 0.50],
-    ['0vh', '12vh', '0vh', '3vh', '0vh']
-);
+    const brandLeftX = useTransform(
+        scrollYProgress,
+        [0, 0.22, 0.5, 0.8],
+        ['0vw', '-1vw', '-3vw', '-2vw']
+    );
 
-// ===== OPACIDAD DE LOGOS (iconos) =====
-const logosOpacity = useTransform(scrollYProgress,
-    [0, 0.10, 0.25],
-    [1, 0.15, 0]
-);
+    const brandRightX = useTransform(
+        scrollYProgress,
+        [0, 0.22, 0.5, 0.8],
+        ['0vw', '1vw', '3vw', '2vw']
+    );
 
+    const brandLeftY = useTransform(
+        scrollYProgress,
+        [0, 0.22, 0.5, 0.8],
+        ['0vh', '-3vh', '-8vh', '-7vh']
+    );
 
-// ===== MOVIMIENTOS DE MARCAS (logotipos) =====
-const brandLeftX = useTransform(scrollYProgress,
-    [0.10, 0.25, 0.50],
-    ['0vw', '-3vw', '0vw']
-);
+    const brandRightY = useTransform(
+        scrollYProgress,
+        [0, 0.22, 0.5, 0.8],
+        ['0vh', '-3vh', '-8vh', '-7vh']
+    );
 
-const brandRightX = useTransform(scrollYProgress,
-    [0.10, 0.25, 0.50],
-    ['0vw', '2vw', '0vw']
-);
+    const cardOpacity = useTransform(
+        scrollYProgress,
+        [0.58, 0.78],
+        [0, 1]
+    );
 
-const brandLeftY = useTransform(scrollYProgress,
-    [0.15, 0.25, 0.50],
-    ['0vh', '-8vh', '0vh']
-);
+    const cardY = useTransform(
+        scrollYProgress,
+        [0.58, 0.78, 1],
+        ['10vh', '0vh', '0vh']
+    );
 
-const brandRightY = useTransform(scrollYProgress,
-    [0.15, 0.25, 0.50],
-    ['0vh', '-8vh', '0vh']
-);
+    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+        setShowIndicator(latest < 0.08);
+    });
 
-
-// ===== TARJETAS =====
-const cardOpacity = useTransform(scrollYProgress,
-    [0.55, 0.75],
-    [0, 1]
-);
-
-
-    // Redirigir a URL externa GC
     const handleGoToSectionGC = () => {
         if (EXTERNAL_URL_GC !== '#') window.open(EXTERNAL_URL_GC, '_blank', 'noopener noreferrer');
     };
 
-    // Redirigir a URL externa AC
     const handleGoToSectionAC = () => {
         if (EXTERNAL_URL_AC !== '#') window.open(EXTERNAL_URL_AC, '_blank', 'noopener noreferrer');
     };
 
-    // Lightbox de video
-    const [activeVideo, setActiveVideo] = useState(null); // null | 'gc' | 'ac'
-
-
-    const [showIndicator, setShowIndicator] = useState(true);
-
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setShowIndicator(latest < 0.); 
-    });
-
-
     return (
         <section
             ref={sectionRef}
-            className="relative h-[200vh] w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
+            className="relative h-[145vh] lg:h-[155vh] w-full overflow-hidden bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
-            {/* ===== BOTONES FIJOS ===== */}
             <div className="fixed top-6 left-6 md:top-8 md:left-8 z-50 pointer-events-auto">
                 <BackButton onClick={() => navigateTo('/')} />
             </div>
@@ -151,46 +143,35 @@ const cardOpacity = useTransform(scrollYProgress,
             <div className="absolute top-[2vh] right-6.5 z-50">
                 <MainMenu />
             </div>
-            
+
             <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 pointer-events-auto">
-                <LanguageSelector alignment='left' />
+                <LanguageSelector alignment="left" />
             </div>
 
-
-            {/* Indicador de Sigue Bajando */}
-
-
             {showIndicator && (
-                <div className="fixed md:bottom-0 md:left-[48%] z-50 pointer-events animate__bounce">
+                <div className="fixed md:bottom-0 md:left-[48%] z-50 pointer-events-none animate__bounce">
                     <div className="animate__animated animate__bounce animate__infinite">
-                        <div style={{ width: "5rem" }}>
+                        <div style={{ width: '5rem' }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </div>
 
-                        <div className="fixed bottom-8" style={{ width: "5rem" }}>
+                        <div className="fixed bottom-8" style={{ width: '5rem' }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </div>
                     </div>
                 </div>
-            ) }
+            )}
 
-            
-
-            
-
-            {/* ===== ESCENA STICKY ===== */}
             <div className="sticky top-0 h-screen w-full">
                 <div className="h-full w-full flex justify-center items-start">
-                    {/* Contenedor general: escala + SUBE */}
                     <motion.div
                         style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
-                        className="mt-[12vw] flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
+                        className="mt-[26vh] md:mt-[22vh] lg:mt-[18vh] flex items-center justify-center gap-4 lg:gap-8 px-2 lg:px-6 py-4 will-change-transform z-20"
                     >
-                        {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
                             style={{ x: leftX, y: leftY }}
                             className="flex flex-col items-center justify-center mr-0 lg:mr-42 will-change-transform"
@@ -211,10 +192,8 @@ const cardOpacity = useTransform(scrollYProgress,
                             />
                         </motion.div>
 
-                        {/* Línea centrada (decorativa) */}
                         <div className="w-[0.6vh] h-24 lg:h-64 rounded-full bg-white" aria-hidden="true" />
 
-                        {/* DERECHA: ANACAFÉ */}
                         <motion.div
                             style={{ x: rightX, y: rightY }}
                             className="flex flex-col items-center justify-center ml-0 lg:ml-42 will-change-transform"
@@ -237,90 +216,82 @@ const cardOpacity = useTransform(scrollYProgress,
                     </motion.div>
                 </div>
 
-                {/* ===== TARJETAS (con colores y videos) ===== */}
                 <motion.div
-                    style={{ opacity: cardOpacity }}
-                    className="absolute bottom-8 lg:bottom-26 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
+                    style={{ opacity: cardOpacity, y: cardY }}
+                    className="absolute bottom-6 md:bottom-8 lg:bottom-18 left-1/2 -translate-x-1/2 w-[92vw] lg:w-auto grid grid-cols-2 lg:flex gap-4 lg:gap-8 z-10"
                 >
-                {/* Tarjeta 1 con botón y logo GC */}
-                <motion.div
-                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                    onClick={handleGoToSectionGC}
-                    role="button"
-                    title={t('colab.cover.buttons.toGC')}
-                >
-                    <div
-                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
-                        aria-hidden="true"
+                    <motion.div
+                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={handleGoToSectionGC}
+                        role="button"
+                        title={t('colab.cover.buttons.toGC')}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                    <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
-                </motion.div>
-
-                {/* Tarjeta 2 con video GC */}
-                <motion.div
-                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                    onClick={() => setActiveVideo('gc')}
-                    title="Reproducir video"
-                >
-                    <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
-                        <source src={VideoGC} type="video/mp4" />
-                        {t('colab.cover.videoFallback')}
-                    </video>
-                    {/* Overlay play icon */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
+                        <div
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
+                            aria-hidden="true"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                    </div>
-                </motion.div>
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
+                    </motion.div>
 
-                {/* Tarjeta 3 con botón y logo AC */}
-                <motion.div
-                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                    onClick={handleGoToSectionAC}
-                    role="button"
-                    title={t('colab.cover.buttons.toAC')}
-                >
-                    <div
-                        className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
-                        aria-hidden="true"
+                    <motion.div
+                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        onClick={() => setActiveVideo('gc')}
+                        title="Reproducir video"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                    <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
-                </motion.div>
+                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
+                            <source src={VideoGC} type="video/mp4" />
+                            {t('colab.cover.videoFallback')}
+                        </video>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </motion.div>
 
-                {/* Tarjeta 4 con video AC */}
-                <motion.div
-                    className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
-                    onClick={() => setActiveVideo('ac')}
-                    title="Reproducir video"
-                >
-                    <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
-                        <source src={VideoAC} type="video/mp4" />
-                        {t('colab.cover.videoFallback')}
-                    </video>
-                    {/* Overlay play icon */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
+                    <motion.div
+                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={handleGoToSectionAC}
+                        role="button"
+                        title={t('colab.cover.buttons.toAC')}
+                    >
+                        <div
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                            aria-hidden="true"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                    </div>
-                </motion.div>
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
+                    </motion.div>
+
+                    <motion.div
+                        className="relative w-full h-[42vw] lg:w-[42vh] lg:h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        onClick={() => setActiveVideo('ac')}
+                        title="Reproducir video"
+                    >
+                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
+                            <source src={VideoAC} type="video/mp4" />
+                            {t('colab.cover.videoFallback')}
+                        </video>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
 
-            {/* ===== LIGHTBOX DE VIDEO ===== */}
             {activeVideo && (
                 <div
                     className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100]"
