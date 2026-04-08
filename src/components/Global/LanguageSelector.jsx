@@ -59,7 +59,7 @@ const LanguageSelector = ({
                 className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md hover:bg-white/30 transition"
             >
                 <span className="text-sm font-bold font-Gotham select-none whitespace-nowrap">
-                    {selected.label} {selected.region}
+                    {selected.label}
                 </span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const LanguageSelector = ({
                             aria-selected={false}
                             style={{ color: textColor }}
                         >
-                            {lang.label} {lang.region}
+                            {lang.label}
                         </button>
                     ))}
                 </div>

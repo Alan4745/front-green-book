@@ -57,21 +57,39 @@ const MENU = [
         {/* Botón Hamburguesa */}
         <button
             onClick={() => setOpen((v) => !v)}
-            className="pointer-events-auto absolute top-6 right-6 flex flex-col space-y-1 cursor-pointer "
+            className="pointer-events-auto absolute top-6 right-6 flex flex-col space-y-1 cursor-pointer"
             aria-label={ariaLabel}
             aria-expanded={open}
             aria-controls="mainmenu-popover"
         >
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    transform: open ? 'translateY(6px) rotate(45deg)' : 'none',
+                    transition: 'transform 0.3s ease'
+                }}
+            />
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    opacity: open ? 0 : 1,
+                    transition: 'opacity 0.25s ease'
+                }}
+            />
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    transform: open ? 'translateY(-6px) rotate(-45deg)' : 'none',
+                    transition: 'transform 0.3s ease'
+                }}
+            />
         </button>
 
         {/* Menú desplegable */}
         {open && (
             <div
             id="mainmenu-popover"
-            className="pointer-events-auto absolute top-12 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-0 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[90vw] lg:w-[380px]"
+            className="pointer-events-auto absolute top-12 right-0 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[380px]"
             role="menu"
             >
             <ul
