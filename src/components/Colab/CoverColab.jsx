@@ -150,7 +150,7 @@ const cardOpacity = useTransform(scrollYProgress,
                 <BackButton onClick={() => navigateTo('/')} />
             </div>
 
-            <div className="absolute top-[2vh] right-[1.625rem] z-50">
+            <div className="absolute top-[2vh] right-6.5 z-50">
                 <MainMenu />
             </div>
             
@@ -195,7 +195,7 @@ const cardOpacity = useTransform(scrollYProgress,
                         {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
                             style={{ x: leftX, y: leftY }}
-                            className="flex flex-col items-center justify-center mr-[10.5rem] will-change-transform"
+                            className="flex flex-col items-center justify-center mr-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoGC}
@@ -219,7 +219,7 @@ const cardOpacity = useTransform(scrollYProgress,
                         {/* DERECHA: ANACAFÉ */}
                         <motion.div
                             style={{ x: rightX, y: rightY }}
-                            className="flex flex-col items-center justify-center ml-[10.5rem] will-change-transform"
+                            className="flex flex-col items-center justify-center ml-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoAC}
@@ -241,7 +241,7 @@ const cardOpacity = useTransform(scrollYProgress,
             </div>
 
             {/* ===== TARJETAS (con colores y videos) ===== */}
-            <div className="absolute bottom-[6.5rem] left-1/2 -translate-x-1/2 flex gap-8">
+            <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
                 {/* Tarjeta 1 con botón y logo GC */}
                 <motion.div
                     className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -258,7 +258,7 @@ const cardOpacity = useTransform(scrollYProgress,
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </div>
-                    <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-[13.5rem] h-auto" />
+                    <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
                 </motion.div>
 
                 {/* Tarjeta 2 con video GC */}
@@ -298,7 +298,7 @@ const cardOpacity = useTransform(scrollYProgress,
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </div>
-                    <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-[13.5rem] h-auto" />
+                    <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
                 </motion.div>
 
                 {/* Tarjeta 4 con video AC */}
