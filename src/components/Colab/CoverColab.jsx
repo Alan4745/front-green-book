@@ -34,107 +34,96 @@ const CoverColab = () => {
     });
 
 
-// ===== TRANSFORMACIONES AJUSTADAS PARA 260vh =====
-const groupScale = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.9, 1],
-    [1, 0.88, 0.88, 1.30]   // +0.05 bigger at the end
-);
+    const groupScale = useTransform(
+        scrollYProgress,
+        [0, 0.4, 0.9, 1],
+        [1, 0.88, 0.88, 1.30]
+    );
 
-const brandsScale = useTransform(
-    scrollYProgress,
-    [0.8, 0.9, 1],
-    [1, 4.2, 1.50]          // +0.4 expansion, +0.08 end scale
-);
-
-
-const groupY = useTransform(scrollYProgress,
-    [0, 0.18, 1],
-    ['0vh', '-18vh', '-22vh']
-);
+    const brandsScale = useTransform(
+        scrollYProgress,
+        [0.8, 0.9, 1],
+        [1, 4.2, 1.50]
+    );
 
 
-// ===== MOVIMIENTOS LATERALES =====
-const leftX = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vw', '5vw', '-10vw', '-5vw', '0vw']
-);
-
-const rightX = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vw', '-5vw', '10vw', '5vw', '0vw']
-);
+    const groupY = useTransform(scrollYProgress,
+        [0, 0.18, 1],
+        ['0vh', '-18vh', '-22vh']
+    );
 
 
-const leftY = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vh', '36vh', '0vh', '16vh', '0vh']   // big drop
-);
+    const leftX = useTransform(
+        scrollYProgress,
+        [0, 0.18, 0.36, 0.41, 1],
+        ['0vw', '5vw', '-10vw', '-5vw', '0vw']
+    );
 
-const rightY = useTransform(
-    scrollYProgress,
-    [0, 0.18, 0.36, 0.41, 1],
-    ['0vh', '32vh', '0vh', '14vh', '0vh']   // big drop
-);
-
-// ===== OPACIDAD DE LOGOS =====
-const logosOpacity = useTransform(scrollYProgress,
-    [0, 0.18, 0.36],
-    [1, 0.15, 0]
-);
+    const rightX = useTransform(
+        scrollYProgress,
+        [0, 0.18, 0.36, 0.41, 1],
+        ['0vw', '-5vw', '10vw', '5vw', '0vw']
+    );
 
 
+    const leftY = useTransform(
+        scrollYProgress,
+        [0, 0.18, 0.36, 0.41, 1],
+        ['0vh', '36vh', '0vh', '16vh', '0vh']
+    );
 
-// ===== MOVIMIENTOS DE MARCAS =====
-const brandLeftX = useTransform(scrollYProgress,
-    [0.23, 0.34],
-    ['0vw', '-3vw']
-);
+    const rightY = useTransform(
+        scrollYProgress,
+        [0, 0.18, 0.36, 0.41, 1],
+        ['0vh', '32vh', '0vh', '14vh', '0vh']
+    );
 
-const brandRightX = useTransform(scrollYProgress,
-    [0.23, 0.36],
-    ['0vw', '2vw']
-);
+    const logosOpacity = useTransform(scrollYProgress,
+        [0, 0.18, 0.36],
+        [1, 0.15, 0]
+    );
 
-const brandLeftY = useTransform(scrollYProgress,
-    [0.27, 0.36],
-    ['0vh', '-20vh']
-);
+    const brandLeftX = useTransform(scrollYProgress,
+        [0.23, 0.34],
+        ['0vw', '-3vw']
+    );
 
-const brandRightY = useTransform(scrollYProgress,
-    [0.27, 0.36],
-    ['0vh', '-20vh']
-);
+    const brandRightX = useTransform(scrollYProgress,
+        [0.23, 0.36],
+        ['0vw', '2vw']
+    );
+
+    const brandLeftY = useTransform(scrollYProgress,
+        [0.27, 0.36],
+        ['0vh', '-20vh']
+    );
+
+    const brandRightY = useTransform(scrollYProgress,
+        [0.27, 0.36],
+        ['0vh', '-20vh']
+    );
+
+    const cardOpacity = useTransform(scrollYProgress,
+        [0, 0.12],
+        [0, 1]
+    );
 
 
-// ===== TARJETAS =====
-const cardOpacity = useTransform(scrollYProgress,
-    [0, 0.12],
-    [0, 1]
-);
-
-
-    // Redirigir a URL externa GC
     const handleGoToSectionGC = () => {
         if (EXTERNAL_URL_GC !== '#') window.open(EXTERNAL_URL_GC, '_blank', 'noopener noreferrer');
     };
 
-    // Redirigir a URL externa AC
     const handleGoToSectionAC = () => {
         if (EXTERNAL_URL_AC !== '#') window.open(EXTERNAL_URL_AC, '_blank', 'noopener noreferrer');
     };
 
-    // Lightbox de video
-    const [activeVideo, setActiveVideo] = useState(null); // null | 'gc' | 'ac'
+    const [activeVideo, setActiveVideo] = useState(null);
 
 
     const [showIndicator, setShowIndicator] = useState(true);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setShowIndicator(latest < 0.); 
+        setShowIndicator(latest < 0.);
     });
 
 
@@ -153,7 +142,7 @@ const cardOpacity = useTransform(scrollYProgress,
             <div className="absolute top-[2vh] right-6.5 z-50">
                 <MainMenu />
             </div>
-            
+
             <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 pointer-events-auto">
                 <LanguageSelector alignment='left' />
             </div>
@@ -178,11 +167,11 @@ const cardOpacity = useTransform(scrollYProgress,
                         </div>
                     </div>
                 </div>
-            ) }
+            )}
 
-            
 
-            
+
+
 
             {/* ===== ESCENA STICKY ===== */}
             <div className="sticky top-0 h-screen w-full">
