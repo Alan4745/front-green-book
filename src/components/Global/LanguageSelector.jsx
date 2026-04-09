@@ -1,16 +1,18 @@
 import { useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
 const LANGS = [
-    { code: "en", label: "English" },
-    { code: "es", label: "Español" }
+    { code: "en", label: "English", region: "United States" },
+    { code: "es", label: "Español", region: "Guatemala" }
 ];
 
 const LanguageSelector = ({
     textColor = "#FFFFFF",
     buttonBg = "rgba(255,255,255,0.2)",
     menuBg = "rgba(255,255,255,0.2)",
-    alignment = "left"
+    alignment = "left",
+    inline = false
 }) => {
     const { i18n } = useTranslation();
     const [open, setOpen] = useState(false);
@@ -26,25 +28,28 @@ const LanguageSelector = ({
         [current]
     );
 
-    // Solo muestra los idiomas que NO están seleccionados
     const others = LANGS.filter((l) => l.code !== current);
 
     const handleSelect = (lang) => {
         i18n.changeLanguage(lang.code);
-        try { localStorage.setItem("lang", lang.code); } catch (_) {}
+        try {
+            localStorage.setItem("lang", lang.code);
+        } catch {
+            // localStorage can fail in restricted browser contexts.
+        }
         setOpen(false);
     };
 
-    const positionStyle = {
+    const positionStyle = inline ? {} : {
         position: "fixed",
         bottom: "2vh",
+        zIndex: 2147483646,
+        maxWidth: "calc(100vw - 16px)",
         ...(alignment === "left" ? { left: "1vw" } : { right: "1vw" })
     };
 
-    return (
+    const content = (
         <div style={positionStyle}>
-
-            {/* Botón unificado: label + flecha a la derecha */}
             <button
                 onClick={() => setOpen((v) => !v)}
                 aria-haspopup="listbox"
@@ -53,7 +58,7 @@ const LanguageSelector = ({
                 style={{ backgroundColor: buttonBg, color: textColor }}
                 className="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md hover:bg-white/30 transition"
             >
-                <span className="text-sm font-bold font-Gotham select-none">
+                <span className="text-sm font-bold font-Gotham select-none whitespace-nowrap">
                     {selected.label}
                 </span>
                 <svg
@@ -75,18 +80,22 @@ const LanguageSelector = ({
                 </svg>
             </button>
 
-            {/* Dropdown — solo aparecen los OTROS idiomas */}
             {open && (
                 <div
-                    className="absolute bottom-full left-0 mb-2 backdrop-blur-md rounded-xl shadow-lg z-50 min-w-max p-1"
+                    className="absolute bottom-full left-0 mb-2 backdrop-blur-md rounded-xl shadow-lg min-w-max p-1"
                     role="listbox"
-                    style={{ backgroundColor: menuBg, color: textColor }}
+                    style={{
+                        backgroundColor: menuBg,
+                        color: textColor,
+                        zIndex: 2147483646,
+                        ...(alignment === "right" ? { left: "auto", right: 0 } : {})
+                    }}
                 >
                     {others.map((lang) => (
                         <button
                             key={lang.code}
                             onClick={() => handleSelect(lang)}
-                            className="block px-4 py-2 rounded-md text-sm w-full text-left font-Gotham transition hover:bg-white/30"
+                            className="px-4 py-2 w-full text-sm font-bold font-Gotham transition hover:opacity-70"
                             role="option"
                             aria-selected={false}
                             style={{ color: textColor }}
@@ -98,6 +107,10 @@ const LanguageSelector = ({
             )}
         </div>
     );
+
+    // Portal al body para evitar problemas de stacking context en Safari iOS
+    if (inline || typeof document === "undefined") return content;
+    return createPortal(content, document.body);
 };
 
 export default LanguageSelector;

@@ -67,13 +67,13 @@ const Section1C3 = () => {
 
     return (
         <section
-            className="relative w-full min-h-screen bg-[#00B3BD]"
+            className="relative w-full min-h-screen bg-[#00B3BD] max-lg:min-h-0"
             role="region"
             aria-label={t("c3.section1.aria.section")}
         >
-            <div className="absolute inset-0 flex overflow-hidden">
+            <div className="absolute inset-0 flex overflow-hidden max-lg:relative max-lg:inset-auto max-lg:flex-col max-lg:overflow-visible">
                 {/* izquierda */}
-                <div className="h-full w-full lg:w-1/3 shrink-0">
+                <div className="h-full w-full lg:w-1/3 shrink-0 max-lg:h-[62vh]">
                     <ImageSlider
                         slides={slides}
                         aspect="h-full"
@@ -85,11 +85,11 @@ const Section1C3 = () => {
                 </div>
 
                 {/* derecha */}
-                <div className="hidden lg:flex flex-1 h-full">
+                <div className="flex flex-1 h-full max-lg:h-auto">
                     <div className="w-full h-full text-white flex flex-col">
-                        <div className="w-full p-20 flex items-start justify-start">
+                        <div className="w-full p-20 flex items-start justify-start min-[1024px]:max-[1200px]:p-10 max-lg:px-6 max-lg:py-8">
                             <p
-                                className={`${textSizeStart} max-w-[90vh]`}
+                                className={`${textSizeStart} max-w-[90vh] min-[1024px]:max-[1200px]:text-base max-lg:text-base max-lg:max-w-none`}
                                 style={{ fontFamily: "GothamNormal" }}
                             >
                                 {t("c3.section1.intro.start")}{" "}
@@ -100,12 +100,12 @@ const Section1C3 = () => {
                             </p>
                         </div>
 
-                        <div className="justify-center px-30">
+                        <div className="justify-center px-30 min-[1024px]:max-[1200px]:px-8 max-lg:px-6">
                             <SectionCircles />
                         </div>
 
                         <p
-                            className={`${textSizeEnd} max-w-[120vh] px-20 mt-20`}
+                            className={`${textSizeEnd} max-w-[120vh] px-20 mt-20 min-[1024px]:max-[1200px]:text-base min-[1024px]:max-[1200px]:px-10 min-[1024px]:max-[1200px]:mt-8 max-lg:text-base max-lg:max-w-none max-lg:px-6 max-lg:mt-8 max-lg:pb-10`}
                             style={{ fontFamily: "GothamNormal" }}
                         >
                             {t("c3.section1.outro.line1")}

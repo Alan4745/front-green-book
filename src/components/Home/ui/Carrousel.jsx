@@ -23,8 +23,23 @@ const Carrousel = () => {
     }, [t, i18n.resolvedLanguage]);
 
     const [startIndex, setStartIndex] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
 
-    const visibleCards = 4;
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Desktop (>=1024): valores originales exactos | Tablet (640-1023) | Móvil (<640)
+    const isDesktop = windowWidth >= 1024;
+    const isTablet = windowWidth >= 640 && windowWidth < 1024;
+
+    const visibleCards = isDesktop ? 4 : isTablet ? 2.5 : 2;
+    const mobileCardWidth = Math.floor((windowWidth - 32) * 0.65);
+    const tabletCardWidth = Math.floor((windowWidth * 0.85) / 2.5);
+    const cardWidth = isDesktop ? 220 : isTablet ? tabletCardWidth : mobileCardWidth;
+    const gap = isDesktop ? 75 : isTablet ? 20 : 12;
     const totalCards = cards.length;
 
     // 2) Siguiente / Anterior
@@ -46,14 +61,12 @@ const Carrousel = () => {
 
     // 4) Cálculos de UI
     const progress = ((startIndex + 1) / totalCards) * 100;
-    const cardWidth = 220;
-    const gap = 75; // 8vh approx
     const containerWidth = (cardWidth + gap) * visibleCards - gap;
     const slideOffset = (cardWidth + gap) * startIndex;
     const loopedCards = [...cards, ...cards]; // loop infinito
 
     return (
-        <div className="w-full flex flex-col items-start pl-[7vw] overflow-hidden">
+        <div className="w-full flex flex-col items-start pl-[7vw] max-lg:pl-[4vw] overflow-hidden">
         {/* Viewport ajustado dinámicamente */}
         <div className="overflow-hidden" style={{ width: `${containerWidth}px` }}>
             <div
@@ -64,7 +77,7 @@ const Carrousel = () => {
             }}
             >
             {loopedCards.map((card, index) => (
-                <div key={`${card.chapter}-${index}`} className="w-[220px] flex-shrink-0">
+                <div key={`${card.chapter}-${index}`} style={{ width: `${cardWidth}px` }} className="flex-shrink-0">
                     <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} />
                 </div>
             ))}
@@ -72,26 +85,26 @@ const Carrousel = () => {
         </div>
 
         {/* Navegación inferior */}
-        <div className="mt-6" style={{ width: `${containerWidth}px` }}>
-            <div className="flex items-center space-x-6">
+        <div className="mt-6 max-lg:mt-3" style={{ width: `${containerWidth}px` }}>
+            <div className="flex items-center space-x-6 max-lg:space-x-3">
             {/* Flechas */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 max-lg:space-x-2">
                 <button
                 onClick={handlePrev}
-                className="border border-white border-opacity-50 rounded-full p-3 bg-transparent hover:scale-110 transition"
+                className="border border-white border-opacity-50 rounded-full p-3 max-lg:p-2 bg-transparent hover:scale-110 transition"
                 aria-label={t("carrousel.prev", "Anterior")}
                 >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 max-lg:w-4 max-lg:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                 </svg>
                 </button>
 
                 <button
                 onClick={handleNext}
-                className="border border-white border-opacity-50 rounded-full p-3 bg-transparent hover:scale-110 transition"
+                className="border border-white border-opacity-50 rounded-full p-3 max-lg:p-2 bg-transparent hover:scale-110 transition"
                 aria-label={t("carrousel.next", "Siguiente")}
                 >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 max-lg:w-4 max-lg:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
                 </button>
@@ -108,8 +121,8 @@ const Carrousel = () => {
                 </div>
 
                 {/* Número con ajuste responsivo */}
-                <div 
-                    className="text-white leading-none ml-4 flex justify-center items-center" 
+                <div
+                    className="text-white leading-none ml-4 flex justify-center items-center"
                     style={{ fontFamily: "GothamBold", fontSize: "clamp(1.5rem, 2vw, 3rem)" }}
                 >
                     {String((startIndex % totalCards) + 1).padStart(2, "0")}

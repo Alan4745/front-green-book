@@ -32,11 +32,8 @@ const Section1C4 = () => {
         };
     }, []);
 
-    // Ajuste dinámico del tamaño de la fuente en el cuadro con fondo anaranjado
-    const introTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
-
-    // Ajuste dinámico del tamaño del texto de los títulos de cada cuadro
-    const titleTextSize = windowWidth > 1600 ? "text-2xl" : "text-xl"; // Texto más grande para pantallas grandes
+    const introTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : "text-[3.5vw]";
+    const titleTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : "text-[3vw]";
 
     // Keys para i18n
     const keys = {
@@ -67,23 +64,23 @@ const Section1C4 = () => {
 
     return (
         <section
-            className="relative w-full h-screen bg-[#000000]"
+            className="relative w-full min-h-screen lg:h-screen bg-[#000000]"
             role="region"
             aria-label={t(keys.aria.section)}
         >
             {/* Contenedor Grid */}
-            <div className="grid grid-cols-4 grid-rows-2 h-full">
+            <div className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:h-full">
                 {/* Primer cuadro con fondo anaranjado */}
-                <div className="relative bg-[#FF5200] h-[50vh] w-full flex items-center justify-center">
+                <div className="relative bg-[#FF5200] h-[50vw] lg:h-[50vh] w-full flex items-center justify-center">
                     <div className="text-left text-white">
-                        <p className={`w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
+                        <p className={`w-[85%] lg:w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.intro.text)}
                         </p>
                     </div>
                 </div>
 
                 {/* Imagen 1 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F1}
                         alt={t(keys.items.f1.alt)}
@@ -91,7 +88,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[20vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f1.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -105,7 +102,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 2 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F2}
                         alt={t(keys.items.f2.alt)}
@@ -113,7 +110,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[30vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f2.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -127,7 +124,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 3 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F3}
                         alt={t(keys.items.f3.alt)}
@@ -135,7 +132,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[25vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[25vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f3.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -149,7 +146,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 4 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F4}
                         alt={t(keys.items.f4.alt)}
@@ -157,7 +154,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-55"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[20vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[20vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f4.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -178,7 +175,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 5 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F5}
                         alt={t(keys.items.f5.alt)}
@@ -186,7 +183,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-55"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[40vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f5.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -206,7 +203,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 6 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F6}
                         alt={t(keys.items.f6.alt)}
@@ -214,7 +211,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[30vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[30vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f6.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
@@ -235,7 +232,7 @@ const Section1C4 = () => {
                 </div>
 
                 {/* Imagen 7 */}
-                <div className="relative h-[50vh] w-full">
+                <div className="relative h-[50vw] lg:h-[50vh] w-full">
                     <img
                         src={F7}
                         alt={t(keys.items.f7.alt)}
@@ -243,7 +240,7 @@ const Section1C4 = () => {
                         className="w-full h-full object-cover opacity-65"
                     />
                     <div className="absolute top-8 right-4 text-white">
-                        <p className={`text-2xl uppercase w-[40vh] text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <p className={`uppercase w-[40vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f7.title)}
                         </p>
                         <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>

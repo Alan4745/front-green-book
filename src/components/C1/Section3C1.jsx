@@ -21,8 +21,8 @@ const Section3C1 = () => {
             bgColor: "#852885",
             circleColor: "#852885",
             image: MapaS3,
-            imageWidth: "18vh",
-            imageHeight: "18vh",
+            imageWidth: "10vw",
+            imageHeight: "10vw",
             description: t("c1.section3.slides.1.desc")
         },
         {
@@ -35,8 +35,8 @@ const Section3C1 = () => {
             bgColor: "#EF7D00",
             circleColor: "#EF7D00",
             image: Porcent98,
-            imageWidth: "15vh",
-            imageHeight: "15vh",
+            imageWidth: "8vw",
+            imageHeight: "8vw",
             description: t("c1.section3.slides.3.desc")
         },
         {
@@ -61,7 +61,7 @@ const Section3C1 = () => {
             {/* Título */}
             <div className="flex justify-center items-center pt-20">
                 <h2
-                    className="text-white text-6xl font-bold tracking-wider text-center uppercase"
+                    className="text-white text-6xl font-bold tracking-wider text-center uppercase max-lg:text-3xl max-lg:px-4"
                     style={{ fontFamily: "GothamBold" }}
                 >
                     {t("c1.section3.title")}

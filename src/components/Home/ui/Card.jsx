@@ -14,11 +14,11 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chap
     return (
         <div
             style={backgroundStyle}
-            className={`h-105 w-70 flex flex-col justify-between p-4 shadow-md`}
+            className={`h-105 w-70 max-lg:h-[38vh] max-lg:w-full flex flex-col justify-between p-4 max-lg:p-3 shadow-md`}
         >
             {/* Text Section */}
             <div className="flex-grow flex items-center justify-center">
-                <h2 className="text-white text-[2.5vh] text-left leading-[1.15] mt-[15vh]" style={{ fontFamily: 'GothamBold' }}>
+                <h2 className="text-white text-[2.5vh] max-lg:text-[2vh] text-left leading-[1.15] mt-[15vh] max-lg:mt-[6vh]" style={{ fontFamily: 'GothamBold' }}>
                     {text}
                 </h2>
             </div>

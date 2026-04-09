@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(cmd /c \"handle64 \\\\\"c:\\\\Users\\\\Kevin\\\\Documents\\\\AnaCafe\\\\front-green-book\\\\.git\\\\index.lock\\\\\" 2>&1\")",
-      "Bash(cmd /c \"handle \\\\\"c:\\\\Users\\\\Kevin\\\\Documents\\\\AnaCafe\\\\front-green-book\\\\.git\\\\index.lock\\\\\" 2>&1\")"
+      "Bash(cmd /c \"handle \\\\\"c:\\\\Users\\\\Kevin\\\\Documents\\\\AnaCafe\\\\front-green-book\\\\.git\\\\index.lock\\\\\" 2>&1\")",
+      "Bash(grep -r \"colab\\\\|Colab\\\\|CoverColab\" src/App.jsx src/main.jsx src/router*)"
     ]
   }
 }

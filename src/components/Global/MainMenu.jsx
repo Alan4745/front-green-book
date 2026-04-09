@@ -53,29 +53,47 @@ const MENU = [
     const lng = i18n.resolvedLanguage || i18n.language || "es";
 
     return (
-        <div className=" z-50 fixed " ref={menuRef}>
+        <div className="z-50 fixed top-0 left-0 w-full pointer-events-none" ref={menuRef}>
         {/* Botón Hamburguesa */}
         <button
             onClick={() => setOpen((v) => !v)}
-            className="absolute top-6 right-6 flex flex-col space-y-1 cursor-pointer "
+            className="pointer-events-auto absolute top-6 right-6 flex flex-col space-y-1 cursor-pointer"
             aria-label={ariaLabel}
             aria-expanded={open}
             aria-controls="mainmenu-popover"
         >
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
-            <span className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"></span>
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    transform: open ? 'translateY(6px) rotate(45deg)' : 'none',
+                    transition: 'transform 0.3s ease'
+                }}
+            />
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    opacity: open ? 0 : 1,
+                    transition: 'opacity 0.25s ease'
+                }}
+            />
+            <span
+                className="w-6 h-[2px] bg-white block shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                style={{
+                    transform: open ? 'translateY(-6px) rotate(-45deg)' : 'none',
+                    transition: 'transform 0.3s ease'
+                }}
+            />
         </button>
 
         {/* Menú desplegable */}
         {open && (
             <div
             id="mainmenu-popover"
-            className="absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-[380px]"
+            className="pointer-events-auto absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[380px]"
             role="menu"
             >
             <ul
-                className="flex flex-col space-y-4 text-white text-sm text-right tracking-[0.08em]"
+                className="flex flex-col space-y-3 text-white text-xs text-right tracking-[0.08em] w-full"
                 style={{ fontFamily: "GothamNormal" }}
             >
                 {MENU.map(({ id, path }) => {
@@ -85,10 +103,10 @@ const MENU = [
 
                 const isActive = pathname === path;
                 return (
-                    <li key={id} className="transition">
+                    <li key={id} className="transition w-full text-right">
                     <button
                         onClick={() => handleNavigate(path)}
-                        className={`hover:font-semibold ${
+                        className={`w-full text-right hover:font-semibold ${
                         isActive ? "font-semibold" : "font-normal"
                         }`}
                         role="menuitem"

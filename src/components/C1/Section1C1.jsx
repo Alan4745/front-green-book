@@ -167,25 +167,26 @@ const Section1C1 = () => {
         if (typeof document === 'undefined') return null;
         return createPortal(
             <div
-                className="fixed inset-0 bg-black/80 flex items-center justify-center"
+                className="fixed inset-0 bg-black/80 flex items-center justify-center p-4"
                 role="dialog"
                 aria-modal="true"
                 aria-label={alt}
                 style={{ zIndex: 2147483647 }}
                 onClick={onClose}
             >
-            <CloseButton
-                onClick={onClose}
-                className="absolute top-4 right-7 text-white"
-                aria-label={alt}
-                title={alt}
-            />
+            <div className="absolute top-4 right-4 z-10" onClick={(e) => { e.stopPropagation(); onClose(); }}>
+                <CloseButton
+                    onClick={onClose}
+                    className="text-white"
+                    aria-label={alt}
+                    title={alt}
+                />
+            </div>
                 <div className="relative">
-                   
                     <img
                         src={src}
                         alt={alt}
-                        className="h-[90vh] w-auto object-contain"
+                        className="max-h-[85vh] max-w-[90vw] w-auto object-contain"
                         onClick={(e) => e.stopPropagation()}
                     />
                 </div>
@@ -195,11 +196,11 @@ const Section1C1 = () => {
     };
 
     return (
-        <div className="relative min-h-screen w-full flex bg-[#DA2F7D] bg-no-repeat bg-center bg-cover z-10">
-            {/* Contenido de la sección */}
-            <div className="relative w-full text-white">
+        <div className="relative min-h-screen w-full flex bg-[#DA2F7D] bg-no-repeat bg-center bg-cover z-10 max-lg:flex-col max-lg:min-h-0 max-lg:h-auto">
+            {/* === DESKTOP layout === */}
+            <div className="relative w-full text-white max-lg:hidden">
                 {/* Título "Altitud" en la esquina superior izquierda */}
-                <div className="absolute top-[30vh] left-[15vh]">
+                <div className="absolute top-[30vh] left-[8vw]">
                     <h3
                         className="text-3xl font-bold uppercase"
                         style={{ fontFamily: 'GothamBold' }}
@@ -209,7 +210,7 @@ const Section1C1 = () => {
                     {/* Número grande 01 como botón que redirige (con halo y glow magenta) */}
                     <motion.button
                         onClick={() => navigate('/c1/section4')}
-                        className="relative text-[30vh] font-bold opacity-30 mt-[-13vh] cursor-pointer transition-transform hover:scale-105"
+                        className="relative text-[17vw] font-bold opacity-30 mt-[-7vw] cursor-pointer transition-transform hover:scale-105"
                         style={{ fontFamily: 'GothamBold' }}
                         aria-label={t('c1.section1.left.ctaAria')}
                         title={t('c1.section1.left.ctaAria')}
@@ -232,7 +233,7 @@ const Section1C1 = () => {
                 </div>
 
                 {/* Título "Más de 300 microclimas" en la esquina superior derecha */}
-                <div className="absolute top-[30vh] right-[15vh] text-right">
+                <div className="absolute top-[30vh] right-[8vw] text-right">
                     <h3
                         className="text-3xl font-bold uppercase"
                         style={{ fontFamily: 'GothamBold' }}
@@ -241,7 +242,7 @@ const Section1C1 = () => {
                     </h3>
                     {/* Número grande 02 */}
                     <div
-                        className="text-[30vh] font-bold opacity-30 mt-[-17vh]"
+                        className="text-[17vw] font-bold opacity-30 mt-[-9vw]"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         02
@@ -249,7 +250,7 @@ const Section1C1 = () => {
                 </div>
 
                 {/* Texto descriptivo para Altitud */}
-                <div className="absolute top-[60vh] left-[15vh] max-w-[50vh]">
+                <div className="absolute top-[60vh] left-[8vw] max-w-[26vw]">
                     <p
                         className="text-[2vh] leading-relaxed"
                         style={{ fontFamily: 'GothamNormal' }}
@@ -260,7 +261,7 @@ const Section1C1 = () => {
                 </div>
 
                 {/* Texto descriptivo para Microclimas */}
-                <div className="absolute top-[60vh] right-[15vh] text-right">
+                <div className="absolute top-[60vh] right-[8vw] text-right">
                     <p
                         className="text-[2vh] leading-relaxed"
                         style={{ fontFamily: 'GothamNormal' }}
@@ -273,26 +274,22 @@ const Section1C1 = () => {
 
                 {/* Centro: dos tarjetas rectangulares (toca arriba y abajo) */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                    {/* 1) PRIMERA TARJETA -> imagen estática del .mov (zoom sutil centrado) */}
+                    {/* 1) PRIMERA TARJETA */}
                     <motion.div
-                        className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
+                        className="relative w-[34vw] h-[50vh] cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]"
                         style={{ willChange: 'transform' }}
                         whileHover={hoverAnim.withinHover}
                         whileTap={{ scale: 1.02 }}
                         {...hoverAnim}
                     >
-                        {/* Envolvente para recorte interno */}
-                        <div className="absolute inset-0 overflow-hidden rounded-none"  onClick={() => handleImageClick(vid2Poster || Img1Fallback)}  >
+                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(vid2Poster || Img1Fallback)}>
                             <img
                                 src={vid2Poster || Img1Fallback}
                                 alt={t('c1.section1.images.img1Alt')}
                                 className="w-full h-full object-cover select-none pointer-events-none"
                                 draggable={false}
-                                
                             />
                         </div>
-
-                        {/* ZoomButton en esquina inferior derecha */}
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div onClick={() => handleImageClick(vid2Poster || Img1Fallback)}>
                                 <ZoomButton />
@@ -300,9 +297,9 @@ const Section1C1 = () => {
                         </div>
                     </motion.div>
 
-                    {/* 2) SEGUNDA TARJETA -> IMAGEN (zoom sutil centrado) */}
+                    {/* 2) SEGUNDA TARJETA */}
                     <motion.div
-                        className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
+                        className="relative w-[34vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30 min-[1024px]:max-[1200px]:w-[30vw]"
                         style={{ willChange: 'transform' }}
                         whileHover={hoverAnim.withinHover}
                         whileTap={{ scale: 1.02 }}
@@ -316,14 +313,64 @@ const Section1C1 = () => {
                                 draggable={false}
                             />
                         </div>
-
-                        {/* ZoomButton en esquina inferior derecha */}
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div onClick={() => handleImageClick(Img2)}>
                                 <ZoomButton />
                             </div>
                         </div>
                     </motion.div>
+                </div>
+            </div>
+
+            {/* === MOBILE/TABLET layout === */}
+            <div className="hidden max-lg:flex flex-col text-white">
+                {/* Bloque 01 - Altitud: título+número izq, descripción der */}
+                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
+                    <div className="flex-shrink-0">
+                        <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>{t('c1.section1.left.title')}</h3>
+                        <motion.button
+                            onClick={() => navigate('/c1/section4')}
+                            className="relative text-[10vh] font-bold opacity-30 mt-[-2vh] cursor-pointer"
+                            style={{ fontFamily: 'GothamBold' }}
+                            {...ctaGlow}
+                        >01</motion.button>
+                    </div>
+                    <div className="flex items-center">
+                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                            {t('c1.section1.left.descLine1')} <br />{t('c1.section1.left.descLine2')}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Dos imágenes lado a lado */}
+                <div className="flex w-full">
+                    <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(vid2Poster || Img1Fallback)}>
+                        <img src={vid2Poster || Img1Fallback} alt={t('c1.section1.images.img1Alt')} className="w-full h-full object-cover" />
+                        <div className="absolute bottom-2 right-2">
+                            <ZoomButton />
+                        </div>
+                    </div>
+                    <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img2)}>
+                        <img src={Img2} alt={t('c1.section1.images.img2Alt')} className="w-full h-full object-cover" />
+                        <div className="absolute bottom-2 right-2">
+                            <ZoomButton />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bloque 02 - Microclimas: descripción izq, título+número der */}
+                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
+                    <div className="flex items-center flex-1">
+                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                            {t('c1.section1.right.descLine1')} <br />{t('c1.section1.right.descLine2')} <br />{t('c1.section1.right.descLine3')}
+                        </p>
+                    </div>
+                    <div className="flex-shrink-0 text-right">
+                        <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>
+                            {t('c1.section1.right.title.top')} <br /> {t('c1.section1.right.title.bottom')}
+                        </h3>
+                        <div className="text-[10vh] font-bold opacity-30 mt-[-2vh]" style={{ fontFamily: 'GothamBold' }}>02</div>
+                    </div>
                 </div>
             </div>
 

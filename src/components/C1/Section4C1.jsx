@@ -47,21 +47,21 @@ const Section4C1 = () => {
 
     return (
         <div
-            className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover z-10"
+            className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover z-10 max-lg:min-h-0 max-lg:flex max-lg:flex-col"
             style={{ backgroundImage: `url(${FS4})` }}
         >
             {/* CUADRO ROSADO EN LA ESQUINA INFERIOR IZQUIERDA */}
-            <div className="absolute bottom-0 left-0 bg-[#DA2F7D] w-[80vh] h-[60vh] px-10 flex flex-col justify-between py-10">
+            <div className="absolute bottom-0 left-0 bg-[#DA2F7D] w-[45vw] h-[60vh] px-10 flex flex-col justify-between py-10 max-lg:relative max-lg:w-full max-lg:h-auto max-lg:px-[5vw] max-lg:py-[4vh]">
                 <div className="pt-2">
                     <img
                         src={IconoMontaña}
                         alt={t(keys.alts.icon)}
-                        className="w-[8vh] h-[8vh]"
+                        className="w-[8vh] h-[8vh] max-lg:w-[6vh] max-lg:h-[6vh]"
                     />
                 </div>
-                <div className="pb-2">
+                <div className="pb-2 max-lg:pt-[2vh]">
                     <h3
-                        className="text-white text-[5vh] uppercase leading-snug"
+                        className="text-white text-[5vh] uppercase leading-snug max-lg:text-[3vh]"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t(keys.titles.pinkTop)}<br />{t(keys.titles.pinkBottom)}
@@ -71,7 +71,7 @@ const Section4C1 = () => {
 
             {/* CUADRO BLANCO DE "REPRODUCE EL VIDEO" */}
             <div
-                className="absolute top-[40vh] left-[70vh] bg-white w-[22vh] h-[22vh] flex shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+                className="absolute top-[40vh] left-[39vw] bg-white w-[12vw] h-[12vw] flex shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300 max-lg:relative max-lg:top-auto max-lg:left-auto max-lg:mx-[5vw] max-lg:my-[3vh] max-lg:w-[25vw] max-lg:h-[25vw] max-sm:w-[35vw] max-sm:h-[35vw]"
                 onClick={openVideo}
                 role="button"
                 tabIndex={0}
@@ -81,7 +81,7 @@ const Section4C1 = () => {
             >
                 <div className="relative w-full h-full p-4">
                     <p
-                        className="text-black text-[2vh] text-left uppercase"
+                        className="text-black text-[2vh] text-left uppercase max-lg:text-[1.5vh]"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.titles.playTop)}<br />{t(keys.titles.playBottom)}
@@ -89,13 +89,13 @@ const Section4C1 = () => {
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/0/375.png"
                         alt={t(keys.alts.play)}
-                        className="absolute bottom-4 right-4 w-[3.5vh] h-[3.5vh]"
+                        className="absolute bottom-4 right-4 w-[3.5vh] h-[3.5vh] max-lg:w-[2.5vh] max-lg:h-[2.5vh]"
                     />
                 </div>
             </div>
 
             {/* BOTÓN DE REGRESO */}
-            <div className="absolute top-10 left-10 z-20">
+            <div className="absolute top-10 left-10 z-20 max-lg:top-4 max-lg:left-4">
                 <BackButton onClick={() => window.history.back()} />
             </div>
 

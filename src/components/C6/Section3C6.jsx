@@ -111,11 +111,50 @@ const Section3C6 = () => {
 
     return (
         <div
-            className="relative min-h-screen w-full flex bg-[#00AE43] bg-no-repeat bg-center bg-cover z-10"
+            className="relative w-full bg-[#00AE43] bg-no-repeat bg-center bg-cover z-10 lg:flex lg:min-h-screen"
             role="region"
             aria-label={t("c6.section3.aria.section")}
         >
-            {/* Contenido de la sección */}
+            {/* ===== MOBILE LAYOUT ===== */}
+            <div className="lg:hidden flex flex-col text-white">
+                {/* Bloque 05 */}
+                <div className="relative px-6 pt-8 pb-4">
+                    <div className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none" style={{ fontFamily: "GothamBold" }}>05</div>
+                    <h3 className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]" style={{ fontFamily: "GothamBold" }}>
+                        {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
+                    </h3>
+                    <p className="text-[3.8vw] md:text-[2.5vw] leading-relaxed mt-4" style={{ fontFamily: "GothamNormal" }}>
+                        {t("c6.section3.left.desc.line1")} <br />
+                        {t("c6.section3.left.desc.line2")} <br />
+                        {t("c6.section3.left.desc.line3")}
+                    </p>
+                    <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img1)}>
+                        <img src={Img1} alt={t("c6.section3.images.img1Alt")} title={t("c6.section3.images.img1Alt")}
+                            className="w-full h-[60vw] md:h-[45vw] object-cover select-none" draggable={false} />
+                        <div className="absolute bottom-4 right-4"><ZoomButton /></div>
+                    </div>
+                </div>
+
+                {/* Bloque 06 */}
+                <div className="relative px-6 pt-4 pb-8">
+                    <div className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none text-right" style={{ fontFamily: "GothamBold" }}>06</div>
+                    <h3 className="text-[6vw] md:text-[4vw] font-bold uppercase text-right mt-[-7vw] md:mt-[-4vw]" style={{ fontFamily: "GothamBold" }}>
+                        {t("c6.section3.right.title.top")} <br /> {t("c6.section3.right.title.bottom")}
+                    </h3>
+                    <p className="text-[3.8vw] md:text-[2.5vw] leading-relaxed mt-4 text-right" style={{ fontFamily: "GothamNormal" }}>
+                        {t("c6.section3.right.desc.pre")}
+                        {t("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
+                    </p>
+                    <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img2)}>
+                        <img src={Img2} alt={t("c6.section3.images.img2Alt")} title={t("c6.section3.images.img2Alt")}
+                            className="w-full h-[60vw] md:h-[45vw] object-cover select-none" draggable={false} />
+                        <div className="absolute bottom-4 right-4"><ZoomButton /></div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== DESKTOP LAYOUT (blindado) ===== */}
+            <div className="hidden lg:flex lg:w-full">
             <div className="relative w-full text-white">
                 {/* Título izquierda */}
                 <div className={`absolute ${titlePosition} ${leftTitlePosition}`}>
@@ -221,6 +260,7 @@ const Section3C6 = () => {
                     </motion.div>
                 </div>
             </div>
+            </div>{/* cierre desktop wrapper */}
 
             {/* Modal para imagen ampliada */}
             {selectedImage && (

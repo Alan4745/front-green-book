@@ -97,47 +97,92 @@ const Section1C5 = () => {
 
     return (
         <div
-            className="relative min-h-screen w-full flex bg-[#562E91] bg-no-repeat bg-center bg-cover items-center justify-center"
+            className="relative min-h-screen w-full bg-[#562E91] bg-no-repeat bg-center bg-cover lg:flex lg:items-center lg:justify-center"
             role="region"
             aria-label={t('c5.section1.aria.section')}
         >
-            {/* Botón de hover con link */}
-            <div className={`absolute top-6 ${marginRightButton} z-50`}>
-                <HoverButton
-                    text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
-                    textOffset={-80}
-                    hoverOffset={30}
-                    link="https://reservasdeguatemala.org/"
-                />
+            {/* ===== MOBILE LAYOUT ===== */}
+            <div className="lg:hidden flex flex-col px-6 pt-16 pb-8 text-white">
+                {/* HoverButton dentro del viewport */}
+                <div className="absolute top-6 right-4 z-50">
+                    <HoverButton
+                        text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
+                        textOffset={-80}
+                        hoverOffset={30}
+                        link="https://reservasdeguatemala.org/"
+                    />
+                </div>
+
+                {/* Título */}
+                <h2
+                    className="text-[6vw] md:text-[4vw] uppercase mb-3"
+                    style={{ fontFamily: 'GothamBold' }}
+                >
+                    {t('c5.section1.title')}
+                </h2>
+
+                {/* Intro */}
+                <p
+                    className="text-[3.8vw] md:text-[2.5vw] text-justify mb-6"
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
+                    {t('c5.section1.intro')}
+                </p>
+
+                {/* Slider — 1 card */}
+                <div className="w-full flex justify-center">
+                    <BigSlider slides={slidesData} onExpandClick={openLightbox} />
+                </div>
+
+                {/* Outro */}
+                <p
+                    className="text-[3.8vw] md:text-[2.5vw] text-justify mt-6"
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
+                    {t('c5.section1.outro')}
+                </p>
             </div>
 
-            {/* Título */}
-            <h2
-                className={`absolute left-[43.2vw] text-white text-[5vh] uppercase ${marginTopTitle}`}
-                style={{ fontFamily: 'GothamBold' }}
-            >
-                {t('c5.section1.title')}
-            </h2>
+            {/* ===== DESKTOP LAYOUT (blindado) ===== */}
+            <div className="hidden lg:block w-full h-full">
+                {/* Botón de hover con link */}
+                <div className={`absolute top-6 ${marginRightButton} z-50`}>
+                    <HoverButton
+                        text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
+                        textOffset={-80}
+                        hoverOffset={30}
+                        link="https://reservasdeguatemala.org/"
+                    />
+                </div>
 
-            {/* Intro */}
-            <p
-                className={`absolute w-[30%] text-justify text-white text-[2.2vh] ${marginTopDesc} left-[43.2vw]`}
-                style={{ fontFamily: 'GothamNormal' }}
-            >
-                {t('c5.section1.intro')}
-            </p>
+                {/* Título */}
+                <h2
+                    className={`absolute left-[43.2vw] text-white text-[5vh] uppercase ${marginTopTitle}`}
+                    style={{ fontFamily: 'GothamBold' }}
+                >
+                    {t('c5.section1.title')}
+                </h2>
 
-            {/* Outro */}
-            <p
-                className={`relative w-[35%] text-justify text-white text-[2.2vh] ${marginTopOutro} left-[11vw] mb-10`}
-                style={{ fontFamily: 'GothamNormal' }}
-            >
-                {t('c5.section1.outro')}
-            </p>
+                {/* Intro */}
+                <p
+                    className={`absolute w-[30%] text-justify text-white text-[2.2vh] ${marginTopDesc} left-[43.2vw]`}
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
+                    {t('c5.section1.intro')}
+                </p>
 
-            {/* Slider */}
-            <div className="absolute bottom-[4vh] w-full flex justify-center">
-                <BigSlider slides={slidesData} onExpandClick={openLightbox} />
+                {/* Outro */}
+                <p
+                    className={`relative w-[35%] text-justify text-white text-[2.2vh] ${marginTopOutro} left-[11vw] mb-10`}
+                    style={{ fontFamily: 'GothamNormal' }}
+                >
+                    {t('c5.section1.outro')}
+                </p>
+
+                {/* Slider */}
+                <div className="absolute bottom-[4vh] w-full flex justify-center">
+                    <BigSlider slides={slidesData} onExpandClick={openLightbox} />
+                </div>
             </div>
 
             {/* Lightbox */}

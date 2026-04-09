@@ -50,7 +50,7 @@ const CoverC7 = () => {
               <button
                 type="button"
                 onClick={togglePlayPause}
-                className="absolute top-6 left-6 z-30 p-2 hover:bg-white/10 rounded-full transition-colors"
+                className="absolute top-6 left-6 md:top-8 md:left-8 z-30 p-2 hover:bg-white/10 rounded-full transition-colors"
                 title={isPlaying ? t('colab.gc.controls.pause') : t('colab.gc.controls.play')}
                 aria-label={isPlaying ? t('colab.gc.controls.pause') : t('colab.gc.controls.play')}
             >
@@ -78,7 +78,7 @@ const CoverC7 = () => {
             </button>
 
             {cerrarCartel && 
-              <div className='bg-[#ffffffcc] h-44 text-black p-10 w-1/2 flex flex-col items-start gap-5 absolute bottom-0 left-0  z-20'>
+              <div className='bg-[#ffffffcc] text-black p-6 sm:p-8 md:p-10 w-[calc(100vw-2rem)] sm:w-[80vw] md:w-1/2 max-w-3xl flex flex-col items-start gap-5 absolute bottom-0 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 z-20'>
                 <p className=' ' >{t('colab.gc.overlay.text')}</p>
                 <button className='font-bold underline text-gray-500 cursor-pointer'>{t('colab.gc.overlay.cta')}</button>
                 <button className="cursor-pointer absolute top-2 right-2 h-10 w-10 rounded-full bg-white/50 hover:bg-white/40 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white grid place-items-center"
@@ -97,10 +97,10 @@ const CoverC7 = () => {
             }
           </div>
         
-           <div className="absolute bottom-[5vh] right-6 z-50">
+           <div className="absolute bottom-[5vh] right-6 md:right-8 z-50">
               <LanguageSelector alignment='right' />
            </div>
-          <div className="absolute top-[2vh] right-0 z-50">
+          <div className="absolute top-[2vh] right-0 md:top-[2vh] md:right-0 z-50">
               <MainMenu />
           </div>
           <div className=' w-full flex justify-center'>
