@@ -27,7 +27,7 @@ const CoverC3 = () => {
                 <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[9vw] leading-[1.1] max-w-[65vw] uppercase"
+                            className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c3.cover.title.top")} <br /> {t("c3.cover.title.bottom")}
@@ -42,7 +42,7 @@ const CoverC3 = () => {
 
                     <div className="pl-4 mt-[8vh]">
                         <h3
-                            className="text-white text-[4.5vw] uppercase"
+                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c3.cover.subtitle")}
@@ -82,7 +82,7 @@ const CoverC3 = () => {
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c3.cover.alts.greenBook")}
                         title={t("c3.cover.alts.greenBook")}
-                        className="w-[35vw] h-auto lg:w-[22vh]"
+                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
                 </Link>

@@ -336,7 +336,7 @@ const Section1C1 = () => {
                         >01</motion.button>
                     </div>
                     <div className="flex items-center">
-                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section1.left.descLine1')} <br />{t('c1.section1.left.descLine2')}
                         </p>
                     </div>
@@ -361,7 +361,7 @@ const Section1C1 = () => {
                 {/* Bloque 02 - Microclimas: descripción izq, título+número der */}
                 <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
                     <div className="flex items-center flex-1">
-                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section1.right.descLine1')} <br />{t('c1.section1.right.descLine2')} <br />{t('c1.section1.right.descLine3')}
                         </p>
                     </div>

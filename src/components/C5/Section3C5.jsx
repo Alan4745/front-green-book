@@ -63,7 +63,7 @@ const Section3C5 = () => {
             <div className="lg:hidden flex flex-col">
 
                 {/* Sección 1 - INSECTOS */}
-                <div className="relative w-full h-[70vw] md:h-[50vw] bg-black">
+                <div className="relative w-full h-[70vw] sm:h-[55vw] md:h-[45vw] bg-black">
                     <div
                         className="absolute w-full h-full bg-cover bg-center opacity-40"
                         style={{ backgroundImage: `url(${F1})` }}
@@ -91,7 +91,7 @@ const Section3C5 = () => {
                 </div>
 
                 {/* Sección 2 - AVES MIGRATORIAS */}
-                <div className="relative w-full h-[70vw] md:h-[50vw] bg-black">
+                <div className="relative w-full h-[70vw] sm:h-[55vw] md:h-[45vw] bg-black">
                     <div
                         className="absolute w-full h-full bg-cover bg-center opacity-40"
                         style={{ backgroundImage: `url(${F2})` }}

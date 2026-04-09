@@ -290,7 +290,7 @@ const Section1C2 = () => {
                         <div className="text-[10vh] font-bold opacity-30 mt-[-2vh]" style={{ fontFamily: 'GothamBold' }}>03</div>
                     </div>
                     <div className="flex items-center">
-                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')} <br />{t('c1.section2.left.descLine3')}
                         </p>
                     </div>
@@ -315,7 +315,7 @@ const Section1C2 = () => {
                 {/* Bloque 04 */}
                 <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
                     <div className="flex items-center flex-1">
-                        <p className="text-[1.8vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
+                        <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section2.right.descLine1')} <br />{t('c1.section2.right.descLine2')}
                         </p>
                     </div>

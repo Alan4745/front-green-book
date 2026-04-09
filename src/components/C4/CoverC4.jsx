@@ -32,7 +32,7 @@ const CoverC4 = () => {
                     {/* Row: solo h2 + número, centrados entre sí */}
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[9vw] leading-[1.1] max-w-[65vw] uppercase"
+                            className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
@@ -48,7 +48,7 @@ const CoverC4 = () => {
                     {/* Subtítulo y línea — debajo del row */}
                     <div className="pl-4 mt-[8vh]">
                         <h3
-                            className="text-white text-[4.5vw] uppercase"
+                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c4.cover.subtitle.line1")} <br /> {t("c4.cover.subtitle.line2")}
@@ -91,7 +91,7 @@ const CoverC4 = () => {
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c4.cover.alts.greenBook")}
                         title={t("c4.cover.alts.greenBook")}
-                        className="w-[35vw] h-auto lg:w-[22vh]"
+                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
                 /</Link>
