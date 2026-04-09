@@ -21,30 +21,6 @@ const Section2C6 = () => {
         setSelectedImage(null);
     };
 
-    // Estado para el tamaño de la ventana
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // Ajuste dinámico del tamaño de los textos (título y descripción)
-    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-2xl"; // Título más grande para pantallas grandes
-    const descriptionTextSize = windowWidth > 1600 ? "text-xl" : "text-base"; // Descripción más grande para pantallas grandes
-
-    // Ajuste dinámico de las posiciones
-    const titlePosition = windowWidth > 1600 ? "top-[30vh]" : "top-[20vh]";
-    const rightTitlePosition = windowWidth > 1600 ? "right-[15vh]" : "right-[10vh]";
-    const leftTitlePosition = windowWidth > 1600 ? "left-[15vh]" : "left-[10vh]";
-
-    const descriptionTop = windowWidth > 1600 ? "top-[60vh]" : "top-[50vh]"; // Ajustar la posición
-    const descriptionLeft = windowWidth > 1600 ? "left-[15vh]" : "left-[10vh]"; // Ajustar la posición
-    const descriptionRight = windowWidth > 1600 ? "right-[15vh]" : "right-[10vh]"; // Ajustar la posición
-
     // 🔒 Bloqueo de scroll del body cuando el lightbox está abierto (robusto: position: fixed + top)
     useEffect(() => {
         if (!selectedImage) return;
@@ -158,8 +134,8 @@ const Section2C6 = () => {
             <div className="hidden lg:flex lg:w-full">
             <div className="relative w-full text-white">
                 {/* Título izquierda */}
-                <div className={`absolute ${titlePosition} ${leftTitlePosition}`}>
-                    <h3 className={`${titleTextSize} font-bold uppercase`} style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] left-[10vh] min-[1600px]:left-[15vh]">
+                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section2.left.title.top")} <br /> {t("c6.section2.left.title.bottom")}
                     </h3>
                     {/* Número grande 03 */}
@@ -169,8 +145,8 @@ const Section2C6 = () => {
                 </div>
 
                 {/* Título derecha */}
-                <div className={`absolute ${titlePosition} ${rightTitlePosition} text-right`}>
-                    <h3 className={`${titleTextSize} font-bold uppercase`} style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] right-[10vh] min-[1600px]:right-[15vh] text-right">
+                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section2.right.title.top")} <br /> {t("c6.section2.right.title.bottom")}
                     </h3>
                     {/* Número grande 04 */}
@@ -180,8 +156,8 @@ const Section2C6 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className={`absolute ${descriptionTop} ${descriptionLeft} max-w-[40vh]`}>
-                    <p className={`${descriptionTextSize} leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] left-[10vh] min-[1600px]:left-[15vh] max-w-[40vh]">
+                    <p className="text-base min-[1600px]:text-xl leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section2.left.desc.line1")} <br />
                         {t("c6.section2.left.desc.line2")} <br />
                         {t("c6.section2.left.desc.line3")}
@@ -189,8 +165,8 @@ const Section2C6 = () => {
                 </div>
 
                 {/* Texto descriptivo derecha */}
-                <div className={`absolute ${descriptionTop} ${descriptionRight} text-right max-w-[50vh]`}>
-                    <p className={`${descriptionTextSize} leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] right-[10vh] min-[1600px]:right-[15vh] text-right max-w-[50vh]">
+                    <p className="text-base min-[1600px]:text-xl leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section2.right.desc.line1")} <br />
                         {t("c6.section2.right.desc.line2")} <br />
                         {t("c6.section2.right.desc.line3")}

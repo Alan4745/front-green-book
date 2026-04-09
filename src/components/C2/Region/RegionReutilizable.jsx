@@ -306,7 +306,7 @@ if (!region) {
 
                 {/* Descripción */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20 min-[1024px]:max-[1200px]:bottom-[28vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:bottom-[14vh] max-lg:text-[1.8vh]"
+                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20 min-[1024px]:max-[1200px]:bottom-[28vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:bottom-[14vh] max-lg:text-[1.8vh] max-lg:landscape:text-xs"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
@@ -374,7 +374,7 @@ if (!region) {
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
                 >
                     <ul
-                        className="space-y-2 text-[2.3vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:text-[1.8vh]"
+                        className="space-y-2 text-[2.3vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:text-[1.8vh] max-lg:landscape:text-xs"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         <motion.li
