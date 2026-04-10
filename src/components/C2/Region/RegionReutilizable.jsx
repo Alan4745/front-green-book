@@ -265,7 +265,7 @@ if (!region) {
     return (
         <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto max-lg:landscape:flex-row max-lg:landscape:h-screen">
             {/* Columna izquierda con imagen y overlay */}
-            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
+            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh] min-[768px]:max-[1023px]:h-[50vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
                 {/* Imagen de fondo con animación */}
                 <motion.img
                     key={`bg-${tipo}-${isActive}`}//FUERZA EL INICIO DE LA ANIMACION AL CAMBIAR isActive
@@ -289,7 +289,7 @@ if (!region) {
 
                 {/* Logo región  — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-1/2 -translate-x-1/2 z-20 will-change-transform max-lg:top-[18vh]"
+                    className="absolute top-[30vh] left-1/2 -translate-x-1/2 z-20 will-change-transform min-[768px]:max-[1023px]:hidden max-lg:top-[18vh]"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -306,7 +306,7 @@ if (!region) {
 
                 {/* Descripción */}
                 <motion.p
-                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20 min-[1024px]:max-[1200px]:bottom-[28vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:bottom-[14vh] max-lg:text-[1.8vh] max-lg:landscape:text-xs"
+                    className="absolute bottom-[34vh] left-[2%] w-full text-center text-white text-[2.3vh] z-20 min-[1024px]:max-[1200px]:bottom-[28vh] min-[1024px]:max-[1200px]:text-[2vh] min-[768px]:max-[1023px]:hidden max-lg:bottom-[14vh] max-lg:text-[1.8vh] max-lg:landscape:text-xs"
                     style={{ fontFamily: 'GothamNormal' }}
                     variants={descVariants}
                     initial="hidden"
@@ -317,6 +317,35 @@ if (!region) {
                 </motion.p>
 
                 {/* Botón de zoom */}
+                <div className="absolute left-1/2 top-1/2 z-20 hidden w-[86%] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center min-[768px]:max-[1023px]:flex" style={{ rowGap: '10px' }}>
+                    <motion.div
+                        className="will-change-transform"
+                        style={{ transformOrigin: '50% 100%' }}
+                        variants={logoMotion}
+                        initial="hidden"
+                        animate={shouldAnimate && bgReady ? 'show' : 'hidden'}
+                    >
+                        <img
+                            src={region.logo}
+                            alt={t(keys.alts.regionLogo)}
+                            title={t(keys.alts.regionLogo)}
+                            className="w-[19vh] h-auto select-none"
+                            draggable={false}
+                        />
+                    </motion.div>
+
+                    <motion.p
+                        className="w-full text-center text-white text-[2.1vh]"
+                        style={{ fontFamily: 'GothamNormal' }}
+                        variants={descVariants}
+                        initial="hidden"
+                        animate={shouldAnimate ? 'show' : 'hidden'}
+                    >
+                        {t(keys.desc.l1)} <br />
+                        {t(keys.desc.l2)}
+                    </motion.p>
+                </div>
+
                 <div className="absolute bottom-[3vh] right-[3vh] z-20">
                     <div
                         onClick={() => setShowZoom(true)}
@@ -337,7 +366,7 @@ if (!region) {
             <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[70vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] max-lg:left-[8%] max-lg:h-[80%]"
+                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[10%] min-[768px]:max-[1023px]:left-[14%] min-[768px]:max-[1023px]:h-[52%] max-lg:left-[8%] max-lg:h-[80%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
@@ -361,20 +390,20 @@ if (!region) {
                         src={region.grafica[lang] || region.grafica.es}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
-                        className="w-[100vh] h-auto object-contain scale-125 min-[1024px]:max-[1200px]:scale-100 max-lg:scale-95"
+                        className="w-[100vh] h-auto object-contain scale-125 min-[1024px]:max-[1200px]:scale-100 min-[768px]:max-[1023px]:scale-175 max-lg:scale-95"
                         style={{ width: '100%', height: '100%' }}
                     />
                 </motion.div>
 
                 {/* Lista de características */}
                 <motion.div
-                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] max-lg:bottom-[5vh] max-lg:left-[8%]"
+                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[24vh] min-[768px]:max-[1023px]:left-[14%] max-lg:bottom-[5vh] max-lg:left-[8%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
                 >
                     <ul
-                        className="space-y-2 text-[2.3vh] min-[1024px]:max-[1200px]:text-[2vh] max-lg:text-[1.8vh] max-lg:landscape:text-xs"
+                        className="space-y-2 text-[2.8vh] min-[1024px]:max-[1200px]:text-[2.3vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         <motion.li
@@ -383,7 +412,7 @@ if (!region) {
                             animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
                             transition={{ duration: 0.6, delay: 3.2 }}
                         >
-                            <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
+                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
                             {t(keys.features.f1)}
                         </motion.li>
                         <motion.li
@@ -392,7 +421,7 @@ if (!region) {
                             animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
                             transition={{ duration: 0.6, delay: 3.4 }}
                         >
-                            <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
+                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
                             {t(keys.features.f2)}
                         </motion.li>
                         <motion.li
@@ -401,7 +430,7 @@ if (!region) {
                             animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
                             transition={{ duration: 0.6, delay: 3.6 }}
                         >
-                            <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)}  inline-block`}></span>
+                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)}  inline-block`}></span>
                             {t(keys.features.f3)}
                         </motion.li>
                         {i18n.exists(keys.features.f4) && (
@@ -411,12 +440,13 @@ if (!region) {
                             animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
                             transition={{ duration: 0.6, delay: 3.8 }}
                         >
-                            <span className={`w-[1.2vh] h-[1.2vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
+                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
                             {t(keys.features.f4)}
                         </motion.li>
                         )}
                     </ul>
                 </motion.div>
+
             </div>
 
             {/* Modal zoom */}
