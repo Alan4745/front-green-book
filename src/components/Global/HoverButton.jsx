@@ -1,30 +1,32 @@
 import { useState } from "react";
 import { useTransitionNavigate } from "./PageTransition";
 
-const HoverButton = ({ 
-    text = "Hover Me", 
-    textOffset = -120, 
-    hoverOffset = -10, 
-    link,   // 🌍 Link externo/interno
-    to,     // 🔄 Navegación React Router
-    color = "white" 
+const HoverButton = ({
+    text = "Hover Me",
+    textOffset = -120,
+    hoverOffset = -10,
+    link,
+    to,
+    color = "white",
+    iconSide = "left",
+    className = "",
+    animateText = true,
+    hoverTrigger = "container"
 }) => {
     const [hover, setHover] = useState(false);
     const navigate = useTransitionNavigate();
-
-    // Detectamos si el link es externo
     const isExternal = link?.startsWith("http://") || link?.startsWith("https://");
+    const isIconRight = iconSide === "right";
+    const iconOnlyHover = hoverTrigger === "icon";
 
-    // 🔥 Contraste automático
     const getContrastColor = (bgColor) => {
-        return (bgColor?.toLowerCase() === "white" || bgColor === "#fff" || bgColor === "#ffffff")
+        return bgColor?.toLowerCase() === "white" || bgColor === "#fff" || bgColor === "#ffffff"
             ? "black"
             : "white";
     };
 
     const iconColor = getContrastColor(color);
 
-    // 🖱️ Acción al hacer click
     const handleClick = (e) => {
         if (to) {
             e.preventDefault();
@@ -32,41 +34,65 @@ const HoverButton = ({
         }
     };
 
+    const handleHoverStart = () => setHover(true);
+    const handleHoverEnd = () => setHover(false);
+
+    const anchorStyle = { color };
+
     return (
         <a
             href={link || (to ? "#" : undefined)}
             {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
             onClick={handleClick}
             role="link"
-            className="relative flex items-center justify-center flex-row w-[400px] h-[120px] text-[2vh] tracking-wide no-underline transition-all duration-300 cursor-pointer"
-            style={{ color: color }}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
+            className={`relative flex h-[120px] w-[400px] items-center gap-4 text-[2vh] tracking-wide no-underline transition-all duration-300 cursor-pointer ${isIconRight ? "justify-end" : "justify-start"} ${className}`}
+            style={anchorStyle}
+            onMouseEnter={iconOnlyHover ? undefined : handleHoverStart}
+            onMouseLeave={iconOnlyHover ? undefined : handleHoverEnd}
         >
-            {/* Círculo de borde */}
+            <span
+                className="flex items-center transition-all duration-300"
+                style={{
+                    fontFamily: "GothamNormal",
+                    marginLeft: !isIconRight && animateText && hover ? `${hoverOffset}px` : "0px",
+                    marginRight: isIconRight && animateText && hover ? `${hoverOffset}px` : "0px",
+                    whiteSpace: "pre-line",
+                    lineHeight: "1.3",
+                    textAlign: isIconRight ? "right" : "left"
+                }}
+            >
+                {text}
+            </span>
+
             <div
-                className={`absolute top-[25px] left-[10px] w-[60px] h-[60px] rounded-full border transition-all duration-300 flex items-center justify-center ${
+                className={`relative flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                     hover ? "scale-0" : "scale-100"
                 }`}
-                style={{ borderColor: color }}
-                >
-                {/* The Chevron */}
-                <span 
-                    className="w-[15px] h-[15px] border-t-2 border-r-2 transform rotate-225 translate-x-[4px]"
+                style={{ borderColor: color, order: isIconRight ? 2 : 0 }}
+                onMouseEnter={iconOnlyHover ? handleHoverStart : undefined}
+                onMouseLeave={iconOnlyHover ? handleHoverEnd : undefined}
+            >
+                <span
+                    className={`h-[15px] w-[15px] border-t-2 border-r-2 transform ${isIconRight ? "rotate-45 -translate-x-[4px]" : "rotate-225 translate-x-[4px]"}`}
                     style={{ borderColor: color }}
-                ></span>
+                />
             </div>
 
-            {/* Círculo sólido con ícono */}
             <div
-                className={`absolute top-[25px] left-[10px] w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-300 ${
+                className={`absolute flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                     hover ? "scale-100" : "scale-0"
                 }`}
-                style={{ backgroundColor: color }}
+                style={{
+                    backgroundColor: color,
+                    right: isIconRight ? 0 : "auto",
+                    left: isIconRight ? "auto" : 0
+                }}
+                onMouseEnter={iconOnlyHover ? handleHoverStart : undefined}
+                onMouseLeave={iconOnlyHover ? handleHoverEnd : undefined}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8"
+                    className="h-8 w-8"
                     fill="none"
                     stroke={iconColor}
                     viewBox="0 0 24 24"
@@ -75,19 +101,6 @@ const HoverButton = ({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
             </div>
-
-            {/* Texto */}
-            <span
-                className="transition-all duration-300 -mt-[1.5vh]"
-                style={{
-                    fontFamily: "GothamNormal",
-                    marginLeft: hover ? `${hoverOffset}px` : `${textOffset}px`,
-                    whiteSpace: "pre-line",
-                    lineHeight: "1.3"
-                }}
-            >
-                {text}
-            </span>
         </a>
     );
 };

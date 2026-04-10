@@ -6,7 +6,7 @@ import Card from './Card';
 const AUTOPLAY_DELAY = 6000;
 const TRANSITION_TIME = 700;
 
-const BigSlider = ({ slides = [], onExpandClick = null }) => {
+const BigSlider = ({ slides = [], onExpandClick = null, renderDesktop = null }) => {
     const totalSlides = slides.length;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
@@ -66,6 +66,17 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
         active: 'left-1/2 -translate-x-1/2 scale-100 opacity-100',
         next: 'left-1/2 -translate-x-[4%] scale-[0.82] opacity-75'
     };
+    const desktopControls = {
+        activeSlide,
+        sideSlides,
+        currentIndex,
+        isChanging,
+        prevLabel,
+        nextLabel,
+        expandLabel,
+        goPrev: () => goToSlide(-1),
+        goNext: () => goToSlide(1)
+    };
 
     return (
         <div
@@ -76,6 +87,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
             onBlur={() => setIsPaused(false)}
         >
             {isDesktop ? (
+                renderDesktop ? renderDesktop(desktopControls) : (
                 <div className="w-full">
                     <div className="flex items-end gap-5 xl:gap-7">
                         <MotionDiv
@@ -146,6 +158,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                         </button>
                     </div>
                 </div>
+                )
             ) : (
                 <>
                     <div className="relative mx-auto h-[clamp(22rem,112vw,30rem)] w-full md:h-[min(58vh,34rem)]">
