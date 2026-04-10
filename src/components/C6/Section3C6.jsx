@@ -12,6 +12,7 @@ import Img2 from '../../assets/C6/F6.jpg';
 const Section3C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const { t } = useTranslation();
+    const MotionDiv = motion.div;
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -90,9 +91,9 @@ const Section3C6 = () => {
             aria-label={t("c6.section3.aria.section")}
         >
             {/* ===== MOBILE LAYOUT ===== */}
-            <div className="lg:hidden flex flex-col text-white">
+            <div className="lg:hidden flex min-h-screen flex-col justify-center pt-[7vh] pb-[10vh] text-white">
                 {/* Bloque 05 */}
-                <div className="relative px-6 pt-8 pb-4">
+                <div className="relative px-6 py-[3vh]">
                     <div className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none" style={{ fontFamily: "GothamBold" }}>05</div>
                     <h3 className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
@@ -104,13 +105,13 @@ const Section3C6 = () => {
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img1)}>
                         <img src={Img1} alt={t("c6.section3.images.img1Alt")} title={t("c6.section3.images.img1Alt")}
-                            className="w-full h-[60vw] md:h-[45vw] object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] object-cover select-none" draggable={false} />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
 
                 {/* Bloque 06 */}
-                <div className="relative px-6 pt-4 pb-8">
+                <div className="relative px-6 py-[3vh]">
                     <div className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none text-right" style={{ fontFamily: "GothamBold" }}>06</div>
                     <h3 className="text-[6vw] md:text-[4vw] font-bold uppercase text-right mt-[-7vw] md:mt-[-4vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section3.right.title.top")} <br /> {t("c6.section3.right.title.bottom")}
@@ -121,7 +122,7 @@ const Section3C6 = () => {
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img2)}>
                         <img src={Img2} alt={t("c6.section3.images.img2Alt")} title={t("c6.section3.images.img2Alt")}
-                            className="w-full h-[60vw] md:h-[45vw] object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] object-cover select-none" draggable={false} />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
@@ -172,7 +173,7 @@ const Section3C6 = () => {
                 {/* Imágenes del centro - rectangulares tocando arriba y abajo */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
                     {/* Primera imagen */}
-                    <motion.div
+                    <MotionDiv
                         className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
@@ -200,10 +201,10 @@ const Section3C6 = () => {
                                 <ZoomButton />
                             </div>
                         </div>
-                    </motion.div>
+                    </MotionDiv>
 
                     {/* Segunda imagen */}
-                    <motion.div
+                    <MotionDiv
                         className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
@@ -231,7 +232,7 @@ const Section3C6 = () => {
                                 <ZoomButton />
                             </div>
                         </div>
-                    </motion.div>
+                    </MotionDiv>
                 </div>
             </div>
             </div>{/* cierre desktop wrapper */}

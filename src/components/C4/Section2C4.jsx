@@ -48,6 +48,8 @@ const Section2C4 = () => {
     // Flex values para el efecto de expansión
     const flexLeft  = hoveredSide === 'left'  ? '1.6 1 0%' : hoveredSide === 'right' ? '0.6 1 0%' : '1 1 0%';
     const flexRight = hoveredSide === 'right' ? '1.6 1 0%' : hoveredSide === 'left'  ? '0.6 1 0%' : '1 1 0%';
+    const titleBlockStyle = { minHeight: 'clamp(7.5rem, 38vw, 12rem)' };
+    const numberStyle = { fontFamily: "GothamBold", fontSize: 'clamp(7rem, 43vw, 13rem)', lineHeight: '0.82' };
 
     return (
         <section
@@ -56,28 +58,28 @@ const Section2C4 = () => {
             aria-label={t(keys.aria.section)}
         >
             {/* ===== MOBILE / TABLET LAYOUT ===== */}
-            <div className="lg:hidden flex flex-col text-white">
+            <div className="lg:hidden flex min-h-screen flex-col justify-center pt-[7vh] pb-[10vh] landscape:pt-[4vh] landscape:pb-[4vh] text-white">
 
                 {/* Fila superior: título+número IZQUIERDA, descripción DERECHA */}
-                <div className="flex items-start pt-6 pb-0 gap-2">
+                <div className="flex items-center px-[3vw] py-[3vh] landscape:py-[1.5vh] gap-2">
                     {/* Izquierda: contenedor relativo — título encima del número */}
-                    <div className="w-[48%] relative pl-3" style={{ minHeight: '38vw' }}>
+                    <div className="w-[48%] relative pl-3" style={titleBlockStyle}>
                         <h3
-                            className="relative z-10 text-[5.5vw] md:text-[3.6vw] font-bold uppercase leading-tight"
+                            className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t(keys.left.title)}
                         </h3>
                         <div
                             className="absolute bottom-0 left-0 pl-2 font-bold opacity-25 pointer-events-none"
-                            style={{ fontFamily: "GothamBold", fontSize: '43vw', lineHeight: '0.82' }}
+                            style={numberStyle}
                         >
                             01
                         </div>
                     </div>
                     {/* Derecha: descripción */}
                     <p
-                        className="w-[52%] pr-3 text-[2.8vw] md:text-[2vw] text-justify leading-snug pt-1"
+                        className="w-[52%] pr-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.left.desc)}
@@ -89,13 +91,15 @@ const Section2C4 = () => {
                     <div
                         className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
                         style={{ flex: flexLeft }}
-                        onMouseEnter={() => setHoveredSide('left')}
-                        onMouseLeave={() => setHoveredSide(null)}
+                        onPointerEnter={() => setHoveredSide('left')}
+                        onPointerLeave={() => setHoveredSide(null)}
+                        onFocus={() => setHoveredSide('left')}
+                        onBlur={() => setHoveredSide(null)}
                         onClick={() => openLightbox(F1, keys.left.imgAlt)}
                     >
                         <img
                             src={F1}
-                            className="w-full h-[52vw] md:h-[38vw] object-cover"
+                            className="w-full h-[52vw] landscape:h-[30vh] md:h-[38vw] md:landscape:h-[32vh] object-cover"
                             alt={t(keys.left.imgAlt)}
                             title={t(keys.left.imgAlt)}
                         />
@@ -108,13 +112,15 @@ const Section2C4 = () => {
                     <div
                         className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
                         style={{ flex: flexRight }}
-                        onMouseEnter={() => setHoveredSide('right')}
-                        onMouseLeave={() => setHoveredSide(null)}
+                        onPointerEnter={() => setHoveredSide('right')}
+                        onPointerLeave={() => setHoveredSide(null)}
+                        onFocus={() => setHoveredSide('right')}
+                        onBlur={() => setHoveredSide(null)}
                         onClick={() => openLightbox(F2, keys.right.imgAlt)}
                     >
                         <img
                             src={F2}
-                            className="w-full h-[52vw] md:h-[38vw] object-cover"
+                            className="w-full h-[52vw] landscape:h-[30vh] md:h-[38vw] md:landscape:h-[32vh] object-cover"
                             alt={t(keys.right.imgAlt)}
                             title={t(keys.right.imgAlt)}
                         />
@@ -127,25 +133,25 @@ const Section2C4 = () => {
                 </div>
 
                 {/* Fila inferior: descripción IZQUIERDA, título+número DERECHA */}
-                <div className="flex items-start pb-6 pt-0 gap-2">
+                <div className="flex items-center px-[3vw] py-[3vh] landscape:py-[1.5vh] gap-2">
                     {/* Izquierda: descripción */}
                     <p
-                        className="w-[52%] pl-3 text-[2.8vw] md:text-[2vw] text-justify leading-snug pt-1"
+                        className="w-[52%] pl-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.right.desc)}
                     </p>
                     {/* Derecha: contenedor relativo — título encima del número */}
-                    <div className="w-[48%] relative pr-3 text-right" style={{ minHeight: '38vw' }}>
+                    <div className="w-[48%] relative pr-3 text-right" style={titleBlockStyle}>
                         <h3
-                            className="relative z-10 text-[5.5vw] md:text-[3.6vw] font-bold uppercase leading-tight"
+                            className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t(keys.right.title.line1)}<br />{t(keys.right.title.line2)}
                         </h3>
                         <div
                             className="absolute bottom-0 right-0 pr-2 font-bold opacity-25 pointer-events-none"
-                            style={{ fontFamily: "GothamBold", fontSize: '43vw', lineHeight: '0.82' }}
+                            style={numberStyle}
                         >
                             02
                         </div>
@@ -195,8 +201,10 @@ const Section2C4 = () => {
                         <div
                             className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
                             style={{ flex: flexLeft, height: '50vh', maxWidth: '60vh' }}
-                            onMouseEnter={() => setHoveredSide('left')}
-                            onMouseLeave={() => setHoveredSide(null)}
+                            onPointerEnter={() => setHoveredSide('left')}
+                            onPointerLeave={() => setHoveredSide(null)}
+                            onFocus={() => setHoveredSide('left')}
+                            onBlur={() => setHoveredSide(null)}
                             onClick={() => openLightbox(F1, keys.left.imgAlt)}
                         >
                             <img
@@ -214,8 +222,10 @@ const Section2C4 = () => {
                         <div
                             className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
                             style={{ flex: flexRight, height: '50vh', maxWidth: '60vh' }}
-                            onMouseEnter={() => setHoveredSide('right')}
-                            onMouseLeave={() => setHoveredSide(null)}
+                            onPointerEnter={() => setHoveredSide('right')}
+                            onPointerLeave={() => setHoveredSide(null)}
+                            onFocus={() => setHoveredSide('right')}
+                            onBlur={() => setHoveredSide(null)}
                             onClick={() => openLightbox(F2, keys.right.imgAlt)}
                         >
                             <img

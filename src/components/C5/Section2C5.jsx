@@ -64,7 +64,7 @@ const Section2C5 = () => {
             <div className="lg:hidden flex flex-col">
 
                 {/* Sección 1 - MARIPOSAS */}
-                <div className="relative w-full h-[70vw] sm:h-[55vw] md:h-[45vw] bg-black">
+                <div className="relative w-full h-[70vw] min-h-[260px] sm:h-[55vw] md:h-[45vw] bg-black">
                     <div
                         className="absolute w-full h-full bg-cover bg-center opacity-40"
                         style={{ backgroundImage: `url(${F1})` }}
@@ -91,7 +91,7 @@ const Section2C5 = () => {
                 </div>
 
                 {/* Sección 2 - MURCIÉLAGOS */}
-                <div className="relative w-full h-[70vw] sm:h-[55vw] md:h-[45vw] bg-black">
+                <div className="relative w-full h-[70vw] min-h-[260px] sm:h-[55vw] md:h-[45vw] bg-black">
                     <div
                         className="absolute w-full h-full bg-cover bg-center opacity-40"
                         style={{ backgroundImage: `url(${F2})` }}
@@ -118,7 +118,7 @@ const Section2C5 = () => {
                 </div>
 
                 {/* Sección 3 - ANFIBIOS Y REPTILES */}
-                <div className="relative w-full h-[70vw] sm:h-[55vw] md:h-[45vw] bg-black">
+                <div className="relative w-full h-[70vw] min-h-[260px] sm:h-[55vw] md:h-[45vw] bg-black">
                     <div
                         className="absolute w-full h-full bg-cover bg-center opacity-30"
                         style={{ backgroundImage: `url(${F3})` }}

@@ -85,7 +85,7 @@ const Section1C5 = () => {
             aria-label={t('c5.section1.aria.section')}
         >
             {/* ===== MOBILE LAYOUT ===== */}
-            <div className="lg:hidden flex flex-col px-6 pt-16 pb-8 text-white">
+            <div className="lg:hidden flex min-h-screen flex-col justify-center px-6 pt-[8vh] pb-[10vh] text-white">
                 {/* HoverButton dentro del viewport */}
                 <div className="absolute top-6 right-4 z-50">
                     <HoverButton
@@ -106,7 +106,7 @@ const Section1C5 = () => {
 
                 {/* Intro */}
                 <p
-                    className="text-[3.8vw] md:text-[2.5vw] text-justify mb-6"
+                    className="text-[3.8vw] md:text-[2.5vw] text-justify leading-relaxed mb-6"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
                     {t('c5.section1.intro')}
@@ -119,7 +119,7 @@ const Section1C5 = () => {
 
                 {/* Outro */}
                 <p
-                    className="text-[3.8vw] md:text-[2.5vw] text-justify mt-6"
+                    className="text-[3.8vw] md:text-[2.5vw] text-justify leading-relaxed mt-6"
                     style={{ fontFamily: 'GothamNormal' }}
                 >
                     {t('c5.section1.outro')}

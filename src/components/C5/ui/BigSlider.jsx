@@ -6,6 +6,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
     const totalSlides = slides.length;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
+    const MotionDiv = motion.div;
 
     // Estado para el tamaño de la ventana
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -73,7 +74,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
 
                 {/* ===== MOBILE: single card ===== */}
                 {isMobile && (
-                    <motion.div
+                    <MotionDiv
                         key={`${rearrangedSlides[0].title}-${currentIndex}-mobile`}
                         className="relative"
                         layout
@@ -90,18 +91,18 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                             MaxW={rearrangedSlides[0].MaxW}
                             highlightWords={rearrangedSlides[0].highlightWords}
                             width="w-[85vw]"
-                            height="h-[55vw]"
+                            height="h-[55vw] min-h-[260px] md:min-h-[320px]"
                             forceExpand={true}
                             onExpandClick={onExpandClick}
                             className="flex-shrink-0 transform scale-y-100 scale-x-100"
                             style={{ transformOrigin: 'bottom center' }}
                         />
-                    </motion.div>
+                    </MotionDiv>
                 )}
 
                 {/* ===== DESKTOP: 3 cards (blindado) ===== */}
                 {!isMobile && rearrangedSlides.map((slide, index) => (
-                    <motion.div
+                    <MotionDiv
                         key={`${slide.title}-${currentIndex}-${index}`}
                         className="relative"
                         layout
@@ -131,7 +132,7 @@ const BigSlider = ({ slides = [], onExpandClick = null }) => {
                                 marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
                             }}
                         />
-                    </motion.div>
+                    </MotionDiv>
                 ))}
             </div>
 
