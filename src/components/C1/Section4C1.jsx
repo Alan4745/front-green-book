@@ -10,58 +10,114 @@ import FS4 from "../../assets/C1/FS4.png";
 import IconoMontaña from "../../assets/C1/IconoMontaña.svg";
 import Vid1 from "../../assets/C1/Vid1.mp4";
 
+const PlayIcon = ({ className = "w-full h-full text-gray-700" }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <polygon points="10,8 17,12 10,16" />
+    </svg>
+);
+
 const Section4C1 = () => {
     const { t } = useTranslation();
     const [isVideoOpen, setIsVideoOpen] = useState(false);
+    const [videoPoster, setVideoPoster] = useState(FS4);
 
     const keys = {
-        alts: {
-            icon: "c1.section4.iconAlt",
-            play: "c1.section4.playBox.playAlt"
-        },
+        alts: { icon: "c1.section4.iconAlt", play: "c1.section4.playBox.playAlt" },
         titles: {
             pinkTop: "c1.section4.pink.title.top",
             pinkBottom: "c1.section4.pink.title.bottom",
             playTop: "c1.section4.playBox.title.top",
             playBottom: "c1.section4.playBox.title.bottom"
         },
-        aria: {
-            modal: "c1.section4.playBox.modalAria"
-        },
-        buttons: {
-            closeFallback: "Cerrar"
-        }
+        aria: { modal: "c1.section4.playBox.modalAria" },
+        buttons: { closeFallback: "Cerrar" }
     };
 
-    const openVideo = () => setIsVideoOpen(true);
-    const closeVideo = () => setIsVideoOpen(false);
+    useEffect(() => {
+        let cancelled = false;
+
+        const video = document.createElement('video');
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'auto';
+        video.src = Vid1;
+
+        const drawFrame = () => {
+            if (cancelled) return;
+            const w = video.videoWidth || 1280;
+            const h = video.videoHeight || 720;
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) { cleanup(); return; }
+            ctx.drawImage(video, 0, 0, w, h);
+            try {
+                const url = canvas.toDataURL('image/jpeg', 0.9);
+                if (!cancelled) setVideoPoster(url);
+            } catch {
+                if (!cancelled) setVideoPoster(FS4);
+            }
+            cleanup();
+        };
+
+        const onLoadedData = () => {
+            try {
+                const seekTo = Math.min(9, video.duration || 9);
+                video.addEventListener('seeked', drawFrame, { once: true });
+                video.currentTime = seekTo;
+            } catch { drawFrame(); }
+        };
+
+        const onError = () => cleanup();
+
+        const cleanup = () => {
+            video.removeEventListener('loadeddata', onLoadedData);
+            video.removeEventListener('error', onError);
+            video.src = '';
+        };
+
+        video.addEventListener('loadeddata', onLoadedData);
+        video.addEventListener('error', onError);
+        try {
+            video.load();
+        } catch {
+            setVideoPoster(FS4);
+        }
+
+        return () => { cancelled = true; cleanup(); };
+    }, []);
 
     useEffect(() => {
         if (!isVideoOpen) return;
-        const onKeyDown = (e) => {
-            if (e.key === "Escape") closeVideo();
-        };
+        const onKeyDown = (e) => { if (e.key === "Escape") setIsVideoOpen(false); };
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [isVideoOpen]);
 
+    const openVideo = () => setIsVideoOpen(true);
+    const closeVideo = () => setIsVideoOpen(false);
+
     return (
         <div
-            className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover z-10 max-lg:min-h-0 max-lg:flex max-lg:flex-col"
+            className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover z-10"
             style={{ backgroundImage: `url(${FS4})` }}
         >
-            {/* CUADRO ROSADO EN LA ESQUINA INFERIOR IZQUIERDA */}
-            <div className="absolute bottom-0 left-0 bg-[#DA2F7D] w-[45vw] h-[60vh] px-10 flex flex-col justify-between py-10 max-lg:relative max-lg:w-full max-lg:h-auto max-lg:px-[5vw] max-lg:py-[4vh]">
-                <div className="pt-2">
-                    <img
-                        src={IconoMontaña}
-                        alt={t(keys.alts.icon)}
-                        className="w-[8vh] h-[8vh] max-lg:w-[6vh] max-lg:h-[6vh]"
-                    />
+            <div className="absolute inset-0 bg-black/20" />
+
+            <div className="absolute top-10 left-10 z-20 max-lg:top-4 max-lg:left-4">
+                <BackButton onClick={() => window.history.back()} />
+            </div>
+
+            <div className="hidden lg:flex absolute bottom-0 left-0 bg-[#DA2F7D] flex-col justify-between
+                            w-[45vw] h-[60vh] px-10 py-10">
+                <div>
+                    <img src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[8vh] h-[8vh]" />
                 </div>
-                <div className="pb-2 max-lg:pt-[2vh]">
+                <div>
                     <h3
-                        className="text-white text-[5vh] uppercase leading-snug max-lg:text-[3vh]"
+                        className="text-white text-[5vh] uppercase leading-snug"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t(keys.titles.pinkTop)}<br />{t(keys.titles.pinkBottom)}
@@ -69,9 +125,9 @@ const Section4C1 = () => {
                 </div>
             </div>
 
-            {/* CUADRO BLANCO DE "REPRODUCE EL VIDEO" */}
             <div
-                className="absolute top-[40vh] left-[39vw] bg-white w-[12vw] h-[12vw] flex shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300 max-lg:relative max-lg:top-auto max-lg:left-auto max-lg:mx-[5vw] max-lg:my-[3vh] max-lg:w-[25vw] max-lg:h-[25vw] max-sm:w-[35vw] max-sm:h-[35vw]"
+                className="hidden lg:flex absolute cursor-pointer hover:scale-[1.03] transition-transform duration-300
+                            top-[30vh] left-[36vw] w-[30vw] aspect-video rounded-lg overflow-hidden shadow-2xl"
                 onClick={openVideo}
                 role="button"
                 tabIndex={0}
@@ -79,61 +135,106 @@ const Section4C1 = () => {
                 aria-label={t(keys.alts.play)}
                 title={t(keys.alts.play)}
             >
-                <div className="relative w-full h-full p-4">
-                    <p
-                        className="text-black text-[2vh] text-left uppercase max-lg:text-[1.5vh]"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                        {t(keys.titles.playTop)}<br />{t(keys.titles.playBottom)}
+                <img src={videoPoster} alt={t(keys.alts.play)} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-[5vw] h-[5vw]">
+                        <PlayIcon className="w-full h-full text-white drop-shadow-lg" />
+                    </div>
+                </div>
+                <div className="absolute bottom-3 left-4">
+                    <p className="text-white uppercase leading-tight text-[1.8vh] drop-shadow" style={{ fontFamily: "GothamBold" }}>
+                        {t(keys.titles.playTop)} {t(keys.titles.playBottom)}
                     </p>
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/0/375.png"
-                        alt={t(keys.alts.play)}
-                        className="absolute bottom-4 right-4 w-[3.5vh] h-[3.5vh] max-lg:w-[2.5vh] max-lg:h-[2.5vh]"
-                    />
                 </div>
             </div>
 
-            {/* BOTÓN DE REGRESO */}
-            <div className="absolute top-10 left-10 z-20 max-lg:top-4 max-lg:left-4">
-                <BackButton onClick={() => window.history.back()} />
+            <div className="hidden lg:block">
+                <AltitudSteps />
             </div>
 
-            {/* SECCIÓN DE ALTITUD */}
-            <AltitudSteps />
+            <div className="lg:hidden absolute inset-0 flex flex-col">
+                <div className="relative flex-1 flex flex-col justify-between py-16 px-5">
+                    <div className="self-end mt-2">
+                        <div className="flex flex-col gap-3">
+                            <AltitudSteps mobile />
+                        </div>
+                    </div>
 
-            {/* Botón cambio de idioma */}
-            <div className="absolute bottom-10 right-10 z-20">
-                <LanguageSelector />
+                    <div
+                        className="self-center w-[75vw] aspect-video rounded-lg overflow-hidden shadow-2xl cursor-pointer
+                                    hover:scale-[1.02] transition-transform duration-300 relative"
+                        onClick={openVideo}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && openVideo()}
+                        aria-label={t(keys.alts.play)}
+                        title={t(keys.alts.play)}
+                    >
+                        <img
+                            src={videoPoster}
+                            alt={t(keys.alts.play)}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/30" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-[14vw] h-[14vw] max-sm:w-[16vw] max-sm:h-[16vw]">
+                                <PlayIcon className="w-full h-full text-white drop-shadow-lg" />
+                            </div>
+                        </div>
+                        <div className="absolute bottom-2 left-3">
+                            <p className="text-white uppercase leading-tight text-[2.5vw] max-sm:text-[3vw] drop-shadow" style={{ fontFamily: "GothamBold" }}>
+                                {t(keys.titles.playTop)} {t(keys.titles.playBottom)}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="relative bg-[#DA2F7D] px-6 py-5 pb-8">
+                    <div className="mb-3">
+                        <img src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[5vh] h-[5vh]" />
+                    </div>
+                    <h3
+                        className="text-white text-[4.5vw] max-sm:text-[5.5vw] uppercase leading-snug"
+                        style={{ fontFamily: "GothamBold" }}
+                    >
+                        {t(keys.titles.pinkTop)}<br />{t(keys.titles.pinkBottom)}
+                    </h3>
+                </div>
             </div>
 
-            {/* LIGHTBOX / MODAL DE VIDEO */}
+            <div className="absolute bottom-6 right-6 z-20">
+                <LanguageSelector alignment="right" />
+            </div>
+
             {isVideoOpen && (
                 <div
-                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                    className="fixed inset-0 bg-black/85 flex items-center justify-center"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t(keys.aria.modal, "Reproduciendo video")}
                     onClick={closeVideo}
+                    style={{ zIndex: 2147483647 }}
                 >
                     <div
                         className="relative"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <video
-                            className="w-[160vh] max-w-[95vw] max-h-[90vh] rounded-md shadow-2xl object-contain block"
-                            src={Vid1}
-                            controls
-                            controlsList="nodownload noplaybackrate"
-                            disablePictureInPicture
-                            autoPlay
-                            playsInline
-                            preload="metadata"
-                        />
                         <CloseButton
                             onClick={closeVideo}
                             aria-label={t(keys.buttons.closeFallback)}
                             title={t(keys.buttons.closeFallback)}
+                            positionClass="fixed top-4 right-4"
+                        />
+                        <video
+                            className="relative z-10 w-[90vw] max-w-[160vh] max-h-[80vh] rounded-md shadow-2xl object-contain"
+                            src={Vid1}
+                            poster={videoPoster}
+                            controls
+                            controlsList="nodownload noplaybackrate"
+                            disablePictureInPicture
+                            playsInline
+                            preload="auto"
                         />
                     </div>
                 </div>

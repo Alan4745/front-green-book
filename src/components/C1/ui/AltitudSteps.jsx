@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const AltitudSteps = () => {
+const AltitudSteps = ({ mobile = false }) => {
     const { t, i18n } = useTranslation();
 
     // Pasos desde i18n; si falta el bloque en JSON, usamos tu fallback original
@@ -24,38 +24,57 @@ const AltitudSteps = () => {
         return () => clearInterval(id);
     }, [steps.length]);
 
+    const wrapperClass = mobile
+        ? "flex flex-col gap-[2vh]"
+        : "absolute top-[50vh] right-[8vw] flex flex-col gap-[4vh]";
+
+    const gridClass = mobile
+        ? "grid grid-cols-[auto_12vw] gap-[3vw] items-center justify-end max-sm:grid-cols-[auto_15vw]"
+        : "grid grid-cols-[auto_5vw] gap-[2vw] items-center justify-end";
+
+    const titleClass = mobile
+        ? "text-[3.8vw] leading-tight max-sm:text-[5vw]"
+        : "text-[1.6vw] leading-tight";
+
+    const subtitleClass = mobile
+        ? "text-[3vw] max-sm:text-[4vw]"
+        : "text-[1.3vw]";
+
+    const circleClass = mobile
+        ? "w-[12vw] h-[12vw] max-sm:w-[15vw] max-sm:h-[15vw]"
+        : "w-[5vw] h-[5vw]";
+
+    const numClass = mobile
+        ? "text-[3vw] max-sm:text-[4.2vw]"
+        : "text-[1.3vw]";
+
     return (
-        <div className="absolute top-[50vh] right-[8vw] flex flex-col gap-[4vh] max-lg:relative max-lg:top-auto max-lg:right-auto max-lg:px-[5vw] max-lg:py-[4vh] max-lg:gap-[3vh]">
+        <div className={wrapperClass}>
             {steps.map((step, i) => {
                 const active = i === currentIndex;
 
                 return (
-                    <div
-                        key={i}
-                        className="grid grid-cols-[auto_8vh] gap-[3vh] items-center justify-end"
-                    >
-                        {/* Texto alineado al lado izquierdo del número */}
+                    <div key={i} className={gridClass}>
                         <div className="text-right">
                             <p
-                                className={`text-[3vh] leading-tight ${active ? "text-[#FFA4CE]" : "text-white"}`}
+                                className={`${titleClass} ${active ? "text-[#FFA4CE]" : "text-white"}`}
                                 style={{ fontFamily: active ? "GothamBold" : "GothamNormal" }}
                             >
                                 {step.title}
                             </p>
                             <p
-                                className={`text-[2.5vh] ${active ? "text-[#FFA4CE]" : "text-white"}`}
+                                className={`${subtitleClass} ${active ? "text-[#FFA4CE]" : "text-white"}`}
                                 style={{ fontFamily: "GothamNormal" }}
                             >
                                 {step.subtitle}
                             </p>
                         </div>
 
-                        {/* Número con borde circular */}
                         <div
-                            className={`w-[8vh] h-[8vh] rounded-full border-[0.4vh] flex items-center justify-center transition-all duration-300 ${active ? "border-[#FFA4CE]" : "border-white"}`}
+                            className={`${circleClass} rounded-full border-2 flex items-center justify-center transition-all duration-300 ${active ? "border-[#FFA4CE]" : "border-white"}`}
                         >
                             <span
-                                className="text-white text-[2.6vh]"
+                                className={`text-white ${numClass}`}
                                 style={{ fontFamily: "GothamNormal" }}
                             >
                                 0{i + 1}

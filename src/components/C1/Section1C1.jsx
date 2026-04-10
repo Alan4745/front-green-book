@@ -13,7 +13,7 @@ import Img2 from '../../assets/C1/F2.png';
 
 const Section1C1 = () => {
     const [selectedImage, setSelectedImage] = useState(null); // dataURL o asset (solo imagen)
-    const [vid2Poster, setVid2Poster] = useState(null); // dataURL generado del .mov
+    const [vid2Poster, setVid2Poster] = useState(Img1Fallback);
     const navigate = useTransitionNavigate();
     const { t } = useTranslation();
 
@@ -36,7 +36,7 @@ const Section1C1 = () => {
             canvas.height = h;
             const ctx = canvas.getContext('2d');
             if (!ctx) {
-                setVid2Poster(null);
+                setVid2Poster(Img1Fallback);
                 cleanup();
                 return;
             }
@@ -45,14 +45,14 @@ const Section1C1 = () => {
                 const url = canvas.toDataURL('image/jpeg', 0.9);
                 if (!cancelled) setVid2Poster(url);
             } catch {
-                setVid2Poster(null);
+                setVid2Poster(Img1Fallback);
             }
             cleanup();
         };
 
         const onLoadedData = () => {
             try {
-                const t = Math.min(0.001, video.duration || 0.001);
+                const t = Math.min(9, video.duration || 9);
                 const onSeeked = () => drawFrame();
                 video.addEventListener('seeked', onSeeked, { once: true });
                 video.currentTime = t;
@@ -62,7 +62,7 @@ const Section1C1 = () => {
         };
 
         const onError = () => {
-            setVid2Poster(null);
+            setVid2Poster(Img1Fallback);
             cleanup();
         };
 
