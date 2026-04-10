@@ -89,11 +89,11 @@ const MENU = [
         {open && (
             <div
             id="mainmenu-popover"
-            className="pointer-events-auto absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[380px]"
+            className="pointer-events-auto absolute top-12 right-6 bg-black/30 rounded-2xl p-6 backdrop-blur-md shadow-lg w-auto min-w-[55vw] lg:min-w-0 lg:w-[460px] lg:px-8 lg:py-7"
             role="menu"
             >
             <ul
-                className="flex flex-col space-y-3 text-white text-xs text-right tracking-[0.08em] w-full"
+                className="flex flex-col space-y-3 text-white text-xs text-right tracking-[0.08em] w-full lg:space-y-4 lg:text-[0.95rem]"
                 style={{ fontFamily: "GothamNormal" }}
             >
                 {MENU.map(({ id, path }) => {
