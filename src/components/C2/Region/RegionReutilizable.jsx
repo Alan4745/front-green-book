@@ -265,7 +265,7 @@ if (!region) {
     return (
         <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto max-lg:landscape:flex-row max-lg:landscape:h-screen">
             {/* Columna izquierda con imagen y overlay */}
-            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[60vh] min-[768px]:max-[1023px]:h-[50vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
+            <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[55vh] min-[768px]:max-[1023px]:h-[48vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
                 {/* Imagen de fondo con animación */}
                 <motion.img
                     key={`bg-${tipo}-${isActive}`}//FUERZA EL INICIO DE LA ANIMACION AL CAMBIAR isActive
@@ -289,7 +289,7 @@ if (!region) {
 
                 {/* Logo región  — entra después del fondo */}
                 <motion.div
-                    className="absolute top-[30vh] left-1/2 -translate-x-1/2 z-20 will-change-transform min-[768px]:max-[1023px]:hidden max-lg:top-[18vh]"
+                    className="absolute top-[30vh] left-1/2 -translate-x-1/2 z-20 will-change-transform min-[768px]:max-[1023px]:hidden max-lg:top-[15vh]"
                     style={{ transformOrigin: '50% 100%' }}
                     variants={logoMotion}
                     initial="hidden"
@@ -363,10 +363,10 @@ if (!region) {
             </div>
 
             {/* Columna derecha */}
-            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[70vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full">
+            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[65vh] min-[768px]:max-[1023px]:h-[60vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[10%] min-[768px]:max-[1023px]:left-[14%] min-[768px]:max-[1023px]:h-[52%] max-lg:left-[8%] max-lg:h-[80%]"
+                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[4%] min-[768px]:max-[1023px]:left-1/2 min-[768px]:max-[1023px]:-translate-x-1/2 min-[768px]:max-[1023px]:h-[40%] max-lg:left-[8%] max-lg:h-[80%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
@@ -381,29 +381,31 @@ if (!region) {
 
                 {/* Gráficas */}
                 <motion.div
-                    className="absolute top-1/2 left-[50%] transform -translate-x-1/2 -translate-y-[60%] will-change-transform min-[1024px]:max-[1200px]:top-[45%] max-lg:top-[45%]"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform
+                                w-[38vw] min-[1024px]:max-[1200px]:w-[32vw]
+                                min-[768px]:max-[1023px]:w-[38vw]
+                                max-lg:w-[80vw]"
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}//depende de active
+                    animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                 >
                     <img
                         src={region.grafica[lang] || region.grafica.es}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
-                        className="w-[100vh] h-auto object-contain scale-125 min-[1024px]:max-[1200px]:scale-100 min-[768px]:max-[1023px]:scale-175 max-lg:scale-95"
-                        style={{ width: '100%', height: '100%' }}
+                        className="w-full h-auto object-contain"
                     />
                 </motion.div>
 
                 {/* Lista de características */}
                 <motion.div
-                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[24vh] min-[768px]:max-[1023px]:left-[14%] max-lg:bottom-[5vh] max-lg:left-[8%]"
+                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:bottom-[5vh] max-lg:left-[8%]"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
                 >
                     <ul
-                        className="space-y-2 text-[2.8vh] min-[1024px]:max-[1200px]:text-[2.3vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm"
+                        className="space-y-1 text-[2.8vh] min-[1024px]:max-[1200px]:text-[2.3vh] min-[768px]:max-[1023px]:text-[1.8vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         <motion.li
