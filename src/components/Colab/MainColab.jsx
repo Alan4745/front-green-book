@@ -1,5 +1,6 @@
-import CoverColab from "./CoverColab";
 import PageSkeleton from "../Global/PageSkeleton";
+import SectionRenderer from "../Global/SectionRenderer";
+import { colabSections } from "./sections";
 
 const MainColab = () => {
     return (
@@ -12,10 +13,10 @@ const MainColab = () => {
             variant="cover"
         >
             <div>
-                <CoverColab />
+                <SectionRenderer sections={colabSections} />
             </div>
         </PageSkeleton>
     );
-}
+};
 
 export default MainColab;

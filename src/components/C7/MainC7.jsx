@@ -1,22 +1,12 @@
-import CoverC7 from './CoverC7'
-import Section1C7 from './Section1C7'
-import Section2C7 from './Section2C7'
-import Section3C7 from './Section3C7'
+import SectionRenderer from "../Global/SectionRenderer";
+import { c7Sections } from "./sections";
 
 const MainC7 = () => {
-  return (
-    <div>
-        <CoverC7 />
+    return (
+        <div>
+            <SectionRenderer sections={c7Sections} />
+        </div>
+    );
+};
 
-        <Section1C7 />
-
-        <Section2C7 />
-
-        <Section3C7 />
-
-
-    </div>
-  )
-}
-
-export default MainC7
+export default MainC7;
