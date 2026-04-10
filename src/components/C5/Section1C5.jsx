@@ -56,7 +56,7 @@ const Section1C5 = () => {
             role="region"
             aria-label={t('c5.section1.aria.section')}
         >
-            <div className="absolute right-4 top-6 z-50 lg:right-8">
+            <div className="absolute right-4 top-6 z-50 lg:hidden">
                 <HoverButton
                     text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
                     textOffset={-80}
@@ -92,30 +92,42 @@ const Section1C5 = () => {
                 </div>
             </div>
 
-            <div className="hidden min-h-screen flex-col justify-center px-[7vw] py-[8vh] lg:flex">
-                <div className="mx-auto grid w-full max-w-[1180px] grid-cols-[0.95fr_1.05fr] items-start gap-[5vw]">
-                    <div className="pt-[8vh]">
-                        <h2
-                            className="mb-6 max-w-[28rem] text-[clamp(2.8rem,4.1vw,5rem)] uppercase leading-none"
-                            style={{ fontFamily: 'GothamBold' }}
-                        >
-                            {t('c5.section1.title')}
-                        </h2>
-                        <p
-                            className="mb-6 max-w-[33rem] text-[clamp(1rem,1.25vw,1.35rem)] text-justify leading-tight"
-                            style={{ fontFamily: 'GothamNormal' }}
-                        >
-                            {t('c5.section1.intro')}
-                        </p>
-                        <p
-                            className="max-w-[33rem] text-[clamp(1rem,1.25vw,1.35rem)] text-justify leading-tight"
-                            style={{ fontFamily: 'GothamNormal' }}
-                        >
-                            {t('c5.section1.outro')}
-                        </p>
-                    </div>
-                    <div className="flex justify-center pt-[10vh]">
+            <div className="hidden min-h-screen items-center lg:flex">
+                <div className="mx-auto grid w-full max-w-[1260px] grid-cols-[1.05fr_0.95fr] gap-[3.6rem] px-[3.5rem] py-[5rem]">
+                    <div className="flex flex-col justify-end pt-[5.8rem]">
                         <BigSlider slides={slidesData} onExpandClick={openLightbox} />
+                    </div>
+
+                    <div className="flex flex-col">
+                        <div className="mb-[3rem] flex justify-end">
+                            <HoverButton
+                                text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
+                                textOffset={-80}
+                                hoverOffset={30}
+                                link="https://reservasdeguatemala.org/"
+                            />
+                        </div>
+
+                        <div className="ml-auto w-full max-w-[30rem]">
+                            <h2
+                                className="mb-8 text-[clamp(3rem,4.8vw,5rem)] uppercase leading-none"
+                                style={{ fontFamily: 'GothamBold' }}
+                            >
+                                {t('c5.section1.title')}
+                            </h2>
+                            <p
+                                className="mb-6 text-[clamp(1.1rem,1.55vw,1.6rem)] text-justify leading-tight"
+                                style={{ fontFamily: 'GothamNormal' }}
+                            >
+                                {t('c5.section1.intro')}
+                            </p>
+                            <p
+                                className="text-[clamp(1.1rem,1.55vw,1.6rem)] text-justify leading-tight"
+                                style={{ fontFamily: 'GothamNormal' }}
+                            >
+                                {t('c5.section1.outro')}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

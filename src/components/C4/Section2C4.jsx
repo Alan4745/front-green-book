@@ -51,6 +51,9 @@ const Section2C4 = () => {
     const numberStyle = { fontFamily: "GothamBold", fontSize: "clamp(7rem, 43vw, 13rem)", lineHeight: "0.82" };
     const landscapeTitleStyle = { fontFamily: "GothamBold", fontSize: "clamp(1rem, 3.2vw, 1.85rem)" };
     const landscapeNumberStyle = { fontFamily: "GothamBold", fontSize: "clamp(4.5rem, 17vw, 9rem)", lineHeight: "0.78" };
+    const desktopTitleStyle = { fontFamily: "GothamBold", fontSize: "clamp(1.95rem, 2.65vw, 3.15rem)", lineHeight: "0.9" };
+    const desktopNumberStyle = { fontFamily: "GothamBold", fontSize: "clamp(10rem, 15.5vw, 15rem)", lineHeight: "0.8" };
+    const desktopCopyStyle = { fontFamily: "GothamNormal", fontSize: "clamp(1rem, 1.18vw, 1.32rem)", lineHeight: "1.12" };
 
     const imageHandlers = (side, image, altKey) => ({
         onPointerEnter: () => setHoveredSide(side),
@@ -244,71 +247,98 @@ const Section2C4 = () => {
                 </div>
             </div>
 
-            <div className="hidden xl:block h-full">
-                <div className="relative w-full text-white">
-                    <div className="absolute top-[25vh] left-[15vh]">
-                        <h3 className="text-2xl font-bold uppercase w-[30vh]" style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.left.title)}
-                        </h3>
-                        <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+            <div className="hidden xl:block min-h-screen text-white">
+                <div className="relative mx-auto min-h-screen w-full max-w-[1360px] px-[4.2vw] py-[4vh]">
+                    <div className="absolute left-[4.2vw] top-[19.5vh] w-[16.5vw] min-w-[215px] max-w-[260px]">
+                        <div
+                            className="absolute left-[-0.25vw] top-[-5.8rem] font-bold opacity-25 pointer-events-none"
+                            style={desktopNumberStyle}
+                        >
                             01
                         </div>
-                    </div>
-
-                    <div className="absolute top-[25vh] right-[15vh] text-right">
-                        <h3 className="text-2xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
-                            {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                        <h3
+                            className="relative z-10 max-w-[12.5vw] uppercase"
+                            style={desktopTitleStyle}
+                        >
+                            {t(keys.left.title)}
                         </h3>
-                        <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
-                            02
-                        </div>
-                    </div>
-
-                    <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
-                        <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
+                        <p
+                            className="relative z-10 mt-[5.9rem] max-w-[14.5vw] min-w-[210px] text-left"
+                            style={desktopCopyStyle}
+                        >
                             {t(keys.left.desc)}
                         </p>
                     </div>
 
-                    <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
-                        <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
+                    <div className="absolute right-[4.2vw] top-[19.5vh] w-[16.5vw] min-w-[215px] max-w-[265px] text-right">
+                        <div
+                            className="absolute right-[-0.5vw] top-[-5.8rem] font-bold opacity-25 pointer-events-none"
+                            style={desktopNumberStyle}
+                        >
+                            02
+                        </div>
+                        <h3
+                            className="relative z-10 ml-auto max-w-[13vw] uppercase"
+                            style={desktopTitleStyle}
+                        >
+                            {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                        </h3>
+                        <p
+                            className="relative z-10 ml-auto mt-[5.7rem] max-w-[14.5vw] min-w-[215px] text-left"
+                            style={desktopCopyStyle}
+                        >
                             {t(keys.right.desc)}
                         </p>
                     </div>
 
-                    <div className="flex justify-center items-center" style={{ minHeight: "100vh" }}>
+                    <div className="relative mx-auto flex min-h-screen w-[43vw] min-w-[620px] max-w-[700px] items-center justify-center">
                         <div
-                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                            style={{ flex: flexLeft, height: "50vh", maxWidth: "60vh" }}
+                            className={`absolute left-1/2 top-[10.8vh] h-[clamp(16rem,22vw,21rem)] w-[clamp(29rem,34vw,37rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
+                                hoveredSide === "right"
+                                    ? "scale-[0.985] opacity-90"
+                                    : "scale-100 opacity-100"
+                            } ${hoveredSide === "left" ? "shadow-[0_24px_50px_rgba(0,0,0,0.24)]" : "shadow-[0_16px_34px_rgba(0,0,0,0.12)]"}`}
                             {...imageHandlers("left", F1, keys.left.imgAlt)}
                         >
                             <img
                                 src={F1}
-                                className="w-full h-full object-cover"
+                                className={`h-full w-full object-cover transition-transform duration-300 ease-out ${
+                                    hoveredSide === "left" ? "scale-[1.035]" : "scale-100"
+                                }`}
                                 alt={t(keys.left.imgAlt)}
                                 title={t(keys.left.imgAlt)}
                             />
+                            <div className={`absolute inset-0 bg-black/0 transition-colors duration-300 ${hoveredSide === "right" ? "bg-black/8" : ""}`} />
                             <ExpandButton
                                 onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
                                 title={t(keys.buttons.expand)}
                                 aria-label={t(keys.buttons.expand)}
+                                className={`transition-all duration-300 ${hoveredSide === "left" ? "opacity-100 translate-y-0" : "opacity-75 translate-y-1"}`}
                             />
                         </div>
+
                         <div
-                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                            style={{ flex: flexRight, height: "50vh", maxWidth: "60vh" }}
+                            className={`absolute bottom-[12vh] left-1/2 z-10 h-[clamp(23rem,32vw,29rem)] w-[clamp(19rem,25vw,26.5rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
+                                hoveredSide === "left"
+                                    ? "scale-[0.985] opacity-90"
+                                    : "scale-100 opacity-100"
+                            } ${hoveredSide === "right" ? "shadow-[0_28px_60px_rgba(0,0,0,0.28)]" : "shadow-[0_18px_38px_rgba(0,0,0,0.16)]"}`}
                             {...imageHandlers("right", F2, keys.right.imgAlt)}
                         >
                             <img
                                 src={F2}
-                                className="w-full h-full object-cover"
+                                className={`h-full w-full object-cover transition-transform duration-300 ease-out ${
+                                    hoveredSide === "right" ? "scale-[1.035]" : "scale-100"
+                                }`}
                                 alt={t(keys.right.imgAlt)}
                                 title={t(keys.right.imgAlt)}
                             />
+                            <div className={`absolute inset-0 bg-black/0 transition-colors duration-300 ${hoveredSide === "left" ? "bg-black/8" : ""}`} />
                             <ExpandButton
                                 onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
                                 title={t(keys.buttons.expand)}
                                 aria-label={t(keys.buttons.expand)}
+                                className={`transition-all duration-300 ${hoveredSide === "right" ? "opacity-100 translate-y-0" : "opacity-75 translate-y-1"}`}
                             />
                         </div>
                     </div>
