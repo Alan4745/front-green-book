@@ -45,11 +45,20 @@ const Section2C4 = () => {
 
     const closeLightbox = () => setIsLightboxOpen(false);
 
-    // Flex values para el efecto de expansión
-    const flexLeft  = hoveredSide === 'left'  ? '1.6 1 0%' : hoveredSide === 'right' ? '0.6 1 0%' : '1 1 0%';
-    const flexRight = hoveredSide === 'right' ? '1.6 1 0%' : hoveredSide === 'left'  ? '0.6 1 0%' : '1 1 0%';
-    const titleBlockStyle = { minHeight: 'clamp(7.5rem, 38vw, 12rem)' };
-    const numberStyle = { fontFamily: "GothamBold", fontSize: 'clamp(7rem, 43vw, 13rem)', lineHeight: '0.82' };
+    const flexLeft = hoveredSide === "left" ? "1.6 1 0%" : hoveredSide === "right" ? "0.6 1 0%" : "1 1 0%";
+    const flexRight = hoveredSide === "right" ? "1.6 1 0%" : hoveredSide === "left" ? "0.6 1 0%" : "1 1 0%";
+    const titleBlockStyle = { minHeight: "clamp(7.5rem, 38vw, 12rem)" };
+    const numberStyle = { fontFamily: "GothamBold", fontSize: "clamp(7rem, 43vw, 13rem)", lineHeight: "0.82" };
+    const landscapeTitleStyle = { fontFamily: "GothamBold", fontSize: "clamp(1rem, 3.2vw, 1.85rem)" };
+    const landscapeNumberStyle = { fontFamily: "GothamBold", fontSize: "clamp(4.5rem, 17vw, 9rem)", lineHeight: "0.78" };
+
+    const imageHandlers = (side, image, altKey) => ({
+        onPointerEnter: () => setHoveredSide(side),
+        onPointerLeave: () => setHoveredSide(null),
+        onFocus: () => setHoveredSide(side),
+        onBlur: () => setHoveredSide(null),
+        onClick: () => openLightbox(image, altKey)
+    });
 
     return (
         <section
@@ -57,112 +66,186 @@ const Section2C4 = () => {
             role="region"
             aria-label={t(keys.aria.section)}
         >
-            {/* ===== MOBILE / TABLET LAYOUT ===== */}
-            <div className="lg:hidden flex min-h-screen flex-col justify-center pt-[7vh] pb-[10vh] landscape:pt-[4vh] landscape:pb-[4vh] text-white">
+            <div className="xl:hidden min-h-screen text-white">
+                <div className="flex min-h-screen flex-col justify-center pt-[7vh] pb-[10vh] landscape:hidden">
+                    <div className="flex items-center px-[3vw] py-[3vh] gap-2">
+                        <div className="w-[48%] relative pl-3" style={titleBlockStyle}>
+                            <h3
+                                className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
+                                style={{ fontFamily: "GothamBold" }}
+                            >
+                                {t(keys.left.title)}
+                            </h3>
+                            <div
+                                className="absolute bottom-0 left-0 pl-2 font-bold opacity-25 pointer-events-none"
+                                style={numberStyle}
+                            >
+                                01
+                            </div>
+                        </div>
+                        <p
+                            className="w-[52%] pr-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
+                            style={{ fontFamily: "GothamNormal" }}
+                        >
+                            {t(keys.left.desc)}
+                        </p>
+                    </div>
 
-                {/* Fila superior: título+número IZQUIERDA, descripción DERECHA */}
-                <div className="flex items-center px-[3vw] py-[3vh] landscape:py-[1.5vh] gap-2">
-                    {/* Izquierda: contenedor relativo — título encima del número */}
-                    <div className="w-[48%] relative pl-3" style={titleBlockStyle}>
-                        <h3
-                            className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
-                            style={{ fontFamily: "GothamBold" }}
-                        >
-                            {t(keys.left.title)}
-                        </h3>
+                    <div className="flex w-full" style={{ marginTop: "2vw" }}>
                         <div
-                            className="absolute bottom-0 left-0 pl-2 font-bold opacity-25 pointer-events-none"
-                            style={numberStyle}
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexLeft }}
+                            {...imageHandlers("left", F1, keys.left.imgAlt)}
                         >
-                            01
+                            <img
+                                src={F1}
+                                className="w-full h-[52vw] md:h-[38vw] object-cover"
+                                alt={t(keys.left.imgAlt)}
+                                title={t(keys.left.imgAlt)}
+                            />
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
+                        </div>
+                        <div
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexRight }}
+                            {...imageHandlers("right", F2, keys.right.imgAlt)}
+                        >
+                            <img
+                                src={F2}
+                                className="w-full h-[52vw] md:h-[38vw] object-cover"
+                                alt={t(keys.right.imgAlt)}
+                                title={t(keys.right.imgAlt)}
+                            />
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
                         </div>
                     </div>
-                    {/* Derecha: descripción */}
-                    <p
-                        className="w-[52%] pr-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                        {t(keys.left.desc)}
-                    </p>
-                </div>
 
-                {/* Ambas imágenes juntas con efecto de expansión */}
-                <div className="flex w-full" style={{ marginTop: '2vw' }}>
-                    <div
-                        className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                        style={{ flex: flexLeft }}
-                        onPointerEnter={() => setHoveredSide('left')}
-                        onPointerLeave={() => setHoveredSide(null)}
-                        onFocus={() => setHoveredSide('left')}
-                        onBlur={() => setHoveredSide(null)}
-                        onClick={() => openLightbox(F1, keys.left.imgAlt)}
-                    >
-                        <img
-                            src={F1}
-                            className="w-full h-[52vw] landscape:h-[30vh] md:h-[38vw] md:landscape:h-[32vh] object-cover"
-                            alt={t(keys.left.imgAlt)}
-                            title={t(keys.left.imgAlt)}
-                        />
-                        <ExpandButton
-                            onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
-                            title={t(keys.buttons.expand)}
-                            aria-label={t(keys.buttons.expand)}
-                        />
-                    </div>
-                    <div
-                        className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                        style={{ flex: flexRight }}
-                        onPointerEnter={() => setHoveredSide('right')}
-                        onPointerLeave={() => setHoveredSide(null)}
-                        onFocus={() => setHoveredSide('right')}
-                        onBlur={() => setHoveredSide(null)}
-                        onClick={() => openLightbox(F2, keys.right.imgAlt)}
-                    >
-                        <img
-                            src={F2}
-                            className="w-full h-[52vw] landscape:h-[30vh] md:h-[38vw] md:landscape:h-[32vh] object-cover"
-                            alt={t(keys.right.imgAlt)}
-                            title={t(keys.right.imgAlt)}
-                        />
-                        <ExpandButton
-                            onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
-                            title={t(keys.buttons.expand)}
-                            aria-label={t(keys.buttons.expand)}
-                        />
-                    </div>
-                </div>
-
-                {/* Fila inferior: descripción IZQUIERDA, título+número DERECHA */}
-                <div className="flex items-center px-[3vw] py-[3vh] landscape:py-[1.5vh] gap-2">
-                    {/* Izquierda: descripción */}
-                    <p
-                        className="w-[52%] pl-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                        {t(keys.right.desc)}
-                    </p>
-                    {/* Derecha: contenedor relativo — título encima del número */}
-                    <div className="w-[48%] relative pr-3 text-right" style={titleBlockStyle}>
-                        <h3
-                            className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
-                            style={{ fontFamily: "GothamBold" }}
+                    <div className="flex items-center px-[3vw] py-[3vh] gap-2">
+                        <p
+                            className="w-[52%] pl-3 text-[clamp(0.75rem,2.8vw,1rem)] md:text-[clamp(0.85rem,2vw,1.05rem)] text-justify leading-snug"
+                            style={{ fontFamily: "GothamNormal" }}
                         >
-                            {t(keys.right.title.line1)}<br />{t(keys.right.title.line2)}
-                        </h3>
+                            {t(keys.right.desc)}
+                        </p>
+                        <div className="w-[48%] relative pr-3 text-right" style={titleBlockStyle}>
+                            <h3
+                                className="relative z-10 text-[clamp(1.25rem,5.5vw,2.1rem)] md:text-[clamp(1.35rem,3.6vw,2.2rem)] font-bold uppercase leading-tight"
+                                style={{ fontFamily: "GothamBold" }}
+                            >
+                                {t(keys.right.title.line1)}<br />{t(keys.right.title.line2)}
+                            </h3>
+                            <div
+                                className="absolute bottom-0 right-0 pr-2 font-bold opacity-25 pointer-events-none"
+                                style={numberStyle}
+                            >
+                                02
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="hidden min-h-screen flex-col justify-center gap-[2vh] px-[6vw] pt-[8vh] pb-[8vh] landscape:flex">
+                    <div className="grid grid-cols-2 items-end gap-x-[3vw]">
+                        <div className="flex items-center gap-[2vw] pb-[1vh]">
+                            <div className="relative z-10 w-[44%] min-h-[18vh]">
+                                <h3
+                                    className="relative z-10 font-bold uppercase leading-none"
+                                    style={landscapeTitleStyle}
+                                >
+                                    {t(keys.left.title)}
+                                </h3>
+                                <div
+                                    className="absolute bottom-0 left-0 font-bold opacity-25 pointer-events-none"
+                                    style={landscapeNumberStyle}
+                                >
+                                    01
+                                </div>
+                            </div>
+                            <p
+                                className="relative z-10 w-[56%] text-[clamp(0.62rem,1.55vw,0.9rem)] text-justify leading-tight"
+                                style={{ fontFamily: "GothamNormal" }}
+                            >
+                                {t(keys.left.desc)}
+                            </p>
+                        </div>
+                        <div />
+                    </div>
+
+                    <div className="flex w-full items-center">
                         <div
-                            className="absolute bottom-0 right-0 pr-2 font-bold opacity-25 pointer-events-none"
-                            style={numberStyle}
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexLeft }}
+                            {...imageHandlers("left", F1, keys.left.imgAlt)}
                         >
-                            02
+                            <img
+                                src={F1}
+                                className="h-[34vh] w-full object-cover"
+                                alt={t(keys.left.imgAlt)}
+                                title={t(keys.left.imgAlt)}
+                            />
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
+                        </div>
+                        <div
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexRight }}
+                            {...imageHandlers("right", F2, keys.right.imgAlt)}
+                        >
+                            <img
+                                src={F2}
+                                className="h-[34vh] w-full object-cover"
+                                alt={t(keys.right.imgAlt)}
+                                title={t(keys.right.imgAlt)}
+                            />
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 items-start gap-x-[3vw]">
+                        <div />
+                        <div className="flex items-center gap-[2vw] pt-[1vh] text-right">
+                            <p
+                                className="relative z-10 w-[56%] text-[clamp(0.62rem,1.55vw,0.9rem)] text-justify leading-tight"
+                                style={{ fontFamily: "GothamNormal" }}
+                            >
+                                {t(keys.right.desc)}
+                            </p>
+                            <div className="relative z-10 w-[44%] min-h-[18vh]">
+                                <h3
+                                    className="relative z-10 ml-auto font-bold uppercase leading-none"
+                                    style={landscapeTitleStyle}
+                                >
+                                    {t(keys.right.title.line1)}<br />{t(keys.right.title.line2)}
+                                </h3>
+                                <div
+                                    className="absolute bottom-0 right-0 font-bold opacity-25 pointer-events-none"
+                                    style={landscapeNumberStyle}
+                                >
+                                    02
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* ===== DESKTOP LAYOUT ===== */}
-            <div className="hidden lg:block h-full">
+            <div className="hidden xl:block h-full">
                 <div className="relative w-full text-white">
-                    {/* Títulos izquierda */}
                     <div className="absolute top-[25vh] left-[15vh]">
                         <h3 className="text-2xl font-bold uppercase w-[30vh]" style={{ fontFamily: "GothamBold" }}>
                             {t(keys.left.title)}
@@ -172,7 +255,6 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
-                    {/* Títulos derecha */}
                     <div className="absolute top-[25vh] right-[15vh] text-right">
                         <h3 className="text-2xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                             {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
@@ -182,30 +264,23 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
-                    {/* Descripción izquierda */}
                     <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
                         <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.left.desc)}
                         </p>
                     </div>
 
-                    {/* Descripción derecha */}
                     <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
                         <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.right.desc)}
                         </p>
                     </div>
 
-                    {/* Imágenes centradas con efecto de expansión */}
-                    <div className="flex justify-center items-center" style={{ minHeight: '100vh' }}>
+                    <div className="flex justify-center items-center" style={{ minHeight: "100vh" }}>
                         <div
                             className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                            style={{ flex: flexLeft, height: '50vh', maxWidth: '60vh' }}
-                            onPointerEnter={() => setHoveredSide('left')}
-                            onPointerLeave={() => setHoveredSide(null)}
-                            onFocus={() => setHoveredSide('left')}
-                            onBlur={() => setHoveredSide(null)}
-                            onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                            style={{ flex: flexLeft, height: "50vh", maxWidth: "60vh" }}
+                            {...imageHandlers("left", F1, keys.left.imgAlt)}
                         >
                             <img
                                 src={F1}
@@ -221,12 +296,8 @@ const Section2C4 = () => {
                         </div>
                         <div
                             className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
-                            style={{ flex: flexRight, height: '50vh', maxWidth: '60vh' }}
-                            onPointerEnter={() => setHoveredSide('right')}
-                            onPointerLeave={() => setHoveredSide(null)}
-                            onFocus={() => setHoveredSide('right')}
-                            onBlur={() => setHoveredSide(null)}
-                            onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                            style={{ flex: flexRight, height: "50vh", maxWidth: "60vh" }}
+                            {...imageHandlers("right", F2, keys.right.imgAlt)}
                         >
                             <img
                                 src={F2}
@@ -244,7 +315,6 @@ const Section2C4 = () => {
                 </div>
             </div>
 
-            {/* Lightbox */}
             {isLightboxOpen && (
                 <div
                     className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
