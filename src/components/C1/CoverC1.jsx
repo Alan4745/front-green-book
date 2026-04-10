@@ -43,19 +43,60 @@ const CoverC1 = () => {
                 <div className="absolute inset-0 bg-black/5 z-20" />
 
                 {/* Número de capítulo + Título (móvil: juntos centrados) */}
-                <div className="absolute top-[20vh] right-[14vw] z-30 max-lg:top-[28vh] max-lg:right-[5vw] max-lg:left-auto">
+                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
                     <img
                         src="/Img/Global/Numbers/01.svg"
                         alt={t("c1.cover.chapterAlt", { num: 1 })}
-                        className="w-[50vh] h-auto max-lg:w-[35vw]"
+                        className="w-[50vh] h-auto"
                         loading="eager"
                     />
                 </div>
 
+                <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
+                    <div className="relative flex items-center">
+                        <h2
+                            className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c1.cover.title.top")} <br /> {t("c1.cover.title.bottom")}
+                        </h2>
+                        <img
+                            src="/Img/Global/Numbers/01.svg"
+                            alt={t("c1.cover.chapterAlt", { num: 1 })}
+                            className="absolute right-[5vw] w-[50vw] h-auto z-20"
+                            loading="eager"
+                        />
+                    </div>
+
+                    <div className="pl-4 pr-4 mt-[6vh]">
+                        <p
+                            className="text-[1.8vh] text-white/90 max-w-[80vw] leading-tight"
+                            style={{ fontFamily: "GothamNormal" }}
+                        >
+                            {descFirst}
+                            {descSecond && (
+                                <>
+                                    <br />
+                                    {descSecond}
+                                </>
+                            )}
+                        </p>
+
+                        <h3
+                            className="text-white text-[2.5vh] uppercase mt-[4vh] tracking-wider"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t("c1.cover.subtitle")}
+                        </h3>
+
+                        <div className="w-[15vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh]" />
+                    </div>
+                </div>
+
                 {/* Título y descripción */}
-                <div className="absolute top-[35vh] right-[28vw] z-30 text-white text-left max-lg:top-[22vh] max-lg:right-auto max-lg:left-[5vw] max-lg:pr-[5vw]">
+                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[4.5vw] leading-[1] max-w-[30vw] uppercase max-lg:text-[6vh] max-lg:max-w-[65vw]"
+                        className="text-white text-[4.5vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.title.top")}
@@ -64,7 +105,7 @@ const CoverC1 = () => {
                     </h2>
 
                     <p
-                        className="text-[1.6vw] text-white/90 mt-[3vw] max-w-[60vw] leading-tight max-lg:text-[1.8vh] max-lg:mt-[3vh] max-lg:max-w-[80vw]"
+                        className="text-[1.6vw] text-white/90 mt-[3vw] max-w-[60vw] leading-tight"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {descFirst}
@@ -78,14 +119,14 @@ const CoverC1 = () => {
 
                     {/* Subtítulo */}
                     <h3
-                        className="text-white text-[2vw] uppercase mt-[3vw] tracking-wider max-lg:text-[2.5vh] max-lg:mt-[4vh] md:max-lg:mt-[2vh]"
+                        className="text-white text-[2vw] uppercase mt-[3vw] tracking-wider"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.subtitle")}
                     </h3>
 
                     {/* Línea rosada */}
-                    <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh] max-lg:w-[15vw]" />
+                    <div className="w-[7.2vw] h-[1.5vh] bg-[#DA2F7D] mt-[0.5vh]" />
                 </div>
 
                 {/* Logo inferior izquierdo */}

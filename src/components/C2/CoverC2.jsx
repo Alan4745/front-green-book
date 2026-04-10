@@ -49,7 +49,7 @@ const CoverC2 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[25vh] z-30">
+                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
                     <img
                         src="/Img/Global/Numbers/02.svg"
                         alt={t("c2.cover.chapterAlt", { num: 2 })}
@@ -57,20 +57,20 @@ const CoverC2 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[30vh] right-[50vh] z-30 text-white text-left">
+                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[8vh] leading-[1] max-w-[50vw] uppercase"
+                        className="text-white text-[4.5vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c2.cover.title.top")} <br /> {t("c2.cover.title.bottom")}
                     </h2>
                     <h3
-                        className="text-white text-[4vh] mt-[20vh] uppercase"
+                        className="text-white text-[2vw] mt-[3vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c2.cover.subtitle.top")} <br /> {t("c2.cover.subtitle.bottom")}
                     </h3>
-                    <div className="w-[10vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
+                    <div className="w-[10vw] h-[0.4vw] bg-[#5FCAD0] mt-[0.5vw]" />
                 </div>
 
                 <Link to='/'>
