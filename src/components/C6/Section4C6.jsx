@@ -66,18 +66,16 @@ const Section4C6 = () => {
                         onClick={onClose}
 
             >
-                 <CloseButton
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={t('c6.section4.buttons.close')}
-                        title={t('c6.section4.buttons.close')}
-                    />
-                <div className="relative">
-                   
+                <div className="relative" onClick={(e) => e.stopPropagation()}>
                     <img
                         src={src}
                         alt={alt}
-                        className="h-[90vh] w-auto object-contain"
+                        className="max-h-[95vh] max-w-[95vw] object-contain block"
+                    />
+                    <CloseButton
+                        onClick={onClose}
+                        aria-label={t('c6.section4.buttons.close')}
+                        title={t('c6.section4.buttons.close')}
                     />
                 </div>
             </div>,

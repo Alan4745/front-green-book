@@ -65,21 +65,16 @@ const Section1C6 = () => {
                 style={{ zIndex: 2147483647 }}
                 onClick={onClose}
             >
-
-                 <CloseButton
-                        onClick={onClose}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={t('c6.section1.buttons.close')}
-                        title={t('c6.section1.buttons.close')}
-                    />
-                <div className="relative">
-                   
+                <div className="relative" onClick={(e) => e.stopPropagation()}>
                     <img
                         src={src}
                         alt={alt}
-                        className="h-[90vh] w-auto object-contain"
-                        onClick={(e) => e.stopPropagation()}
-
+                        className="max-h-[95vh] max-w-[95vw] object-contain block"
+                    />
+                    <CloseButton
+                        onClick={onClose}
+                        aria-label={t('c6.section1.buttons.close')}
+                        title={t('c6.section1.buttons.close')}
                     />
                 </div>
             </div>,

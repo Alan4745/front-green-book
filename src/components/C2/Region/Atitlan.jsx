@@ -233,24 +233,14 @@ const Atitlan = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                    <div
-                        className="relative overflow-auto flex justify-center items-center"
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label={t(keys.alts.modalImage)}
-                        onClick={() => setShowZoom(false)}
-                    >
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
+                    <div className="relative" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} onClick={(e) => e.stopPropagation()}>
                         <img
                             src={FondoAtitlan}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            onClick={(e) => e.stopPropagation()}
-
-                            className="max-w-[36%] max-h-[90%] object-contain"
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
                         />
-                    </div>
-                    <div className="absolute top-[4vh] right-[50vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

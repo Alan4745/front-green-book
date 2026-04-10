@@ -282,24 +282,16 @@ const Section2C5 = () => {
                     aria-modal="true"
                     aria-label={t(keys.aria.modal)}
                 >
-                <CloseButton
-                        onClick={closeLightbox}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={t(keys.buttons.close)}
-                        title={t(keys.buttons.close)}
-                    />
-                    <div className="relative"
-                    
-                    onClick={(e) => {
-                        e.stopPropagation();     // evita que el click del botón llegue al overlay
-                        closeLightbox();
-                        }}
-                    >
-             
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
                         <img
                             src={currentImage}
                             alt={t(keys.aria.modal)}
-                            className="h-[90vh] w-auto object-contain"
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        />
+                        <CloseButton
+                            onClick={closeLightbox}
+                            aria-label={t(keys.buttons.close)}
+                            title={t(keys.buttons.close)}
                         />
                     </div>
                 </div>

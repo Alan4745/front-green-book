@@ -318,10 +318,9 @@ const CoverColab = () => {
                     className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100]"
                     onClick={() => setActiveVideo(null)}
                 >
-                    <CloseButton onClick={() => setActiveVideo(null)} />
-                    <div onClick={(e) => e.stopPropagation()} className="w-[90vw] max-w-5xl">
+                    <div onClick={(e) => e.stopPropagation()} className="relative w-[90vw] max-w-5xl">
                         <video
-                            className="w-full h-auto rounded-xl"
+                            className="w-full max-h-[90vh] h-auto rounded-xl block"
                             autoPlay
                             controls
                             controlsList="nodownload noplaybackrate"
@@ -330,6 +329,7 @@ const CoverColab = () => {
                         >
                             <source src={activeVideo === 'gc' ? VideoGC : VideoAC} type="video/mp4" />
                         </video>
+                        <CloseButton onClick={() => setActiveVideo(null)} />
                     </div>
                 </div>
             )}

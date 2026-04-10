@@ -249,24 +249,14 @@ const Antigua = () => {
 
             {/* Modal zoom */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-                    <div
-                        className="relative overflow-auto flex justify-center items-center"
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label={t(keys.alts.modalImage)}
-                        onClick={() => setShowZoom(false)}
-                    >
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
+                    <div className="relative" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} onClick={(e) => e.stopPropagation()}>
                         <img
                             src={FondoAntigua}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
-                            className="max-w-[70%] max-h-[90%] object-contain"
-                            onClick={(e) => e.stopPropagation()}
-
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
                         />
-                    </div>
-                    <div className="absolute top-[4vh] right-[16vh] z-50">
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}

@@ -174,20 +174,16 @@ const Section1C1 = () => {
                 style={{ zIndex: 2147483647 }}
                 onClick={onClose}
             >
-            <div className="absolute top-4 right-4 z-10" onClick={(e) => { e.stopPropagation(); onClose(); }}>
-                <CloseButton
-                    onClick={onClose}
-                    className="text-white"
-                    aria-label={alt}
-                    title={alt}
-                />
-            </div>
-                <div className="relative">
+                <div className="relative" onClick={(e) => e.stopPropagation()}>
                     <img
                         src={src}
                         alt={alt}
-                        className="max-h-[85vh] max-w-[90vw] w-auto object-contain"
-                        onClick={(e) => e.stopPropagation()}
+                        className="max-h-[95vh] max-w-[95vw] object-contain block"
+                    />
+                    <CloseButton
+                        onClick={onClose}
+                        aria-label={alt}
+                        title={alt}
                     />
                 </div>
             </div>,

@@ -219,22 +219,16 @@ const Section3C5 = () => {
                     aria-label={t(keys.aria.modal)}
                     onClick={closeLightbox}
                 >
-                {/* Botón de cerrar */}
-                    <CloseButton
-                        onClick={closeLightbox}
-                        className="absolute top-4 right-4 text-white"
-                        aria-label={t(keys.buttons.close)}
-                        title={t(keys.buttons.close)}
-                    />
-                    <div className="relative">
-                        
-                        {/* Imagen ampliada */}
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
                         <img
                             src={currentImage}
                             alt={t(keys.aria.modal)}
-                            className="h-[90vh] w-auto object-contain"
-                            onClick={(e) => e.stopPropagation()}
-
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        />
+                        <CloseButton
+                            onClick={closeLightbox}
+                            aria-label={t(keys.buttons.close)}
+                            title={t(keys.buttons.close)}
                         />
                     </div>
                 </div>

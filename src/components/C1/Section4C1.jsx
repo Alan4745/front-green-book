@@ -120,18 +120,8 @@ const Section4C1 = () => {
                         className="relative"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Botón de cerrar ENCIMA del video */}
-                        <div className="absolute top-[-3.5vh] right-[5vh] z-20 pointer-events-auto">
-                            <CloseButton
-                                onClick={closeVideo}
-                                aria-label={t(keys.buttons.closeFallback)}
-                                title={t(keys.buttons.closeFallback)}
-                            />
-                        </div>
-
-                        {/* Video grande (debajo del botón) */}
                         <video
-                            className="relative z-10 w-[160vh] max-w-[90vw] max-h-[80vh] rounded-md shadow-2xl object-contain"
+                            className="w-[160vh] max-w-[95vw] max-h-[90vh] rounded-md shadow-2xl object-contain block"
                             src={Vid1}
                             controls
                             controlsList="nodownload noplaybackrate"
@@ -139,6 +129,11 @@ const Section4C1 = () => {
                             autoPlay
                             playsInline
                             preload="metadata"
+                        />
+                        <CloseButton
+                            onClick={closeVideo}
+                            aria-label={t(keys.buttons.closeFallback)}
+                            title={t(keys.buttons.closeFallback)}
                         />
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import React from "react";
 const CloseButton = ({
     onClick,
     className = "",
-    positionClass = "absolute top-12 right-14",
+    positionClass = "absolute top-2 right-2",
     ...props
 }) => {
     return (

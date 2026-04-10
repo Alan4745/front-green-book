@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import F1 from "../../assets/C4/Img/F1.jpeg"; // Asegúrate de que la ruta sea correcta
-import F2 from "../../assets/C4/Img/F2.png"; // Asegúrate de que la ruta sea correcta
+import F1 from "../../assets/C4/Img/F1.jpeg";
+import F2 from "../../assets/C4/Img/F2.png";
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
 
@@ -10,29 +10,9 @@ const Section2C4 = () => {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
     const [currentAltKey, setCurrentAltKey] = useState("");
+    const [hoveredSide, setHoveredSide] = useState(null);
     const { t } = useTranslation();
 
-    // Estado para el tamaño de la ventana
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    // Ajuste dinámico del tamaño del título en ambos lados
-    const titleTextSize = windowWidth > 1600 ? "text-3xl" : "text-2xl"; // Título más grande para pantallas grandes
-
-    // Ajuste dinámico del tamaño del texto descriptivo
-    const descTextSize = windowWidth > 1600 ? "text-[2.1vh]" : "text-[2.1vh]"; // Texto más grande para pantallas grandes
-
-    // Keys para i18n
     const keys = {
         aria: {
             section: "c4.section2.aria.section",
@@ -57,16 +37,17 @@ const Section2C4 = () => {
         }
     };
 
-    // Abrir / cerrar lightbox
     const openLightbox = (img, altKey) => {
         setCurrentImage(img);
         setCurrentAltKey(altKey);
         setIsLightboxOpen(true);
     };
 
-    const closeLightbox = () => {
-        setIsLightboxOpen(false);
-    };
+    const closeLightbox = () => setIsLightboxOpen(false);
+
+    // Flex values para el efecto de expansión
+    const flexLeft  = hoveredSide === 'left'  ? '1.6 1 0%' : hoveredSide === 'right' ? '0.6 1 0%' : '1 1 0%';
+    const flexRight = hoveredSide === 'right' ? '1.6 1 0%' : hoveredSide === 'left'  ? '0.6 1 0%' : '1 1 0%';
 
     return (
         <section
@@ -74,87 +55,110 @@ const Section2C4 = () => {
             role="region"
             aria-label={t(keys.aria.section)}
         >
-            {/* ===== MOBILE LAYOUT ===== */}
+            {/* ===== MOBILE / TABLET LAYOUT ===== */}
             <div className="lg:hidden flex flex-col text-white">
-                {/* Bloque 1: Suelos Únicos */}
-                <div className="relative px-6 pt-8 pb-4">
-                    <div
-                        className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none"
-                        style={{ fontFamily: "GothamBold" }}
-                    >
-                        01
+
+                {/* Fila superior: título+número IZQUIERDA, descripción DERECHA */}
+                <div className="flex items-start pt-6 pb-0 gap-2">
+                    {/* Izquierda: contenedor relativo — título encima del número */}
+                    <div className="w-[48%] relative pl-3" style={{ minHeight: '38vw' }}>
+                        <h3
+                            className="relative z-10 text-[5.5vw] md:text-[3.6vw] font-bold uppercase leading-tight"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t(keys.left.title)}
+                        </h3>
+                        <div
+                            className="absolute bottom-0 left-0 pl-2 font-bold opacity-25 pointer-events-none"
+                            style={{ fontFamily: "GothamBold", fontSize: '43vw', lineHeight: '0.82' }}
+                        >
+                            01
+                        </div>
                     </div>
-                    <h3
-                        className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]"
-                        style={{ fontFamily: "GothamBold" }}
-                    >
-                        {t(keys.left.title)}
-                    </h3>
+                    {/* Derecha: descripción */}
                     <p
-                        className="text-[3.8vw] md:text-[2.5vw] text-justify mt-4 leading-relaxed"
+                        className="w-[52%] pr-3 text-[2.8vw] md:text-[2vw] text-justify leading-snug pt-1"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.left.desc)}
                     </p>
-                    <div className="relative mt-4">
+                </div>
+
+                {/* Ambas imágenes juntas con efecto de expansión */}
+                <div className="flex w-full" style={{ marginTop: '2vw' }}>
+                    <div
+                        className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{ flex: flexLeft }}
+                        onMouseEnter={() => setHoveredSide('left')}
+                        onMouseLeave={() => setHoveredSide(null)}
+                        onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                    >
                         <img
                             src={F1}
-                            className="w-full h-[60vw] md:h-[45vw] object-cover cursor-pointer"
+                            className="w-full h-[52vw] md:h-[38vw] object-cover"
                             alt={t(keys.left.imgAlt)}
                             title={t(keys.left.imgAlt)}
-                            onClick={() => openLightbox(F1, keys.left.imgAlt)}
                         />
                         <ExpandButton
-                            onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                            onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
+                            title={t(keys.buttons.expand)}
+                            aria-label={t(keys.buttons.expand)}
+                        />
+                    </div>
+                    <div
+                        className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{ flex: flexRight }}
+                        onMouseEnter={() => setHoveredSide('right')}
+                        onMouseLeave={() => setHoveredSide(null)}
+                        onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                    >
+                        <img
+                            src={F2}
+                            className="w-full h-[52vw] md:h-[38vw] object-cover"
+                            alt={t(keys.right.imgAlt)}
+                            title={t(keys.right.imgAlt)}
+                        />
+                        <ExpandButton
+                            onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
                             title={t(keys.buttons.expand)}
                             aria-label={t(keys.buttons.expand)}
                         />
                     </div>
                 </div>
 
-                {/* Bloque 2: El Poder de los Volcanes */}
-                <div className="relative px-6 pt-4 pb-8">
-                    <div
-                        className="text-[28vw] md:text-[18vw] font-bold opacity-30 leading-none"
-                        style={{ fontFamily: "GothamBold" }}
-                    >
-                        02
-                    </div>
-                    <h3
-                        className="text-[6vw] md:text-[4vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw]"
-                        style={{ fontFamily: "GothamBold" }}
-                    >
-                        {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
-                    </h3>
+                {/* Fila inferior: descripción IZQUIERDA, título+número DERECHA */}
+                <div className="flex items-start pb-6 pt-0 gap-2">
+                    {/* Izquierda: descripción */}
                     <p
-                        className="text-[3.8vw] md:text-[2.5vw] text-justify mt-4 leading-relaxed"
+                        className="w-[52%] pl-3 text-[2.8vw] md:text-[2vw] text-justify leading-snug pt-1"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.right.desc)}
                     </p>
-                    <div className="relative mt-4">
-                        <img
-                            src={F2}
-                            className="w-full h-[60vw] md:h-[45vw] object-cover cursor-pointer"
-                            alt={t(keys.right.imgAlt)}
-                            title={t(keys.right.imgAlt)}
-                            onClick={() => openLightbox(F2, keys.right.imgAlt)}
-                        />
-                        <ExpandButton
-                            onClick={() => openLightbox(F2, keys.right.imgAlt)}
-                            title={t(keys.buttons.expand)}
-                            aria-label={t(keys.buttons.expand)}
-                        />
+                    {/* Derecha: contenedor relativo — título encima del número */}
+                    <div className="w-[48%] relative pr-3 text-right" style={{ minHeight: '38vw' }}>
+                        <h3
+                            className="relative z-10 text-[5.5vw] md:text-[3.6vw] font-bold uppercase leading-tight"
+                            style={{ fontFamily: "GothamBold" }}
+                        >
+                            {t(keys.right.title.line1)}<br />{t(keys.right.title.line2)}
+                        </h3>
+                        <div
+                            className="absolute bottom-0 right-0 pr-2 font-bold opacity-25 pointer-events-none"
+                            style={{ fontFamily: "GothamBold", fontSize: '43vw', lineHeight: '0.82' }}
+                        >
+                            02
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* ===== DESKTOP LAYOUT (blindado) ===== */}
+            {/* ===== DESKTOP LAYOUT ===== */}
             <div className="hidden lg:block h-full">
                 <div className="relative w-full text-white">
-                    {/* Títulos */}
+                    {/* Títulos izquierda */}
                     <div className="absolute top-[25vh] left-[15vh]">
-                        <h3 className={`font-bold uppercase w-[30vh] ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <h3 className="text-2xl font-bold uppercase w-[30vh]" style={{ fontFamily: "GothamBold" }}>
                             {t(keys.left.title)}
                         </h3>
                         <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -162,8 +166,9 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
+                    {/* Títulos derecha */}
                     <div className="absolute top-[25vh] right-[15vh] text-right">
-                        <h3 className={`font-bold uppercase ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
+                        <h3 className="text-2xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
                             {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
                         </h3>
                         <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
@@ -171,55 +176,59 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
-                    {/* Texto descriptivo */}
+                    {/* Descripción izquierda */}
                     <div className="absolute top-[55vh] left-[15vh] w-[40vh]">
-                        <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                        <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.left.desc)}
                         </p>
                     </div>
 
+                    {/* Descripción derecha */}
                     <div className="absolute top-[55vh] right-[15vh] text-right w-[40vh]">
-                        <p className={`${descTextSize} text-justify leading-relaxed`} style={{ fontFamily: "GothamNormal" }}>
+                        <p className="text-[2.1vh] text-justify leading-snug" style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.right.desc)}
                         </p>
                     </div>
 
-                    {/* Imágenes del centro */}
-                    <div className="flex flex-col justify-center items-center h-full relative">
-                        {/* Imagen superior con botón */}
-                        <div className="relative group">
+                    {/* Imágenes centradas con efecto de expansión */}
+                    <div className="flex justify-center items-center" style={{ minHeight: '100vh' }}>
+                        <div
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexLeft, height: '50vh', maxWidth: '60vh' }}
+                            onMouseEnter={() => setHoveredSide('left')}
+                            onMouseLeave={() => setHoveredSide(null)}
+                            onClick={() => openLightbox(F1, keys.left.imgAlt)}
+                        >
                             <img
                                 src={F1}
-                                className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-10"
+                                className="w-full h-full object-cover"
                                 alt={t(keys.left.imgAlt)}
                                 title={t(keys.left.imgAlt)}
-                                onClick={() => openLightbox(F1, keys.left.imgAlt)}
                             />
-                            <div>
-                                <ExpandButton
-                                    onClick={() => openLightbox(F1, keys.left.imgAlt)}
-                                    title={t(keys.buttons.expand)}
-                                    aria-label={t(keys.buttons.expand)}
-                                />
-                            </div>
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
                         </div>
-
-                        {/* Imagen inferior con botón */}
-                        <div className="relative group">
+                        <div
+                            className="relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ flex: flexRight, height: '50vh', maxWidth: '60vh' }}
+                            onMouseEnter={() => setHoveredSide('right')}
+                            onMouseLeave={() => setHoveredSide(null)}
+                            onClick={() => openLightbox(F2, keys.right.imgAlt)}
+                        >
                             <img
                                 src={F2}
-                                className="w-[60vh] h-[50vh] object-cover cursor-pointer group-hover:scale-110 transition-all duration-300 ease-in-out z-0"
+                                className="w-full h-full object-cover"
                                 alt={t(keys.right.imgAlt)}
                                 title={t(keys.right.imgAlt)}
-                                onClick={() => openLightbox(F2, keys.right.imgAlt)}
                             />
-                            <div>
-                                <ExpandButton
-                                    onClick={() => openLightbox(F2, keys.right.imgAlt)}
-                                    title={t(keys.buttons.expand)}
-                                    aria-label={t(keys.buttons.expand)}
-                                />
-                            </div>
+                            <ExpandButton
+                                onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
+                                title={t(keys.buttons.expand)}
+                                aria-label={t(keys.buttons.expand)}
+                            />
                         </div>
                     </div>
                 </div>
@@ -234,22 +243,16 @@ const Section2C4 = () => {
                     aria-label={t(keys.aria.modal)}
                     onClick={closeLightbox}
                 >
-                      {/* Botón de cerrar */}
-                        <CloseButton
-                            onClick={closeLightbox}
-                            className="absolute top-4 right-4 text-white"
-                            aria-label={t(keys.buttons.close)}
-                            title={t(keys.buttons.close)}
-                        />
-                    <div className="relative">
-                      
-                        {/* Imagen ampliada */}
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
                         <img
                             src={currentImage}
                             alt={t(currentAltKey || keys.aria.modal)}
-                            className="h-[90vh] w-auto object-contain"
-                            onClick={(e) => e.stopPropagation()}
-
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        />
+                        <CloseButton
+                            onClick={closeLightbox}
+                            aria-label={t(keys.buttons.close)}
+                            title={t(keys.buttons.close)}
                         />
                     </div>
                 </div>

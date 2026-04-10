@@ -215,30 +215,20 @@ const Coban = () => {
 
             {/* Modal de imagen ampliada */}
             {showZoom && (
-                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)} >
-
-                    
-                    <div className="absolute top-0 right-0">
+                <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
+                    <div className="relative" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} onClick={(e) => e.stopPropagation()}>
+                        <img
+                            src={FondoCoban}
+                            alt={t(keys.alts.modalImage)}
+                            title={t(keys.alts.modalImage)}
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        />
                         <CloseButton
                             onClick={() => setShowZoom(false)}
                             aria-label={t(keys.buttons.close)}
                             title={t(keys.buttons.close)}
                         />
                     </div>
-
-
-                    <div className="relative overflow-auto" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)}>
-                        <img
-                            src={FondoCoban}
-                            alt={t(keys.alts.modalImage)}
-                            title={t(keys.alts.modalImage)}
-                            className="w-[90%] h-auto object-contain"
-                            onClick={(e) => e.stopPropagation()}
-
-                        />
-                    </div>
-
-                    
                 </div>
             )}
         </div>

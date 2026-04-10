@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BigSlider from './ui/BigSlider';
 import HoverButton from '../Global/HoverButton';
+import CloseButton from '../Global/CloseButton';
 import { useTranslation } from 'react-i18next';
 
 // Asegúrate de que las rutas sean correctas
@@ -26,24 +27,6 @@ const Section1C5 = () => {
     // Función para cerrar el lightbox
     const closeLightbox = () => {
         setIsLightboxOpen(false);
-    };
-
-    // Componente CloseButton (local)
-    const CloseButton = ({ onClick, className = '' }) => {
-        return (
-            <button
-                type="button"
-                onClick={onClick}
-                className={`h-10 w-10 rounded-full hover:bg-white/25 border-2 border-white text-white grid place-items-center backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/70 ${className}`}
-                aria-label={t('c5.section1.buttons.close')}
-                title={t('c5.section1.buttons.close')}
-            >
-                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M18 6L6 18" />
-                    <path d="M6 6l12 12" />
-                </svg>
-            </button>
-        );
     };
 
     // Slides i18n
@@ -194,15 +177,16 @@ const Section1C5 = () => {
                     aria-label={t('c5.section1.modalAlt')}
                     onClick={closeLightbox}
                 >
-                     <CloseButton onClick={closeLightbox} className="absolute top-4 right-4 text-white" />
-                    <div className="relative">
-                       
+                    <div className="relative" onClick={(e) => e.stopPropagation()}>
                         <img
                             src={currentImage}
                             alt={t('c5.section1.modalAlt')}
-                            className="h-[90vh] w-auto object-contain"
-                            onClick={(e) => e.stopPropagation()}
-
+                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        />
+                        <CloseButton
+                            onClick={closeLightbox}
+                            aria-label={t('c5.section1.buttons.close')}
+                            title={t('c5.section1.buttons.close')}
                         />
                     </div>
                 </div>
