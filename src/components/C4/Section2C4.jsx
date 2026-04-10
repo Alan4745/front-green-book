@@ -56,7 +56,8 @@ const Section2C4 = () => {
             left: document.body.style.left,
             right: document.body.style.right,
             width: document.body.style.width,
-            overflow: document.body.style.overflow
+            overflow: document.body.style.overflow,
+            htmlOverflow: document.documentElement.style.overflow
         };
 
         document.body.style.position = "fixed";
@@ -65,6 +66,7 @@ const Section2C4 = () => {
         document.body.style.right = "0";
         document.body.style.width = "100%";
         document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
 
         return () => {
             document.body.style.position = prev.position;
@@ -73,6 +75,7 @@ const Section2C4 = () => {
             document.body.style.right = prev.right;
             document.body.style.width = prev.width;
             document.body.style.overflow = prev.overflow;
+            document.documentElement.style.overflow = prev.htmlOverflow;
             window.scrollTo(0, scrollY);
         };
     }, [selectedImage]);
@@ -108,7 +111,7 @@ const Section2C4 = () => {
 
     return (
         <section
-            className="relative z-10 w-full bg-[#FF5A00] bg-center bg-cover bg-no-repeat text-white lg:flex lg:min-h-screen"
+            className="relative z-10 w-full overflow-hidden bg-[#FF5A00] bg-center bg-cover bg-no-repeat text-white lg:flex lg:min-h-screen"
             role="region"
             aria-label={t(keys.aria.section)}
         >

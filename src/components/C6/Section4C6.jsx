@@ -33,7 +33,8 @@ const Section4C6 = () => {
             left: document.body.style.left,
             right: document.body.style.right,
             width: document.body.style.width,
-            overflow: document.body.style.overflow
+            overflow: document.body.style.overflow,
+            htmlOverflow: document.documentElement.style.overflow
         };
 
         document.body.style.position = 'fixed';
@@ -42,6 +43,7 @@ const Section4C6 = () => {
         document.body.style.right = '0';
         document.body.style.width = '100%';
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
 
         return () => {
             document.body.style.position = prev.position;
@@ -50,6 +52,7 @@ const Section4C6 = () => {
             document.body.style.right = prev.right;
             document.body.style.width = prev.width;
             document.body.style.overflow = prev.overflow;
+            document.documentElement.style.overflow = prev.htmlOverflow;
             window.scrollTo(0, scrollY);
         };
     }, [selectedImage]);
@@ -86,7 +89,7 @@ const Section4C6 = () => {
 
     return (
         <div
-            className="relative w-full bg-[#00AE43] bg-no-repeat bg-center bg-cover z-10 lg:flex lg:min-h-screen"
+            className="relative z-10 w-full overflow-hidden bg-[#00AE43] bg-no-repeat bg-center bg-cover lg:flex lg:min-h-screen"
             role="region"
             aria-label={t('c6.section4.aria.section')}
         >
@@ -170,7 +173,7 @@ const Section4C6 = () => {
                 </div>
 
                 {/* Imágenes del centro - rectangulares tocando arriba y abajo */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
+                    <div className="absolute top-0 left-1/2 flex h-full -translate-x-1/2 transform flex-col">
                     {/* Primera imagen */}
                     <MotionDiv
                         className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
@@ -203,9 +206,9 @@ const Section4C6 = () => {
                     </MotionDiv>
 
                     {/* Segunda imagen */}
-                    <MotionDiv
-                        className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
-                        style={{ willChange: 'transform' }}
+                        <MotionDiv
+                            className="relative w-[60vh] h-[50vh] mt-auto translate-y-[-2vh] cursor-pointer origin-center group hover:z-30"
+                            style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
                     >
