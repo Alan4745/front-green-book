@@ -62,9 +62,9 @@ const CoverC6 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[10vh] right-[28vw] z-30 text-white text-left">
+                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.5vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c6.cover.title.line1")} <br />

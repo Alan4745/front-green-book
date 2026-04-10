@@ -70,7 +70,7 @@ const CoverC4 = () => {
                 {/* DESKTOP: título y descripción — intacto */}
                 <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[4.5vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
