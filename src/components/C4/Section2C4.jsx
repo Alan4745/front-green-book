@@ -248,97 +248,105 @@ const Section2C4 = () => {
             </div>
 
             <div className="hidden xl:block min-h-screen text-white">
-                <div className="relative mx-auto min-h-screen w-full max-w-[1360px] px-[4.2vw] py-[4vh]">
-                    <div className="absolute left-[4.9vw] top-[18.7vh] w-[18vw] min-w-[250px] max-w-[320px]">
-                        <div
-                            className="absolute left-[-0.7vw] top-[-6.35rem] font-bold opacity-25 pointer-events-none"
-                            style={desktopNumberStyle}
-                        >
-                            01
+                <div className="relative mx-auto min-h-screen w-full max-w-[1360px] px-[4vw]">
+                    <div className="absolute inset-y-0 left-[2vw] flex items-center">
+                        <div className="relative w-[20vw] min-w-[280px] max-w-[360px]">
+                            <div
+                                className="absolute left-[0.1rem] top-[-5.8rem] font-bold opacity-25 pointer-events-none"
+                                style={desktopNumberStyle}
+                            >
+                                01
+                            </div>
+                            <h3
+                                className="relative z-10 max-w-[16vw] min-w-[250px] uppercase"
+                                style={desktopTitleStyle}
+                            >
+                                {t(keys.left.title)}
+                            </h3>
+                            <p
+                                className="relative z-10 mt-[4.1rem] max-w-[18vw] min-w-[285px] text-left"
+                                style={desktopCopyStyle}
+                            >
+                                {t(keys.left.desc)}
+                            </p>
                         </div>
-                        <h3
-                            className="relative z-10 max-w-[14vw] uppercase"
-                            style={desktopTitleStyle}
-                        >
-                            {t(keys.left.title)}
-                        </h3>
-                        <p
-                            className="relative z-10 mt-[5.15rem] max-w-[16.2vw] min-w-[255px] text-left"
-                            style={desktopCopyStyle}
-                        >
-                            {t(keys.left.desc)}
-                        </p>
                     </div>
 
-                    <div className="absolute right-[4.9vw] top-[18.7vh] w-[18.5vw] min-w-[265px] max-w-[340px] text-right">
-                        <div
-                            className="absolute right-[-0.95vw] top-[-6.35rem] font-bold opacity-25 pointer-events-none"
-                            style={desktopNumberStyle}
-                        >
-                            02
+                    <div className="absolute inset-y-0 right-[2vw] flex items-center justify-end">
+                        <div className="relative w-[20vw] min-w-[290px] max-w-[360px] text-right">
+                            <div
+                                className="absolute right-[0.15rem] top-[-5.8rem] font-bold opacity-25 pointer-events-none"
+                                style={desktopNumberStyle}
+                            >
+                                02
+                            </div>
+                            <h3
+                                className="relative z-10 ml-auto max-w-[16.5vw] min-w-[275px] uppercase"
+                                style={desktopTitleStyle}
+                            >
+                                {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
+                            </h3>
+                            <p
+                                className="relative z-10 ml-auto mt-[4rem] max-w-[17.5vw] min-w-[285px] text-left"
+                                style={desktopCopyStyle}
+                            >
+                                {t(keys.right.desc)}
+                            </p>
                         </div>
-                        <h3
-                            className="relative z-10 ml-auto max-w-[16vw] uppercase"
-                            style={desktopTitleStyle}
-                        >
-                            {t(keys.right.title.line1)} <br /> {t(keys.right.title.line2)}
-                        </h3>
-                        <p
-                            className="relative z-10 ml-auto mt-[4.95rem] max-w-[15vw] min-w-[245px] text-left"
-                            style={desktopCopyStyle}
-                        >
-                            {t(keys.right.desc)}
-                        </p>
                     </div>
 
-                    <div className="relative mx-auto flex min-h-screen w-[41vw] min-w-[600px] max-w-[680px] items-center justify-center">
+                    <div className="relative mx-auto flex min-h-screen w-[32vw] min-w-[420px] max-w-[470px] items-center justify-center">
                         <div
-                            className={`absolute left-1/2 top-[11.8vh] h-[clamp(16rem,21vw,20rem)] w-[clamp(28rem,32vw,35rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
-                                hoveredSide === "right"
-                                    ? "scale-[0.985] opacity-90"
-                                    : "scale-100 opacity-100"
-                            } ${hoveredSide === "left" ? "shadow-[0_24px_50px_rgba(0,0,0,0.24)]" : "shadow-[0_16px_34px_rgba(0,0,0,0.12)]"}`}
+                            className={`absolute left-1/2 top-1/2 z-10 h-[clamp(18rem,24vw,23rem)] w-[clamp(22rem,28vw,27.5rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
+                                hoveredSide === "left" ? "shadow-[0_26px_56px_rgba(0,0,0,0.24)]" : "shadow-[0_14px_30px_rgba(0,0,0,0.14)]"
+                            }`}
+                            style={{
+                                transform: `translateX(-50%) translateY(${hoveredSide === "left" ? "-46%" : "-50%"})`,
+                                opacity: hoveredSide === "right" ? 0.92 : 1
+                            }}
                             {...imageHandlers("left", F1, keys.left.imgAlt)}
                         >
                             <img
                                 src={F1}
                                 className={`h-full w-full object-cover transition-transform duration-300 ease-out ${
-                                    hoveredSide === "left" ? "scale-[1.035]" : "scale-100"
+                                    hoveredSide === "left" ? "scale-[1.02]" : "scale-100"
                                 }`}
                                 alt={t(keys.left.imgAlt)}
                                 title={t(keys.left.imgAlt)}
                             />
-                            <div className={`absolute inset-0 bg-black/0 transition-colors duration-300 ${hoveredSide === "right" ? "bg-black/8" : ""}`} />
+                            <div className={`absolute inset-0 transition-colors duration-300 ${hoveredSide === "right" ? "bg-black/8" : "bg-black/0"}`} />
                             <ExpandButton
                                 onClick={(e) => { e.stopPropagation(); openLightbox(F1, keys.left.imgAlt); }}
                                 title={t(keys.buttons.expand)}
                                 aria-label={t(keys.buttons.expand)}
-                                className={`transition-all duration-300 ${hoveredSide === "left" ? "opacity-100 translate-y-0" : "opacity-75 translate-y-1"}`}
+                                className={`transition-all duration-300 ${hoveredSide === "left" ? "opacity-100" : "opacity-80"}`}
                             />
                         </div>
 
                         <div
-                            className={`absolute bottom-[13.2vh] left-1/2 z-10 h-[clamp(22.5rem,30vw,27.5rem)] w-[clamp(18.5rem,23vw,25rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
-                                hoveredSide === "left"
-                                    ? "scale-[0.985] opacity-90"
-                                    : "scale-100 opacity-100"
-                            } ${hoveredSide === "right" ? "shadow-[0_28px_60px_rgba(0,0,0,0.28)]" : "shadow-[0_18px_38px_rgba(0,0,0,0.16)]"}`}
+                            className={`absolute left-1/2 top-1/2 z-20 h-[clamp(18rem,24vw,23rem)] w-[clamp(22rem,28vw,27.5rem)] -translate-x-1/2 cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
+                                hoveredSide === "right" ? "shadow-[0_28px_58px_rgba(0,0,0,0.26)]" : "shadow-[0_16px_34px_rgba(0,0,0,0.16)]"
+                            }`}
+                            style={{
+                                transform: `translateX(-50%) translateY(${hoveredSide === "right" ? "-2%" : "2%"})`,
+                                opacity: hoveredSide === "left" ? 0.95 : 1
+                            }}
                             {...imageHandlers("right", F2, keys.right.imgAlt)}
                         >
                             <img
                                 src={F2}
                                 className={`h-full w-full object-cover transition-transform duration-300 ease-out ${
-                                    hoveredSide === "right" ? "scale-[1.035]" : "scale-100"
+                                    hoveredSide === "right" ? "scale-[1.02]" : "scale-100"
                                 }`}
                                 alt={t(keys.right.imgAlt)}
                                 title={t(keys.right.imgAlt)}
                             />
-                            <div className={`absolute inset-0 bg-black/0 transition-colors duration-300 ${hoveredSide === "left" ? "bg-black/8" : ""}`} />
+                            <div className={`absolute inset-0 transition-colors duration-300 ${hoveredSide === "left" ? "bg-black/8" : "bg-black/0"}`} />
                             <ExpandButton
                                 onClick={(e) => { e.stopPropagation(); openLightbox(F2, keys.right.imgAlt); }}
                                 title={t(keys.buttons.expand)}
                                 aria-label={t(keys.buttons.expand)}
-                                className={`transition-all duration-300 ${hoveredSide === "right" ? "opacity-100 translate-y-0" : "opacity-75 translate-y-1"}`}
+                                className={`transition-all duration-300 ${hoveredSide === "right" ? "opacity-100" : "opacity-80"}`}
                             />
                         </div>
                     </div>
