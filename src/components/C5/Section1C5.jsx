@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import BigSlider from './ui/BigSlider';
 import HoverButton from '../Global/HoverButton';
 import CloseButton from '../Global/CloseButton';
-import { useTranslation } from 'react-i18next';
 
-// Asegúrate de que las rutas sean correctas
 import F1 from '../../assets/C5/F1.png';
 import F2 from '../../assets/C5/F2.png';
 import F3 from '../../assets/C5/F3.png';
@@ -18,18 +17,15 @@ const Section1C5 = () => {
     const [currentImage, setCurrentImage] = useState('');
     const { t, i18n } = useTranslation();
 
-    // Función para abrir el lightbox
     const openLightbox = (img) => {
         setCurrentImage(img);
         setIsLightboxOpen(true);
     };
 
-    // Función para cerrar el lightbox
     const closeLightbox = () => {
         setIsLightboxOpen(false);
     };
 
-    // Slides i18n
     const slidesData = [
         {
             image: F1,
@@ -43,135 +39,90 @@ const Section1C5 = () => {
             title: t('c5.section1.slides.f2.title'),
             description: t('c5.section1.slides.f2.desc'),
             Number: Number2,
-            highlightWords: t('c5.section1.slides.f2.highlight', { returnObjects: true }),
-            credits: t('c5.section1.slides.f3.credits', { defaultValue: 'Créditos: Rocío Silva' })
+            highlightWords: t('c5.section1.slides.f2.highlight', { returnObjects: true })
         },
         {
             image: F3,
             title: t('c5.section1.slides.f3.title'),
             description: t('c5.section1.slides.f3.desc'),
             Number: Number3,
-            MaxW: '90%',
             highlightWords: t('c5.section1.slides.f3.highlight', { returnObjects: true })
         }
     ];
 
-    // Estado para el tamaño de la ventana
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
-    React.useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    // Ajuste dinámico del margen superior para los textos
-    const marginTopTitle = windowWidth > 1600 ? "top-[18vh]" : "top-[10vh]"; // Título más abajo en pantallas pequeñas
-    const marginTopDesc = windowWidth > 1600 ? "top-[28vh]" : "top-[20vh]"; // Descripción más abajo en pantallas pequeñas
-    const marginTopOutro = windowWidth > 1600 ? "mt-[-2vh]" : "mt-[-15vh]"; // Outro más abajo en pantallas pequeñas
-
-    // Ajuste dinámico del margen derecho del botón
-    const marginRightButton = windowWidth > 1600 ? "right-[-6vh]" : "right-[-12vh]"; // Botón más a la derecha en pantallas pequeñas
-
     return (
-        <div
-            className="relative min-h-screen w-full bg-[#562E91] bg-no-repeat bg-center bg-cover lg:flex lg:items-center lg:justify-center"
+        <section
+            className="relative min-h-screen w-full overflow-hidden bg-[#562E91] text-white"
             role="region"
             aria-label={t('c5.section1.aria.section')}
         >
-            {/* ===== MOBILE LAYOUT ===== */}
-            <div className="lg:hidden flex min-h-screen flex-col justify-center px-6 pt-[8vh] pb-[10vh] text-white">
-                {/* HoverButton dentro del viewport */}
-                <div className="absolute top-6 right-4 z-50">
-                    <HoverButton
-                        text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
-                        textOffset={-80}
-                        hoverOffset={30}
-                        link="https://reservasdeguatemala.org/"
-                    />
-                </div>
-
-                {/* Título */}
-                <h2
-                    className="text-[6vw] md:text-[4vw] uppercase mb-3"
-                    style={{ fontFamily: 'GothamBold' }}
-                >
-                    {t('c5.section1.title')}
-                </h2>
-
-                {/* Intro */}
-                <p
-                    className="text-[3.8vw] md:text-[2.5vw] text-justify leading-relaxed mb-6"
-                    style={{ fontFamily: 'GothamNormal' }}
-                >
-                    {t('c5.section1.intro')}
-                </p>
-
-                {/* Slider — 1 card */}
-                <div className="w-full flex justify-center">
-                    <BigSlider slides={slidesData} onExpandClick={openLightbox} />
-                </div>
-
-                {/* Outro */}
-                <p
-                    className="text-[3.8vw] md:text-[2.5vw] text-justify leading-relaxed mt-6"
-                    style={{ fontFamily: 'GothamNormal' }}
-                >
-                    {t('c5.section1.outro')}
-                </p>
+            <div className="absolute right-4 top-6 z-50 lg:right-8">
+                <HoverButton
+                    text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
+                    textOffset={-80}
+                    hoverOffset={30}
+                    link="https://reservasdeguatemala.org/"
+                />
             </div>
 
-            {/* ===== DESKTOP LAYOUT (blindado) ===== */}
-            <div className="hidden lg:block w-full h-full">
-                {/* Botón de hover con link */}
-                <div className={`absolute top-6 ${marginRightButton} z-50`}>
-                    <HoverButton
-                        text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
-                        textOffset={-80}
-                        hoverOffset={30}
-                        link="https://reservasdeguatemala.org/"
-                    />
+            <div className="flex min-h-screen flex-col justify-center px-6 pt-[10vh] pb-[9vh] lg:hidden">
+                <div className="mx-auto w-full max-w-md">
+                    <h2
+                        className="mb-3 max-w-[18rem] text-[clamp(1.6rem,7vw,2.25rem)] uppercase leading-none"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
+                        {t('c5.section1.title')}
+                    </h2>
+                    <p
+                        className="mb-5 text-[clamp(0.95rem,3.8vw,1.15rem)] text-justify leading-tight"
+                        style={{ fontFamily: 'GothamNormal' }}
+                    >
+                        {t('c5.section1.intro')}
+                    </p>
+                    <p
+                        className="mb-7 text-[clamp(0.95rem,3.8vw,1.15rem)] text-justify leading-tight"
+                        style={{ fontFamily: 'GothamNormal' }}
+                    >
+                        {t('c5.section1.outro')}
+                    </p>
                 </div>
 
-                {/* Título */}
-                <h2
-                    className={`absolute left-[43.2vw] text-white text-[5vh] uppercase ${marginTopTitle}`}
-                    style={{ fontFamily: 'GothamBold' }}
-                >
-                    {t('c5.section1.title')}
-                </h2>
-
-                {/* Intro */}
-                <p
-                    className={`absolute w-[30%] text-justify text-white text-[2.2vh] ${marginTopDesc} left-[43.2vw]`}
-                    style={{ fontFamily: 'GothamNormal' }}
-                >
-                    {t('c5.section1.intro')}
-                </p>
-
-                {/* Outro */}
-                <p
-                    className={`relative w-[35%] text-justify text-white text-[2.2vh] ${marginTopOutro} left-[11vw] mb-10`}
-                    style={{ fontFamily: 'GothamNormal' }}
-                >
-                    {t('c5.section1.outro')}
-                </p>
-
-                {/* Slider */}
-                <div className="absolute bottom-[4vh] w-full flex justify-center">
+                <div className="-mx-6 flex justify-center">
                     <BigSlider slides={slidesData} onExpandClick={openLightbox} />
                 </div>
             </div>
 
-            {/* Lightbox */}
+            <div className="hidden min-h-screen flex-col justify-center px-[7vw] py-[8vh] lg:flex">
+                <div className="mx-auto grid w-full max-w-[1180px] grid-cols-[0.95fr_1.05fr] items-start gap-[5vw]">
+                    <div className="pt-[8vh]">
+                        <h2
+                            className="mb-6 max-w-[28rem] text-[clamp(2.8rem,4.1vw,5rem)] uppercase leading-none"
+                            style={{ fontFamily: 'GothamBold' }}
+                        >
+                            {t('c5.section1.title')}
+                        </h2>
+                        <p
+                            className="mb-6 max-w-[33rem] text-[clamp(1rem,1.25vw,1.35rem)] text-justify leading-tight"
+                            style={{ fontFamily: 'GothamNormal' }}
+                        >
+                            {t('c5.section1.intro')}
+                        </p>
+                        <p
+                            className="max-w-[33rem] text-[clamp(1rem,1.25vw,1.35rem)] text-justify leading-tight"
+                            style={{ fontFamily: 'GothamNormal' }}
+                        >
+                            {t('c5.section1.outro')}
+                        </p>
+                    </div>
+                    <div className="flex justify-center pt-[10vh]">
+                        <BigSlider slides={slidesData} onExpandClick={openLightbox} />
+                    </div>
+                </div>
+            </div>
+
             {isLightboxOpen && (
                 <div
-                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
                     role="dialog"
                     aria-modal="true"
                     aria-label={t('c5.section1.modalAlt')}
@@ -181,7 +132,7 @@ const Section1C5 = () => {
                         <img
                             src={currentImage}
                             alt={t('c5.section1.modalAlt')}
-                            className="max-h-[95vh] max-w-[95vw] object-contain block"
+                            className="block max-h-[95vh] max-w-[95vw] object-contain"
                         />
                         <CloseButton
                             onClick={closeLightbox}
@@ -191,7 +142,7 @@ const Section1C5 = () => {
                     </div>
                 </div>
             )}
-        </div>
+        </section>
     );
 };
 

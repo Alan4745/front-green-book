@@ -1,158 +1,117 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Card from './Card';
+
+const AUTOPLAY_DELAY = 6000;
+const TRANSITION_TIME = 700;
 
 const BigSlider = ({ slides = [], onExpandClick = null }) => {
     const totalSlides = slides.length;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
+    const { t } = useTranslation();
     const MotionDiv = motion.div;
-
-    // Estado para el tamaño de la ventana
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    // Actualizar el tamaño de la ventana al cambiar el tamaño de la pantalla
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    const isMobile = windowWidth < 1024;
-
-    // Ajuste dinámico del tamaño de la tarjeta
-    const cardScale = isMobile ? 1 : windowWidth > 1600 ? 1 : 0.8;
-
-    // Ajuste dinámico del gap entre las tarjetas
-    const gapSize = windowWidth > 1600 ? "gap-[0rem]" : "gap-[0rem]";
-
-    // Ajuste dinámico del margen inferior
-    const marginBottom = windowWidth > 1600 ? "mb-4" : "-mb-4";
+    const prevLabel = t('c5.section1.buttons.prev', { defaultValue: 'Anterior' });
+    const nextLabel = t('c5.section1.buttons.next', { defaultValue: 'Siguiente' });
+    const expandLabel = t('c5.section1.buttons.expand', { defaultValue: 'Agrandar' });
 
     useEffect(() => {
+        if (totalSlides <= 1 || isPaused || isChanging) {
+            return undefined;
+        }
+
         const interval = setInterval(() => {
-            if (!isChanging) {
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-            }
-        }, 6000); // Cambiar de tarjeta cada 6 segundos
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+        }, AUTOPLAY_DELAY);
 
         return () => clearInterval(interval);
-    }, [totalSlides, isChanging]);
+    }, [totalSlides, isPaused, isChanging]);
 
-    // Rearranging the slides based on currentIndex
-    const rearrangedSlides = [
-        slides[(currentIndex + 0) % totalSlides],
-        slides[(currentIndex + 1) % totalSlides],
-        slides[(currentIndex + 2) % totalSlides],
-    ];
+    if (totalSlides === 0) {
+        return null;
+    }
 
-    // Función para manejar navegación manual
-    const goToPrev = () => {
-        if (!isChanging) {
-            setIsChanging(true);
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
-            setTimeout(() => setIsChanging(false), 700); // Duración de la transición
+    const goToSlide = (direction) => {
+        if (isChanging || totalSlides <= 1) {
+            return;
         }
+
+        setIsChanging(true);
+        setCurrentIndex((prevIndex) => (prevIndex + direction + totalSlides) % totalSlides);
+        window.setTimeout(() => setIsChanging(false), TRANSITION_TIME);
     };
 
-    const goToNext = () => {
-        if (!isChanging) {
-            setIsChanging(true);
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-            setTimeout(() => setIsChanging(false), 700); // Duración de la transición
-        }
+    const visibleSlides = [
+        { slide: slides[(currentIndex - 1 + totalSlides) % totalSlides], position: 'prev' },
+        { slide: slides[currentIndex], position: 'active' },
+        { slide: slides[(currentIndex + 1) % totalSlides], position: 'next' }
+    ];
+
+    const positionStyles = {
+        prev: 'left-1/2 -translate-x-[96%] scale-[0.82] opacity-75',
+        active: 'left-1/2 -translate-x-1/2 scale-100 opacity-100',
+        next: 'left-1/2 -translate-x-[4%] scale-[0.82] opacity-75'
     };
 
     return (
-        <div className="relative">
-            {/* Contenedor de tarjetas */}
-            <div className={`flex justify-center items-end relative ${gapSize} ${marginBottom}`}>
+        <div
+            className="relative w-screen overflow-hidden md:w-[86vw] lg:w-[76vw] xl:w-[70vw]"
+            onPointerEnter={() => setIsPaused(true)}
+            onPointerLeave={() => setIsPaused(false)}
+            onFocus={() => setIsPaused(true)}
+            onBlur={() => setIsPaused(false)}
+        >
+            <div className="relative mx-auto h-[clamp(22rem,112vw,30rem)] w-full md:h-[min(58vh,34rem)]">
+                {visibleSlides.map(({ slide, position }) => {
+                    const isActive = position === 'active';
 
-                {/* ===== MOBILE: single card ===== */}
-                {isMobile && (
-                    <MotionDiv
-                        key={`${rearrangedSlides[0].title}-${currentIndex}-mobile`}
-                        className="relative"
-                        layout
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -12 }}
-                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                        <Card
-                            image={rearrangedSlides[0].image}
-                            Number={rearrangedSlides[0].Number}
-                            title={rearrangedSlides[0].title}
-                            description={rearrangedSlides[0].description}
-                            MaxW={rearrangedSlides[0].MaxW}
-                            highlightWords={rearrangedSlides[0].highlightWords}
-                            width="w-[85vw]"
-                            height="h-[55vw] min-h-[260px] md:min-h-[320px]"
-                            forceExpand={true}
-                            onExpandClick={onExpandClick}
-                            className="flex-shrink-0 transform scale-y-100 scale-x-100"
-                            style={{ transformOrigin: 'bottom center' }}
-                        />
-                    </MotionDiv>
-                )}
-
-                {/* ===== DESKTOP: 3 cards (blindado) ===== */}
-                {!isMobile && rearrangedSlides.map((slide, index) => (
-                    <MotionDiv
-                        key={`${slide.title}-${currentIndex}-${index}`}
-                        className="relative"
-                        layout
-                        initial={{ opacity: 0, y: 12, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: cardScale }}
-                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                        transition={{
-                            layout: { type: 'spring', stiffness: 260, damping: 28 },
-                            duration: 0.45,
-                            ease: [0.22, 1, 0.36, 1]
-                        }}
-                    >
-                        <Card
-                            image={slide.image}
-                            Number={slide.Number}
-                            title={slide.title}
-                            description={slide.description}
-                            MaxW={slide.MaxW}
-                            highlightWords={slide.highlightWords}
-                            onExpandClick={index === 0 ? onExpandClick : null}
-                            className={`flex-shrink-0 transition-all duration-700 ease-out ${
-                                index === 0 ? 'transform scale-y-220 scale-x-150' : 'transform scale-y-100 scale-x-100'
-                            }`}
-                            style={{
-                                transitionDelay: `${index * 100}ms`,
-                                transformOrigin: 'bottom center',
-                                marginRight: index === 0 ? '14vh' : index === 1 ? '4vh' : '0'
-                            }}
-                        />
-                    </MotionDiv>
-                ))}
+                    return (
+                        <MotionDiv
+                            key={`${slide.title}-${position}-${currentIndex}`}
+                            className={`absolute top-0 h-[88%] w-[68vw] max-w-[22rem] transition-all duration-700 ease-out md:w-[42vw] md:max-w-[30rem] lg:w-[30vw] ${positionStyles[position]} ${isActive ? 'z-20' : 'z-10'}`}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: isActive ? 1 : 0.75, y: 0 }}
+                            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                            <Card
+                                image={slide.image}
+                                Number={slide.Number}
+                                title={slide.title}
+                                description={slide.description}
+                                highlightWords={slide.highlightWords}
+                                onExpandClick={isActive ? onExpandClick : null}
+                                isActive={isActive}
+                                expandLabel={expandLabel}
+                                className={isActive ? '' : 'pointer-events-none'}
+                            />
+                        </MotionDiv>
+                    );
+                })}
             </div>
 
-            {/* Controles */}
-            <div className="flex justify-center items-center gap-8">
-                <button 
-                    onClick={goToPrev}
-                    className="w-12 h-12 rounded-full border-[0.2vh] border-white flex items-center justify-center text-white hover:bg-white/10 transition-colors duration-300 disabled:opacity-50"
+            <div className="mt-[-2.5rem] flex justify-center items-center gap-8 md:mt-[-3rem]">
+                <button
+                    type="button"
+                    onClick={() => goToSlide(-1)}
+                    className="z-30 flex h-12 w-12 items-center justify-center rounded-full border-[0.2vh] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
                     disabled={isChanging}
+                    aria-label={prevLabel}
                 >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
-                <button 
-                    onClick={goToNext}
-                    className="w-12 h-12 rounded-full border-[0.2vh] border-white flex items-center justify-center text-white hover:bg-white/10 transition-colors duration-300 disabled:opacity-50"
+                <button
+                    type="button"
+                    onClick={() => goToSlide(1)}
+                    className="z-30 flex h-12 w-12 items-center justify-center rounded-full border-[0.2vh] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
+                    disabled={isChanging}
+                    aria-label={nextLabel}
                 >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
