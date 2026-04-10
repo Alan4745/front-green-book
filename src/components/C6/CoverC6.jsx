@@ -53,7 +53,7 @@ const CoverC6 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[25vh] z-30">
+                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
                     <img
                         src="/Img/Global/Numbers/06.svg"
                         alt={t("c6.cover.alts.chapter", { num: 6 })}
@@ -62,9 +62,9 @@ const CoverC6 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[25vh] right-[40vh] z-30 text-white text-left">
+                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[8vh] leading-[1] max-w-[60vw] uppercase"
+                        className="text-white text-[4.5vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c6.cover.title.line1")} <br />
@@ -72,14 +72,14 @@ const CoverC6 = () => {
                         {t("c6.cover.title.line3")}
                     </h2>
                     <h3
-                        className="text-white text-[4vh] mt-[10vh] uppercase"
+                        className="text-white text-[2vw] mt-[3vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c6.cover.subtitle")}
                     </h3>
-                    <div className="w-[10vw] h-[1.5vh] bg-[#00AE43] mt-[0.5vh]"></div>
+                    <div className="w-[10vw] h-[0.4vw] bg-[#00AE43] mt-[0.5vw]"></div>
                     <p
-                        className="text-white text-justify text-[3vh] mt-[2vh] max-w-[35vw]"
+                        className="text-white text-justify text-[1.6vw] mt-[2vw] max-w-[35vw]"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t("c6.cover.body")}

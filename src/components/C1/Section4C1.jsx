@@ -20,7 +20,7 @@ const PlayIcon = ({ className = "w-full h-full text-gray-700" }) => (
 const Section4C1 = () => {
     const { t } = useTranslation();
     const [isVideoOpen, setIsVideoOpen] = useState(false);
-    const [videoPoster, setVideoPoster] = useState(FS4);
+    const videoPoster = FS4;
     const videoRef = useRef(null);
 
     const keys = {
@@ -34,56 +34,6 @@ const Section4C1 = () => {
         aria: { modal: "c1.section4.playBox.modalAria" },
         buttons: { closeFallback: "Cerrar" }
     };
-
-    // Genera miniatura del video para usar como poster
-    useEffect(() => {
-        let cancelled = false;
-
-        const video = document.createElement('video');
-        video.muted = true;
-        video.playsInline = true;
-        video.preload = 'auto';
-        video.src = Vid1;
-
-        const drawFrame = () => {
-            if (cancelled) return;
-            const w = video.videoWidth || 1280;
-            const h = video.videoHeight || 720;
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) { cleanup(); return; }
-            ctx.drawImage(video, 0, 0, w, h);
-            try {
-                const url = canvas.toDataURL('image/jpeg', 0.9);
-                if (!cancelled) setVideoPoster(url);
-            } catch { /* noop */ }
-            cleanup();
-        };
-
-        const onLoadedData = () => {
-            try {
-                const seekTo = Math.min(9, video.duration || 9);
-                video.addEventListener('seeked', drawFrame, { once: true });
-                video.currentTime = seekTo;
-            } catch { drawFrame(); }
-        };
-
-        const onError = () => cleanup();
-
-        const cleanup = () => {
-            video.removeEventListener('loadeddata', onLoadedData);
-            video.removeEventListener('error', onError);
-            video.src = '';
-        };
-
-        video.addEventListener('loadeddata', onLoadedData);
-        video.addEventListener('error', onError);
-        try { video.load(); } catch { /* noop */ }
-
-        return () => { cancelled = true; cleanup(); };
-    }, []);
 
     // Esc para cerrar modal
     useEffect(() => {

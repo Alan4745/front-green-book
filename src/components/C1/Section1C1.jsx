@@ -7,81 +7,16 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
 
 // ✅ Importa assets
-import Vid2Mov from '../../assets/C1/Vid2.mp4'; // el .mov original
 import Img1Fallback from '../../assets/C1/F1.png'; // fallback si no se puede leer el frame
 import Img2 from '../../assets/C1/F2.png';
 
 const Section1C1 = () => {
     const [selectedImage, setSelectedImage] = useState(null); // dataURL o asset (solo imagen)
-    const [vid2Poster, setVid2Poster] = useState(Img1Fallback);
+    const vid2Poster = Img1Fallback;
     const navigate = useTransitionNavigate();
     const { t } = useTranslation();
 
     // 🔧 Genera una miniatura (primer frame) del .mov como imagen
-    useEffect(() => {
-        let cancelled = false;
-
-        const video = document.createElement('video');
-        video.crossOrigin = 'anonymous';
-        video.muted = true;
-        video.playsInline = true;
-        video.src = Vid2Mov;
-
-        const drawFrame = () => {
-            if (cancelled) return;
-            const w = video.videoWidth || 1280;
-            const h = video.videoHeight || 720;
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                setVid2Poster(Img1Fallback);
-                cleanup();
-                return;
-            }
-            ctx.drawImage(video, 0, 0, w, h);
-            try {
-                const url = canvas.toDataURL('image/jpeg', 0.9);
-                if (!cancelled) setVid2Poster(url);
-            } catch {
-                setVid2Poster(Img1Fallback);
-            }
-            cleanup();
-        };
-
-        const onLoadedData = () => {
-            try {
-                const t = Math.min(9, video.duration || 9);
-                const onSeeked = () => drawFrame();
-                video.addEventListener('seeked', onSeeked, { once: true });
-                video.currentTime = t;
-            } catch {
-                drawFrame();
-            }
-        };
-
-        const onError = () => {
-            setVid2Poster(Img1Fallback);
-            cleanup();
-        };
-
-        const cleanup = () => {
-            video.removeEventListener('loadeddata', onLoadedData);
-            video.removeEventListener('error', onError);
-            video.src = '';
-        };
-
-        video.addEventListener('loadeddata', onLoadedData);
-        video.addEventListener('error', onError);
-        try { video.load(); } catch { /* noop */ }
-
-        return () => {
-            cancelled = true;
-            cleanup();
-        };
-    }, []);
-
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
     };
