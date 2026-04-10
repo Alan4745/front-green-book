@@ -254,9 +254,9 @@ const Section1C1 = () => {
             </div>
 
             {/* === MOBILE/TABLET layout === */}
-            <div className="hidden max-lg:flex flex-col text-white">
+            <div className="hidden max-lg:flex min-h-screen flex-col justify-center pt-[7vh] pb-[10vh] text-white">
                 {/* Bloque 01 - Altitud: título+número izq, descripción der */}
-                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
+                <div className="flex items-center px-[5vw] py-[3vh] gap-[4vw]">
                     <div className="flex-shrink-0">
                         <h3 className="text-xl font-bold uppercase" style={{ fontFamily: 'GothamBold' }}>{t('c1.section1.left.title')}</h3>
                         <motion.button
@@ -266,7 +266,7 @@ const Section1C1 = () => {
                             {...ctaGlow}
                         >01</motion.button>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex flex-1 items-center justify-center">
                         <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section1.left.descLine1')} <br />{t('c1.section1.left.descLine2')}
                         </p>
@@ -290,8 +290,8 @@ const Section1C1 = () => {
                 </div>
 
                 {/* Bloque 02 - Microclimas: descripción izq, título+número der */}
-                <div className="flex px-[5vw] py-[4vh] gap-[4vw]">
-                    <div className="flex items-center flex-1">
+                <div className="flex items-center px-[5vw] py-[3vh] gap-[4vw]">
+                    <div className="flex items-center justify-center flex-1">
                         <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
                             {t('c1.section1.right.descLine1')} <br />{t('c1.section1.right.descLine2')} <br />{t('c1.section1.right.descLine3')}
                         </p>
