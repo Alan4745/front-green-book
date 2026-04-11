@@ -130,8 +130,7 @@ const CoverColab = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10"
-            style={{ minHeight: '260vh' }}
+            className="relative w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10 min-h-screen lg:min-h-[260vh]"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
@@ -153,7 +152,7 @@ const CoverColab = () => {
 
 
             {showIndicator && (
-                <div className="fixed md:bottom-0 md:left-[48%] z-50 pointer-events animate__bounce">
+                <div className="hidden lg:block fixed bottom-0 left-[48%] z-50 pointer-events animate__bounce">
                     <div className="animate__animated animate__bounce animate__infinite">
                         <div style={{ width: "5rem" }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -174,18 +173,18 @@ const CoverColab = () => {
 
 
 
-            {/* ===== ESCENA STICKY ===== */}
-            <div className="sticky top-0 h-screen w-full">
+            {/* ===== ESCENA STICKY — solo desktop (lg+) ===== */}
+            <div className="hidden lg:block sticky top-0 h-screen w-full">
                 <div className="h-full w-full flex justify-center items-start">
                     {/* Contenedor general: escala + SUBE */}
                     <motion.div
                         style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
-                        className="mt-[20vw] sm:mt-[16vw] md:mt-[14vw] lg:mt-[12vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
+                        className="mt-[12vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
                     >
                         {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
                             style={{ x: leftX, y: leftY }}
-                            className="flex flex-col items-center justify-center mr-4 md:mr-16 lg:mr-42 will-change-transform"
+                            className="flex flex-col items-center justify-center mr-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoGC}
@@ -209,7 +208,7 @@ const CoverColab = () => {
                         {/* DERECHA: ANACAFÉ */}
                         <motion.div
                             style={{ x: rightX, y: rightY }}
-                            className="flex flex-col items-center justify-center ml-4 md:ml-16 lg:ml-42 will-change-transform"
+                            className="flex flex-col items-center justify-center ml-42 will-change-transform"
                         >
                             <motion.img
                                 src={LogoAC}
@@ -227,6 +226,44 @@ const CoverColab = () => {
                             />
                         </motion.div>
                     </motion.div>
+                </div>
+            </div>
+
+            {/* ===== LOGOS ESTÁTICOS — mobile/tablet (< lg), sin animación sticky ===== */}
+            <div className="lg:hidden flex justify-center items-center pt-24 pb-10 px-8 gap-0">
+                {/* Logo GC */}
+                <div className="flex flex-col items-center justify-center flex-1">
+                    <img
+                        src={LogoGC}
+                        alt={t('colab.cover.alts.gcLogo')}
+                        title={t('colab.cover.alts.gcLogo')}
+                        className="w-16 sm:w-20 h-auto mb-3"
+                    />
+                    <img
+                        src={LogotipoGC}
+                        alt={t('colab.cover.alts.gcLogotype')}
+                        title={t('colab.cover.alts.gcLogotype')}
+                        className="w-32 sm:w-40 h-auto"
+                    />
+                </div>
+
+                {/* Línea divisoria */}
+                <div className="w-px h-24 sm:h-28 rounded-full bg-white mx-4 shrink-0" aria-hidden="true" />
+
+                {/* Logo AC */}
+                <div className="flex flex-col items-center justify-center flex-1">
+                    <img
+                        src={LogoAC}
+                        alt={t('colab.cover.alts.acLogo')}
+                        title={t('colab.cover.alts.acLogo')}
+                        className="w-16 sm:w-20 h-auto mb-3"
+                    />
+                    <img
+                        src={LogotipoAC}
+                        alt={t('colab.cover.alts.acLogotype')}
+                        title={t('colab.cover.alts.acLogotype')}
+                        className="w-32 sm:w-40 h-auto"
+                    />
                 </div>
             </div>
 
@@ -278,10 +315,10 @@ const CoverColab = () => {
                         title={t('colab.cover.buttons.toAC')}
                     >
                         <div
-                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
                             aria-hidden="true"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
@@ -310,22 +347,19 @@ const CoverColab = () => {
             </div>
 
             {/* ===== TARJETAS MOBILE / TABLET (layout responsive nuevo) ===== */}
-            <div className="lg:hidden relative w-full flex justify-center pb-16 pt-8 px-6">
-                <motion.div
-                    style={{ opacity: cardOpacity }}
-                    className="grid grid-cols-1 [@media(orientation:landscape)]:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-2xl"
-                >
+            <div className="lg:hidden relative w-full flex justify-center pb-4 pt-2 px-4">
+                <div className="grid grid-cols-2 [@media(orientation:landscape)]:grid-cols-4 gap-3 w-full max-w-xl md:max-w-2xl">
                     <div
-                        className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative w-full h-[calc((100svh-260px)/2)] md:h-[calc((100svh-320px)/2)] [@media(orientation:landscape)]:h-[calc(100svh-200px)] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={handleGoToSectionGC}
                         role="button"
                         title={t('colab.cover.buttons.toGC')}
                     >
                         <div
-                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
+                            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
                             aria-hidden="true"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
@@ -333,7 +367,7 @@ const CoverColab = () => {
                     </div>
 
                     <div
-                        className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-full h-[calc((100svh-260px)/2)] md:h-[calc((100svh-320px)/2)] [@media(orientation:landscape)]:h-[calc(100svh-200px)] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
@@ -351,24 +385,7 @@ const CoverColab = () => {
                     </div>
 
                     <div
-                        className="relative w-full aspect-[7/8] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={handleGoToSectionAC}
-                        role="button"
-                        title={t('colab.cover.buttons.toAC')}
-                    >
-                        <div
-                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
-                            aria-hidden="true"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-1/2 h-auto" />
-                    </div>
-
-                    <div
-                        className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-full h-[calc((100svh-260px)/2)] md:h-[calc((100svh-320px)/2)] [@media(orientation:landscape)]:h-[calc(100svh-200px)] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
@@ -384,7 +401,24 @@ const CoverColab = () => {
                             </div>
                         </div>
                     </div>
-                </motion.div>
+
+                    <div
+                        className="relative w-full h-[calc((100svh-260px)/2)] md:h-[calc((100svh-320px)/2)] [@media(orientation:landscape)]:h-[calc(100svh-200px)] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={handleGoToSectionAC}
+                        role="button"
+                        title={t('colab.cover.buttons.toAC')}
+                    >
+                        <div
+                            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                            aria-hidden="true"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-1/2 h-auto" />
+                    </div>
+                </div>
             </div>
 
             {/* ===== LIGHTBOX DE VIDEO ===== */}
