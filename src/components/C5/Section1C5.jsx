@@ -59,7 +59,7 @@ const Section1C5 = () => {
             role="region"
             aria-label={t('c5.section1.aria.section')}
         >
-            <div className="absolute right-0 top-2 z-50 sm:top-3 lg:hidden">
+            <div className="absolute right-2 top-2 z-50 sm:right-3 sm:top-3 md:right-4 md:top-4 lg:hidden">
                 <HoverButton
                     text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
                     textOffset={-86}
@@ -68,26 +68,29 @@ const Section1C5 = () => {
                     iconSide="right"
                     animateText={false}
                     hoverTrigger="icon"
-                    className="h-[68px] w-[286px] text-[0.95rem]"
+                    iconBoxClass="h-[clamp(34px,8.5vw,50px)] w-[clamp(34px,8.5vw,50px)]"
+                    iconArrowClass="h-[clamp(9px,2.2vw,12px)] w-[clamp(9px,2.2vw,12px)]"
+                    iconHoverIconClass="h-[clamp(16px,4.2vw,22px)] w-[clamp(16px,4.2vw,22px)]"
+                    className="h-[clamp(46px,10vw,68px)] w-[clamp(176px,38vw,276px)] text-[clamp(0.72rem,2.4vw,0.98rem)]"
                 />
             </div>
 
             <div className="flex min-h-screen flex-col justify-center px-6 pt-[10vh] pb-[9vh] lg:hidden">
                 <div className="mx-auto w-full max-w-md">
                     <h2
-                        className="mb-3 max-w-[18rem] text-[clamp(1.6rem,7vw,2.25rem)] uppercase leading-none"
+                        className="mb-3 max-w-[20rem] whitespace-nowrap text-[clamp(1.25rem,5.4vw,1.9rem)] uppercase leading-none md:max-w-none md:text-[2.1rem]"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         {t('c5.section1.title')}
                     </h2>
                     <p
-                        className="mb-5 text-[clamp(0.95rem,3.8vw,1.15rem)] text-justify leading-tight"
+                        className="mb-5 text-[clamp(0.85rem,3.4vw,1.05rem)] text-justify leading-tight"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c5.section1.intro')}
                     </p>
                     <p
-                        className="mb-7 text-[clamp(0.95rem,3.8vw,1.15rem)] text-justify leading-tight"
+                        className="mb-7 text-[clamp(0.85rem,3.4vw,1.05rem)] text-justify leading-tight"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c5.section1.outro')}

@@ -10,6 +10,9 @@ const HoverButton = ({
     color = "white",
     iconSide = "left",
     className = "",
+    iconBoxClass = "",
+    iconArrowClass = "",
+    iconHoverIconClass = "",
     animateText = true,
     hoverTrigger = "container"
 }) => {
@@ -65,7 +68,7 @@ const HoverButton = ({
             </span>
 
             <div
-                className={`relative flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                className={`relative flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${iconBoxClass} ${
                     hover ? "scale-0" : "scale-100"
                 }`}
                 style={{ borderColor: color, order: isIconRight ? 2 : 0 }}
@@ -73,13 +76,15 @@ const HoverButton = ({
                 onMouseLeave={iconOnlyHover ? handleHoverEnd : undefined}
             >
                 <span
-                    className={`h-[15px] w-[15px] border-t-2 border-r-2 transform ${isIconRight ? "rotate-45 -translate-x-[4px]" : "rotate-225 translate-x-[4px]"}`}
+                    className={`h-[15px] w-[15px] border-t-2 border-r-2 transform ${iconArrowClass} ${
+                        isIconRight ? "rotate-45 -translate-x-[4px]" : "rotate-225 translate-x-[4px]"
+                    }`}
                     style={{ borderColor: color }}
                 />
             </div>
 
             <div
-                className={`absolute flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                className={`absolute flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full transition-all duration-300 ${iconBoxClass} ${
                     hover ? "scale-100" : "scale-0"
                 }`}
                 style={{
@@ -92,7 +97,7 @@ const HoverButton = ({
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8"
+                    className={`h-8 w-8 ${iconHoverIconClass}`}
                     fill="none"
                     stroke={iconColor}
                     viewBox="0 0 24 24"
