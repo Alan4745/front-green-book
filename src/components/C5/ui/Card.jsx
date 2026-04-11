@@ -49,16 +49,23 @@ const Card = ({
                     aria-label={expandLabel}
                 />
             )}
-            <div className={`absolute inset-x-0 bottom-0 z-10 text-white ${compact ? 'p-3' : 'p-5 md:p-7'}`}>
-                <h3
-                    className={compact
-                        ? 'max-w-[92%] text-[clamp(0.85rem,1.25vw,1.15rem)] leading-none'
-                        : 'mb-2 max-w-[92%] text-[clamp(1.25rem,6vw,2rem)] leading-none md:text-[clamp(1.6rem,3vw,2.35rem)]'}
-                    style={{ fontFamily: 'GothamBold' }}
-                >
-                    {title}
-                </h3>
-                {!compact && (
+            {compact ? (
+                <div className="absolute left-[3.2rem] top-[0.95rem] right-3 z-10 text-white">
+                    <h3
+                        className="max-w-full text-[clamp(0.85rem,1.15vw,1.05rem)] leading-none"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
+                        {title}
+                    </h3>
+                </div>
+            ) : (
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white md:p-7">
+                    <h3
+                        className="mb-2 max-w-[92%] text-[clamp(1.25rem,6vw,2rem)] leading-none md:text-[clamp(1.6rem,3vw,2.35rem)]"
+                        style={{ fontFamily: 'GothamBold' }}
+                    >
+                        {title}
+                    </h3>
                     <p
                         className="max-w-[92%] text-[clamp(1rem,5vw,1.55rem)] leading-none md:max-w-[78%] md:text-[clamp(1.2rem,2.4vw,1.9rem)]"
                         style={{ fontFamily: 'GothamNormal' }}
@@ -66,8 +73,8 @@ const Card = ({
                             __html: highlightText(description, highlightWords)
                         }}
                     />
-                )}
-            </div>
+                </div>
+            )}
         </article>
     );
 };

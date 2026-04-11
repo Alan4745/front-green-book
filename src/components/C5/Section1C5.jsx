@@ -100,7 +100,7 @@ const Section1C5 = () => {
             </div>
 
             <div className="relative hidden min-h-screen items-center justify-center lg:flex">
-                <div className="absolute right-0 top-0 z-20 flex justify-end pr-0 pt-0">
+                <div className="absolute right-[1.5rem] top-[1.75rem] z-20 flex justify-end xl:right-[2rem] xl:top-[2.25rem]">
                     <HoverButton
                         text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
                         textOffset={-94}
@@ -113,16 +113,16 @@ const Section1C5 = () => {
                     />
                 </div>
 
-                <div className="w-full max-w-[1800px] px-[4vw] py-[4.2rem] xl:px-[4.6vw]">
-                    <div className="flex min-h-[calc(100vh-8.4rem)] items-center">
+                <div className="flex w-full justify-center px-[3.5vw] py-[4.2rem]">
+                    <div className="flex min-h-[calc(100vh-8.4rem)] w-full max-w-[78rem] items-center justify-center">
                         <BigSlider
                             slides={slidesData}
                             onExpandClick={openLightbox}
                             renderDesktop={({ activeSlide, sideSlides, goPrev, goNext, isChanging, prevLabel, nextLabel, expandLabel, currentIndex }) => (
-                                <div className="grid w-full grid-cols-[minmax(23rem,27.25rem)_minmax(36rem,1fr)] items-end gap-[1.8rem] xl:grid-cols-[minmax(24rem,28rem)_minmax(40rem,1fr)] xl:gap-[2.4rem]">
+                                <div className="grid w-full grid-cols-[27.875rem_41.375rem] items-end justify-center gap-[1.4rem]">
                                     <MotionDiv
                                         key={`${activeSlide.title}-${currentIndex}-desktop-featured`}
-                                        className="h-[clamp(35.5rem,79vh,42.75rem)] w-[clamp(23rem,25vw,27.2rem)] flex-shrink-0 justify-self-center"
+                                        className="h-[44.125rem] w-[27.875rem] flex-shrink-0 justify-self-center"
                                         initial={{ opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -135,34 +135,34 @@ const Section1C5 = () => {
                                         />
                                     </MotionDiv>
 
-                                    <div className="flex flex-col">
-                                        <div className="flex h-[clamp(35.5rem,79vh,42.75rem)] flex-col justify-between">
-                                            <div className="max-w-[48rem]">
+                                    <div className="flex flex-col items-start self-end">
+                                        <div className="grid h-[44.125rem] w-[41.375rem] grid-rows-[1fr_19.125rem]">
+                                            <div className="w-[41.375rem]">
                                                 <h2
-                                                    className="mb-6 whitespace-nowrap text-[clamp(1.85rem,3vw,3rem)] uppercase leading-none"
+                                                    className="mb-5 whitespace-nowrap text-[3.55rem] uppercase leading-[0.94]"
                                                     style={{ fontFamily: 'GothamBold' }}
                                                 >
                                                     {t('c5.section1.title')}
                                                 </h2>
                                                 <p
-                                                    className="mb-5 max-w-[36rem] text-[clamp(0.68rem,0.95vw,0.92rem)] leading-[1.18]"
+                                                    className="mb-6 w-[35.75rem] text-[1rem] leading-[1.14]"
                                                     style={{ fontFamily: 'GothamNormal' }}
                                                 >
                                                     {t('c5.section1.intro')}
                                                 </p>
                                                 <p
-                                                    className="max-w-[36rem] text-[clamp(0.68rem,0.95vw,0.92rem)] leading-[1.18]"
+                                                    className="w-[35.75rem] text-[1rem] leading-[1.14]"
                                                     style={{ fontFamily: 'GothamNormal' }}
                                                 >
                                                     {t('c5.section1.outro')}
                                                 </p>
                                             </div>
 
-                                            <div className="flex items-end gap-4 xl:gap-5">
+                                            <div className="mt-[1.25rem] flex w-[41.375rem] self-end items-end gap-[1rem]">
                                                 {sideSlides.map((slide, index) => (
                                                     <MotionDiv
                                                         key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
-                                                        className="h-[clamp(17.75rem,39.5vh,21.375rem)] w-[clamp(12.75rem,13.8vw,15rem)]"
+                                                        className="h-[19.125rem] w-[20.1875rem] flex-shrink-0 self-end"
                                                         initial={{ opacity: 0, y: 12 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
@@ -177,7 +177,7 @@ const Section1C5 = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mt-7 flex w-[clamp(24rem,25vw,28rem)] justify-center gap-8">
+                                        <div className="mt-6 flex w-[41.375rem] justify-center gap-8 pl-[0.1rem]">
                                             <button
                                                 type="button"
                                                 onClick={goPrev}
