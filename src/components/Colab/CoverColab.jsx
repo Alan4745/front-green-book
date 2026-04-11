@@ -230,13 +230,91 @@ const CoverColab = () => {
                 </div>
             </div>
 
-            {/* ===== TARJETAS (con colores y videos) ===== */}
-            <div className="relative w-full flex justify-center pb-16 pt-8 px-6">
+            {/* ===== TARJETAS DESKTOP (layout original intacto) ===== */}
+            <div className="hidden lg:block">
+                <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
+                    <motion.div
+                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        style={{ opacity: cardOpacity }}
+                        onClick={handleGoToSectionGC}
+                        role="button"
+                        title={t('colab.cover.buttons.toGC')}
+                    >
+                        <div
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#562E91] flex items-center justify-center shadow-md"
+                            aria-hidden="true"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
+                    </motion.div>
+
+                    <motion.div
+                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        style={{ opacity: cardOpacity }}
+                        onClick={() => setActiveVideo('gc')}
+                        title="Reproducir video"
+                    >
+                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
+                            <source src={VideoGC} type="video/mp4" />
+                            {t('colab.cover.videoFallback')}
+                        </video>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        style={{ opacity: cardOpacity }}
+                        onClick={handleGoToSectionAC}
+                        role="button"
+                        title={t('colab.cover.buttons.toAC')}
+                    >
+                        <div
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#738720] flex items-center justify-center shadow-md"
+                            aria-hidden="true"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
+                    </motion.div>
+
+                    <motion.div
+                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        style={{ opacity: cardOpacity }}
+                        onClick={() => setActiveVideo('ac')}
+                        title="Reproducir video"
+                    >
+                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
+                            <source src={VideoAC} type="video/mp4" />
+                            {t('colab.cover.videoFallback')}
+                        </video>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+
+            {/* ===== TARJETAS MOBILE / TABLET (layout responsive nuevo) ===== */}
+            <div className="lg:hidden relative w-full flex justify-center pb-16 pt-8 px-6">
                 <motion.div
                     style={{ opacity: cardOpacity }}
-                    className="grid grid-cols-1 sm:grid-cols-2 [@media(orientation:landscape)]:grid-cols-4 lg:grid-cols-4 gap-6 w-full max-w-6xl"
+                    className="grid grid-cols-1 [@media(orientation:landscape)]:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-2xl"
                 >
-                    {/* Tarjeta 1 con botón y logo GC */}
                     <div
                         className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={handleGoToSectionGC}
@@ -254,7 +332,6 @@ const CoverColab = () => {
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-1/2 h-auto" />
                     </div>
 
-                    {/* Tarjeta 2 con video GC */}
                     <div
                         className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('gc')}
@@ -273,7 +350,6 @@ const CoverColab = () => {
                         </div>
                     </div>
 
-                    {/* Tarjeta 3 con botón y logo AC */}
                     <div
                         className="relative w-full aspect-[7/8] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={handleGoToSectionAC}
@@ -291,7 +367,6 @@ const CoverColab = () => {
                         <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-1/2 h-auto" />
                     </div>
 
-                    {/* Tarjeta 4 con video AC */}
                     <div
                         className="relative w-full aspect-[7/8] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('ac')}
