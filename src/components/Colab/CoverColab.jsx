@@ -230,42 +230,42 @@ const CoverColab = () => {
             </div>
 
             {/* ===== MOBILE / TABLET: contenedor único h-svh, logos + tarjetas sin scroll ===== */}
-            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-12 pb-4 gap-3">
+            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden px-3 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-10 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-2 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
 
-                {/* Logos — tamaño natural, no crecen */}
-                <div className="shrink-0 flex justify-center items-center py-4 px-4 gap-0">
+                {/* Logos */}
+                <div className="shrink-0 flex justify-center items-center [@media(orientation:portrait)]:py-4 [@media(orientation:landscape)]:py-1 px-2 gap-0">
                     <div className="flex flex-col items-center justify-center flex-1">
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-14 sm:w-18 h-auto mb-2" />
-                        <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')} className="w-28 sm:w-36 h-auto" />
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="[@media(orientation:portrait)]:w-14 [@media(orientation:landscape)]:w-8 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
+                        <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')} className="[@media(orientation:portrait)]:w-28 [@media(orientation:landscape)]:w-20 h-auto" />
                     </div>
-                    <div className="w-px h-20 rounded-full bg-white mx-4 shrink-0" aria-hidden="true" />
+                    <div className="w-px [@media(orientation:portrait)]:h-20 [@media(orientation:landscape)]:h-10 rounded-full bg-white mx-3 shrink-0" aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1">
-                        <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-14 sm:w-18 h-auto mb-2" />
-                        <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')} className="w-28 sm:w-36 h-auto" />
+                        <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="[@media(orientation:portrait)]:w-14 [@media(orientation:landscape)]:w-8 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
+                        <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')} className="[@media(orientation:portrait)]:w-28 [@media(orientation:landscape)]:w-20 h-auto" />
                     </div>
                 </div>
 
-                {/* Tarjetas — llenan el espacio restante exacto */}
-                <div className="flex-1 min-h-0 grid grid-cols-2 [@media(orientation:landscape)]:grid-cols-4 gap-3">
+                {/* Tarjetas — fila única, cada tarjeta flex-1 */}
+                <div className="flex-1 min-h-0 flex gap-2">
 
                     {/* GC logo */}
                     <div
-                        className="relative w-full h-full rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative flex-1 h-full rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={handleGoToSectionGC}
                         role="button"
                         title={t('colab.cover.buttons.toGC')}
                     >
-                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-[#562E91] flex items-center justify-center shadow-md" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#562E91] flex items-center justify-center shadow-md" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-1/2 h-auto" />
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-3/5 h-auto" />
                     </div>
 
                     {/* GC video */}
                     <div
-                        className="relative w-full h-full rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative flex-1 h-full rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
@@ -274,15 +274,30 @@ const CoverColab = () => {
                             {t('colab.cover.videoFallback')}
                         </video>
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                            <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                             </div>
                         </div>
                     </div>
 
-                    {/* AC video — portrait: col izq fila 2, landscape: col 4 */}
+                    {/* AC logo (verde) */}
                     <div
-                        className="[@media(orientation:portrait)]:order-3 [@media(orientation:landscape)]:order-4 relative w-full h-full rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative flex-1 h-full rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={handleGoToSectionAC}
+                        role="button"
+                        title={t('colab.cover.buttons.toAC')}
+                    >
+                        <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#738720] flex items-center justify-center shadow-md" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-3/5 h-auto" />
+                    </div>
+
+                    {/* AC video */}
+                    <div
+                        className="relative flex-1 h-full rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
@@ -291,25 +306,10 @@ const CoverColab = () => {
                             {t('colab.cover.videoFallback')}
                         </video>
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                            <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                             </div>
                         </div>
-                    </div>
-
-                    {/* AC logo (verde) — portrait: col der fila 2 (última), landscape: col 3 */}
-                    <div
-                        className="[@media(orientation:portrait)]:order-4 [@media(orientation:landscape)]:order-3 relative w-full h-full rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={handleGoToSectionAC}
-                        role="button"
-                        title={t('colab.cover.buttons.toAC')}
-                    >
-                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-[#738720] flex items-center justify-center shadow-md" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-1/2 h-auto" />
                     </div>
 
                 </div>

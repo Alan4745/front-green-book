@@ -5,7 +5,10 @@
       "Bash(cmd /c \"handle \\\\\"c:\\\\Users\\\\Kevin\\\\Documents\\\\AnaCafe\\\\front-green-book\\\\.git\\\\index.lock\\\\\" 2>&1\")",
       "Bash(grep -r \"colab\\\\|Colab\\\\|CoverColab\" src/App.jsx src/main.jsx src/router*)",
       "Bash(npx vite:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "WebSearch",
+      "WebFetch(domain:screensiz.es)",
+      "WebFetch(domain:yesviz.com)"
     ]
   }
 }
