@@ -99,21 +99,33 @@ const Section1C5 = () => {
                 </div>
             </div>
 
-            <div className="hidden min-h-screen items-center lg:flex">
-                <div className="grid min-h-screen w-full grid-cols-[1.08fr_0.92fr] gap-[4.2rem] px-[4vw] py-[4.2rem] xl:px-[4.6vw]">
-                    <div className="flex flex-col justify-end pt-[5.8rem]">
+            <div className="relative hidden min-h-screen items-center justify-center lg:flex">
+                <div className="absolute right-0 top-0 z-20 flex justify-end pr-0 pt-0">
+                    <HoverButton
+                        text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
+                        textOffset={-94}
+                        hoverOffset={-18}
+                        link="https://reservasdeguatemala.org/"
+                        iconSide="right"
+                        animateText={false}
+                        hoverTrigger="icon"
+                        className="h-[84px] w-[346px] text-[1.15rem]"
+                    />
+                </div>
+
+                <div className="w-full max-w-[1800px] px-[4vw] py-[4.2rem] xl:px-[4.6vw]">
+                    <div className="flex min-h-[calc(100vh-8.4rem)] items-center">
                         <BigSlider
                             slides={slidesData}
                             onExpandClick={openLightbox}
                             renderDesktop={({ activeSlide, sideSlides, goPrev, goNext, isChanging, prevLabel, nextLabel, expandLabel, currentIndex }) => (
-                                <div className="grid grid-cols-[minmax(19rem,24rem)_minmax(25rem,38rem)] items-start gap-[1.1rem] xl:grid-cols-[minmax(20rem,26rem)_minmax(27rem,41rem)] xl:gap-[1.35rem]">
+                                <div className="grid w-full grid-cols-[minmax(23rem,27.25rem)_minmax(36rem,1fr)] items-end gap-[1.8rem] xl:grid-cols-[minmax(24rem,28rem)_minmax(40rem,1fr)] xl:gap-[2.4rem]">
                                     <MotionDiv
                                         key={`${activeSlide.title}-${currentIndex}-desktop-featured`}
-                                        className="h-[clamp(31rem,69vh,37.375rem)] w-[clamp(20rem,22vw,23.625rem)] flex-shrink-0"
+                                        className="h-[clamp(35.5rem,79vh,42.75rem)] w-[clamp(23rem,25vw,27.2rem)] flex-shrink-0 justify-self-center"
                                         initial={{ opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                                        whileHover={{ scale: 1.03 }}
                                     >
                                         <BigSliderCardProxy
                                             slide={activeSlide}
@@ -123,47 +135,49 @@ const Section1C5 = () => {
                                         />
                                     </MotionDiv>
 
-                                    <div className="flex flex-col pt-[0.35rem]">
-                                        <div className="max-w-[34rem]">
-                                            <h2
-                                                className="mb-8 text-[clamp(3rem,4.8vw,5rem)] uppercase leading-none"
-                                                style={{ fontFamily: 'GothamBold' }}
-                                            >
-                                                {t('c5.section1.title')}
-                                            </h2>
-                                            <p
-                                                className="mb-6 text-[clamp(1.1rem,1.55vw,1.6rem)] text-justify leading-tight"
-                                                style={{ fontFamily: 'GothamNormal' }}
-                                            >
-                                                {t('c5.section1.intro')}
-                                            </p>
-                                            <p
-                                                className="text-[clamp(1.1rem,1.55vw,1.6rem)] text-justify leading-tight"
-                                                style={{ fontFamily: 'GothamNormal' }}
-                                            >
-                                                {t('c5.section1.outro')}
-                                            </p>
-                                        </div>
-
-                                        <div className="mt-[1.2rem] flex gap-4 xl:gap-5">
-                                            {sideSlides.map((slide, index) => (
-                                                <MotionDiv
-                                                    key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
-                                                    className="h-[clamp(9rem,13vw,11rem)] w-[clamp(9rem,13vw,11.5rem)]"
-                                                    initial={{ opacity: 0, y: 12 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
+                                    <div className="flex flex-col">
+                                        <div className="flex h-[clamp(35.5rem,79vh,42.75rem)] flex-col justify-between">
+                                            <div className="max-w-[48rem]">
+                                                <h2
+                                                    className="mb-6 whitespace-nowrap text-[clamp(1.85rem,3vw,3rem)] uppercase leading-none"
+                                                    style={{ fontFamily: 'GothamBold' }}
                                                 >
-                                                    <BigSliderCardProxy
-                                                        slide={slide}
-                                                        expandLabel={expandLabel}
-                                                        compact={true}
-                                                    />
-                                                </MotionDiv>
-                                            ))}
+                                                    {t('c5.section1.title')}
+                                                </h2>
+                                                <p
+                                                    className="mb-5 max-w-[36rem] text-[clamp(0.68rem,0.95vw,0.92rem)] leading-[1.18]"
+                                                    style={{ fontFamily: 'GothamNormal' }}
+                                                >
+                                                    {t('c5.section1.intro')}
+                                                </p>
+                                                <p
+                                                    className="max-w-[36rem] text-[clamp(0.68rem,0.95vw,0.92rem)] leading-[1.18]"
+                                                    style={{ fontFamily: 'GothamNormal' }}
+                                                >
+                                                    {t('c5.section1.outro')}
+                                                </p>
+                                            </div>
+
+                                            <div className="flex items-end gap-4 xl:gap-5">
+                                                {sideSlides.map((slide, index) => (
+                                                    <MotionDiv
+                                                        key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
+                                                        className="h-[clamp(17.75rem,39.5vh,21.375rem)] w-[clamp(12.75rem,13.8vw,15rem)]"
+                                                        initial={{ opacity: 0, y: 12 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
+                                                    >
+                                                        <BigSliderCardProxy
+                                                            slide={slide}
+                                                            expandLabel={expandLabel}
+                                                            compact={true}
+                                                        />
+                                                    </MotionDiv>
+                                                ))}
+                                            </div>
                                         </div>
 
-                                        <div className="mt-7 flex w-[clamp(18rem,26vw,24rem)] justify-center gap-8">
+                                        <div className="mt-7 flex w-[clamp(24rem,25vw,28rem)] justify-center gap-8">
                                             <button
                                                 type="button"
                                                 onClick={goPrev}
@@ -192,21 +206,6 @@ const Section1C5 = () => {
                                 </div>
                             )}
                         />
-                    </div>
-
-                    <div className="flex flex-col">
-                        <div className="mb-[2.4rem] flex justify-end pr-0 pt-0">
-                            <HoverButton
-                                text={t('c5.section1.cta').toLocaleUpperCase(i18n.language)}
-                                textOffset={-94}
-                                hoverOffset={-18}
-                                link="https://reservasdeguatemala.org/"
-                                iconSide="right"
-                                animateText={false}
-                                hoverTrigger="icon"
-                                className="h-[84px] w-[346px] text-[1.15rem]"
-                            />
-                        </div>
                     </div>
                 </div>
             </div>
