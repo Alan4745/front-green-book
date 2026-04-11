@@ -119,10 +119,10 @@ const Section1C5 = () => {
                             slides={slidesData}
                             onExpandClick={openLightbox}
                             renderDesktop={({ activeSlide, sideSlides, goPrev, goNext, isChanging, prevLabel, nextLabel, expandLabel, currentIndex }) => (
-                                <div className="grid w-full grid-cols-[27.875rem_41.375rem] items-end justify-center gap-[1.4rem]">
+                                <div className="grid w-full grid-cols-[29.5rem_43.25rem] items-end justify-center gap-[1.6rem]">
                                     <MotionDiv
                                         key={`${activeSlide.title}-${currentIndex}-desktop-featured`}
-                                        className="h-[44.125rem] w-[27.875rem] flex-shrink-0 justify-self-center self-end"
+                                        className="h-[44.125rem] w-[29.5rem] flex-shrink-0 justify-self-center self-end"
                                         initial={{ opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -136,8 +136,8 @@ const Section1C5 = () => {
                                     </MotionDiv>
 
                                     <div className="flex flex-col items-start self-end">
-                                        <div className="grid h-[44.125rem] w-[41.375rem] grid-rows-[1fr_19.125rem]">
-                                            <div className="w-[41.375rem] pt-[3.05rem]">
+                                        <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_22.0625rem]">
+                                            <div className="w-[43.25rem] pt-[3.05rem]">
                                                 <h2
                                                     className="mb-5 whitespace-nowrap text-[2.7rem] uppercase leading-[0.94]"
                                                     style={{ fontFamily: 'GothamBold' }}
@@ -158,49 +158,51 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="mt-[2.1rem] flex w-[41.375rem] self-end items-end gap-[1rem]">
-                                                {sideSlides.map((slide, index) => (
-                                                    <MotionDiv
-                                                        key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
-                                                        className="h-[19.125rem] w-[20.1875rem] flex-shrink-0 self-end"
-                                                        initial={{ opacity: 0, y: 12 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
+                                            <div className="relative mt-[0.15rem] w-[31.75rem] self-start pb-[4.25rem]">
+                                                <div className="flex w-[31.75rem] items-end gap-[1rem]">
+                                                    {sideSlides.map((slide, index) => (
+                                                        <MotionDiv
+                                                            key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
+                                                            className="h-[22.0625rem] w-[15.375rem] flex-shrink-0 self-end"
+                                                            initial={{ opacity: 0, y: 12 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
+                                                        >
+                                                            <BigSliderCardProxy
+                                                                slide={slide}
+                                                                expandLabel={expandLabel}
+                                                                compact={true}
+                                                            />
+                                                        </MotionDiv>
+                                                    ))}
+                                                </div>
+
+                                                <div className="absolute left-1/2 bottom-0 flex -translate-x-1/2 gap-8">
+                                                    <button
+                                                        type="button"
+                                                        onClick={goPrev}
+                                                        className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
+                                                        disabled={isChanging}
+                                                        aria-label={prevLabel}
                                                     >
-                                                        <BigSliderCardProxy
-                                                            slide={slide}
-                                                            expandLabel={expandLabel}
-                                                            compact={true}
-                                                        />
-                                                    </MotionDiv>
-                                                ))}
+                                                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
+                                                        </svg>
+                                                    </button>
+
+                                                    <button
+                                                        type="button"
+                                                        onClick={goNext}
+                                                        className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
+                                                        disabled={isChanging}
+                                                        aria-label={nextLabel}
+                                                    >
+                                                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div className="mt-6 flex w-[41.375rem] justify-start gap-8 pl-[8.9rem]">
-                                            <button
-                                                type="button"
-                                                onClick={goPrev}
-                                                className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
-                                                disabled={isChanging}
-                                                aria-label={prevLabel}
-                                            >
-                                                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
-                                                </svg>
-                                            </button>
-
-                                            <button
-                                                type="button"
-                                                onClick={goNext}
-                                                className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
-                                                disabled={isChanging}
-                                                aria-label={nextLabel}
-                                            >
-                                                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
