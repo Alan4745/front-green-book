@@ -136,7 +136,7 @@ const Section1C5 = () => {
                                     </MotionDiv>
 
                                     <div className="flex flex-col items-start self-end">
-                                        <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_22.0625rem]">
+                                        <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_24.25rem]">
                                             <div className="w-[43.25rem] pt-[3.05rem]">
                                                 <h2
                                                     className="mb-5 whitespace-nowrap text-[2.7rem] uppercase leading-[0.94]"
@@ -158,12 +158,12 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="relative mt-[0.15rem] w-[31.75rem] self-start pb-[4.25rem]">
-                                                <div className="flex w-[31.75rem] items-end gap-[1rem]">
+                                            <div className="relative -mt-[0.75rem] w-[41.25rem] self-start pb-[4.25rem]">
+                                                <div className="flex w-[41.25rem] items-end gap-[1rem]">
                                                     {sideSlides.map((slide, index) => (
                                                         <MotionDiv
                                                             key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
-                                                            className="h-[22.0625rem] w-[15.375rem] flex-shrink-0 self-end"
+                                                            className="h-[24.25rem] w-[20.125rem] flex-shrink-0 self-end"
                                                             initial={{ opacity: 0, y: 12 }}
                                                             animate={{ opacity: 1, y: 0 }}
                                                             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
