@@ -158,7 +158,7 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="relative -mt-[0.15rem] w-[41.25rem] self-start">
+                                            <div className="relative mt-[3.85rem] w-[41.25rem] self-start">
                                                 <div className="flex w-[41.25rem] items-end gap-[1rem]">
                                                     {sideSlides.map((slide, index) => (
                                                         <MotionDiv
