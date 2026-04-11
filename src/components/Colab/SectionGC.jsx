@@ -126,23 +126,20 @@ const SectionGC = () => {
                     <BackButton onClick={() => navigate('/colab')} color="black" />
                 </div>
 
-                <div className="absolute bottom-6 left-[95vh] z-30">
+                <div className="absolute bottom-6 right-6 z-30">
                     <LanguageSelector
                         textColor="#000000"
                         subtextColor="#00000099"
                         buttonBg="#00000020"
                         menuBg="#00000010"
-                        activeBg="#000000"  
+                        activeBg="#000000"
                         activeTextColor="#ffffff"
                     />
                 </div>
 
-                <div className="absolute bottom-0"   style={{backgroundColor: "rgba(255, 255, 255, 0.3)", // transparent red
-                            backdropFilter: "blur(10px)",
-                            WebkitBackdropFilter: "blur(10px)" // Safari support
-                        ,padding:"40px", }}>
+                <div className="absolute bottom-0 w-full" style={{ backgroundColor: "rgba(255, 255, 255, 0.3)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", padding: "40px" }}>
                     <p
-                        className="w-[100vh] text-xl"
+                        className="w-full max-w-[700px] text-xl"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('colab.gc.overlay.text')}

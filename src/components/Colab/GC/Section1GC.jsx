@@ -39,9 +39,7 @@ const Section1GC = () => {
            
 
             {/* 🖼️ Overlay: se oculta con fade para "solo video" */}
-            <div
-                className={`absolute inset-0 z-20 transition-opacity duration-300 ${cleanView ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-            >
+            <div className="absolute inset-0 z-20">
                 {/* 📦 Card inferior derecha (logo + botón dentro) */}
                 <div className="absolute bottom-60 right-[32%]">
                     <div className="flex flex-col">
