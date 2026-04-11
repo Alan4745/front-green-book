@@ -119,7 +119,7 @@ const Section1C5 = () => {
                             slides={slidesData}
                             onExpandClick={openLightbox}
                             renderDesktop={({ activeSlide, sideSlides, goPrev, goNext, isChanging, prevLabel, nextLabel, expandLabel, currentIndex }) => (
-                                <div className="grid w-full grid-cols-[29.5rem_43.25rem] items-end justify-center gap-[1.6rem]">
+                                <div className="relative grid w-full grid-cols-[29.5rem_43.25rem] items-end justify-center gap-[1.6rem] pb-[5.25rem]">
                                     <MotionDiv
                                         key={`${activeSlide.title}-${currentIndex}-desktop-featured`}
                                         className="h-[44.125rem] w-[29.5rem] flex-shrink-0 justify-self-center self-end"
@@ -158,7 +158,7 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="relative -mt-[0.15rem] w-[41.25rem] self-start pb-[4.75rem]">
+                                            <div className="relative -mt-[0.15rem] w-[41.25rem] self-start">
                                                 <div className="flex w-[41.25rem] items-end gap-[1rem]">
                                                     {sideSlides.map((slide, index) => (
                                                         <MotionDiv
@@ -176,34 +176,34 @@ const Section1C5 = () => {
                                                         </MotionDiv>
                                                     ))}
                                                 </div>
-
-                                                <div className="absolute left-1/2 bottom-[0.35rem] flex -translate-x-1/2 gap-8">
-                                                    <button
-                                                        type="button"
-                                                        onClick={goPrev}
-                                                        className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
-                                                        disabled={isChanging}
-                                                        aria-label={prevLabel}
-                                                    >
-                                                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
-                                                        </svg>
-                                                    </button>
-
-                                                    <button
-                                                        type="button"
-                                                        onClick={goNext}
-                                                        className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
-                                                        disabled={isChanging}
-                                                        aria-label={nextLabel}
-                                                    >
-                                                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div className="absolute bottom-0 left-[41.1625rem] flex -translate-x-1/2 gap-8">
+                                        <button
+                                            type="button"
+                                            onClick={goPrev}
+                                            className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
+                                            disabled={isChanging}
+                                            aria-label={prevLabel}
+                                        >
+                                            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
+                                            </svg>
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            onClick={goNext}
+                                            className="flex h-12 w-12 items-center justify-center rounded-full border-[0.12rem] border-white text-white transition-colors duration-300 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:opacity-50"
+                                            disabled={isChanging}
+                                            aria-label={nextLabel}
+                                        >
+                                            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                             )}
