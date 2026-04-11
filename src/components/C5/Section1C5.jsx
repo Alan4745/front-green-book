@@ -139,19 +139,19 @@ const Section1C5 = () => {
                                         <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_28.5rem]">
                                             <div className="w-[43.25rem] pt-[3.05rem]">
                                                 <h2
-                                                    className="mb-5 whitespace-nowrap text-[2.7rem] uppercase leading-[0.94]"
+                                                    className="mb-5 w-[43.25rem] whitespace-nowrap text-[2.9rem] uppercase leading-[0.94]"
                                                     style={{ fontFamily: 'GothamBold' }}
                                                 >
                                                     {t('c5.section1.title')}
                                                 </h2>
                                                 <p
-                                                    className="mb-6 w-[35.75rem] text-[1rem] leading-[1.14]"
+                                                    className="mb-6 w-[43.25rem] text-[1.1rem] leading-[1.16]"
                                                     style={{ fontFamily: 'GothamNormal' }}
                                                 >
                                                     {t('c5.section1.intro')}
                                                 </p>
                                                 <p
-                                                    className="w-[35.75rem] text-[1rem] leading-[1.14]"
+                                                    className="w-[43.25rem] text-[1.1rem] leading-[1.16]"
                                                     style={{ fontFamily: 'GothamNormal' }}
                                                 >
                                                     {t('c5.section1.outro')}
