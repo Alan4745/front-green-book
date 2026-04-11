@@ -136,7 +136,7 @@ const Section1C5 = () => {
                                     </MotionDiv>
 
                                     <div className="flex flex-col items-start self-end">
-                                        <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_24.25rem]">
+                                        <div className="grid h-[44.125rem] w-[43.25rem] grid-rows-[1fr_28.5rem]">
                                             <div className="w-[43.25rem] pt-[3.05rem]">
                                                 <h2
                                                     className="mb-5 whitespace-nowrap text-[2.7rem] uppercase leading-[0.94]"
@@ -158,7 +158,7 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="relative -mt-[0.75rem] w-[41.25rem] self-start pb-[4.25rem]">
+                                            <div className="relative -mt-[0.15rem] w-[41.25rem] self-start pb-[4.75rem]">
                                                 <div className="flex w-[41.25rem] items-end gap-[1rem]">
                                                     {sideSlides.map((slide, index) => (
                                                         <MotionDiv
@@ -177,7 +177,7 @@ const Section1C5 = () => {
                                                     ))}
                                                 </div>
 
-                                                <div className="absolute left-1/2 bottom-0 flex -translate-x-1/2 gap-8">
+                                                <div className="absolute left-1/2 bottom-[0.35rem] flex -translate-x-1/2 gap-8">
                                                     <button
                                                         type="button"
                                                         onClick={goPrev}
