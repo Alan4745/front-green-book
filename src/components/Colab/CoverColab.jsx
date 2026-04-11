@@ -230,7 +230,7 @@ const CoverColab = () => {
             </div>
 
             {/* ===== MOBILE / TABLET: contenedor único h-svh, logos + tarjetas sin scroll ===== */}
-            <div className="lg:hidden flex flex-col h-svh px-4 pt-16 pb-4 gap-3">
+            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-12 pb-4 gap-3">
 
                 {/* Logos — tamaño natural, no crecen */}
                 <div className="shrink-0 flex justify-center items-center py-4 px-4 gap-0">
