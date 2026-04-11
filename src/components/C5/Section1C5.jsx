@@ -122,7 +122,7 @@ const Section1C5 = () => {
                                 <div className="grid w-full grid-cols-[27.875rem_41.375rem] items-end justify-center gap-[1.4rem]">
                                     <MotionDiv
                                         key={`${activeSlide.title}-${currentIndex}-desktop-featured`}
-                                        className="h-[44.125rem] w-[27.875rem] flex-shrink-0 justify-self-center"
+                                        className="h-[44.125rem] w-[27.875rem] flex-shrink-0 justify-self-center self-end"
                                         initial={{ opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -137,9 +137,9 @@ const Section1C5 = () => {
 
                                     <div className="flex flex-col items-start self-end">
                                         <div className="grid h-[44.125rem] w-[41.375rem] grid-rows-[1fr_19.125rem]">
-                                            <div className="w-[41.375rem]">
+                                            <div className="w-[41.375rem] pt-[3.05rem]">
                                                 <h2
-                                                    className="mb-5 whitespace-nowrap text-[3.55rem] uppercase leading-[0.94]"
+                                                    className="mb-5 whitespace-nowrap text-[3rem] uppercase leading-[0.94]"
                                                     style={{ fontFamily: 'GothamBold' }}
                                                 >
                                                     {t('c5.section1.title')}
@@ -158,7 +158,7 @@ const Section1C5 = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="mt-[1.25rem] flex w-[41.375rem] self-end items-end gap-[1rem]">
+                                            <div className="mt-[2.1rem] flex w-[41.375rem] self-end items-end gap-[1rem]">
                                                 {sideSlides.map((slide, index) => (
                                                     <MotionDiv
                                                         key={`${slide.title}-${currentIndex}-desktop-side-${index}`}
@@ -177,7 +177,7 @@ const Section1C5 = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mt-6 flex w-[41.375rem] justify-center gap-8 pl-[0.1rem]">
+                                        <div className="mt-6 flex w-[41.375rem] justify-center gap-8">
                                             <button
                                                 type="button"
                                                 onClick={goPrev}
