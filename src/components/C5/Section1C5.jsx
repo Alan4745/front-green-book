@@ -139,7 +139,7 @@ const Section1C5 = () => {
                                         <div className="grid h-[44.125rem] w-[41.375rem] grid-rows-[1fr_19.125rem]">
                                             <div className="w-[41.375rem] pt-[3.05rem]">
                                                 <h2
-                                                    className="mb-5 whitespace-nowrap text-[3rem] uppercase leading-[0.94]"
+                                                    className="mb-5 whitespace-nowrap text-[2.7rem] uppercase leading-[0.94]"
                                                     style={{ fontFamily: 'GothamBold' }}
                                                 >
                                                     {t('c5.section1.title')}
@@ -177,7 +177,7 @@ const Section1C5 = () => {
                                             </div>
                                         </div>
 
-                                        <div className="mt-6 flex w-[41.375rem] justify-center gap-8">
+                                        <div className="mt-6 flex w-[41.375rem] justify-start gap-8 pl-[8.9rem]">
                                             <button
                                                 type="button"
                                                 onClick={goPrev}
