@@ -233,22 +233,43 @@ const CoverColab = () => {
             <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden [@media(orientation:portrait)]:px-3 [@media(orientation:landscape)]:px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-8 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-3 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
 
                 {/* Logos — shrink-0 nunca crece, nunca desplaza tarjetas */}
-                <div className="shrink-0 flex justify-center items-center [@media(orientation:portrait)]:py-3 [@media(orientation:landscape)]:py-1 [@media(min-width:768px)_and_(orientation:portrait)]:py-6 px-2">
+                <div className="shrink-0 flex justify-center items-center px-6
+                    [@media(orientation:portrait)]:py-3
+                    [@media(orientation:landscape)]:py-1
+                    [@media(min-width:768px)_and_(orientation:portrait)]:min-h-[30svh]
+                    [@media(min-width:768px)_and_(orientation:portrait)]:py-6
+                    [@media(min-width:768px)_and_(orientation:portrait)]:px-10">
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
-                        {/* isotipo: mobile portrait w-14 | tablet portrait w-24 | landscape w-7 */}
+                        {/* isotipo: mobile portrait w-14 | tablet portrait w-36 | landscape w-7 */}
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')}
-                            className="[@media(orientation:portrait)]:w-14 [@media(min-width:768px)_and_(orientation:portrait)]:w-24 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
-                        {/* logotipo: mobile portrait w-28 | tablet portrait w-48 | landscape w-18 */}
+                            className="h-auto
+                                [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
+                                [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
+                                [@media(orientation:landscape)]:w-7 [@media(orientation:landscape)]:mb-1" />
+                        {/* logotipo: mobile portrait w-28 | tablet portrait w-64 | landscape w-18 */}
                         <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')}
-                            className="[@media(orientation:portrait)]:w-28 [@media(min-width:768px)_and_(orientation:portrait)]:w-48 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
+                            className="h-auto max-w-full
+                                [@media(orientation:portrait)]:w-28
+                                [@media(min-width:768px)_and_(orientation:portrait)]:w-64
+                                [@media(orientation:landscape)]:w-18" />
                     </div>
-                    {/* línea: mobile portrait h-20 | tablet portrait h-36 | landscape h-8 */}
-                    <div className="w-px [@media(orientation:portrait)]:h-20 [@media(min-width:768px)_and_(orientation:portrait)]:h-36 [@media(orientation:landscape)]:h-8 rounded-full bg-white mx-4 shrink-0" aria-hidden="true" />
+                    {/* línea: mobile portrait h-20 | tablet portrait h-52 | landscape h-8 */}
+                    <div className="w-px rounded-full bg-white shrink-0
+                        [@media(orientation:portrait)]:h-20 [@media(orientation:portrait)]:mx-4
+                        [@media(min-width:768px)_and_(orientation:portrait)]:h-52 [@media(min-width:768px)_and_(orientation:portrait)]:mx-8
+                        [@media(orientation:landscape)]:h-8 [@media(orientation:landscape)]:mx-4"
+                        aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')}
-                            className="[@media(orientation:portrait)]:w-14 [@media(min-width:768px)_and_(orientation:portrait)]:w-24 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
+                            className="h-auto
+                                [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
+                                [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
+                                [@media(orientation:landscape)]:w-7 [@media(orientation:landscape)]:mb-1" />
                         <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')}
-                            className="[@media(orientation:portrait)]:w-28 [@media(min-width:768px)_and_(orientation:portrait)]:w-48 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
+                            className="h-auto max-w-full
+                                [@media(orientation:portrait)]:w-28
+                                [@media(min-width:768px)_and_(orientation:portrait)]:w-64
+                                [@media(orientation:landscape)]:w-18" />
                     </div>
                 </div>
 
