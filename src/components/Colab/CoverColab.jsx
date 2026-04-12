@@ -230,27 +230,34 @@ const CoverColab = () => {
             </div>
 
             {/* ===== MOBILE / TABLET: contenedor único h-svh, logos + tarjetas sin scroll ===== */}
-            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden px-3 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-8 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-3 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
+            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden [@media(orientation:portrait)]:px-3 [@media(orientation:landscape)]:px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-8 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-3 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
 
                 {/* Logos — shrink-0 nunca crece, nunca desplaza tarjetas */}
-                <div className="shrink-0 flex justify-center items-center [@media(orientation:portrait)]:py-3 [@media(orientation:landscape)]:py-1 px-2">
+                <div className="shrink-0 flex justify-center items-center [@media(orientation:portrait)]:py-3 [@media(orientation:landscape)]:py-1 [@media(min-width:768px)_and_(orientation:portrait)]:py-6 px-2">
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="[@media(orientation:portrait)]:w-14 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
-                        <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')} className="[@media(orientation:portrait)]:w-28 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
+                        {/* isotipo: mobile portrait w-14 | tablet portrait w-24 | landscape w-7 */}
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')}
+                            className="[@media(orientation:portrait)]:w-14 [@media(min-width:768px)_and_(orientation:portrait)]:w-24 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
+                        {/* logotipo: mobile portrait w-28 | tablet portrait w-48 | landscape w-18 */}
+                        <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')}
+                            className="[@media(orientation:portrait)]:w-28 [@media(min-width:768px)_and_(orientation:portrait)]:w-48 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
                     </div>
-                    <div className="w-px [@media(orientation:portrait)]:h-20 [@media(orientation:landscape)]:h-8 rounded-full bg-white mx-3 shrink-0" aria-hidden="true" />
+                    {/* línea: mobile portrait h-20 | tablet portrait h-36 | landscape h-8 */}
+                    <div className="w-px [@media(orientation:portrait)]:h-20 [@media(min-width:768px)_and_(orientation:portrait)]:h-36 [@media(orientation:landscape)]:h-8 rounded-full bg-white mx-4 shrink-0" aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
-                        <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="[@media(orientation:portrait)]:w-14 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
-                        <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')} className="[@media(orientation:portrait)]:w-28 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
+                        <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')}
+                            className="[@media(orientation:portrait)]:w-14 [@media(min-width:768px)_and_(orientation:portrait)]:w-24 [@media(orientation:landscape)]:w-7 h-auto [@media(orientation:portrait)]:mb-2 [@media(orientation:landscape)]:mb-1" />
+                        <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')}
+                            className="[@media(orientation:portrait)]:w-28 [@media(min-width:768px)_and_(orientation:portrait)]:w-48 [@media(orientation:landscape)]:w-18 h-auto max-w-full" />
                     </div>
                 </div>
 
-                {/* Tarjetas — fila única, cada tarjeta flex-1, overflow-hidden blinda el contenedor */}
-                <div className="flex-1 min-h-0 flex overflow-hidden [@media(orientation:portrait)]:gap-2 [@media(orientation:landscape)]:gap-2">
+                {/* Tarjetas — portrait: 2x2 grid | landscape: fila flex */}
+                <div className="flex-1 min-h-0 w-full overflow-hidden gap-2 [@media(orientation:portrait)]:grid [@media(orientation:portrait)]:grid-cols-2 [@media(orientation:landscape)]:flex">
 
                     {/* GC logo */}
                     <div
-                        className="relative flex-1 min-w-0 h-full rounded-xl bg-[#FFFFFF] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200"
                         onClick={handleGoToSectionGC}
                         role="button"
                         title={t('colab.cover.buttons.toGC')}
@@ -265,7 +272,7 @@ const CoverColab = () => {
 
                     {/* GC video */}
                     <div
-                        className="relative flex-1 min-w-0 h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group"
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
@@ -282,7 +289,7 @@ const CoverColab = () => {
 
                     {/* AC logo (verde) */}
                     <div
-                        className="relative flex-1 min-w-0 h-full rounded-xl bg-[#0B312C] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#0B312C] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200 [@media(orientation:portrait)]:order-4"
                         onClick={handleGoToSectionAC}
                         role="button"
                         title={t('colab.cover.buttons.toAC')}
@@ -297,7 +304,7 @@ const CoverColab = () => {
 
                     {/* AC video */}
                     <div
-                        className="relative flex-1 min-w-0 h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group [@media(orientation:portrait)]:order-3"
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
