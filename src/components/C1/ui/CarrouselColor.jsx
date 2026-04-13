@@ -70,7 +70,7 @@ const CarrouselColor = ({ slides = [] }) => {
                     </button>
 
                     {/* Tarjeta activa */}
-                    <div className="justify-self-center w-full transition-transform duration-300 hover:scale-105">
+                    <div className="justify-self-center w-full md:w-[50%] transition-transform duration-300 hover:scale-105">
                         <CardColor
                             bgColor={flatSlides[activeIndex].bgColor}
                             circleColor={flatSlides[activeIndex].circleColor}
