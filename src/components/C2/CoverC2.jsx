@@ -10,7 +10,7 @@ const CoverC2 = () => {
     useEffect(() => {
         const updateViewportMode = () => {
             setIsCompactLandscape(
-                window.innerWidth <= 900 &&
+                window.innerWidth <= 980 &&
                 window.innerHeight <= 430 &&
                 window.innerWidth > window.innerHeight
             );
@@ -40,6 +40,7 @@ const CoverC2 = () => {
     const mobileSubtitleClassName = isCompactLandscape
         ? "text-white text-[1rem] uppercase tracking-wider leading-tight"
         : "text-white text-[2.5vh] uppercase tracking-wider";
+    const mobileCoverTopStyle = { top: isCompactLandscape ? "calc(24vh)" : "calc(30vh)" };
 
     return (
         <PageSkeleton
@@ -59,7 +60,7 @@ const CoverC2 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
+                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
                             className={mobileTitleClassName}

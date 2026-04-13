@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
@@ -5,6 +6,42 @@ import { Link } from "react-router-dom";
 
 const CoverC6 = () => {
     const { t } = useTranslation();
+    const [isCompactLandscape, setIsCompactLandscape] = useState(false);
+
+    useEffect(() => {
+        const updateViewportMode = () => {
+            setIsCompactLandscape(
+                window.innerWidth <= 980 &&
+                window.innerHeight <= 430 &&
+                window.innerWidth > window.innerHeight
+            );
+        };
+
+        updateViewportMode();
+        window.addEventListener("resize", updateViewportMode);
+
+        return () => window.removeEventListener("resize", updateViewportMode);
+    }, []);
+
+    const titleLine1 = t("c6.cover.title.line1").trim();
+    const titleLine2 = t("c6.cover.title.line2").trim();
+    const titleLine3 = t("c6.cover.title.line3").trim();
+    const subtitle = t("c6.cover.subtitle").trim();
+
+    const mobileTitleClassName = isCompactLandscape
+        ? "relative z-30 pl-4 pr-[14vw] text-white text-[4.35vw] leading-[1.02] max-w-[70vw] uppercase"
+        : "relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase";
+
+    const mobileTitleLineClassName = isCompactLandscape ? "block whitespace-nowrap" : "block";
+    const mobileNumberClassName = isCompactLandscape
+        ? "absolute right-[4vw] w-[44vw] h-auto z-20"
+        : "absolute right-[5vw] w-[50vw] h-auto z-20";
+
+    const mobileSubtitleWrapClassName = isCompactLandscape ? "pl-4 pr-4 mt-[3.5vh]" : "pl-4 pr-4 mt-[6vh]";
+    const mobileSubtitleClassName = isCompactLandscape
+        ? "text-white text-[0.95rem] uppercase tracking-wider leading-tight"
+        : "text-white text-[2.5vh] uppercase tracking-wider";
+    const mobileCoverTopStyle = { top: isCompactLandscape ? "calc(22vh)" : "calc(30vh)" };
 
     return (
         <PageSkeleton
@@ -24,32 +61,32 @@ const CoverC6 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
+                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[6.5vw] sm:text-[6vw] md:text-[5vw] min-[744px]:max-[1023px]:text-[4.2vw] leading-[1.1] uppercase"
+                            className={mobileTitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            {t("c6.cover.title.line1")} <br />
-                            {t("c6.cover.title.line2")} <br />
-                            {t("c6.cover.title.line3")}
+                            <span className={mobileTitleLineClassName}>{titleLine1}</span>
+                            <span className={mobileTitleLineClassName}>{titleLine2}</span>
+                            <span className={mobileTitleLineClassName}>{titleLine3}</span>
                         </h2>
                         <img
                             src="/Img/Global/Numbers/06.svg"
                             alt={t("c6.cover.alts.chapter", { num: 6 })}
                             title={t("c6.cover.alts.chapter", { num: 6 })}
-                            className="absolute right-[5vw] w-[50vw] h-auto z-20"
+                            className={mobileNumberClassName}
                         />
                     </div>
 
-                    <div className="pl-4 mt-[8vh]">
+                    <div className={mobileSubtitleWrapClassName}>
                         <h3
-                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
+                            className={mobileSubtitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            {t("c6.cover.subtitle")}
+                            {subtitle}
                         </h3>
-                        <div className="w-[20vw] h-[1vh] bg-[#00AE43] mt-[1vh]"></div>
+                        <div className="w-[15vw] h-[1.5vh] bg-[#00AE43] mt-[0.5vh]"></div>
                     </div>
                 </div>
 
@@ -67,15 +104,15 @@ const CoverC6 = () => {
                         className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {t("c6.cover.title.line1")} <br />
-                        {t("c6.cover.title.line2")} <br />
-                        {t("c6.cover.title.line3")}
+                        {titleLine1} <br />
+                        {titleLine2} <br />
+                        {titleLine3}
                     </h2>
                     <h3
                         className="text-white text-[2vw] mt-[3vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {t("c6.cover.subtitle")}
+                        {subtitle}
                     </h3>
                     <div className="w-[10vw] h-[0.4vw] bg-[#00AE43] mt-[0.5vw]"></div>
                     <p
@@ -87,12 +124,12 @@ const CoverC6 = () => {
                 </div>
 
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[5vh]">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw] lg:left-[5vh]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c6.cover.alts.greenBook")}
                         title={t("c6.cover.alts.greenBook")}
-                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
+                        className="w-[22vh] h-auto max-lg:w-[15vh] lg:w-[22vh]"
                     />
                 </div>
                 </Link>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
@@ -5,6 +6,42 @@ import { Link } from "react-router-dom";
 
 const CoverC5 = () => {
     const { t } = useTranslation();
+    const [isCompactLandscape, setIsCompactLandscape] = useState(false);
+
+    useEffect(() => {
+        const updateViewportMode = () => {
+            setIsCompactLandscape(
+                window.innerWidth <= 980 &&
+                window.innerHeight <= 430 &&
+                window.innerWidth > window.innerHeight
+            );
+        };
+
+        updateViewportMode();
+        window.addEventListener("resize", updateViewportMode);
+
+        return () => window.removeEventListener("resize", updateViewportMode);
+    }, []);
+
+    const titleTop = t("c5.cover.title.top").trim();
+    const titleBottom = t("c5.cover.title.bottom").trim();
+    const subtitleLine1 = t("c5.cover.subtitle.line1").trim();
+    const subtitleLine2 = t("c5.cover.subtitle.line2").trim();
+
+    const mobileTitleClassName = isCompactLandscape
+        ? "relative z-30 pl-4 pr-[14vw] text-white text-[4.6vw] leading-[1.05] max-w-[70vw] uppercase"
+        : "relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase";
+
+    const mobileTitleLineClassName = isCompactLandscape ? "block whitespace-nowrap" : "block";
+    const mobileNumberClassName = isCompactLandscape
+        ? "absolute right-[4vw] w-[44vw] h-auto z-20"
+        : "absolute right-[5vw] w-[50vw] h-auto z-20";
+
+    const mobileSubtitleWrapClassName = isCompactLandscape ? "pl-4 pr-4 mt-[4vh]" : "pl-4 pr-4 mt-[6vh]";
+    const mobileSubtitleClassName = isCompactLandscape
+        ? "text-white text-[1rem] uppercase tracking-wider leading-tight"
+        : "text-white text-[2.5vh] uppercase tracking-wider";
+    const mobileCoverTopStyle = { top: isCompactLandscape ? "calc(24vh)" : "calc(30vh)" };
 
     return (
         <PageSkeleton
@@ -31,30 +68,32 @@ const CoverC5 = () => {
                     {t("c5.cover.credits", { defaultValue: "Créditos: Rocío Silva" })}
                 </figcaption>
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
+                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[7.5vw] sm:text-[7vw] md:text-[5.5vw] min-[744px]:max-[1023px]:text-[4.5vw] leading-[1.1] uppercase"
+                            className={mobileTitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            {t("c5.cover.title.top")} <br /> {t("c5.cover.title.bottom")}
+                            <span className={mobileTitleLineClassName}>{titleTop}</span>
+                            <span className={mobileTitleLineClassName}>{titleBottom}</span>
                         </h2>
                         <img
                             src="/Img/Global/Numbers/05.svg"
                             alt={t("c5.cover.alts.chapter", { num: 5 })}
                             title={t("c5.cover.alts.chapter", { num: 5 })}
-                            className="absolute right-[5vw] w-[50vw] h-auto z-20"
+                            className={mobileNumberClassName}
                         />
                     </div>
 
-                    <div className="pl-4 mt-[8vh]">
+                    <div className={mobileSubtitleWrapClassName}>
                         <h3
-                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
+                            className={mobileSubtitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            {t("c5.cover.subtitle.line1")} <br /> {t("c5.cover.subtitle.line2")}
+                            <span className={mobileTitleLineClassName}>{subtitleLine1}</span>
+                            <span className={mobileTitleLineClassName}>{subtitleLine2}</span>
                         </h3>
-                        <div className="w-[20vw] h-[1vh] bg-[#562E91] mt-[1vh]"></div>
+                        <div className="w-[15vw] h-[1.5vh] bg-[#562E91] mt-[0.5vh]"></div>
                     </div>
                 </div>
 
@@ -72,24 +111,24 @@ const CoverC5 = () => {
                         className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {t("c5.cover.title.top")} <br /> {t("c5.cover.title.bottom")}
+                        {titleTop} <br /> {titleBottom}
                     </h2>
                     <h3
                         className="text-white text-[2vw] mt-[3vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {t("c5.cover.subtitle.line1")} <br /> {t("c5.cover.subtitle.line2")}
+                        {subtitleLine1} <br /> {subtitleLine2}
                     </h3>
                     <div className="w-[10vw] h-[0.4vw] bg-[#562E91] mt-[0.5vw]"></div>
                 </div>
 
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[3vw]">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c5.cover.alts.greenBook")}
                         title={t("c5.cover.alts.greenBook")}
-                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
+                        className="w-[22vh] h-auto max-lg:w-[15vh]"
                     />
                 </div>
                 </Link>

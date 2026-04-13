@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTransitionNavigate } from '../../Global/PageTransition';
 
-const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chapter }) => {
+const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chapter, compactLandscape = false }) => {
     const navigateTo = useTransitionNavigate();
 
     const backgroundStyle = {
@@ -11,14 +11,22 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.svg", chap
         backgroundColor: '#000000',
     };
 
+    const cardClassName = compactLandscape
+        ? "h-[39vh] w-full flex flex-col justify-between p-3 shadow-md"
+        : "h-105 w-70 max-lg:h-[38vh] max-lg:landscape:h-[46vh] max-lg:w-full flex flex-col justify-between p-4 max-lg:p-3 max-lg:landscape:p-4 shadow-md";
+
+    const titleClassName = compactLandscape
+        ? "text-white text-[1.95vh] text-left leading-[1.1] mt-[5.5vh]"
+        : "text-white text-[2.5vh] max-lg:text-[2vh] max-lg:landscape:text-[2.3vh] text-left leading-[1.15] mt-[15vh] max-lg:mt-[6vh] max-lg:landscape:mt-[8vh]";
+
     return (
         <div
             style={backgroundStyle}
-            className={`h-105 w-70 max-lg:h-[38vh] max-lg:w-full flex flex-col justify-between p-4 max-lg:p-3 shadow-md`}
+            className={cardClassName}
         >
             {/* Text Section */}
             <div className="flex-grow flex items-center justify-center">
-                <h2 className="text-white text-[2.5vh] max-lg:text-[2vh] text-left leading-[1.15] mt-[15vh] max-lg:mt-[6vh]" style={{ fontFamily: 'GothamBold' }}>
+                <h2 className={titleClassName} style={{ fontFamily: 'GothamBold' }}>
                     {text}
                 </h2>
             </div>
