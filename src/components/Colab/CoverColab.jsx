@@ -179,12 +179,12 @@ const CoverColab = () => {
                     {/* Contenedor general: escala + SUBE */}
                     <motion.div
                         style={{ scale: groupScale, y: groupY, transformOrigin: 'top center' }}
-                        className="mt-[12vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
+                        className="mt-[12vw] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mt-[22vw] flex items-center justify-center gap-8 px-6 py-4 will-change-transform z-20"
                     >
                         {/* IZQUIERDA: Guatemalan Coffees */}
                         <motion.div
                             style={{ x: leftX, y: leftY }}
-                            className="flex flex-col items-center justify-center mr-42 will-change-transform"
+                            className="flex flex-col items-center justify-center mr-42 [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mr-16 will-change-transform"
                         >
                             <motion.img
                                 src={LogoGC}
@@ -208,7 +208,7 @@ const CoverColab = () => {
                         {/* DERECHA: ANACAFÉ */}
                         <motion.div
                             style={{ x: rightX, y: rightY }}
-                            className="flex flex-col items-center justify-center ml-42 will-change-transform"
+                            className="flex flex-col items-center justify-center ml-42 [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:ml-16 will-change-transform"
                         >
                             <motion.img
                                 src={LogoAC}
@@ -354,9 +354,9 @@ const CoverColab = () => {
 
             {/* ===== TARJETAS DESKTOP (layout original intacto) ===== */}
             <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden">
-                <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
+                <div className="absolute bottom-26 [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:bottom-[8vh] left-1/2 -translate-x-1/2 flex gap-8 [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:gap-4">
                     <motion.div
-                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         style={{ opacity: cardOpacity }}
                         onClick={handleGoToSectionGC}
                         role="button"
@@ -374,7 +374,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
@@ -393,7 +393,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         style={{ opacity: cardOpacity }}
                         onClick={handleGoToSectionAC}
                         role="button"
@@ -411,7 +411,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
