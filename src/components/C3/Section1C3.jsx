@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
@@ -73,7 +73,7 @@ const Section1C3 = () => {
         >
             <div className="absolute inset-0 flex overflow-hidden max-lg:relative max-lg:inset-auto max-lg:flex-col max-lg:overflow-visible">
                 {/* izquierda */}
-                <div className="h-full w-full lg:w-1/3 shrink-0 max-lg:h-[62vh]">
+                <div className="h-full w-full lg:w-1/3 shrink-0 max-lg:h-[62vh] max-lg:landscape:h-[84vh]">
                     <ImageSlider
                         slides={slides}
                         aspect="h-full"
