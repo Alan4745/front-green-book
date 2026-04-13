@@ -235,7 +235,8 @@ const CoverColab = () => {
                 {/* Logos — shrink-0 nunca crece, nunca desplaza tarjetas */}
                 <div className="shrink-0 flex justify-center items-center px-6
                     [@media(orientation:portrait)]:py-3
-                    [@media(orientation:landscape)]:py-1
+                    [@media(orientation:landscape)]:py-3
+                    [@media(orientation:landscape)]:min-h-[32svh]
                     [@media(min-width:768px)_and_(orientation:portrait)]:min-h-[30svh]
                     [@media(min-width:768px)_and_(orientation:portrait)]:py-6
                     [@media(min-width:768px)_and_(orientation:portrait)]:px-10">
@@ -245,31 +246,31 @@ const CoverColab = () => {
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
-                                [@media(orientation:landscape)]:w-7 [@media(orientation:landscape)]:mb-1" />
-                        {/* logotipo: mobile portrait w-28 | tablet portrait w-64 | landscape w-18 */}
+                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
+                        {/* logotipo: mobile portrait w-28 | tablet portrait w-64 | landscape w-28 */}
                         <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')}
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-64
-                                [@media(orientation:landscape)]:w-18" />
+                                [@media(orientation:landscape)]:w-28" />
                     </div>
                     {/* línea: mobile portrait h-20 | tablet portrait h-52 | landscape h-8 */}
                     <div className="w-px rounded-full bg-white shrink-0
                         [@media(orientation:portrait)]:h-20 [@media(orientation:portrait)]:mx-4
                         [@media(min-width:768px)_and_(orientation:portrait)]:h-52 [@media(min-width:768px)_and_(orientation:portrait)]:mx-8
-                        [@media(orientation:landscape)]:h-8 [@media(orientation:landscape)]:mx-4"
+                        [@media(orientation:landscape)]:h-14 [@media(orientation:landscape)]:mx-4"
                         aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')}
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
-                                [@media(orientation:landscape)]:w-7 [@media(orientation:landscape)]:mb-1" />
+                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
                         <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')}
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-64
-                                [@media(orientation:landscape)]:w-18" />
+                                [@media(orientation:landscape)]:w-28" />
                     </div>
                 </div>
 
@@ -347,7 +348,7 @@ const CoverColab = () => {
             <div className="hidden lg:block">
                 <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
                     <motion.div
-                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         style={{ opacity: cardOpacity }}
                         onClick={handleGoToSectionGC}
                         role="button"
@@ -365,7 +366,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
@@ -384,7 +385,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#0B312C] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                         style={{ opacity: cardOpacity }}
                         onClick={handleGoToSectionAC}
                         role="button"
@@ -402,7 +403,7 @@ const CoverColab = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative w-[42vh] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
+                        className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
