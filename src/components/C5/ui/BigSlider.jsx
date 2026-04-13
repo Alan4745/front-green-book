@@ -80,7 +80,7 @@ const BigSlider = ({ slides = [], onExpandClick = null, renderDesktop = null }) 
 
     return (
         <div
-            className="relative w-screen overflow-hidden md:w-[86vw] lg:w-full"
+            className="relative w-screen overflow-hidden md:w-[86vw] min-[744px]:max-[1023px]:w-[78vw] lg:w-full"
             onPointerEnter={() => setIsPaused(true)}
             onPointerLeave={() => setIsPaused(false)}
             onFocus={() => setIsPaused(true)}
@@ -161,14 +161,14 @@ const BigSlider = ({ slides = [], onExpandClick = null, renderDesktop = null }) 
                 )
             ) : (
                 <>
-                    <div className="relative mx-auto h-[clamp(22rem,112vw,30rem)] w-full md:h-[min(58vh,34rem)]">
+                    <div className="relative mx-auto h-[clamp(22rem,112vw,30rem)] w-full md:h-[min(58vh,34rem)] min-[744px]:max-[1023px]:h-[min(48vh,29rem)]">
                         {visibleSlides.map(({ slide, position }) => {
                             const isActive = position === 'active';
 
                             return (
                                 <MotionDiv
                                     key={`${slide.title}-${position}-${currentIndex}`}
-                                    className={`absolute top-0 h-[88%] w-[68vw] max-w-[22rem] transition-all duration-700 ease-out md:w-[42vw] md:max-w-[30rem] ${positionStyles[position]} ${isActive ? 'z-20' : 'z-10'}`}
+                                    className={`absolute top-0 h-[88%] w-[68vw] max-w-[22rem] transition-all duration-700 ease-out md:w-[42vw] md:max-w-[30rem] min-[744px]:max-[1023px]:w-[36vw] min-[744px]:max-[1023px]:max-w-[20rem] ${positionStyles[position]} ${isActive ? 'z-20' : 'z-10'}`}
                                     initial={{ opacity: 0, y: 12 }}
                                     animate={{ opacity: isActive ? 1 : 0.75, y: 0 }}
                                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -190,7 +190,7 @@ const BigSlider = ({ slides = [], onExpandClick = null, renderDesktop = null }) 
                         })}
                     </div>
 
-                    <div className="mt-[-2.5rem] flex justify-center items-center gap-8 md:mt-[-3rem]">
+                    <div className="mt-[-2.5rem] flex justify-center items-center gap-8 md:mt-[-3rem] min-[744px]:max-[1023px]:mt-[-2rem]">
                         <button
                             type="button"
                             onClick={() => goToSlide(-1)}

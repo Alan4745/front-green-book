@@ -34,7 +34,7 @@ const CoverC5 = () => {
                 <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
+                            className="relative z-30 pl-4 text-white text-[7.5vw] sm:text-[7vw] md:text-[5.5vw] min-[744px]:max-[1023px]:text-[4.5vw] leading-[1.1] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c5.cover.title.top")} <br /> {t("c5.cover.title.bottom")}
@@ -92,7 +92,7 @@ const CoverC5 = () => {
                         className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
-                /</Link>
+                </Link>
 
                 <div className="absolute bottom-[5vh] right-6 z-50">
                     <LanguageSelector alignment="right" />

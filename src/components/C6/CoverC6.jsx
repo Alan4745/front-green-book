@@ -27,7 +27,7 @@ const CoverC6 = () => {
                 <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
                     <div className="relative flex items-center">
                         <h2
-                            className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
+                            className="relative z-30 pl-4 text-white text-[6.5vw] sm:text-[6vw] md:text-[5vw] min-[744px]:max-[1023px]:text-[4.2vw] leading-[1.1] uppercase"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c6.cover.title.line1")} <br />
@@ -53,7 +53,7 @@ const CoverC6 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[10vh] right-[14vw] z-30">
+                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
                     <img
                         src="/Img/Global/Numbers/06.svg"
                         alt={t("c6.cover.alts.chapter", { num: 6 })}
@@ -72,18 +72,12 @@ const CoverC6 = () => {
                         {t("c6.cover.title.line3")}
                     </h2>
                     <h3
-                        className="text-white text-[1.8vw] mt-[2vw] uppercase"
+                        className="text-white text-[2vw] mt-[3vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c6.cover.subtitle")}
                     </h3>
                     <div className="w-[10vw] h-[0.4vw] bg-[#00AE43] mt-[0.5vw]"></div>
-                    <p
-                        className="text-white text-justify text-[1.4vw] mt-[1.5vw] max-w-[35vw]"
-                        style={{ fontFamily: "GothamNormal" }}
-                    >
-                        {t("c6.cover.body")}
-                    </p>
                 </div>
 
                 <Link to='/'>
@@ -95,7 +89,7 @@ const CoverC6 = () => {
                         className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
-                /</Link>
+                </Link>
 
                 <div className="absolute bottom-[5vh] right-6 z-50">
                     <LanguageSelector alignment="right" />

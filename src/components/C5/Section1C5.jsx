@@ -75,29 +75,29 @@ const Section1C5 = () => {
                 />
             </div>
 
-            <div className="flex min-h-screen flex-col justify-center px-6 pt-[10vh] pb-[9vh] lg:hidden">
-                <div className="mx-auto w-full max-w-md">
+            <div className="flex min-h-screen flex-col justify-center px-6 pt-[10vh] pb-[9vh] min-[744px]:max-[1023px]:justify-start min-[744px]:max-[1023px]:px-10 min-[744px]:max-[1023px]:pt-[12vh] min-[744px]:max-[1023px]:pb-[7vh] lg:hidden">
+                <div className="mx-auto w-full max-w-md min-[744px]:max-[1023px]:max-w-[35rem]">
                     <h2
-                        className="mb-3 max-w-[20rem] whitespace-nowrap text-[clamp(1.25rem,5.4vw,1.9rem)] uppercase leading-none md:max-w-none md:text-[2.1rem]"
+                        className="mb-3 max-w-[20rem] whitespace-nowrap text-[clamp(1.25rem,5.4vw,1.9rem)] uppercase leading-none md:max-w-none md:text-[2.1rem] min-[744px]:max-[1023px]:text-[2.35rem]"
                         style={{ fontFamily: 'GothamBold' }}
                     >
                         {t('c5.section1.title')}
                     </h2>
                     <p
-                        className="mb-5 text-[clamp(0.85rem,3.4vw,1.05rem)] text-justify leading-tight"
+                        className="mb-5 text-[clamp(0.85rem,3.4vw,1.05rem)] min-[744px]:max-[1023px]:text-[1rem] text-justify leading-tight"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c5.section1.intro')}
                     </p>
                     <p
-                        className="mb-7 text-[clamp(0.85rem,3.4vw,1.05rem)] text-justify leading-tight"
+                        className="mb-7 text-[clamp(0.85rem,3.4vw,1.05rem)] min-[744px]:max-[1023px]:mb-6 min-[744px]:max-[1023px]:text-[1rem] text-justify leading-tight"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c5.section1.outro')}
                     </p>
                 </div>
 
-                <div className="-mx-6 flex justify-center">
+                <div className="-mx-6 min-[744px]:max-[1023px]:-mx-10 flex justify-center">
                     <BigSlider slides={slidesData} onExpandClick={openLightbox} />
                 </div>
             </div>
