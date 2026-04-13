@@ -137,7 +137,7 @@ const Section3C6 = () => {
                         {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
                     </h3>
                     {/* Número grande 05 */}
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+                    <div className="text-[30vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[10vw] font-bold opacity-30 mt-[-17vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mt-[-8vw]" style={{ fontFamily: "GothamBold" }}>
                         05
                     </div>
                 </div>
@@ -148,7 +148,7 @@ const Section3C6 = () => {
                         {t("c6.section3.right.title.top")} <br /> {t("c6.section3.right.title.bottom")}
                     </h3>
                     {/* Número grande 06 */}
-                    <div className="text-[30vh] font-bold opacity-30 mt-[-17vh]" style={{ fontFamily: "GothamBold" }}>
+                    <div className="text-[30vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[10vw] font-bold opacity-30 mt-[-17vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mt-[-8vw]" style={{ fontFamily: "GothamBold" }}>
                         06
                     </div>
                 </div>
@@ -174,7 +174,7 @@ const Section3C6 = () => {
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
                     {/* Primera imagen */}
                     <MotionDiv
-                        className="relative w-[60vh] h-[50vh] cursor-pointer origin-center group hover:z-30"
+                        className="relative w-[60vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[22vw] h-[50vh] cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
@@ -205,7 +205,7 @@ const Section3C6 = () => {
 
                     {/* Segunda imagen */}
                     <MotionDiv
-                        className="relative w-[60vh] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
+                        className="relative w-[60vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[22vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
                         style={{ willChange: 'transform' }}
                         whileHover={{ scale: 1.08 }}
                         whileTap={{ scale: 1.02 }}
