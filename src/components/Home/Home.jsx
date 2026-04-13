@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
@@ -34,8 +34,24 @@ const backgrounds = [
     const [prevIndex, setPrevIndex] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isExiting, setIsExiting] = useState(false);
+    const [viewport, setViewport] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
     const switchKeyRef = useRef(0);
     const indexRef = useRef(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setViewport({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useEffect(() => {
         indexRef.current = currentIndex;
@@ -118,6 +134,18 @@ const backgrounds = [
     }, [isLoading]);
 
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
+    const isCompactLandscape =
+        viewport.width <= 980 &&
+        viewport.height <= 460 &&
+        viewport.width > viewport.height;
+
+    const homeLogoClassName = isCompactLandscape
+        ? "absolute top-[4vh] left-[4vw] w-[28%] h-auto"
+        : "absolute top-[19vh] left-[22vh] w-[22%] h-auto max-lg:top-[3vh] max-lg:left-[5vw] max-lg:w-[42%] max-sm:w-[50%]";
+
+    const homeCarouselClassName = isCompactLandscape
+        ? "absolute right-0 top-[20vh] w-[54%] z-40"
+        : "absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[40vh] sm:max-lg:top-[48vh] max-sm:top-[34vh]";
 
     const homeContent = (
         <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
@@ -127,7 +155,7 @@ const backgrounds = [
             {/* Capas de crossfade */}
             <div className="absolute inset-0 z-10" aria-hidden="true">
             {prevIndex !== null && (
-                <motion.div
+                <Motion.div
                 key={`prev-${switchKeyRef.current}`}
                 className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
                 style={{
@@ -147,7 +175,7 @@ const backgrounds = [
                 />
             )}
 
-            <motion.div
+            <Motion.div
                 key={`curr-${switchKeyRef.current}`}
                 className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
                 style={{
@@ -171,12 +199,12 @@ const backgrounds = [
             <img
                 src="/Logos/Greenbook.svg"
                 alt={t("app.title")}
-                className="absolute top-[19vh] left-[22vh] w-[22%] h-auto max-lg:top-[3vh] max-lg:left-[5vw] max-lg:w-[42%] max-sm:w-[50%]"
+                className={homeLogoClassName}
             />
             </div>
 
             {/* Carrusel de capítulos */}
-            <div className="absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[40vh] sm:max-lg:top-[48vh] max-sm:top-[34vh]">
+            <div className={homeCarouselClassName}>
             <Carrousel key={`carrousel-${langKey}`} />
             </div>
 

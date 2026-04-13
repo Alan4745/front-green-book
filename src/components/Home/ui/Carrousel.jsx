@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Card from "./Card";
 
 const Carrousel = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     // 1) Traemos las tarjetas desde i18n (y ponemos un fallback por si falta el JSON)
     const cards = useMemo(() => {
@@ -20,26 +20,44 @@ const Carrousel = () => {
         ];
         }
         return arr;
-    }, [t, i18n.resolvedLanguage]);
+    }, [t]);
 
     const [startIndex, setStartIndex] = useState(0);
-    const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
+    const [viewport, setViewport] = useState(() => ({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    }));
 
     useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
+        const handleResize = () =>
+            setViewport({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     // Desktop (>=1024): valores originales exactos | Tablet (640-1023) | Móvil (<640)
-    const isDesktop = windowWidth >= 1024;
-    const isTablet = windowWidth >= 640 && windowWidth < 1024;
+    const isDesktop = viewport.width >= 1024;
+    const isTablet = viewport.width >= 640 && viewport.width < 1024;
+    const isCompactLandscape =
+        viewport.width <= 980 &&
+        viewport.height <= 460 &&
+        viewport.width > viewport.height;
 
-    const visibleCards = isDesktop ? 4 : isTablet ? 2.5 : 2;
-    const mobileCardWidth = Math.floor((windowWidth - 32) * 0.65);
-    const tabletCardWidth = Math.floor((windowWidth * 0.85) / 2.5);
-    const cardWidth = isDesktop ? 220 : isTablet ? tabletCardWidth : mobileCardWidth;
-    const gap = isDesktop ? 75 : isTablet ? 20 : 12;
+    const visibleCards = isDesktop ? 4 : isCompactLandscape ? 2.25 : isTablet ? 2.5 : 2;
+    const mobileCardWidth = Math.floor((viewport.width - 32) * 0.65);
+    const tabletCardWidth = Math.floor((viewport.width * 0.85) / 2.5);
+    const compactLandscapeCardWidth = Math.floor(viewport.width * 0.23);
+    const cardWidth = isDesktop
+        ? 220
+        : isCompactLandscape
+            ? compactLandscapeCardWidth
+            : isTablet
+                ? tabletCardWidth
+                : mobileCardWidth;
+    const gap = isDesktop ? 75 : isCompactLandscape ? 10 : isTablet ? 20 : 12;
     const totalCards = cards.length;
 
     // 2) Siguiente / Anterior
@@ -57,7 +75,7 @@ const Carrousel = () => {
         setStartIndex((prev) => (prev + 1) % totalCards);
         }, 8000);
         return () => clearInterval(interval);
-    }, [totalCards, i18n.resolvedLanguage]);
+    }, [totalCards]);
 
     // 4) Cálculos de UI
     const progress = ((startIndex + 1) / totalCards) * 100;
@@ -66,7 +84,7 @@ const Carrousel = () => {
     const loopedCards = [...cards, ...cards]; // loop infinito
 
     return (
-        <div className="w-full flex flex-col items-start pl-[7vw] max-lg:pl-[4vw] overflow-hidden">
+        <div className={`w-full flex flex-col items-start overflow-hidden ${isCompactLandscape ? "pl-[1vw]" : "pl-[7vw] max-lg:pl-[4vw] max-lg:landscape:pl-[3vw]"}`}>
         {/* Viewport ajustado dinámicamente */}
         <div className="overflow-hidden" style={{ width: `${containerWidth}px` }}>
             <div
@@ -78,14 +96,14 @@ const Carrousel = () => {
             >
             {loopedCards.map((card, index) => (
                 <div key={`${card.chapter}-${index}`} style={{ width: `${cardWidth}px` }} className="flex-shrink-0">
-                    <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} />
+                    <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} compactLandscape={isCompactLandscape} />
                 </div>
             ))}
             </div>
         </div>
 
         {/* Navegación inferior */}
-        <div className="mt-6 max-lg:mt-3" style={{ width: `${containerWidth}px` }}>
+        <div className={`${isCompactLandscape ? "mt-1.5" : "mt-6 max-lg:mt-3 max-lg:landscape:mt-2"}`} style={{ width: `${containerWidth}px` }}>
             <div className="flex items-center space-x-6 max-lg:space-x-3">
             {/* Flechas */}
             <div className="flex space-x-4 max-lg:space-x-2">

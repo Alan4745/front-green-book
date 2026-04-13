@@ -98,7 +98,7 @@ const SectionCircles = () => {
           <button
             type="button"
             onClick={goToPrev}
-            className="h-10 w-10 rounded-full border-2 border-white text-white grid place-items-center justify-self-start"
+            className="h-10 w-6 text-white grid place-items-center justify-self-start"
             aria-label="Anterior"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ const SectionCircles = () => {
           <button
             type="button"
             onClick={goToNext}
-            className="h-10 w-10 rounded-full border-2 border-white text-white grid place-items-center justify-self-end"
+            className="h-10 w-6 text-white grid place-items-center justify-self-end"
             aria-label="Siguiente"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
