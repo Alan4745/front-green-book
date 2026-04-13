@@ -46,14 +46,14 @@ const CoverC4 = () => {
                     </div>
 
                     {/* Subtítulo y línea — debajo del row */}
-                    <div className="pl-4 mt-[8vh]">
+                    <div className="pl-4 pr-4 mt-[6vh]">
                         <h3
-                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
+                            className="text-white text-[2.5vh] uppercase tracking-wider"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c4.cover.subtitle.line1")} <br /> {t("c4.cover.subtitle.line2")}
                         </h3>
-                        <div className="w-[20vw] h-[1vh] bg-[#FF5200] mt-[1vh]"></div>
+                        <div className="w-[15vw] h-[1.5vh] bg-[#FF5200] mt-[0.5vh]"></div>
                     </div>
                 </div>
 
@@ -86,12 +86,12 @@ const CoverC4 = () => {
 
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
-                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[5vh]">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw] lg:left-[5vh]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c4.cover.alts.greenBook")}
                         title={t("c4.cover.alts.greenBook")}
-                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
+                        className="w-[22vh] h-auto max-lg:w-[15vh] lg:w-[22vh]"
                     />
                 </div>
                 </Link>

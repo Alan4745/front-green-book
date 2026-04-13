@@ -135,7 +135,7 @@ const backgrounds = [
 
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
     const isCompactLandscape =
-        viewport.width <= 900 &&
+        viewport.width <= 980 &&
         viewport.height <= 460 &&
         viewport.width > viewport.height;
 
@@ -144,7 +144,7 @@ const backgrounds = [
         : "absolute top-[19vh] left-[22vh] w-[22%] h-auto max-lg:top-[3vh] max-lg:left-[5vw] max-lg:w-[42%] max-sm:w-[50%]";
 
     const homeCarouselClassName = isCompactLandscape
-        ? "absolute right-0 top-[22vh] w-[56%] z-40"
+        ? "absolute right-0 top-[20vh] w-[54%] z-40"
         : "absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[40vh] sm:max-lg:top-[48vh] max-sm:top-[34vh]";
 
     const homeContent = (

@@ -42,7 +42,7 @@ const Carrousel = () => {
     const isDesktop = viewport.width >= 1024;
     const isTablet = viewport.width >= 640 && viewport.width < 1024;
     const isCompactLandscape =
-        viewport.width <= 900 &&
+        viewport.width <= 980 &&
         viewport.height <= 460 &&
         viewport.width > viewport.height;
 

@@ -40,14 +40,14 @@ const CoverC3 = () => {
                         />
                     </div>
 
-                    <div className="pl-4 mt-[8vh]">
+                    <div className="pl-4 pr-4 mt-[6vh]">
                         <h3
-                            className="text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2.8vw] uppercase"
+                            className="text-white text-[2.5vh] uppercase tracking-wider"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t("c3.cover.subtitle")}
                         </h3>
-                        <div className="w-[20vw] h-[1vh] bg-[#00B3BD] mt-[1vh]" />
+                        <div className="w-[15vw] h-[1.5vh] bg-[#00B3BD] mt-[0.5vh]" />
                     </div>
                 </div>
 
@@ -77,12 +77,12 @@ const CoverC3 = () => {
                 </div>
 
                 <Link to='/'>
-                <div className="absolute bottom-[5vh] left-4 z-30 lg:left-[3vw]">
+                <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
                     <img
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c3.cover.alts.greenBook")}
                         title={t("c3.cover.alts.greenBook")}
-                        className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
+                        className="w-[22vh] h-auto max-lg:w-[15vh]"
                     />
                 </div>
                 </Link>
