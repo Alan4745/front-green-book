@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView  } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -65,7 +64,6 @@ import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
 
 const RegionReutilizable = ({tipo, isActive}) => {
-    const navigate = useNavigate();
     const [showZoom, setShowZoom] = useState(false);
     const [bgReady, setBgReady] = useState(false);
     const { t, i18n } = useTranslation();
@@ -209,6 +207,32 @@ if (!region) {
   },
 };
 
+    const featureKeys = [
+        keys.features.f1,
+        keys.features.f2,
+        keys.features.f3,
+        ...(i18n.exists(keys.features.f4) ? [keys.features.f4] : []),
+    ];
+    const hasFourFeatures = featureKeys.length === 4;
+
+    const desktopGraphClassName = `absolute left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${
+        hasFourFeatures
+            ? 'top-[43%] w-[34vw] min-[1024px]:max-[1200px]:top-[45%] min-[1024px]:max-[1200px]:w-[28vw]'
+            : 'top-1/2 w-[38vw] min-[1024px]:max-[1200px]:w-[32vw]'
+    } min-[768px]:max-[1023px]:w-[38vw] max-lg:hidden`;
+
+    const desktopFeaturesClassName = `absolute left-[20%] z-20 ${
+        hasFourFeatures
+            ? 'bottom-[5vh] min-[1024px]:max-[1200px]:bottom-[3.5vh]'
+            : 'bottom-[10vh] min-[1024px]:max-[1200px]:bottom-[6vh]'
+    } min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:hidden`;
+
+    const desktopFeaturesListClassName = `space-y-1 min-[768px]:max-[1023px]:text-[1.8vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm ${
+        hasFourFeatures
+            ? 'text-[2.45vh] min-[1024px]:max-[1200px]:text-[2.05vh]'
+            : 'text-[2.8vh] min-[1024px]:max-[1200px]:text-[2.3vh]'
+    }`;
+
 
     // Logo: cae desde fuera de pantalla, 3 rebotes decrecientes,
     // giro SOLO en el primer rebote, opacidad siempre 1
@@ -263,7 +287,7 @@ if (!region) {
 
 
     return (
-        <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto max-lg:landscape:flex-row max-lg:landscape:h-screen">
+        <div ref={ref} className="flex w-screen h-screen overflow-hidden max-lg:flex-col max-lg:h-auto max-lg:overflow-visible max-lg:overflow-x-hidden max-lg:landscape:flex-row max-lg:landscape:h-screen max-lg:landscape:overflow-hidden">
             {/* Columna izquierda con imagen y overlay */}
             <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[55vh] min-[768px]:max-[1023px]:h-[48vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
                 {/* Imagen de fondo con animación */}
@@ -363,10 +387,10 @@ if (!region) {
             </div>
 
             {/* Columna derecha */}
-            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-lg:h-[65vh] min-[768px]:max-[1023px]:h-[60vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full">
+            <div className="w-[42%] h-full bg-white relative max-lg:w-full max-[767px]:h-auto max-[767px]:min-h-[65vh] max-[767px]:pb-[4vh] min-[768px]:max-[1023px]:h-auto min-[768px]:max-[1023px]:pb-[2vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full max-lg:landscape:min-h-0 max-lg:landscape:pb-0">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[4%] min-[768px]:max-[1023px]:left-1/2 min-[768px]:max-[1023px]:-translate-x-1/2 min-[768px]:max-[1023px]:h-[40%] max-lg:left-[8%] max-lg:h-[80%]"
+                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[4%] min-[768px]:max-[1023px]:left-1/2 min-[768px]:max-[1023px]:-translate-x-1/2 min-[768px]:max-[1023px]:h-[40%] max-lg:hidden"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
@@ -381,10 +405,7 @@ if (!region) {
 
                 {/* Gráficas */}
                 <motion.div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform
-                                w-[38vw] min-[1024px]:max-[1200px]:w-[32vw]
-                                min-[768px]:max-[1023px]:w-[38vw]
-                                max-lg:w-[80vw]"
+                    className={desktopGraphClassName}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
@@ -399,55 +420,84 @@ if (!region) {
 
                 {/* Lista de características */}
                 <motion.div
-                    className="absolute bottom-[10vh] left-[20%] z-20 min-[1024px]:max-[1200px]:bottom-[6vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:bottom-[5vh] max-lg:left-[8%]"
+                    className={desktopFeaturesClassName}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
                 >
                     <ul
-                        className="space-y-1 text-[2.8vh] min-[1024px]:max-[1200px]:text-[2.3vh] min-[768px]:max-[1023px]:text-[1.8vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm"
+                        className={desktopFeaturesListClassName}
                         style={{ fontFamily: 'GothamNormal' }}
                     >
-                        <motion.li
-                            className="flex items-center gap-2"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                            transition={{ duration: 0.6, delay: 3.2 }}
-                        >
-                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
-                            {t(keys.features.f1)}
-                        </motion.li>
-                        <motion.li
-                            className="flex items-center gap-2"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                            transition={{ duration: 0.6, delay: 3.4 }}
-                        >
-                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
-                            {t(keys.features.f2)}
-                        </motion.li>
-                        <motion.li
-                            className="flex items-center gap-2"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                            transition={{ duration: 0.6, delay: 3.6 }}
-                        >
-                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)}  inline-block`}></span>
-                            {t(keys.features.f3)}
-                        </motion.li>
-                        {i18n.exists(keys.features.f4) && (
-                        <motion.li
-                            className="flex items-center gap-2"
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                            transition={{ duration: 0.6, delay: 3.8 }}
-                        >
-                            <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
-                            {t(keys.features.f4)}
-                        </motion.li>
-                        )}
+                        {featureKeys.map((featureKey, index) => (
+                            <motion.li
+                                key={featureKey}
+                                className="flex items-center gap-2"
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                                transition={{ duration: 0.6, delay: 3.2 + index * 0.2 }}
+                            >
+                                <span className={`w-[1.8vh] h-[1.8vh] rounded-full ${getColorRegion(tipo)} inline-block`}></span>
+                                {t(featureKey)}
+                            </motion.li>
+                        ))}
                     </ul>
                 </motion.div>
+
+                <div className="hidden h-full flex-col justify-start px-[8%] py-[4vh] max-lg:flex max-lg:h-auto min-[768px]:max-[1023px]:py-[2.5vh] max-lg:landscape:px-[6%] max-lg:landscape:py-[3.5vh]">
+                    <motion.div
+                        className="flex justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
+                    >
+                        <img
+                            src={region.perfil}
+                            alt={t(keys.alts.profile)}
+                            title={t(keys.alts.profile)}
+                            className="w-[50vw] h-auto object-contain max-lg:landscape:w-[28vh]"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="mt-[3vh] flex justify-center min-[768px]:max-[1023px]:mt-[1.8vh] max-lg:landscape:mt-[2.5vh]"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
+                    >
+                        <img
+                            src={region.grafica[lang] || region.grafica.es}
+                            alt={t(keys.alts.chart)}
+                            title={t(keys.alts.chart)}
+                            className="w-[78vw] h-auto object-contain max-lg:landscape:w-[38vh]"
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        className="mt-[3vh] w-full min-[768px]:max-[1023px]:mt-[1.8vh] max-lg:landscape:mt-[2vh]"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 1.3, ease: 'easeOut', delay: 3 }}
+                    >
+                        <ul
+                            className="space-y-2 text-[2vh] max-lg:landscape:space-y-1 max-lg:landscape:text-[0.82rem]"
+                            style={{ fontFamily: 'GothamNormal' }}
+                        >
+                            {featureKeys.map((featureKey, index) => (
+                                <motion.li
+                                    key={`mobile-${featureKey}`}
+                                    className="flex items-start gap-2 leading-tight"
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                                    transition={{ duration: 0.6, delay: 3.2 + index * 0.2 }}
+                                >
+                                    <span className={`mt-[0.35em] h-[1.2vh] w-[1.2vh] shrink-0 rounded-full ${getColorRegion(tipo)} inline-block max-lg:landscape:h-[0.55rem] max-lg:landscape:w-[0.55rem]`}></span>
+                                    <span>{t(featureKey)}</span>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                </div>
 
             </div>
 
