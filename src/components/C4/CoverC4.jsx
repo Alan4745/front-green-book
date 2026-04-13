@@ -94,7 +94,7 @@ const CoverC4 = () => {
                         className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
-                /</Link>
+                </Link>
 
                 {/* Selector de idioma */}
                 <div className="absolute bottom-[5vh] right-6 z-50">

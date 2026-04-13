@@ -81,7 +81,7 @@ const CoverC2 = () => {
                         className="w-[35vw] sm:w-[28vw] md:w-[22vw] h-auto lg:w-[22vh]"
                     />
                 </div>
-                /</Link>
+                </Link>
 
                 
             </div>

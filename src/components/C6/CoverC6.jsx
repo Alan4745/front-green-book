@@ -78,6 +78,12 @@ const CoverC6 = () => {
                         {t("c6.cover.subtitle")}
                     </h3>
                     <div className="w-[10vw] h-[0.4vw] bg-[#00AE43] mt-[0.5vw]"></div>
+                    <p
+                        className="text-white text-justify text-[1.4vw] mt-[1.5vw] max-w-[35vw]"
+                        style={{ fontFamily: "GothamNormal" }}
+                    >
+                        {t("c6.cover.body")}
+                    </p>
                 </div>
 
                 <Link to='/'>
