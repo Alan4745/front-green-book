@@ -130,7 +130,7 @@ const CoverColab = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10 min-h-screen lg:min-h-[260vh]"
+            className="relative w-full bg-[#046C7F] bg-no-repeat bg-center bg-cover z-10 min-h-screen lg:min-h-[260vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-screen"
             role="region"
             aria-label={t('colab.cover.aria.section')}
         >
@@ -152,7 +152,7 @@ const CoverColab = () => {
 
 
             {showIndicator && (
-                <div className="hidden lg:block fixed bottom-0 left-[48%] z-50 pointer-events animate__bounce">
+                <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden fixed bottom-0 left-[48%] z-50 pointer-events animate__bounce">
                     <div className="animate__animated animate__bounce animate__infinite">
                         <div style={{ width: "5rem" }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -174,7 +174,7 @@ const CoverColab = () => {
 
 
             {/* ===== ESCENA STICKY — solo desktop (lg+) ===== */}
-            <div className="hidden lg:block sticky top-0 h-screen w-full">
+            <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden sticky top-0 h-screen w-full">
                 <div className="h-full w-full flex justify-center items-start">
                     {/* Contenedor general: escala + SUBE */}
                     <motion.div
@@ -230,7 +230,7 @@ const CoverColab = () => {
             </div>
 
             {/* ===== MOBILE / TABLET: contenedor único h-svh, logos + tarjetas sin scroll ===== */}
-            <div className="lg:hidden flex flex-col h-svh w-full overflow-hidden [@media(orientation:portrait)]:px-3 [@media(orientation:landscape)]:px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-8 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-3 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
+            <div className="lg:hidden [@media(min-width:1024px)_and_(orientation:portrait)]:!flex flex flex-col h-svh w-full overflow-hidden [@media(orientation:portrait)]:px-3 [@media(orientation:landscape)]:px-4 [@media(orientation:portrait)]:pt-16 [@media(orientation:landscape)]:pt-8 [@media(orientation:portrait)]:pb-4 [@media(orientation:landscape)]:pb-3 [@media(orientation:portrait)]:gap-3 [@media(orientation:landscape)]:gap-2">
 
                 {/* Logos — shrink-0 nunca crece, nunca desplaza tarjetas */}
                 <div className="shrink-0 flex justify-center items-center px-6
@@ -239,38 +239,45 @@ const CoverColab = () => {
                     [@media(orientation:landscape)]:min-h-[32svh]
                     [@media(min-width:768px)_and_(orientation:portrait)]:min-h-[30svh]
                     [@media(min-width:768px)_and_(orientation:portrait)]:py-6
-                    [@media(min-width:768px)_and_(orientation:portrait)]:px-10">
+                    [@media(min-width:768px)_and_(orientation:portrait)]:px-10
+                    [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-[38svh]
+                    [@media(min-width:1024px)_and_(orientation:portrait)]:!py-8">
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         {/* isotipo: mobile portrait w-14 | tablet portrait w-36 | landscape w-7 */}
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')}
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
-                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
+                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2
+                                [@media(min-width:1024px)_and_(orientation:portrait)]:!w-48 [@media(min-width:1024px)_and_(orientation:portrait)]:!mb-5" />
                         {/* logotipo: mobile portrait w-28 | tablet portrait w-64 | landscape w-28 */}
                         <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')}
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-64
-                                [@media(orientation:landscape)]:w-28" />
+                                [@media(orientation:landscape)]:w-28
+                                [@media(min-width:1024px)_and_(orientation:portrait)]:!w-80" />
                     </div>
                     {/* línea: mobile portrait h-20 | tablet portrait h-52 | landscape h-8 */}
                     <div className="w-px rounded-full bg-white shrink-0
                         [@media(orientation:portrait)]:h-20 [@media(orientation:portrait)]:mx-4
                         [@media(min-width:768px)_and_(orientation:portrait)]:h-52 [@media(min-width:768px)_and_(orientation:portrait)]:mx-8
-                        [@media(orientation:landscape)]:h-14 [@media(orientation:landscape)]:mx-4"
+                        [@media(orientation:landscape)]:h-14 [@media(orientation:landscape)]:mx-4
+                        [@media(min-width:1024px)_and_(orientation:portrait)]:!h-64 [@media(min-width:1024px)_and_(orientation:portrait)]:!mx-10"
                         aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')}
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-36 [@media(min-width:768px)_and_(orientation:portrait)]:mb-4
-                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
+                                [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2
+                                [@media(min-width:1024px)_and_(orientation:portrait)]:!w-48 [@media(min-width:1024px)_and_(orientation:portrait)]:!mb-5" />
                         <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')}
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:768px)_and_(orientation:portrait)]:w-64
-                                [@media(orientation:landscape)]:w-28" />
+                                [@media(orientation:landscape)]:w-28
+                                [@media(min-width:1024px)_and_(orientation:portrait)]:!w-80" />
                     </div>
                 </div>
 
@@ -345,7 +352,7 @@ const CoverColab = () => {
             </div>
 
             {/* ===== TARJETAS DESKTOP (layout original intacto) ===== */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden">
                 <div className="absolute bottom-26 left-1/2 -translate-x-1/2 flex gap-8">
                     <motion.div
                         className="relative w-[min(42vh,22vw)] h-[48vh] rounded-xl bg-[#FFFFFF] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
