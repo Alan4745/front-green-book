@@ -69,7 +69,6 @@ const CoverC6 = () => {
                         >
                             <span className={mobileTitleLineClassName}>{titleLine1}</span>
                             <span className={mobileTitleLineClassName}>{titleLine2}</span>
-                            <span className={mobileTitleLineClassName}>{titleLine3}</span>
                         </h2>
                         <img
                             src="/Img/Global/Numbers/06.svg"
@@ -101,12 +100,11 @@ const CoverC6 = () => {
 
                 <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[3.6vw] leading-[1.1] uppercase whitespace-nowrap"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {titleLine1} <br />
-                        {titleLine2} <br />
-                        {titleLine3}
+                        {titleLine2}
                     </h2>
                     <h3
                         className="text-white text-[2vw] mt-[3vw] uppercase"
