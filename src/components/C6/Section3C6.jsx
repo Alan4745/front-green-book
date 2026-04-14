@@ -132,8 +132,8 @@ const Section3C6 = () => {
             <div className="hidden lg:flex [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden lg:w-full">
             <div className="relative w-full text-white">
                 {/* Título izquierda */}
-                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] left-[10vh] min-[1600px]:left-[15vh]">
-                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] left-[10vh] min-[1600px]:left-[15vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:left-[4vw]">
+                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[2vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
                     </h3>
                     {/* Número grande 05 */}
@@ -143,8 +143,8 @@ const Section3C6 = () => {
                 </div>
 
                 {/* Título derecha */}
-                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] right-[10vh] min-[1600px]:right-[15vh] text-right">
-                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase" style={{ fontFamily: "GothamBold" }}>
+                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] right-[10vh] min-[1600px]:right-[15vh] text-right [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:right-[4vw]">
+                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[2vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section3.right.title.top")} <br /> {t("c6.section3.right.title.bottom")}
                     </h3>
                     {/* Número grande 06 */}
@@ -154,8 +154,8 @@ const Section3C6 = () => {
                 </div>
 
                 {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] left-[10vh] min-[1600px]:left-[15vh] max-w-[50vh]">
-                    <p className="text-base min-[1600px]:text-xl leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] left-[10vh] min-[1600px]:left-[15vh] max-w-[50vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:top-[40vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:left-[4vw] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:max-w-[28vw]">
+                    <p className="text-base min-[1600px]:text-xl leading-relaxed [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[1.4vw]" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section3.left.desc.line1")} <br />
                         {t("c6.section3.left.desc.line2")} <br />
                         {t("c6.section3.left.desc.line3")}
@@ -163,8 +163,8 @@ const Section3C6 = () => {
                 </div>
 
                 {/* Texto descriptivo derecha */}
-                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] right-[10vh] min-[1600px]:right-[15vh] text-right max-w-[50vh]">
-                    <p className="text-base min-[1600px]:text-xl leading-relaxed" style={{ fontFamily: "GothamNormal" }}>
+                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] right-[10vh] min-[1600px]:right-[15vh] text-right max-w-[50vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:top-[40vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:right-[4vw] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:max-w-[28vw]">
+                    <p className="text-base min-[1600px]:text-xl leading-relaxed [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[1.4vw]" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section3.right.desc.pre")}
                         {t("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
                     </p>
