@@ -93,44 +93,44 @@ const Section1C6 = () => {
             aria-label={t("c6.section1.aria.section")}
         >
             {/* ===== MOBILE LAYOUT ===== */}
-            <div className="lg:hidden flex min-h-screen flex-col justify-center min-[744px]:max-[1023px]:justify-start pt-[7vh] min-[744px]:max-[1023px]:pt-[8vh] pb-[10vh] min-[744px]:max-[1023px]:pb-[6vh] text-white">
+            <div className="lg:hidden [@media(min-width:1024px)_and_(orientation:portrait)]:!flex w-full flex min-h-screen flex-col justify-center min-[744px]:max-[1023px]:justify-start [@media(min-width:1024px)_and_(orientation:portrait)]:!justify-start pt-[7vh] min-[744px]:max-[1023px]:pt-[8vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!pt-[5vh] pb-[10vh] min-[744px]:max-[1023px]:pb-[6vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!pb-[4vh] text-white">
                 {/* Bloque 01 */}
-                <div className="relative px-6 min-[744px]:max-[1023px]:px-10 py-[3vh] min-[744px]:max-[1023px]:py-[2vh]">
-                    <div className="text-[28vw] md:text-[18vw] min-[744px]:max-[1023px]:text-[15vw] font-bold opacity-30 leading-none" style={{ fontFamily: "GothamBold" }}>01</div>
-                    <h3 className="text-[6vw] md:text-[4vw] min-[744px]:max-[1023px]:text-[3.2vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw] min-[744px]:max-[1023px]:mt-[-3vw]" style={{ fontFamily: "GothamBold" }}>
+                <div className="relative px-6 min-[744px]:max-[1023px]:px-10 [@media(min-width:1024px)_and_(orientation:portrait)]:!px-14 py-[3vh] min-[744px]:max-[1023px]:py-[2vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!py-[2vh]">
+                    <div className="text-[28vw] md:text-[18vw] min-[744px]:max-[1023px]:text-[15vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[13vw] font-bold opacity-30 leading-none" style={{ fontFamily: "GothamBold" }}>01</div>
+                    <h3 className="text-[6vw] md:text-[4vw] min-[744px]:max-[1023px]:text-[3.2vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[2.8vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw] min-[744px]:max-[1023px]:mt-[-3vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!mt-[-2.5vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section1.left.title.top")} <br /> {t("c6.section1.left.title.bottom")}
                     </h3>
-                    <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3" style={{ fontFamily: "GothamNormal" }}>
+                    <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[1.8vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.left.desc.line1")} <br /> {t("c6.section1.left.desc.line2")}
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img1)}>
                         <img src={Img1} alt={t("c6.section1.images.img1Alt")} title={t("c6.section1.images.img1Alt")}
-                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
 
                 {/* Bloque 02 */}
-                <div className="relative px-6 min-[744px]:max-[1023px]:px-10 py-[3vh] min-[744px]:max-[1023px]:py-[2vh]">
-                    <div className="text-[28vw] md:text-[18vw] min-[744px]:max-[1023px]:text-[15vw] font-bold opacity-30 leading-none text-right" style={{ fontFamily: "GothamBold" }}>02</div>
-                    <h3 className="text-[6vw] md:text-[4vw] min-[744px]:max-[1023px]:text-[3.2vw] font-bold uppercase text-right mt-[-7vw] md:mt-[-4vw] min-[744px]:max-[1023px]:mt-[-3vw]" style={{ fontFamily: "GothamBold" }}>
+                <div className="relative px-6 min-[744px]:max-[1023px]:px-10 [@media(min-width:1024px)_and_(orientation:portrait)]:!px-14 py-[3vh] min-[744px]:max-[1023px]:py-[2vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!py-[2vh]">
+                    <div className="text-[28vw] md:text-[18vw] min-[744px]:max-[1023px]:text-[15vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[13vw] font-bold opacity-30 leading-none text-right" style={{ fontFamily: "GothamBold" }}>02</div>
+                    <h3 className="text-[6vw] md:text-[4vw] min-[744px]:max-[1023px]:text-[3.2vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[2.8vw] font-bold uppercase text-right mt-[-7vw] md:mt-[-4vw] min-[744px]:max-[1023px]:mt-[-3vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!mt-[-2.5vw]" style={{ fontFamily: "GothamBold" }}>
                         {t("c6.section1.right.title.line1")} <br />
                         {t("c6.section1.right.title.line2")} <br />
                         {t("c6.section1.right.title.line3")}
                     </h3>
-                    <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3 text-right" style={{ fontFamily: "GothamNormal" }}>
+                    <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[1.8vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3 text-right" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section1.right.desc.line1")} <br /> {t("c6.section1.right.desc.line2")}
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img2)}>
                         <img src={Img2} alt={t("c6.section1.images.img2Alt")} title={t("c6.section1.images.img2Alt")}
-                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
             </div>
 
             {/* ===== DESKTOP LAYOUT (blindado) ===== */}
-            <div className="hidden lg:flex lg:w-full">
+            <div className="hidden lg:flex [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden lg:w-full">
             <div className="relative w-full text-white">
                 {/* Título izquierda */}
                 <div className="absolute top-[20vh] min-[1600px]:top-[30vh] left-[10vh] min-[1600px]:left-[15vh]">
