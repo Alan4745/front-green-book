@@ -32,8 +32,8 @@ const Section1C4 = () => {
         };
     }, []);
 
-    const introTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : windowWidth >= 640 ? "text-sm" : "text-xs";
-    const titleTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : windowWidth >= 640 ? "text-sm" : "text-xs";
+    const introTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : windowWidth >= 744 ? "text-base" : "text-sm";
+    const titleTextSize = windowWidth > 1600 ? "text-2xl" : windowWidth >= 1024 ? "text-xl" : windowWidth >= 744 ? "text-sm" : "text-[3vw]";
 
     // Keys para i18n
     const keys = {
@@ -72,8 +72,8 @@ const Section1C4 = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:h-full">
                 {/* Primer cuadro con fondo anaranjado */}
                 <div className="relative bg-[#FF5200] h-[50vw] md:h-[38vw] lg:h-[50vh] w-full flex items-center justify-center">
-                    <div className="text-left text-white">
-                        <p className={`w-[85%] lg:w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
+                    <div className="text-left text-white px-4 min-[744px]:px-6 lg:px-0">
+                        <p className={`w-full lg:w-[45vh] ${introTextSize}`} style={{ fontFamily: "GothamNormal" }}>
                             {t(keys.intro.text)}
                         </p>
                     </div>
@@ -91,7 +91,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[20vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f1.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Botón expandir */}
                     <ExpandButton
@@ -113,7 +113,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[30vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f2.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Botón expandir */}
                     <ExpandButton
@@ -135,7 +135,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[25vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f3.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Botón expandir */}
                     <ExpandButton
@@ -157,7 +157,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[20vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f4.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Créditos (inferior izquierda) */}
                     <figcaption
@@ -186,7 +186,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[40vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f5.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Créditos (inferior izquierda) */}
                     <figcaption
@@ -214,7 +214,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[30vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f6.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Créditos (inferior izquierda) */}
                     <figcaption
@@ -243,7 +243,7 @@ const Section1C4 = () => {
                         <p className={`uppercase w-[40vh] max-w-[44vw] lg:max-w-none text-right ${titleTextSize}`} style={{ fontFamily: "GothamBold" }}>
                             {t(keys.items.f7.title)}
                         </p>
-                        <div className="w-30 h-3 bg-[#FF5200] mt-2 ml-auto"></div>
+                        <div className="w-[40%] lg:w-30 h-[2px] lg:h-3 bg-[#FF5200] mt-1 lg:mt-2 ml-auto"></div>
                     </div>
                     {/* Créditos (inferior izquierda) */}
                     <figcaption
