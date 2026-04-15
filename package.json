@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prod": "npm run optimize:images && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:video": "bash scripts/generate-hls.sh"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.5",
