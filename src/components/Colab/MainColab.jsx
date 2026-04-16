@@ -9,7 +9,7 @@ const MainColab = () => {
                 "/Logos/Logo.svg",
             ]}
             tintHex="#046C7F"
-            graceMs={2000}
+            graceMs={300}
             variant="cover"
         >
             <div>

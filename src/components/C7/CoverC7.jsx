@@ -33,7 +33,7 @@ const CoverC7 = () => {
                 "/Logos/LogoPequeño.svg"
             ]}
             tintHex="#fff"
-            graceMs={2000}
+            graceMs={300}
             variant="cover"
         >
           <div className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10">

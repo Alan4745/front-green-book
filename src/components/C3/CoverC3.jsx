@@ -14,7 +14,7 @@ const CoverC3 = () => {
                     "/Logos/LogoPequeño.svg"
                 ]}
             tintHex="#00B3BD"
-            graceMs={2000}
+            graceMs={300}
             variant="cover"
         >
             <div

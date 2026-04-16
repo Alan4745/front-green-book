@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-const FADE_IN_MS = 500;   // blur + oscurecer la página actual
-const FADE_OUT_MS = 600;  // revelar la pantalla de carga
+const FADE_IN_MS = 180;
+const FADE_OUT_MS = 300;
 
 /**
  * Wrapper que mantiene compatibilidad con App.jsx — no agrega nada al DOM.

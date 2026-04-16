@@ -166,7 +166,7 @@ function usePreloadAssets(assets) {
 export default function PageSkeleton({
     assets = [],
     tintHex = "#DA2F7D",
-    graceMs = 2000,
+    graceMs = 300,
     variant = "cover",
     renderSkeleton,
     children
@@ -190,7 +190,7 @@ export default function PageSkeleton({
         if (phase !== "exiting") return;
         const t = setTimeout(() => {
             setPhase("done");
-        }, 1000);
+        }, 400);
         return () => clearTimeout(t);
     }, [phase]);
 
