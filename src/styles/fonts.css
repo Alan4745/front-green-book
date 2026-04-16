@@ -2,33 +2,33 @@
     font-family: 'FuenteGrande';
     src: url('/Fonts/FuenteGrande.woff2') format('woff2'),
          url('/Fonts/FuenteGrande.otf') format('opentype');
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'GothamBold';
     src: url('/Fonts/Gotham-Bold.woff2') format('woff2'),
          url('/Fonts/Gotham-Bold.ttf') format('truetype');
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'GothamNormal';
     src: url('/Fonts/Gotham-Book.woff2') format('woff2'),
          url('/Fonts/Gotham-Book.ttf') format('truetype');
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'ADELIA';
     src: url('/Fonts/adelia.woff2') format('woff2'),
          url('/Fonts/adelia.ttf') format('truetype');
-    font-display: optional;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Arquitectalight';
     src: url('/Fonts/Arquitectalight.woff2') format('woff2'),
          url('/Fonts/Arquitectalight.otf') format('opentype');
-    font-display: optional;
+    font-display: swap;
 }
