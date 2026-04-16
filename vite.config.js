@@ -1,15 +1,68 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { imagetools } from "vite-imagetools";
+import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    imagetools({
-      defaultDirectives: () => new URLSearchParams("format=webp&quality=82"),
+    VitePWA({
+      registerType: "autoUpdate",
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,woff,woff2,ttf,otf}"],
+        runtimeCaching: [
+          {
+            urlPattern: /\/Img\/.+\.(png|jpg|jpeg|webp|svg)$/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "images-cache",
+              expiration: { maxEntries: 120, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+          {
+            urlPattern: /\/Fonts\/.+\.(ttf|otf|woff2?)$/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "fonts-cache",
+              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            },
+          },
+          {
+            urlPattern: /\/videos\/.+\.m3u8$/i,
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "hls-manifest-cache",
+              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 },
+            },
+          },
+        ],
+      },
+      manifest: {
+        name: "Green Book",
+        short_name: "GreenBook",
+        theme_color: "#ffffff",
+        background_color: "#ffffff",
+        display: "standalone",
+        icons: [],
+      },
     }),
   ],
   assetsInclude: ["**/*.mp4"],
+  build: {
+    target: "esnext",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-i18n": [
+            "i18next",
+            "react-i18next",
+            "i18next-browser-languagedetector",
+          ],
+        },
+      },
+    },
+  },
 });
