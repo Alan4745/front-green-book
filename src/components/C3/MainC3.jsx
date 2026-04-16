@@ -5,8 +5,8 @@ import Section1C3 from './Section1C3';
 const MainC3 = () => {
     return (
         <div>
-            <CoverC3 />
-            <Section1C3 />
+            <div className="snap-start"><CoverC3 /></div>
+            <div className="snap-start"><Section1C3 /></div>
             {/* Menú desplegable */}
             <div className="absolute top-[2vh] right-10 z-50">
                 <MainMenu />

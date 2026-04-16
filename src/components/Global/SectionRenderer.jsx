@@ -2,7 +2,9 @@ const SectionRenderer = ({ sections = [] }) => {
     return (
         <>
             {sections.map(({ key, Component }) => (
-                <Component key={key} />
+                <div key={key} className="snap-start">
+                    <Component />
+                </div>
             ))}
         </>
     );

@@ -10,6 +10,8 @@ html,
 body {
     width: 100%;
     overflow-x: clip;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 }
 
 #root {

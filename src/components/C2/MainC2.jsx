@@ -20,8 +20,8 @@ const MainC2 = () => {
 
     return (
         <div>
-            <CoverC2 />
-            <Section1C2 />
+            <div className="snap-start"><CoverC2 /></div>
+            <div className="snap-start"><Section1C2 /></div>
 
             <div className="absolute bottom-[5vh] right-12 z-10">
                 <LanguageSelector
