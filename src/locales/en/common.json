@@ -6,12 +6,12 @@
         "prev": "Previous",
         "next": "Next",
         "cards": [
-            { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.svg", "chapter": "c1" },
-            { "text": "8 COFFEE REGIONS OF GUATEMALA", "bgImage": "/Img/Start/Caps/bg2.svg", "chapter": "c2" },
-            { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.svg", "chapter": "c3" },
-            { "text": "ECOSYSTEM SERVICES", "bgImage": "/Img/Start/Caps/bg4.svg", "chapter": "c4" },
-            { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.svg", "chapter": "c5" },
-            { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.svg", "chapter": "c6" }
+            { "text": "COFFEE IN GUATEMALA", "bgImage": "/Img/Start/Caps/bg1.webp", "chapter": "c1" },
+            { "text": "8 COFFEE REGIONS OF GUATEMALA", "bgImage": "/Img/Start/Caps/bg2.webp", "chapter": "c2" },
+            { "text": "AGROFORESTRY SYSTEMS", "bgImage": "/Img/Start/Caps/bg3.webp", "chapter": "c3" },
+            { "text": "ECOSYSTEM SERVICES", "bgImage": "/Img/Start/Caps/bg4.webp", "chapter": "c4" },
+            { "text": "A DIVERSE WORLD TO EXPLORE", "bgImage": "/Img/Start/Caps/bg5.webp", "chapter": "c5" },
+            { "text": "SUSTAINABILITY THAT TRANSFORMS COFFEE'S FUTURE", "bgImage": "/Img/Start/Caps/bg6.webp", "chapter": "c6" }
         ]
     },
     "menu": {

@@ -11,7 +11,7 @@ const Carrousel = () => {
         if (!Array.isArray(arr) || arr.length === 0) {
         // Fallback si aún no tienes las llaves en el JSON
         return [
-            { text: "EL CAFÉ EN GUATEMALA", bgImage: "/Img/Start/Caps/bg1.svg", chapter: "c1" },
+            { text: "EL CAFÉ EN GUATEMALA", bgImage: "/Img/Start/Caps/bg1.webp", chapter: "c1" },
             { text: "LAS 8 REGIONES DEL CAFÉ", bgImage: "/Img/Start/Caps/bg2.webp", chapter: "c2" },
             { text: "SISTEMAS AGROFORESTALES", bgImage: "/Img/Start/Caps/bg3.webp", chapter: "c3" },
             { text: "BENEFICIOS ECOSISTÉMICOS", bgImage: "/Img/Start/Caps/bg4.webp", chapter: "c4" },
