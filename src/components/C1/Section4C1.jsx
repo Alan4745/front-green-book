@@ -5,6 +5,7 @@ import BackButton from "../Global/BackButton";
 import LanguageSelector from "../Global/LanguageSelector";
 import AltitudSteps from "./ui/AltitudSteps";
 import CloseButton from "../Global/CloseButton";
+import SmartVideo from "../Global/SmartVideo";
 
 import FS4 from "../../assets/C1/FS4.png";
 import IconoMontaña from "../../assets/C1/IconoMontaña.svg";
@@ -20,7 +21,6 @@ const PlayIcon = ({ className = "w-full h-full text-gray-700" }) => (
 const Section4C1 = () => {
     const { t } = useTranslation();
     const [isVideoOpen, setIsVideoOpen] = useState(false);
-    const [videoPoster, setVideoPoster] = useState(FS4);
 
     const keys = {
         alts: { icon: "c1.section4.iconAlt", play: "c1.section4.playBox.playAlt" },
@@ -33,61 +33,6 @@ const Section4C1 = () => {
         aria: { modal: "c1.section4.playBox.modalAria" },
         buttons: { closeFallback: "Cerrar" }
     };
-
-    useEffect(() => {
-        let cancelled = false;
-
-        const video = document.createElement('video');
-        video.muted = true;
-        video.playsInline = true;
-        video.preload = 'auto';
-        video.src = Vid1;
-
-        const drawFrame = () => {
-            if (cancelled) return;
-            const w = video.videoWidth || 1280;
-            const h = video.videoHeight || 720;
-            const canvas = document.createElement('canvas');
-            canvas.width = w;
-            canvas.height = h;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) { cleanup(); return; }
-            ctx.drawImage(video, 0, 0, w, h);
-            try {
-                const url = canvas.toDataURL('image/jpeg', 0.9);
-                if (!cancelled) setVideoPoster(url);
-            } catch {
-                if (!cancelled) setVideoPoster(FS4);
-            }
-            cleanup();
-        };
-
-        const onLoadedData = () => {
-            try {
-                const seekTo = Math.min(9, video.duration || 9);
-                video.addEventListener('seeked', drawFrame, { once: true });
-                video.currentTime = seekTo;
-            } catch { drawFrame(); }
-        };
-
-        const onError = () => cleanup();
-
-        const cleanup = () => {
-            video.removeEventListener('loadeddata', onLoadedData);
-            video.removeEventListener('error', onError);
-            video.src = '';
-        };
-
-        video.addEventListener('loadeddata', onLoadedData);
-        video.addEventListener('error', onError);
-        try {
-            video.load();
-        } catch {
-            setVideoPoster(FS4);
-        }
-
-        return () => { cancelled = true; cleanup(); };
-    }, []);
 
     useEffect(() => {
         if (!isVideoOpen) return;
@@ -135,7 +80,7 @@ const Section4C1 = () => {
                 aria-label={t(keys.alts.play)}
                 title={t(keys.alts.play)}
             >
-                <img src={videoPoster} alt={t(keys.alts.play)} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+                <img src={FS4} alt={t(keys.alts.play)} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[5vw] h-[5vw]">
@@ -172,7 +117,7 @@ const Section4C1 = () => {
                         title={t(keys.alts.play)}
                     >
                         <img
-                            src={videoPoster}
+                            src={FS4}
                             alt={t(keys.alts.play)}
                             className="absolute inset-0 w-full h-full object-cover"
                         />
@@ -226,15 +171,16 @@ const Section4C1 = () => {
                             title={t(keys.buttons.closeFallback)}
                             positionClass="fixed top-4 right-4"
                         />
-                        <video
+                        <SmartVideo
                             className="relative z-10 w-[90vw] max-w-[160vh] max-h-[80vh] rounded-md shadow-2xl object-contain"
+                            hlsSrc="/videos/Vid1/master.m3u8"
                             src={Vid1}
-                            poster={videoPoster}
+                            poster={FS4}
                             controls
                             controlsList="nodownload noplaybackrate"
                             disablePictureInPicture
                             playsInline
-                            preload="auto"
+                            muted={false}
                         />
                     </div>
                 </div>

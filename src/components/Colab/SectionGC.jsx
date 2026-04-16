@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
 import LanguageSelector from '../Global/LanguageSelector';
+import SmartVideo from '../Global/SmartVideo';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 
 function TextMaskOverlay({
@@ -103,17 +104,17 @@ const SectionGC = () => {
             aria-label={t('colab.gc.aria.section')}
         >
             
-            <video
+            <SmartVideo
                 ref={videoRef}
+                hlsSrc="/videos/GC/master.m3u8"
+                src={VideoGC}
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 autoPlay
+                muted
                 loop
                 playsInline
                 aria-label={t('colab.gc.videoAlt')}
-            >
-                <source src={VideoGC} type="video/mp4" />
-                {t('colab.gc.videoFallback')}
-            </video>
+            />
 
             <div
                 className={`absolute inset-0 z-20 transition-opacity duration-300 ${

@@ -1,11 +1,10 @@
-// src/components/Colab/SectionAC.jsx
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import BackButton from '../Global/BackButton';
 import LanguageSelector from '../Global/LanguageSelector';
-
+import SmartVideo from '../Global/SmartVideo';
 import ancafe from '../../assets/Colab/Videos/AC.mp4';
 
 function TextMaskOverlay({
@@ -107,17 +106,17 @@ const SectionAC = () => {
             role="region"
             aria-label={t('colab.sac.aria.section')}
         >
-            <video
+            <SmartVideo
                 ref={videoRef}
+                hlsSrc="/videos/AC/master.m3u8"
+                src={ancafe}
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 autoPlay
+                muted
                 loop
                 playsInline
                 aria-label={t('colab.sac.videoAlt')}
-            >
-                <source src={ancafe} type="video/mp4" />
-                {t('colab.sac.videoFallback')}
-            </video>
+            />
             <button
                 type="button"
                 onClick={togglePlayPause}

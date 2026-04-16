@@ -3,6 +3,7 @@ import PageSkeleton from '../Global/PageSkeleton';
 import LanguageSelector from '../Global/LanguageSelector';
 import MainMenu from '../Global/MainMenu';
 import { useTranslation } from 'react-i18next';
+import SmartVideo from '../Global/SmartVideo';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 
 const CoverC7 = () => {
@@ -36,17 +37,17 @@ const CoverC7 = () => {
             variant="cover"
         >
           <div className="relative min-h-screen w-screen overflow-hidden bg-no-repeat bg-center bg-cover bg-black z-10">
-                        <video
+                        <SmartVideo
                             ref={videoRef}
+                            hlsSrc="/videos/GC/master.m3u8"
+                            src={VideoGC}
                             className="absolute inset-0 w-full h-full object-cover z-0"
                             autoPlay
+                            muted
                             loop
                             playsInline
                             aria-label={t('colab.gc.videoAlt')}
-                        >
-                            <source src={VideoGC} type="video/mp4" />
-                            {t('colab.gc.videoFallback')}
-                        </video>
+                        />
               <button
                 type="button"
                 onClick={togglePlayPause}
