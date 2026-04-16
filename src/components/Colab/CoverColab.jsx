@@ -248,6 +248,7 @@ const CoverColab = () => {
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         {/* isotipo: mobile portrait w-14 | tablet portrait w-36 | landscape w-7 */}
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')}
+                            loading="eager" fetchPriority="high" decoding="async"
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:700px)_and_(orientation:portrait)]:!w-28 [@media(min-width:700px)_and_(orientation:portrait)]:!mb-4
@@ -256,6 +257,7 @@ const CoverColab = () => {
                                 [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
                         {/* logotipo: mobile portrait w-28 | tablet portrait w-64 | landscape w-28 */}
                         <img src={LogotipoGC} alt={t('colab.cover.alts.gcLogotype')} title={t('colab.cover.alts.gcLogotype')}
+                            loading="eager" fetchPriority="high" decoding="async"
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:700px)_and_(orientation:portrait)]:!w-48
@@ -273,6 +275,7 @@ const CoverColab = () => {
                         aria-hidden="true" />
                     <div className="flex flex-col items-center justify-center flex-1 min-w-0">
                         <img src={LogoAC} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')}
+                            loading="eager" fetchPriority="high" decoding="async"
                             className="h-auto
                                 [@media(orientation:portrait)]:w-14 [@media(orientation:portrait)]:mb-3
                                 [@media(min-width:700px)_and_(orientation:portrait)]:!w-28 [@media(min-width:700px)_and_(orientation:portrait)]:!mb-4
@@ -280,6 +283,7 @@ const CoverColab = () => {
                                 [@media(min-width:820px)_and_(orientation:portrait)]:!w-60 [@media(min-width:820px)_and_(orientation:portrait)]:!mb-6
                                 [@media(orientation:landscape)]:w-12 [@media(orientation:landscape)]:mb-2" />
                         <img src={LogotipoAC} alt={t('colab.cover.alts.acLogotype')} title={t('colab.cover.alts.acLogotype')}
+                            loading="eager" fetchPriority="high" decoding="async"
                             className="h-auto max-w-full
                                 [@media(orientation:portrait)]:w-28
                                 [@media(min-width:700px)_and_(orientation:portrait)]:!w-48
@@ -304,7 +308,7 @@ const CoverColab = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" />
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" loading="lazy" decoding="async" />
                     </div>
 
                     {/* GC video */}
@@ -336,7 +340,7 @@ const CoverColab = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" />
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" loading="lazy" decoding="async" />
                     </div>
 
                     {/* AC video */}
@@ -377,7 +381,7 @@ const CoverColab = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" />
+                        <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" loading="lazy" decoding="async" />
                     </motion.div>
 
                     <motion.div
@@ -414,7 +418,7 @@ const CoverColab = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
-                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" />
+                        <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" loading="lazy" decoding="async" />
                     </motion.div>
 
                     <motion.div

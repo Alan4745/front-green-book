@@ -259,7 +259,7 @@ const Section1C2 = () => {
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
                     <motion.div className="relative w-[34vw] h-[50vh] cursor-pointer origin-center group hover:z-30 " style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img1)}>
-                            <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
+                            <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} loading="lazy" decoding="async" />
                         </div>
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div onClick={() => handleImageClick(Img1)}><ZoomButton /></div>
@@ -268,7 +268,7 @@ const Section1C2 = () => {
 
                     <motion.div className="relative w-[34vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30 " style={{ willChange: 'transform' }} whileTap={{ scale: 1.02 }} {...hoverAnim}>
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
-                            <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} />
+                            <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover select-none pointer-events-none" draggable={false} loading="lazy" decoding="async" />
                         </div>
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                             <div onClick={() => handleImageClick(Img2)}><ZoomButton /></div>
@@ -295,13 +295,13 @@ const Section1C2 = () => {
                 {/* Dos imágenes lado a lado */}
                 <div className="flex w-full">
                     <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img1)}>
-                        <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover" />
+                        <img src={Img1} alt={t('c1.section2.images.img1Alt')} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         <div className="absolute bottom-2 right-2">
                             <ZoomButton />
                         </div>
                     </div>
                     <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img2)}>
-                        <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover" />
+                        <img src={Img2} alt={t('c1.section2.images.img2Alt')} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         <div className="absolute bottom-2 right-2">
                             <ZoomButton />
                         </div>

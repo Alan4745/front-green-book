@@ -113,7 +113,7 @@ const Section4C1 = () => {
             <div className="hidden lg:flex absolute bottom-0 left-0 bg-[#DA2F7D] flex-col justify-between
                             w-[45vw] h-[60vh] px-10 py-10">
                 <div>
-                    <img src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[8vh] h-[8vh]" />
+                    <img src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[8vh] h-[8vh]" loading="lazy" decoding="async" />
                 </div>
                 <div>
                     <h3
@@ -135,7 +135,7 @@ const Section4C1 = () => {
                 aria-label={t(keys.alts.play)}
                 title={t(keys.alts.play)}
             >
-                <img src={videoPoster} alt={t(keys.alts.play)} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={videoPoster} alt={t(keys.alts.play)} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[5vw] h-[5vw]">

@@ -22,7 +22,7 @@ const Block = ({ bg, logo, text, img, imageRatio = "1/2" }) => {
         className={`${textWidth} w-full flex flex-col justify-center px-10 py-12 text-white ${bg}`}
       >
         <div className=' md:pl-50 '>
-           <img src={logo} alt="" className="w-56 mb-6" />
+           <img src={logo} alt="" className="w-56 mb-6" loading="lazy" decoding="async" />
             <p className="text-base md:text-lg leading-relaxed max-w-md">
              {text}
             </p>
@@ -34,6 +34,8 @@ const Block = ({ bg, logo, text, img, imageRatio = "1/2" }) => {
           src={img}
           alt=""
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

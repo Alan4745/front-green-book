@@ -276,13 +276,13 @@ const Section1C1 = () => {
                 {/* Dos imágenes lado a lado */}
                 <div className="flex w-full">
                     <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(vid2Poster || Img1Fallback)}>
-                        <img src={vid2Poster || Img1Fallback} alt={t('c1.section1.images.img1Alt')} className="w-full h-full object-cover" />
+                        <img src={vid2Poster || Img1Fallback} alt={t('c1.section1.images.img1Alt')} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         <div className="absolute bottom-2 right-2">
                             <ZoomButton />
                         </div>
                     </div>
                     <div className="w-1/2 h-[25vh] relative group" onClick={() => handleImageClick(Img2)}>
-                        <img src={Img2} alt={t('c1.section1.images.img2Alt')} className="w-full h-full object-cover" />
+                        <img src={Img2} alt={t('c1.section1.images.img2Alt')} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         <div className="absolute bottom-2 right-2">
                             <ZoomButton />
                         </div>

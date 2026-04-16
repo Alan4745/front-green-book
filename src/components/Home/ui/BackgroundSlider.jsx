@@ -15,15 +15,13 @@ export default function BackgroundSlider({
     const count = images.length;
     if (count === 0) return null;
 
-    // Preload defensivo
     useEffect(() => {
-        images.forEach((src) => {
+        if (count <= 1) return;
+        const next = (0 + 1) % count;
         const img = new Image();
-        img.src = src;
-        });
-    }, [images]);
+        img.src = images[next];
+    }, []);
 
-    // Ciclo con setTimeout (evita drift)
     useEffect(() => {
         if (count <= 1) return;
 
@@ -33,19 +31,20 @@ export default function BackgroundSlider({
         setCurrent(next);
         setFading(true);
 
-        // fin de fade
+        const afterNext = (next + 1) % count;
+        const preload = new Image();
+        preload.src = images[afterNext];
+
         fadeRef.current = setTimeout(() => {
             setFading(false);
             setPrev(null);
         }, fade);
 
-        // siguiente cambio
         changeRef.current = setTimeout(tick, interval);
         };
 
         changeRef.current = setTimeout(tick, interval);
 
-        // manejar visibilidad de pestaña
         const onVisibility = () => {
         clearTimeout(changeRef.current);
         clearTimeout(fadeRef.current);
@@ -64,21 +63,24 @@ export default function BackgroundSlider({
 
     return (
         <div className={`relative overflow-hidden ${className}`}>
-        {/* Imagen actual */}
         <img
             key={`curr-${current}`}
             src={images[current]}
             alt=""
+            loading={current === 0 ? "eager" : "lazy"}
+            fetchPriority={current === 0 ? "high" : "auto"}
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover z-10"
             draggable={false}
         />
 
-        {/* Imagen anterior (se desvanece a 0) */}
         {prev !== null && (
             <img
             key={`prev-${prev}`}
             src={images[prev]}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-opacity z-20"
             style={{
                 opacity: fading ? 0 : 1,

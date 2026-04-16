@@ -12,7 +12,7 @@ const FooterAC = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center text-white">
 
         <div className="flex flex-col gap-6 max-w-sm">
-          <img src={analab} alt="Analab" className="w-40" />
+          <img src={analab} alt="Analab" className="w-40" loading="lazy" decoding="async" />
           <p className="text-sm md:text-base leading-relaxed text-white/80">
             {t("colab.sac.section4.izquierdo.desc")}
           </p>
@@ -20,7 +20,7 @@ const FooterAC = () => {
 
         <div className="flex flex-col gap-10">
           <div className="flex items-start gap-4">
-            <img src={suelo} alt="" className="w-10 h-10 mt-1" />
+            <img src={suelo} alt="" className="w-10 h-10 mt-1" loading="lazy" decoding="async" />
             <div>
               <p className="font-semibold">{t("colab.sac.section4.derecho.title")}</p>
               <p className="text-sm text-white/80">
@@ -30,7 +30,7 @@ const FooterAC = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <img src={plantas} alt="" className="w-10 h-10 mt-1" />
+            <img src={plantas} alt="" className="w-10 h-10 mt-1" loading="lazy" decoding="async" />
             <div>
               <p className="font-semibold">{t("colab.sac.section4.derecho2.title")}</p>
               <p className="text-sm text-white/80">
@@ -40,7 +40,7 @@ const FooterAC = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <img src={abono} alt="" className="w-10 h-10 mt-1" />
+            <img src={abono} alt="" className="w-10 h-10 mt-1" loading="lazy" decoding="async" />
             <div>
               <p className="font-semibold">{t("colab.sac.section4.derecho3.title")}</p>
               <p className="text-sm text-white/80">

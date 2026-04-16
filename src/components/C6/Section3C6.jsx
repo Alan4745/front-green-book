@@ -105,7 +105,7 @@ const Section3C6 = () => {
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img1)}>
                         <img src={Img1} alt={t("c6.section3.images.img1Alt")} title={t("c6.section3.images.img1Alt")}
-                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} loading="lazy" decoding="async" />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ const Section3C6 = () => {
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img2)}>
                         <img src={Img2} alt={t("c6.section3.images.img2Alt")} title={t("c6.section3.images.img2Alt")}
-                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} />
+                            className="w-full h-[60vw] min-h-[240px] md:h-[45vw] min-[744px]:max-[1023px]:h-[31vw] min-[744px]:max-[1023px]:min-h-0 [@media(min-width:1024px)_and_(orientation:portrait)]:!h-[28vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!min-h-0 object-cover select-none" draggable={false} loading="lazy" decoding="async" />
                         <div className="absolute bottom-4 right-4"><ZoomButton /></div>
                     </div>
                 </div>
