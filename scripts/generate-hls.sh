@@ -21,23 +21,23 @@ echo "→ Procesando: ${INPUT}"
 echo "→ Salida en:  ${OUT_DIR}/"
 
 ffmpeg -i "${INPUT}" \
-  -filter_complex "[0:v]split=4[v1][v2][v3][v4]" \
-  -map "[v1]" -map 0:a -vf "scale=640:360" -c:v libx264 -profile:v baseline -level 3.0 \
+  -filter_complex "[0:v]split=4[v1][v2][v3][v4]; [v1]scale=640:360[s1]; [v2]scale=854:480[s2]; [v3]scale=1280:720[s3]; [v4]scale=1920:1080[s4]" \
+  -map "[s1]" -map 0:a -c:v libx264 -profile:v baseline -level 3.0 \
     -b:v 500k -maxrate 550k -bufsize 1000k -c:a aac -b:a 64k \
     -hls_time 6 -hls_playlist_type vod \
     -hls_segment_filename "${OUT_DIR}/360p/seg%03d.ts" \
     "${OUT_DIR}/360p/index.m3u8" \
-  -map "[v2]" -map 0:a -vf "scale=854:480" -c:v libx264 -profile:v main -level 3.0 \
+  -map "[s2]" -map 0:a -c:v libx264 -profile:v main -level 3.0 \
     -b:v 1000k -maxrate 1100k -bufsize 2000k -c:a aac -b:a 96k \
     -hls_time 6 -hls_playlist_type vod \
     -hls_segment_filename "${OUT_DIR}/480p/seg%03d.ts" \
     "${OUT_DIR}/480p/index.m3u8" \
-  -map "[v3]" -map 0:a -vf "scale=1280:720" -c:v libx264 -profile:v main -level 3.1 \
+  -map "[s3]" -map 0:a -c:v libx264 -profile:v main -level 3.1 \
     -b:v 2500k -maxrate 2750k -bufsize 5000k -c:a aac -b:a 128k \
     -hls_time 6 -hls_playlist_type vod \
     -hls_segment_filename "${OUT_DIR}/720p/seg%03d.ts" \
     "${OUT_DIR}/720p/index.m3u8" \
-  -map "[v4]" -map 0:a -vf "scale=1920:1080" -c:v libx264 -profile:v high -level 4.0 \
+  -map "[s4]" -map 0:a -c:v libx264 -profile:v high -level 4.0 \
     -b:v 5000k -maxrate 5500k -bufsize 10000k -c:a aac -b:a 192k \
     -hls_time 6 -hls_playlist_type vod \
     -hls_segment_filename "${OUT_DIR}/1080p/seg%03d.ts" \
