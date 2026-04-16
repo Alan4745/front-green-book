@@ -133,8 +133,8 @@ const Carrousel = () => {
                 {/* Barra de progreso */}
                 <div className="w-full max-w-[80vh] h-[4px] bg-white/30 rounded-full overflow-hidden">
                     <div
-                        className="h-full bg-[#668B00] transition-all duration-300"
-                        style={{ width: `${progress}%` }}
+                        className="h-full w-full bg-[#668B00] transition-transform duration-300 origin-left"
+                        style={{ transform: `scaleX(${progress / 100})` }}
                     />
                 </div>
 
