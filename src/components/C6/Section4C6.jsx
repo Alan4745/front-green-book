@@ -6,8 +6,8 @@ import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
 
 // ✅ Importa assets (evita rutas "src/..." para build)
-import Img1 from '../../assets/C6/F7.jpg';
-import Img2 from '../../assets/C6/F8.jpg';
+import Img1 from '../../assets/C6/F7.webp';
+import Img2 from '../../assets/C6/F8.webp';
 
 const Section4C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);

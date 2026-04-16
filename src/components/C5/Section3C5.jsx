@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import F1 from '../../assets/C5/S3/F1.jpg';
-import F2 from '../../assets/C5/S3/F2.jpg';
+import F1 from '../../assets/C5/S3/F1.webp';
+import F2 from '../../assets/C5/S3/F2.webp';
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";

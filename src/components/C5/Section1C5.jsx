@@ -5,11 +5,11 @@ import Card from './ui/Card';
 import HoverButton from '../Global/HoverButton';
 import CloseButton from '../Global/CloseButton';
 
-import F1 from '../../assets/C5/F1.png';
-import F2 from '../../assets/C5/F2.png';
-import F3 from '../../assets/C5/F3.png';
+import F1 from '../../assets/C5/F1.webp';
+import F2 from '../../assets/C5/F2.webp';
+import F3 from '../../assets/C5/F3.webp';
 
-import Number1 from '../../assets/C5/Numbers/Number1.png';
+import Number1 from '../../assets/C5/Numbers/Number1.webp';
 import Number2 from '../../assets/C5/Numbers/Number2.svg';
 import Number3 from '../../assets/C5/Numbers/Number3.svg';
 import { motion } from 'framer-motion';

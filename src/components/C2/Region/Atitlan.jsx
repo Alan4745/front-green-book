@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
-import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
+import FondoAtitlan from '../../../assets/C2/FR/Atitlan.webp';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';

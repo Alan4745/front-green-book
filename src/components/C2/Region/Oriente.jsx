@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
-import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
-import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
+import OrienteG from '../../../assets/C2/Graficas/OrienteG.webp';
+import FondoOriente from '../../../assets/C2/FR/Oriente.webp';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';

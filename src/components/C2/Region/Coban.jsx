@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
-import CobanG from '../../../assets/C2/Graficas/CobanG.png';
+import CobanG from '../../../assets/C2/Graficas/CobanG.webp';
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 

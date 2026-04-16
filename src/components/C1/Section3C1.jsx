@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import CarrouselColor from "../C1/ui/CarrouselColor";
 import LanguageSelector from "../Global/LanguageSelector";
 
-import FS3 from "../../assets/C1/FS3.png";
+import FS3 from "../../assets/C1/FS3.webp";
 import MapaS3 from "../../assets/C1/MapaS3.svg";
 import Porcent98 from "../../assets/C1/Porcent98.svg";
 

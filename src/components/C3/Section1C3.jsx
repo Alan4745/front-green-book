@@ -3,10 +3,10 @@ import ImageSlider from "./ui/ImageSlider";
 import SectionCircles from "./ui/SectionCircles";
 import { useTranslation } from "react-i18next";
 
-import IngaSpuria from "../../assets/C3/IngaSpuria.jpg";
-import IngaEdulis from "../../assets/C3/IngaEdulis.png";
-import IngaMicheliana from "../../assets/C3/IngaMicheliana.png";
-import GravileaInga from "../../assets/C3/IngaGravilea.jpg";
+import IngaSpuria from "../../assets/C3/IngaSpuria.webp";
+import IngaEdulis from "../../assets/C3/IngaEdulis.webp";
+import IngaMicheliana from "../../assets/C3/IngaMicheliana.webp";
+import GravileaInga from "../../assets/C3/IngaGravilea.webp";
 
 const Section1C3 = () => {
     const { t } = useTranslation();

@@ -7,57 +7,57 @@ import { useTranslation } from 'react-i18next';
 // Acatenango
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
-import AcateG_es from '../../../assets/C2/Graficas/acateG_español.png'
-import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
+import AcateG_es from '../../../assets/C2/Graficas/acateG_español.webp'
+import FondoAcate from '../../../assets/C2/FR/Acate.webp';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
 // Antigua
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
-import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.png'
-import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
+import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.webp'
+import FondoAntigua from '../../../assets/C2/FR/Antigua.webp';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
 //San Marcos
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
-import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.png';
-import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.png'
-import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.jpg';
+import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.webp';
+import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.webp'
+import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.webp';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
 // Atitlán
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
-import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.png'
-import FondoAtitlan from '../../../assets/C2/FR/Atitlan.jpg';
+import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.webp'
+import FondoAtitlan from '../../../assets/C2/FR/Atitlan.webp';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
 // Cobán
 import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
-import CobanG from '../../../assets/C2/Graficas/CobanG.png';
-import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.png'
+import CobanG from '../../../assets/C2/Graficas/CobanG.webp';
+import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.webp'
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
 // Fraijanes
 import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
-import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.png'
-import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.jpg';
+import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.webp'
+import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.webp';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
 // Huehuetenango
 import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
-import HuehueG from '../../../assets/C2/Graficas/HuehueG.png';
-import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.png'
+import HuehueG from '../../../assets/C2/Graficas/HuehueG.webp';
+import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.webp'
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
 // Oriente
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
-import OrienteG from '../../../assets/C2/Graficas/OrienteG.png';
-import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.png'
-import FondoOriente from '../../../assets/C2/FR/Oriente.jpeg';
+import OrienteG from '../../../assets/C2/Graficas/OrienteG.webp';
+import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.webp'
+import FondoOriente from '../../../assets/C2/FR/Oriente.webp';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';

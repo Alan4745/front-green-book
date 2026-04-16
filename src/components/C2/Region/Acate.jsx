@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
-import FondoAcate from '../../../assets/C2/FR/Acate.jpg';
+import FondoAcate from '../../../assets/C2/FR/Acate.webp';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';

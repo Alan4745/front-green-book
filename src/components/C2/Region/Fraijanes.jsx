@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
-import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.jpg';
+import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.webp';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';

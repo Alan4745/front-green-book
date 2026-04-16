@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import F1 from "../../assets/C4/F1.png";
-import F2 from "../../assets/C4/F2.png";
-import F3 from "../../assets/C4/F3.png";
-import F4 from "../../assets/C4/F4.jpeg";
-import F5 from "../../assets/C4/F5.png";
-import F6 from "../../assets/C4/F6.jpg";
-import F7 from "../../assets/C4/F7.png";
+import F1 from "../../assets/C4/F1.webp";
+import F2 from "../../assets/C4/F2.webp";
+import F3 from "../../assets/C4/F3.webp";
+import F4 from "../../assets/C4/F4.webp";
+import F5 from "../../assets/C4/F5.webp";
+import F6 from "../../assets/C4/F6.webp";
+import F7 from "../../assets/C4/F7.webp";
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";

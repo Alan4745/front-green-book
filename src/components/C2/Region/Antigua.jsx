@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
-import FondoAntigua from '../../../assets/C2/FR/Antigua.jpg';
+import FondoAntigua from '../../../assets/C2/FR/Antigua.webp';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';
