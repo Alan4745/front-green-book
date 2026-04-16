@@ -9,14 +9,14 @@
     font-family: 'GothamBold';
     src: url('/Fonts/Gotham-Bold.woff2') format('woff2'),
          url('/Fonts/Gotham-Bold.ttf') format('truetype');
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
     font-family: 'GothamNormal';
     src: url('/Fonts/Gotham-Book.woff2') format('woff2'),
          url('/Fonts/Gotham-Book.ttf') format('truetype');
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -30,5 +30,5 @@
     font-family: 'Arquitectalight';
     src: url('/Fonts/Arquitectalight.woff2') format('woff2'),
          url('/Fonts/Arquitectalight.otf') format('opentype');
-    font-display: swap;
+    font-display: optional;
 }

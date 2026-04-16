@@ -96,7 +96,7 @@ const Carrousel = () => {
             >
             {loopedCards.map((card, index) => (
                 <div key={`${card.chapter}-${index}`} style={{ width: `${cardWidth}px` }} className="flex-shrink-0">
-                    <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} compactLandscape={isCompactLandscape} />
+                    <Card text={card.text} bgImage={card.bgImage} chapter={card.chapter} compactLandscape={isCompactLandscape} priority={index === 0} />
                 </div>
             ))}
             </div>
