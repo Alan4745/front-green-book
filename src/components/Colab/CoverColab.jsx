@@ -17,7 +17,6 @@ import LogotipoAC from '../../assets/Colab/LogotipoAC.svg';
 
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
-import 'animate.css';
 
 const EXTERNAL_URL_GC = 'https://www.guatemalancoffees.com/';
 const EXTERNAL_URL_AC = 'https://www.anacafe.org/';
@@ -152,8 +151,8 @@ const CoverColab = () => {
 
 
             {showIndicator && (
-                <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden fixed bottom-0 left-[48%] z-50 pointer-events animate__bounce">
-                    <div className="animate__animated animate__bounce animate__infinite">
+                <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden fixed bottom-0 left-[48%] z-50 pointer-events">
+                    <div className="animate-bounce">
                         <div style={{ width: "5rem" }}>
                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />

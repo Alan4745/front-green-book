@@ -1,24 +1,29 @@
 @font-face {
     font-family: 'FuenteGrande';
-    src: url('/Fonts/FuenteGrande.otf');
+    src: url('/Fonts/FuenteGrande.otf') format('opentype');
+    font-display: optional;
 }
 
 @font-face {
     font-family: 'GothamBold';
-    src: url('/Fonts/Gotham-Bold.ttf');
+    src: url('/Fonts/Gotham-Bold.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'GothamNormal';
-    src: url('/Fonts/Gotham-Book.ttf');
+    src: url('/Fonts/Gotham-Book.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'ADELIA';
-    src: url('/Fonts/adelia.ttf');
+    src: url('/Fonts/adelia.ttf') format('truetype');
+    font-display: optional;
 }
 
 @font-face {
     font-family: 'Arquitectalight';
-    src: url('/Fonts/Arquitectalight.otf');
+    src: url('/Fonts/Arquitectalight.otf') format('opentype');
+    font-display: swap;
 }
