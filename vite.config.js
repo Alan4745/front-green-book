@@ -11,6 +11,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       workbox: {
         globPatterns: ["**/*.{js,css,html,woff,woff2,ttf,otf}"],
+        globIgnores: ["**/hls-*.js"],
         runtimeCaching: [
           {
             urlPattern: /\/Img\/.+\.(png|jpg|jpeg|webp|svg)$/i,
@@ -55,7 +56,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           "vendor-react": ["react", "react-dom", "react-router-dom"],
-          "vendor-motion": ["framer-motion"],
           "vendor-i18n": [
             "i18next",
             "react-i18next",

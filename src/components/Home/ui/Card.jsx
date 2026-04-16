@@ -34,6 +34,7 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.webp", cha
             <div className="relative flex justify-end">
                 <button
                     onClick={() => navigateTo(`/${chapter}`)}
+                    aria-label={text}
                     className="border-1 border-white border-opacity-50 rounded-full p-2 bg-transparent hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
                     <svg
