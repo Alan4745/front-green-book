@@ -171,33 +171,19 @@ export default function PageSkeleton({
     renderSkeleton,
     children
 }) {
-    const assetsReady = usePreloadAssets(assets);
     const [phase, setPhase] = useState("loading"); // "loading" | "exiting" | "done"
-    const timerRef = useRef(null);
 
-    useEffect(() => {
-        if (!assetsReady || phase !== "loading") return;
-        timerRef.current = setTimeout(() => {
-            setPhase("exiting");
-        }, Math.max(0, Number(graceMs) || 0));
-        return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
-        };
-    }, [assetsReady, graceMs, phase]);
-
-    // Después de la animación de salida → mostrar contenido
-    useEffect(() => {
-        if (phase !== "exiting") return;
-        const t = setTimeout(() => {
-            setPhase("done");
-        }, 400);
-        return () => clearTimeout(t);
-    }, [phase]);
-
-    // Forzar scroll al tope cuando arranca la carga
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }, []);
+        const t1 = setTimeout(() => setPhase("exiting"), Math.max(0, Number(graceMs) || 0));
+        return () => clearTimeout(t1);
+    }, [graceMs]);
+
+    useEffect(() => {
+        if (phase !== "exiting") return;
+        const t2 = setTimeout(() => setPhase("done"), 400);
+        return () => clearTimeout(t2);
+    }, [phase]);
 
     if (phase === "done") {
         return <>{children}</>;
@@ -207,7 +193,6 @@ export default function PageSkeleton({
         return renderSkeleton({ tintHex, SkeletonBlock });
     }
 
-    // Renderizar children detrás del loader durante "exiting" para evitar flash blanco
     return (
         <>
             {phase === "exiting" && children}

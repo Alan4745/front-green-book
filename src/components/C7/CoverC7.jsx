@@ -28,7 +28,7 @@ const CoverC7 = () => {
   return (
     <PageSkeleton
             assets={[
-                "/Img/C6/ImgC6.png",
+                "/Img/C6/ImgC6.webp",
                 "/Img/Global/Numbers/06.svg",
                 "/Logos/LogoPequeño.svg"
             ]}

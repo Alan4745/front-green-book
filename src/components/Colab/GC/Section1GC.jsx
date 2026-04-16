@@ -32,7 +32,7 @@ const Section1GC = () => {
 
     return (
         <div className="relative min-h-screen w-full flex"
-         style={{ backgroundImage: `url('/Img/Global/cafebackground.png')` }}
+         style={{ backgroundImage: `url('/Img/Global/cafebackground.webp')` }}
         >
 
             {/* 🎬 Video de fondo (NO se desmonta, por eso no se reinicia) */}

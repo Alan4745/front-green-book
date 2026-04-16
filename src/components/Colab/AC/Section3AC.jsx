@@ -1,12 +1,12 @@
-import ancafeUno from '../../../../public/Img/C7/anacefe_uno.png'
-import ancafeDos from '../../../../public/Img/C7/anacefe_dos.png'
-import ancafeTres from '../../../../public/Img/C7/anacafe_tres.png'
-import ancafeCuatro from '../../../../public/Img/C7/anacafe_cuatro.png'
+import ancafeUno from '../../../../public/Img/C7/anacefe_uno.webp'
+import ancafeDos from '../../../../public/Img/C7/anacefe_dos.webp'
+import ancafeTres from '../../../../public/Img/C7/anacafe_tres.webp'
+import ancafeCuatro from '../../../../public/Img/C7/anacafe_cuatro.webp'
 
-import tazza from '../../../../public/Img/C7/tazza.png'
-import tostaduria from '../../../../public/Img/C7/tostaduria.png'
-import laboratorio from '../../../../public/Img/C7/laboratorio.png'
-import funcafe from '../../../../public/Img/C7/funcafe.png'
+import tazza from '../../../../public/Img/C7/tazza.webp'
+import tostaduria from '../../../../public/Img/C7/tostaduria.webp'
+import laboratorio from '../../../../public/Img/C7/laboratorio.webp'
+import funcafe from '../../../../public/Img/C7/funcafe.webp'
 
 import { useTranslation } from "react-i18next";
 

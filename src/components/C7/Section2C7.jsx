@@ -97,7 +97,7 @@ const Section2C7 = () => {
         {/* Image */}
         <div className="flex justify-center lg:justify-end">
           <img
-            src="/Img/C7/mapa.png"
+            src="/Img/C7/mapa.webp"
             alt="Mapa de regiones cafetaleras de Guatemala"
             className="w-full max-w-md lg:max-w-lg object-contain"
             loading="lazy"

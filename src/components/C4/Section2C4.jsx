@@ -5,8 +5,8 @@ import { createPortal } from "react-dom";
 import ZoomButton from "../Global/ZoomButton";
 import CloseButton from "../Global/CloseButton";
 
-import Img1 from "../../assets/C4/Img/F1.jpeg";
-import Img2 from "../../assets/C4/Img/F2.png";
+import Img1 from "../../assets/C4/Img/F1.webp";
+import Img2 from "../../assets/C4/Img/F2.webp";
 
 const Section2C4 = () => {
     const [selectedImage, setSelectedImage] = useState(null);

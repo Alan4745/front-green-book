@@ -1,5 +1,5 @@
 
-import AnacafeLog from '../../../../public/Img/C7/anacefe_logo.png'
+import AnacafeLog from '../../../../public/Img/C7/anacefe_logo.webp'
 import { useTranslation } from "react-i18next";
 
 const Section1AC = () => {

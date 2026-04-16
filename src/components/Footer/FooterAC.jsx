@@ -1,4 +1,4 @@
-const analab = '/Img/C7/analab.png';
+const analab = '/Img/C7/analab.webp';
 import abono from '../../assets/Colab/Abono.svg'
 import plantas from '../../assets/Colab/Plantas.svg'
 import suelo from '../../assets/Colab/Suelo.svg'
