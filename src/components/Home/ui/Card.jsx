@@ -20,7 +20,7 @@ const Card = ({ text = "Default Text", bgImage = "/Img/Start/Caps/bg1.webp", cha
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover object-center"
                 loading={priority ? "eager" : "lazy"}
-                fetchpriority={priority ? "high" : "low"}
+                fetchPriority={priority ? "high" : "low"}
                 decoding={priority ? "sync" : "async"}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
