@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion as Motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
@@ -11,44 +10,25 @@ const backgrounds = [
     "/Img/Start/Fondo2.webp",
     "/Img/Start/Fondo3.webp",
     "/Img/Start/Fondo4.webp",
-    ];
+];
 
-    const FADE_DURATION = 2;
-    const DISPLAY_TIME = 8;
+const FADE_DURATION_MS = 2000;
+const DISPLAY_TIME_MS = 8000;
 
-    const decodeImage = (src) =>
-    new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        if (img.decode) {
-        img.decode().then(resolve).catch(resolve);
-        } else {
-        img.onload = resolve;
-        img.onerror = resolve;
-        }
-    });
-
-    const Home = () => {
+const Home = () => {
     const { t, i18n } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isExiting, setIsExiting] = useState(false);
     const [viewport, setViewport] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
     });
-    const switchKeyRef = useRef(0);
     const indexRef = useRef(0);
 
     useEffect(() => {
         const handleResize = () => {
-            setViewport({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
+            setViewport({ width: window.innerWidth, height: window.innerHeight });
         };
-
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -57,81 +37,23 @@ const backgrounds = [
         indexRef.current = currentIndex;
     }, [currentIndex]);
 
-    // Pre-carga de todas las imágenes con skeleton
     useEffect(() => {
-        const loadImages = async () => {
-        try {
-            let loadedCount = 0;
-            const totalImages = backgrounds.length;
+        const tick = () => {
+            const current = indexRef.current;
+            const next = (current + 1) % backgrounds.length;
 
-            // Precargar todas las imágenes una por una
-            const loadPromises = backgrounds.map((src) => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.src = src;
-                img.onload = () => {
-                loadedCount++;
-                console.log(`Imagen ${loadedCount}/${totalImages} cargada: ${src}`);
-                resolve();
-                };
-                img.onerror = () => {
-                console.error(`Error cargando imagen: ${src}`);
-                reject(new Error(`Failed to load ${src}`));
-                };
-            });
-            });
+            const preload = new Image();
+            preload.src = backgrounds[next];
 
-            // Esperar a que TODAS las imágenes estén completamente cargadas
-            await Promise.all(loadPromises);
+            setPrevIndex(current);
+            setCurrentIndex(next);
 
-            console.log("Todas las imágenes cargadas exitosamente");
-
-            // Esperar 2 segundos adicionales después de cargar
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-
-            // Iniciar animación de salida
-            setIsExiting(true);
-
-            // Esperar justo lo que dura la animación (0.9s)
-            await new Promise((resolve) => setTimeout(resolve, 900));
-
-            setIsLoading(false);
-        } catch (error) {
-            console.error("Error loading images:", error);
-            // Incluso con error, eventualmente quitar el skeleton con animación
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-            setIsExiting(true);
-            await new Promise((resolve) => setTimeout(resolve, 900));
-            setIsLoading(false);
-        }
+            setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
         };
 
-        loadImages();
+        const id = setInterval(tick, DISPLAY_TIME_MS);
+        return () => clearInterval(id);
     }, []);
-
-    // Rotación con pre-decode
-    useEffect(() => {
-        if (isLoading) return;
-
-        let isMounted = true;
-
-        const tick = async () => {
-        const current = indexRef.current;
-        const next = (current + 1) % backgrounds.length;
-        await decodeImage(backgrounds[next]);
-        if (!isMounted) return;
-
-        setPrevIndex(current);
-        switchKeyRef.current += 1;
-        setCurrentIndex(next);
-        };
-
-        const id = setInterval(tick, DISPLAY_TIME * 1000);
-        return () => {
-        isMounted = false;
-        clearInterval(id);
-        };
-    }, [isLoading]);
 
     const langKey = i18n.resolvedLanguage || i18n.language || "es";
     const isCompactLandscape =
@@ -147,132 +69,80 @@ const backgrounds = [
         ? "absolute right-0 top-[20vh] w-[54%] z-40"
         : "absolute bottom-10 transform left-[40%] w-[85%] z-40 max-lg:left-0 max-lg:w-full max-lg:bottom-auto max-lg:top-[40vh] sm:max-lg:top-[48vh] max-sm:top-[34vh]";
 
-    const homeContent = (
-        <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
-        <div
-            className="absolute inset-0"
-        >
-            {/* Capas de crossfade */}
-            <div className="absolute inset-0 z-10" aria-hidden="true">
-            {prevIndex !== null && (
-                <Motion.div
-                key={`prev-${switchKeyRef.current}`}
-                className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
-                style={{
-                    backgroundImage: `url(${backgrounds[prevIndex]})`,
-                    willChange: "opacity, transform",
-                }}
-                initial={{ opacity: 1, scale: 1 }}
-                animate={{
-                    opacity: 0,
-                    scale: 1.0,
-                    transition: {
-                    duration: FADE_DURATION,
-                    ease: [0.22, 1, 0.36, 1],
-                    },
-                }}
-                onAnimationComplete={() => setPrevIndex(null)}
-                />
-            )}
-
-            <Motion.div
-                key={`curr-${switchKeyRef.current}`}
-                className="absolute inset-0 bg-no-repeat bg-center bg-cover pointer-events-none"
-                style={{
-                backgroundImage: `url(${backgrounds[currentIndex]})`,
-                willChange: "opacity, transform",
-                }}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{
-                opacity: 1,
-                scale: 1.0,
-                transition: {
-                    duration: FADE_DURATION,
-                    ease: [0.22, 1, 0.36, 1],
-                },
-                }}
-            />
-            </div>
-
-            {/* Logo */}
-            <div className="relative z-30 flex items-center justify-center h-full">
-            <img
-                src="/Logos/Greenbook.svg"
-                alt={t("app.title")}
-                className={homeLogoClassName}
-            />
-            </div>
-
-            {/* Carrusel de capítulos */}
-            <div className={homeCarouselClassName}>
-            <Carrousel key={`carrousel-${langKey}`} />
-            </div>
-
-            {/* Selector de idioma */}
-            <div className="absolute bottom-6 left-6 z-50">
-            <LanguageSelector />
-            </div>
-
-            {/* ColabButton */}
-            <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2 max-lg:hidden">
-            <ColabButton key={`colab-${langKey}`} progress={100} />
-            </div>
-
-            {/* Menú desplegable */}
-            <div className="absolute top-[2vh] right-0 z-50 ">
-            <MainMenu key={`menu-${langKey}`} />
-            </div>
-        </div>
-        </div>
-    );
-
-    // Siempre renderizar ambos: contenido (detrás) + loader (encima con z-9999).
-    // El contenido se pinta desde el inicio para que esté listo cuando el loader sale.
     return (
-        <>
-            {homeContent}
-
-            {/* Loader: siempre en el DOM durante loading, se desvanece con CSS */}
-            {isLoading && (
-                <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
-                    style={{
-                        pointerEvents: isExiting ? "none" : "auto",
-                        animation: isExiting
-                            ? "loaderBgExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
-                            : "none",
-                    }}
-                >
-                    <style>{`
-                        @keyframes logoPulseHome {
-                            0%, 100% { transform: scale(1); opacity: 0.6; }
-                            50% { transform: scale(1.18); opacity: 1; }
-                        }
-                        @keyframes logoExitHome {
-                            0% { transform: scale(1); opacity: 1; filter: blur(0px); }
-                            100% { transform: scale(3.5); opacity: 0; filter: blur(12px); }
-                        }
-                        @keyframes loaderBgExit {
-                            0% { background-color: rgba(0,0,0,1); }
-                            60% { background-color: rgba(0,0,0,0.6); }
-                            100% { background-color: transparent; background-image: none; opacity: 0; }
-                        }
-                    `}</style>
+        <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
+            <div className="absolute inset-0">
+                {/* Crossfade background layers */}
+                <style>{`
+                    @keyframes bgFadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                `}</style>
+                <div className="absolute inset-0 z-10" aria-hidden="true">
+                    {/* Prev image sits below, fully opaque, gets covered by current fading in */}
+                    {prevIndex !== null && (
+                        <img
+                            key={`prev-${prevIndex}`}
+                            src={backgrounds[prevIndex]}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority="low"
+                            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+                            style={{ zIndex: 1 }}
+                        />
+                    )}
+                    {/* Current image fades in on top */}
                     <img
-                        src="/Logos/Logo.svg"
-                        alt="Guatemalan Coffees"
+                        key={`curr-${currentIndex}`}
+                        src={backgrounds[currentIndex]}
+                        alt=""
+                        aria-hidden="true"
+                        loading={currentIndex === 0 ? "eager" : "lazy"}
+                        decoding={currentIndex === 0 ? "sync" : "async"}
+                        fetchPriority={currentIndex === 0 ? "high" : "low"}
+                        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
                         style={{
-                            width: "180px",
-                            maxWidth: "45vw",
-                            height: "auto",
-                            animation: isExiting
-                                ? "logoExitHome 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
-                                : "logoPulseHome 1.6s ease-in-out infinite",
+                            zIndex: 2,
+                            animation: currentIndex === 0
+                                ? "none"
+                                : `bgFadeIn ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1) forwards`,
                         }}
                     />
                 </div>
-            )}
-        </>
+
+                {/* Logo */}
+                <div className="relative z-30 flex items-center justify-center h-full">
+                    <img
+                        src="/Logos/Greenbook.svg"
+                        alt={t("app.title")}
+                        className={homeLogoClassName}
+                    />
+                </div>
+
+                {/* Carrusel de capítulos */}
+                <div className={homeCarouselClassName}>
+                    <Carrousel key={`carrousel-${langKey}`} />
+                </div>
+
+                {/* Selector de idioma */}
+                <div className="absolute bottom-6 left-6 z-50">
+                    <LanguageSelector />
+                </div>
+
+                {/* ColabButton */}
+                <div className="absolute bottom-6 left-[350px] z-50 transform -translate-x-1/2 max-lg:hidden">
+                    <ColabButton key={`colab-${langKey}`} progress={100} />
+                </div>
+
+                {/* Menú desplegable */}
+                <div className="absolute top-[2vh] right-0 z-50">
+                    <MainMenu key={`menu-${langKey}`} />
+                </div>
+            </div>
+        </div>
     );
 };
 
