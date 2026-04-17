@@ -3,6 +3,7 @@
 // Indentación: 4 espacios. UTF-8.
 
 import { motion } from 'framer-motion';
+import SmartImage from '../../Global/SmartImage';
 
 // ⚠️ Rutas de los SVGs
 import BaseDiversidad from '../../../assets/C2/ui/DiversidadSVG.svg';
@@ -188,7 +189,8 @@ function MetricItem({
             animate={animateAnim}
             transition={transitionAnim}
         >
-            <img
+            {/* Métrica infografía — lazy */}
+            <SmartImage
                 src={src}
                 alt={alt}
                 className="block select-none"
@@ -337,7 +339,8 @@ const DiversidadC = ({
             style={{ width: `${baseWidthVh}vh` }}
         >
             {/* 🖼️ Base */}
-            <img
+            {/* Imagen base infografía — lazy */}
+            <SmartImage
                 src={BaseDiversidad}
                 alt="Diversidad cafetalera"
                 className="block select-none pointer-events-none"

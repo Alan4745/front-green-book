@@ -4,6 +4,7 @@ import BigSlider from './ui/BigSlider';
 import Card from './ui/Card';
 import HoverButton from '../Global/HoverButton';
 import CloseButton from '../Global/CloseButton';
+import SmartImage from '../Global/SmartImage';
 
 import F1 from '../../assets/C5/F1.webp';
 import F2 from '../../assets/C5/F2.webp';
@@ -224,10 +225,12 @@ const Section1C5 = () => {
                     onClick={closeLightbox}
                 >
                     <div className="relative" onClick={(e) => e.stopPropagation()}>
-                        <img
+                        {/* Imagen lightbox (acción del usuario) — eager (priority) */}
+                        <SmartImage
                             src={currentImage}
                             alt={t('c5.section1.modalAlt')}
                             className="block max-h-[95vh] max-w-[95vw] object-contain"
+                            priority
                         />
                         <CloseButton
                             onClick={closeLightbox}

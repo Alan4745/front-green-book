@@ -6,6 +6,7 @@ import LanguageSelector from "../Global/LanguageSelector";
 import AltitudSteps from "./ui/AltitudSteps";
 import CloseButton from "../Global/CloseButton";
 import SmartVideo from "../Global/SmartVideo";
+import SmartImage from "../Global/SmartImage";
 
 import FS4 from "../../assets/C1/FS4.webp";
 import IconoMontaña from "../../assets/C1/IconoMontaña.svg";
@@ -116,7 +117,8 @@ const Section4C1 = () => {
                         aria-label={t(keys.alts.play)}
                         title={t(keys.alts.play)}
                     >
-                        <img
+                        {/* Poster video mobile — lazy */}
+                        <SmartImage
                             src={FS4}
                             alt={t(keys.alts.play)}
                             className="absolute inset-0 w-full h-full object-cover"
@@ -137,7 +139,8 @@ const Section4C1 = () => {
 
                 <div className="relative bg-[#DA2F7D] px-6 py-5 pb-8">
                     <div className="mb-3">
-                        <img src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[5vh] h-[5vh]" />
+                        {/* Ícono montaña mobile — lazy */}
+                        <SmartImage src={IconoMontaña} alt={t(keys.alts.icon)} className="w-[5vh] h-[5vh]" />
                     </div>
                     <h3
                         className="text-white text-[4.5vw] max-sm:text-[5.5vw] uppercase leading-snug"

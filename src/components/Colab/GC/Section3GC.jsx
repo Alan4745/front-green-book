@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import MontañasGC from '../../../assets/Colab/ui/MontañasGC.svg';
 import LogoGC from '../../../assets/Colab/LogoGC.svg';
+import SmartImage from '../../Global/SmartImage';
 
 const Section3GC = () => {
     const navigate = useNavigate();
@@ -11,7 +12,8 @@ const Section3GC = () => {
     return (
         <div className="relative w-full bg-transparent overflow-hidden">
             {/* La forma define la altura */}
-            <img
+            {/* Forma montañas de fondo — lazy */}
+            <SmartImage
                 src={MontañasGC}
                 className="w-full h-auto block select-none pointer-events-none"
                 alt={t('colab.gc.section3.alts.shape')}
@@ -21,7 +23,8 @@ const Section3GC = () => {
             {/* Contenido centrado dentro de la forma */}
             <div className="absolute inset-0 z-10 flex flex-row items-center justify-center gap-[10vh] mt-[15vh]">
                 {/* Logo */}
-                <img
+                {/* Logo GC — lazy */}
+                <SmartImage
                     src={LogoGC}
                     alt={t('colab.cover.alts.gcLogotype')}
                     title={t('colab.cover.alts.gcLogotype')}

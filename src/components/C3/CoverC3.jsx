@@ -2,6 +2,7 @@ import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 import { Link } from "react-router-dom";
+import SmartImage from "../Global/SmartImage";
 
 const CoverC3 = () => {
     const { t } = useTranslation();
@@ -32,11 +33,13 @@ const CoverC3 = () => {
                         >
                             {t("c3.cover.title.top")} <br /> {t("c3.cover.title.bottom")}
                         </h2>
-                        <img
+                        {/* Número de capítulo mobile — eager (priority) */}
+                        <SmartImage
                             src="/Img/Global/Numbers/03.svg"
                             alt={t("c3.cover.alts.chapter", { num: 3 })}
                             title={t("c3.cover.alts.chapter", { num: 3 })}
                             className="absolute right-[5vw] w-[50vw] h-auto z-20"
+                            priority
                         />
                     </div>
 
@@ -52,11 +55,13 @@ const CoverC3 = () => {
                 </div>
 
                 <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
-                    <img
+                    {/* Número de capítulo desktop — eager (priority) */}
+                    <SmartImage
                         src="/Img/Global/Numbers/03.svg"
                         alt={t("c3.cover.alts.chapter", { num: 3 })}
                         title={t("c3.cover.alts.chapter", { num: 3 })}
                         className="w-[50vh] h-auto"
+                        priority
                     />
                 </div>
 
@@ -78,11 +83,13 @@ const CoverC3 = () => {
 
                 <Link to='/'>
                 <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
-                    <img
+                    {/* Logo portada — eager (priority) */}
+                    <SmartImage
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c3.cover.alts.greenBook")}
                         title={t("c3.cover.alts.greenBook")}
                         className="w-[22vh] h-auto max-lg:w-[15vh]"
+                        priority
                     />
                 </div>
                 </Link>

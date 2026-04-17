@@ -1,4 +1,5 @@
 import ExpandButton from '../../Global/ExpandButton';
+import SmartImage from '../../Global/SmartImage';
 
 const Card = ({
     image,
@@ -29,7 +30,8 @@ const Card = ({
 
     return (
         <article className={`relative h-full w-full overflow-hidden rounded-[1.1rem] bg-black shadow-xl ${className}`}>
-            <img
+            {/* Imagen de fondo de tarjeta — lazy */}
+            <SmartImage
                 src={image}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"

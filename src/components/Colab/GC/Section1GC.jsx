@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import BackButton from '../../Global/BackButton';
 import AnacafeLogo from '../../../assets/Colab/CompleteLogos/GuatemalanLogo.svg';
 import VideoGC from '../../../assets/Colab/Videos/GC.mp4';
+import SmartImage from '../../Global/SmartImage';
 
 const Section1GC = () => {
     const navigate = useNavigate();
@@ -49,7 +50,8 @@ const Section1GC = () => {
                         <div className="flex-1 flex flex-col items-center justify-center">
                             {/* Logo centrado */}
                             <div className="flex justify-center mb-12">
-                                <img
+                                {/* Logo Anacafé — lazy */}
+                                <SmartImage
                                     src={AnacafeLogo}
                                     className="h-[86px] md:h-[180px] w-auto"
                                     alt={t('colab.cover.alts.gcLogo')}

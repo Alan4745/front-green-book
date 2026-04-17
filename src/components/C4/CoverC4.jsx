@@ -2,6 +2,7 @@ import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 import { Link } from "react-router-dom";
+import SmartImage from "../Global/SmartImage";
 
 const CoverC4 = () => {
     const { t } = useTranslation();
@@ -37,11 +38,13 @@ const CoverC4 = () => {
                         >
                             {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
                         </h2>
-                        <img
+                        {/* Número de capítulo mobile — priority (cover) */}
+                        <SmartImage
                             src="/Img/Global/Numbers/04.svg"
                             alt={t("c4.cover.alts.chapter", { num: 4 })}
                             title={t("c4.cover.alts.chapter", { num: 4 })}
                             className="absolute right-[5vw] w-[50vw] h-auto z-20"
+                            priority
                         />
                     </div>
 
@@ -59,11 +62,13 @@ const CoverC4 = () => {
 
                 {/* DESKTOP: número de capítulo — intacto */}
                 <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
-                    <img
+                    {/* Número de capítulo desktop — priority (cover) */}
+                    <SmartImage
                         src="/Img/Global/Numbers/04.svg"
                         alt={t("c4.cover.alts.chapter", { num: 4 })}
                         title={t("c4.cover.alts.chapter", { num: 4 })}
                         className="w-[50vh] h-auto"
+                        priority
                     />
                 </div>
 
@@ -87,11 +92,13 @@ const CoverC4 = () => {
                 <Link to='/'>
                 {/* Logo inferior izquierdo */}
                 <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw] lg:left-[5vh]">
-                    <img
+                    {/* Logo Green Book — priority (cover) */}
+                    <SmartImage
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c4.cover.alts.greenBook")}
                         title={t("c4.cover.alts.greenBook")}
                         className="w-[22vh] h-auto max-lg:w-[15vh] lg:w-[22vh]"
+                        priority
                     />
                 </div>
                 </Link>

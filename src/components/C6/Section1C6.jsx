@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
+import SmartImage from '../Global/SmartImage';
 
 // ✅ Importa assets (evita rutas tipo "src/..."):
 import Img1 from '../../assets/C6/F1.webp';
@@ -70,10 +71,12 @@ const Section1C6 = () => {
                 onClick={onClose}
             >
                 <div className="relative" onClick={(e) => e.stopPropagation()}>
-                    <img
+                    {/* Imagen lightbox — priority */}
+                    <SmartImage
                         src={src}
                         alt={alt}
                         className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        priority
                     />
                     <CloseButton
                         onClick={onClose}
@@ -184,13 +187,13 @@ const Section1C6 = () => {
 
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
-                            <img
+                            {/* Imagen desktop 1 — lazy */}
+                            <SmartImage
                                 src={Img1}
                                 alt={t("c6.section1.images.img1Alt")}
                                 title={t("c6.section1.images.img1Alt")}
                                 className="w-full h-full object-cover select-none pointer-events-none"
                                 draggable={false}
-                                
                             />
                         </div>
                         {/* ZoomButton en la esquina inferior derecha */}
@@ -218,7 +221,8 @@ const Section1C6 = () => {
 
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none">
-                            <img
+                            {/* Imagen desktop 2 — lazy */}
+                            <SmartImage
                                 src={Img2}
                                 alt={t("c6.section1.images.img2Alt")}
                                 title={t("c6.section1.images.img2Alt")}

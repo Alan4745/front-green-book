@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
+import SmartImage from '../Global/SmartImage';
 
 // ✅ Importa assets
 import Img1Fallback from '../../assets/C1/F1.webp'; // fallback si no se puede leer el frame
@@ -110,10 +111,12 @@ const Section1C1 = () => {
                 onClick={onClose}
             >
                 <div className="relative" onClick={(e) => e.stopPropagation()}>
-                    <img
+                    {/* Imagen lightbox — priority */}
+                    <SmartImage
                         src={src}
                         alt={alt}
                         className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        priority
                     />
                     <CloseButton
                         onClick={onClose}
@@ -214,7 +217,8 @@ const Section1C1 = () => {
                         {...hoverAnim}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(vid2Poster || Img1Fallback)}>
-                            <img
+                            {/* Tarjeta 1 — lazy */}
+                            <SmartImage
                                 src={vid2Poster || Img1Fallback}
                                 alt={t('c1.section1.images.img1Alt')}
                                 className="w-full h-full object-cover select-none pointer-events-none"
@@ -237,7 +241,8 @@ const Section1C1 = () => {
                         {...hoverAnim}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
-                            <img
+                            {/* Tarjeta 2 — lazy */}
+                            <SmartImage
                                 src={Img2}
                                 alt={t('c1.section1.images.img2Alt')}
                                 className="w-full h-full object-cover select-none pointer-events-none"

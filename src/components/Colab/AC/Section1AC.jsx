@@ -1,6 +1,7 @@
 
 import AnacafeLog from '../../../../public/Img/C7/anacefe_logo.webp'
 import { useTranslation } from "react-i18next";
+import SmartImage from '../../Global/SmartImage';
 
 const Section1AC = () => {
   const { t } = useTranslation();
@@ -9,7 +10,8 @@ const Section1AC = () => {
 
   return (
     <section className="relative min-h-[80vh] w-full bg-[#012325] flex flex-col items-center justify-center px-6 p-10">
-      <img
+      {/* Logo Anacafé — lazy */}
+      <SmartImage
         src={AnacafeLog}
         alt="Anacafé Guatemale"
         className="w-54 mb-16 object-contain"

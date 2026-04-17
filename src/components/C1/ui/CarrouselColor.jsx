@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CardColor from './CardColor';
+import SmartImage from '../../Global/SmartImage';
 
 const CarrouselColor = ({ slides = [] }) => {
     const flatSlides = slides.flat();
@@ -115,7 +116,8 @@ const CarrouselColor = ({ slides = [] }) => {
                 style={{ backgroundColor: card.circleColor }}
             >
                 {card.image ? (
-                    <img
+                    /* Imagen ícono tarjeta — lazy */
+                    <SmartImage
                         src={card.image}
                         alt=""
                         className={`object-contain ${isCompactDesktopPortrait ? 'max-h-[54%] max-w-[54%]' : isIpadPortrait1032 ? 'max-h-[58%] max-w-[58%]' : 'max-h-[70%] max-w-[70%]'}`}

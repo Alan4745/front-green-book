@@ -1,5 +1,6 @@
 // src/components/Global/HyperSkeletonGate.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import SmartImage from "./SmartImage";
 
 /* =========================
  * Utilidades de color
@@ -90,7 +91,8 @@ function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
                     100% { transform: scale(1); opacity: 0.6; }
                 }
             `}</style>
-            <img
+            {/* Logo skeleton de carga — lazy */}
+            <SmartImage
                 src="/Logos/Logo.svg"
                 alt="Guatemalan Coffees"
                 style={{

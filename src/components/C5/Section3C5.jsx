@@ -6,6 +6,7 @@ import F2 from '../../assets/C5/S3/F2.webp';
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
+import SmartImage from "../Global/SmartImage";
 
 const Section3C5 = () => {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -220,10 +221,12 @@ const Section3C5 = () => {
                     onClick={closeLightbox}
                 >
                     <div className="relative" onClick={(e) => e.stopPropagation()}>
-                        <img
+                        {/* Imagen lightbox (acción del usuario) — eager (priority) */}
+                        <SmartImage
                             src={currentImage}
                             alt={t(keys.aria.modal)}
                             className="max-h-[95vh] max-w-[95vw] object-contain block"
+                            priority
                         />
                         <CloseButton
                             onClick={closeLightbox}

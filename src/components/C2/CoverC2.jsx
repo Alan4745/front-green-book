@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 import { Link } from "react-router-dom";
+import SmartImage from "../Global/SmartImage";
 
 const CoverC2 = () => {
     const { t } = useTranslation();
@@ -69,10 +70,12 @@ const CoverC2 = () => {
                             <span className={mobileTitleLineClassName}>{titleTop}</span>
                             <span className={mobileTitleLineClassName}>{titleBottom}</span>
                         </h2>
-                        <img
+                        {/* Número de capítulo mobile — eager (priority) */}
+                        <SmartImage
                             src="/Img/Global/Numbers/02.svg"
                             alt={t("c2.cover.chapterAlt", { num: 2 })}
                             className={mobileNumberClassName}
+                            priority
                         />
                     </div>
 
@@ -89,10 +92,12 @@ const CoverC2 = () => {
                 </div>
 
                 <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
-                    <img
+                    {/* Número de capítulo desktop — eager (priority) */}
+                    <SmartImage
                         src="/Img/Global/Numbers/02.svg"
                         alt={t("c2.cover.chapterAlt", { num: 2 })}
                         className="w-[50vh] h-auto"
+                        priority
                     />
                 </div>
 
@@ -114,10 +119,12 @@ const CoverC2 = () => {
 
                 <Link to='/'>
                 <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
-                    <img
+                    {/* Logo portada — eager (priority) */}
+                    <SmartImage
                         src="/Logos/LogoPequeño.svg"
                         alt={t("app.title")}
                         className="w-[22vh] h-auto max-lg:w-[15vh]"
+                        priority
                     />
                 </div>
                 </Link>

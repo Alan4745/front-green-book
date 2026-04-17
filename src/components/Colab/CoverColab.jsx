@@ -18,6 +18,9 @@ import LogotipoAC from '../../assets/Colab/LogotipoAC.svg';
 import VideoAC from '../../assets/Colab/Videos/AC.mp4';
 import VideoGC from '../../assets/Colab/Videos/GC.mp4';
 
+/* SmartVideo: player HLS adaptativo con lazy loading y fallback a MP4 */
+import SmartVideo from '../Global/SmartVideo';
+
 const EXTERNAL_URL_GC = 'https://www.guatemalancoffees.com/';
 const EXTERNAL_URL_AC = 'https://www.anacafe.org/';
 
@@ -311,16 +314,24 @@ const CoverColab = () => {
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" loading="lazy" decoding="async" />
                     </div>
 
-                    {/* GC video */}
+                    {/* GC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <div
                         className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group"
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
-                        <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline aria-label="GC video">
-                            <source src={VideoGC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
+                        <SmartVideo
+                            className="absolute inset-0 w-full h-full object-cover"
+                            hlsSrc="/videos/GC/master.m3u8"
+                            src={VideoGC}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            lazy
+                            pauseWhenHidden
+                            aria-label="GC video"
+                        />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -343,16 +354,24 @@ const CoverColab = () => {
                         <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-3/5 h-auto max-h-[60%] object-contain" loading="lazy" decoding="async" />
                     </div>
 
-                    {/* AC video */}
+                    {/* AC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <div
                         className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group [@media(orientation:portrait)]:order-3"
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
-                        <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline aria-label="AC video">
-                            <source src={VideoAC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
+                        <SmartVideo
+                            className="absolute inset-0 w-full h-full object-cover"
+                            hlsSrc="/videos/AC/master.m3u8"
+                            src={VideoAC}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            lazy
+                            pauseWhenHidden
+                            aria-label="AC video"
+                        />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -384,16 +403,24 @@ const CoverColab = () => {
                         <img src={LogoGC} alt={t('colab.cover.alts.gcLogo')} title={t('colab.cover.alts.gcLogo')} className="w-54 h-auto" loading="lazy" decoding="async" />
                     </motion.div>
 
+                    {/* Desktop GC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <motion.div
                         className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
-                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="GC video">
-                            <source src={VideoGC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
+                        <SmartVideo
+                            className="w-full h-full object-cover rounded-xl"
+                            hlsSrc="/videos/GC/master.m3u8"
+                            src={VideoGC}
+                            autoPlay
+                            loop
+                            muted
+                            lazy
+                            pauseWhenHidden
+                            aria-label="GC video"
+                        />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -421,16 +448,24 @@ const CoverColab = () => {
                         <img src={LogoACV} alt={t('colab.cover.alts.acLogo')} title={t('colab.cover.alts.acLogo')} className="w-54 h-auto" loading="lazy" decoding="async" />
                     </motion.div>
 
+                    {/* Desktop AC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <motion.div
                         className="relative w-[min(42vh,22vw)] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[18vw] h-[48vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:h-[38vh] rounded-xl bg-[#FFFFFF] cursor-pointer overflow-hidden group"
                         style={{ opacity: cardOpacity }}
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
-                        <video className="w-full h-full object-cover rounded-xl" autoPlay loop muted aria-label="AC video">
-                            <source src={VideoAC} type="video/mp4" />
-                            {t('colab.cover.videoFallback')}
-                        </video>
+                        <SmartVideo
+                            className="w-full h-full object-cover rounded-xl"
+                            hlsSrc="/videos/AC/master.m3u8"
+                            src={VideoAC}
+                            autoPlay
+                            loop
+                            muted
+                            lazy
+                            pauseWhenHidden
+                            aria-label="AC video"
+                        />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -449,16 +484,23 @@ const CoverColab = () => {
                     onClick={() => setActiveVideo(null)}
                 >
                     <div onClick={(e) => e.stopPropagation()} className="relative w-[90vw] max-w-5xl">
-                        <video
+                        {/*
+                         * Lightbox: lazy={false} para reproducir inmediatamente al abrir.
+                         * muted={false} para que el usuario escuche el audio.
+                         * key={activeVideo} fuerza el remount al cambiar entre gc/ac.
+                         */}
+                        <SmartVideo
                             className="w-full max-h-[90vh] h-auto rounded-xl block"
+                            hlsSrc={activeVideo === 'gc' ? '/videos/GC/master.m3u8' : '/videos/AC/master.m3u8'}
+                            src={activeVideo === 'gc' ? VideoGC : VideoAC}
                             autoPlay
                             controls
+                            muted={false}
+                            lazy={false}
                             controlsList="nodownload noplaybackrate"
                             disablePictureInPicture
                             key={activeVideo}
-                        >
-                            <source src={activeVideo === 'gc' ? VideoGC : VideoAC} type="video/mp4" />
-                        </video>
+                        />
                         <CloseButton onClick={() => setActiveVideo(null)} />
                     </div>
                 </div>

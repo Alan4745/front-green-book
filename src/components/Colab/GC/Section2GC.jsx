@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import HoverButton from '../../Global/HoverButton';
 
 import FormaGC from '../../../assets/Colab/ui/FormaGC.svg';
+import SmartImage from '../../Global/SmartImage';
 
 const Section2GC = () => {
     const navigate = useNavigate();
@@ -110,7 +111,8 @@ const Section2GC = () => {
 
             {/* Fondo con imagen */}
             <div className="absolute top-[-8vh] left-0 w-full z-0">
-                <img
+                {/* Forma decorativa de fondo — lazy */}
+                <SmartImage
                     src={FormaGC}
                     alt={t('colab.gc.section2.alts.shape')}
                     title={t('colab.gc.section2.alts.shape')}

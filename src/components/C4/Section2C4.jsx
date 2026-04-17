@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import ZoomButton from "../Global/ZoomButton";
 import CloseButton from "../Global/CloseButton";
+import SmartImage from "../Global/SmartImage";
 
 import Img1 from "../../assets/C4/Img/F1.webp";
 import Img2 from "../../assets/C4/Img/F2.webp";
@@ -93,10 +94,12 @@ const Section2C4 = () => {
                 onClick={onClose}
             >
                 <div className="relative" onClick={(e) => e.stopPropagation()}>
-                    <img
+                    {/* Imagen lightbox (acción del usuario) — eager (priority) */}
+                    <SmartImage
                         src={src}
                         alt={alt}
                         className="block max-h-[95vh] max-w-[95vw] object-contain"
+                        priority
                     />
                     <CloseButton
                         onClick={onClose}
@@ -139,7 +142,8 @@ const Section2C4 = () => {
                         className="relative mt-4 cursor-pointer"
                         onClick={() => openLightbox(Img1)}
                     >
-                        <img
+                        {/* Imagen sección izquierda mobile — lazy */}
+                        <SmartImage
                             src={Img1}
                             alt={t(keys.left.imgAlt)}
                             title={t(keys.left.imgAlt)}
@@ -177,7 +181,8 @@ const Section2C4 = () => {
                         className="relative mt-4 cursor-pointer"
                         onClick={() => openLightbox(Img2)}
                     >
-                        <img
+                        {/* Imagen sección derecha mobile — lazy */}
+                        <SmartImage
                             src={Img2}
                             alt={t(keys.right.imgAlt)}
                             title={t(keys.right.imgAlt)}
@@ -254,7 +259,8 @@ const Section2C4 = () => {
                             onClick={() => openLightbox(Img1)}
                         >
                             <div className="absolute inset-0 overflow-hidden rounded-none">
-                                <img
+                                {/* Imagen sección izquierda desktop — lazy */}
+                                <SmartImage
                                     src={Img1}
                                     alt={t(keys.left.imgAlt)}
                                     title={t(keys.left.imgAlt)}
@@ -286,7 +292,8 @@ const Section2C4 = () => {
                             onClick={() => openLightbox(Img2)}
                         >
                             <div className="absolute inset-0 overflow-hidden rounded-none">
-                                <img
+                                {/* Imagen sección derecha desktop — lazy */}
+                                <SmartImage
                                     src={Img2}
                                     alt={t(keys.right.imgAlt)}
                                     title={t(keys.right.imgAlt)}

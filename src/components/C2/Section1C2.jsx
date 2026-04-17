@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import HoverButton from "../Global/HoverButton";
 import CloseButton from "../Global/CloseButton";
+import SmartImage from "../Global/SmartImage";
 
 import MapaFlechasC2 from "../../assets/C2/MapaFlechasC2.svg";
 import DiversidadC from "./ui/DiversidadC";
@@ -81,7 +82,8 @@ const Section1C2 = () => {
                 {/* Imagen de fondo centrada */}
                 <div className="flex items-center justify-center">
                     <div className="relative mt-[15vh] w-[40vw] max-w-[821px] aspect-[821/683] min-[1024px]:max-[1200px]:w-[58vw] max-lg:w-[85vw] max-lg:mt-[10vh]">
-                    <img
+                    {/* Mapa de regiones — lazy */}
+                    <SmartImage
                         src={MapaFlechasC2}
                         alt={t("c2.section1.mapAlt")}
                         className="absolute inset-0 w-full h-full"
@@ -89,7 +91,8 @@ const Section1C2 = () => {
 
                     {/* Regiones clickeables con hover */}
                     {regions.map((region, idx) => (
-                        <img
+                        /* Región del mapa — lazy */
+                        <SmartImage
                             key={idx}
                             src={region.src}
                             alt={t(`c2.section1.regions.${region.key}.alt`)}

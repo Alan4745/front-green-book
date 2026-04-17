@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton'; // Importa CloseButton
+import SmartImage from '../Global/SmartImage';
 
 // ✅ Importa assets (evita rutas "src/..." para que el build resuelva bien)
 import Img1 from '../../assets/C6/F5.webp';
@@ -68,10 +69,12 @@ const Section3C6 = () => {
 
             >
                 <div className="relative" onClick={(e) => e.stopPropagation()}>
-                    <img
+                    {/* Imagen lightbox — priority */}
+                    <SmartImage
                         src={src}
                         alt={alt}
                         className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        priority
                     />
                     <CloseButton
                         onClick={onClose}
@@ -180,7 +183,8 @@ const Section3C6 = () => {
                         whileTap={{ scale: 1.02 }}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img1)}>
-                            <img
+                            {/* Imagen desktop 1 — lazy */}
+                            <SmartImage
                                 src={Img1}
                                 alt={t("c6.section3.images.img1Alt")}
                                 title={t("c6.section3.images.img1Alt")}
@@ -211,7 +215,8 @@ const Section3C6 = () => {
                         whileTap={{ scale: 1.02 }}
                     >
                         <div className="absolute inset-0 overflow-hidden rounded-none"  onClick={() => handleImageClick(Img2)}>
-                            <img
+                            {/* Imagen desktop 2 — lazy */}
+                            <SmartImage
                                 src={Img2}
                                 alt={t("c6.section3.images.img2Alt")}
                                 title={t("c6.section3.images.img2Alt")}

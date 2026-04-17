@@ -11,6 +11,7 @@ import F7 from "../../assets/C4/F7.webp";
 
 import ExpandButton from "../Global/ExpandButton";
 import CloseButton from "../Global/CloseButton";
+import SmartImage from "../Global/SmartImage";
 
 const Section1C4 = () => {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -79,9 +80,9 @@ const Section1C4 = () => {
                     </div>
                 </div>
 
-                {/* Imagen 1 */}
+                {/* Imagen 1 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F1}
                         alt={t(keys.items.f1.alt)}
                         title={t(keys.items.f1.alt)}
@@ -101,9 +102,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 2 */}
+                {/* Imagen 2 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F2}
                         alt={t(keys.items.f2.alt)}
                         title={t(keys.items.f2.alt)}
@@ -123,9 +124,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 3 */}
+                {/* Imagen 3 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F3}
                         alt={t(keys.items.f3.alt)}
                         title={t(keys.items.f3.alt)}
@@ -145,9 +146,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 4 */}
+                {/* Imagen 4 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F4}
                         alt={t(keys.items.f4.alt)}
                         title={t(keys.items.f4.alt)}
@@ -174,9 +175,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 5 */}
+                {/* Imagen 5 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F5}
                         alt={t(keys.items.f5.alt)}
                         title={t(keys.items.f5.alt)}
@@ -202,9 +203,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 6 */}
+                {/* Imagen 6 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F6}
                         alt={t(keys.items.f6.alt)}
                         title={t(keys.items.f6.alt)}
@@ -231,9 +232,9 @@ const Section1C4 = () => {
                     />
                 </div>
 
-                {/* Imagen 7 */}
+                {/* Imagen 7 — lazy */}
                 <div className="relative h-[50vw] md:h-[38vw] lg:h-[50vh] w-full">
-                    <img
+                    <SmartImage
                         src={F7}
                         alt={t(keys.items.f7.alt)}
                         title={t(keys.items.f7.alt)}
@@ -270,10 +271,12 @@ const Section1C4 = () => {
                     aria-label={t(currentAltKey || keys.buttons.close)}
                     >
                     <div className="relative" onClick={(e) => e.stopPropagation()}>
-                        <img
+                        {/* Lightbox: usuario ya hizo clic, carga inmediata */}
+                        <SmartImage
                             src={currentImage}
                             alt={t(currentAltKey || keys.buttons.expand)}
                             className="max-h-[95vh] max-w-[95vw] object-contain block"
+                            priority
                         />
                         <CloseButton
                             onClick={closeLightbox}

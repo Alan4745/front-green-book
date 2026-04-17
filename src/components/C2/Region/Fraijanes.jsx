@@ -10,6 +10,7 @@ import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
+import SmartImage from '../../Global/SmartImage';
 
 const Fraijanes = () => {
     const navigate = useNavigate();
@@ -83,6 +84,8 @@ const Fraijanes = () => {
                     alt={t(keys.alts.bg)}
                     title={t(keys.alts.bg)}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 2, ease: 'easeInOut' }}
@@ -102,7 +105,8 @@ const Fraijanes = () => {
                     initial="hidden"
                     animate={bgReady ? 'show' : 'hidden'}
                 >
-                    <img
+                    {/* Logo región — lazy */}
+                    <SmartImage
                         src={FraijanesR}
                         alt={t(keys.alts.regionLogo)}
                         title={t(keys.alts.regionLogo)}
@@ -148,7 +152,8 @@ const Fraijanes = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
                 >
-                    <img
+                    {/* Perfil de región — lazy */}
+                    <SmartImage
                         src={PDRFraijanes}
                         alt={t(keys.alts.profile)}
                         title={t(keys.alts.profile)}
@@ -163,12 +168,13 @@ const Fraijanes = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                 >
-                    <img
+                    {/* Gráfica de región — lazy */}
+                    <SmartImage
                         src={FraijanesG}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
                         className="w-[100vh] h-auto object-contain"
-                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }} 
+                        style={{ width: '100%', height: '100%', transform: 'scale(1.25)' }}
                     />
                 </motion.div>
 
@@ -215,11 +221,13 @@ const Fraijanes = () => {
             {showZoom && (
                 <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
                     <div className="relative" role="dialog" aria-modal="true" aria-label={t(keys.alts.modalImage)} onClick={(e) => e.stopPropagation()}>
-                        <img
+                        {/* Imagen modal — priority (lightbox) */}
+                        <SmartImage
                             src={FondoFraijanes}
                             alt={t(keys.alts.modalImage)}
                             title={t(keys.alts.modalImage)}
                             className="max-h-[95vh] max-w-[95vw] object-contain block"
+                            priority
                         />
                         <CloseButton
                             onClick={() => setShowZoom(false)}

@@ -4,6 +4,7 @@ import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
 import ColabButton from "./ui/ColabButton";
+import SmartImage from "../Global/SmartImage";
 
 const backgrounds = [
     "/Img/Start/Fondo1.webp",
@@ -115,10 +116,12 @@ const Home = () => {
 
                 {/* Logo */}
                 <div className="relative z-30 flex items-center justify-center h-full">
-                    <img
+                    {/* Logo principal hero — eager (priority) */}
+                    <SmartImage
                         src="/Logos/Greenbook.svg"
                         alt={t("app.title")}
                         className={homeLogoClassName}
+                        priority
                     />
                 </div>
 

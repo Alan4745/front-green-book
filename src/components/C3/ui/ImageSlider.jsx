@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./Slider.css"
+import SmartImage from "../../Global/SmartImage";
 
 export default function ImageSlider({
     slides = [],
@@ -156,7 +157,8 @@ export default function ImageSlider({
                 >
                     {data.map((s, i) => (
                         <figure key={i} className="relative h-full w-full shrink-0 grow-0 basis-full">
-                            <img
+                            {/* Imagen del slider — lazy */}
+                            <SmartImage
                                 src={s.src}
                                 alt={s.alt ?? s.title ?? ""}
                                 className="h-full w-full object-cover"
@@ -275,11 +277,13 @@ export default function ImageSlider({
                     onClick={closeLightbox}
                 >
                     <div className="relative" onClick={(e) => e.stopPropagation()}>
-                        <img
+                        {/* Imagen lightbox (acción del usuario) — eager (priority) */}
+                        <SmartImage
                             src={data[index].src}
                             alt={data[index].alt ?? data[index].title ?? ""}
                             className="max-h-[95vh] max-w-[95vw] object-contain block rounded-lg shadow-2xl"
                             draggable={false}
+                            priority
                         />
                         <button
                             onClick={closeLightbox}

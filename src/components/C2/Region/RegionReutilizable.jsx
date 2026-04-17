@@ -62,6 +62,7 @@ import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
 import ZoomButton from '../../Global/ZoomButton';
 import CloseButton from '../../Global/CloseButton';
+import SmartImage from '../../Global/SmartImage';
 
 const RegionReutilizable = ({tipo, isActive}) => {
     const [showZoom, setShowZoom] = useState(false);
@@ -291,12 +292,15 @@ if (!region) {
             {/* Columna izquierda con imagen y overlay */}
             <div className="w-[58%] h-full relative max-lg:w-full max-lg:h-[55vh] min-[768px]:max-[1023px]:h-[48vh] max-lg:landscape:w-[58%] max-lg:landscape:h-full">
                 {/* Imagen de fondo con animación */}
+                {/* Imagen de fondo de región — lazy: carga al entrar al viewport */}
                 <motion.img
-                    key={`bg-${tipo}-${isActive}`}//FUERZA EL INICIO DE LA ANIMACION AL CAMBIAR isActive
+                    key={`bg-${tipo}-${isActive}`}
                     src={region.fondo}
                     alt={t(keys.alts.bg)}
                     title={t(keys.alts.bg)}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={shouldAnimate ? { x: 0, opacity: 1 } : { x: '-100%', opacity: 0 }}
                     transition={{ duration: 2, ease: 'easeInOut' }}
@@ -319,7 +323,8 @@ if (!region) {
                     initial="hidden"
                     animate={shouldAnimate && bgReady ? 'show' : 'hidden'}
                 >
-                    <img
+                    {/* Logo de la región — lazy */}
+                    <SmartImage
                         src={region.logo}
                         alt={t(keys.alts.regionLogo)}
                         title={t(keys.alts.regionLogo)}
@@ -349,7 +354,8 @@ if (!region) {
                         initial="hidden"
                         animate={shouldAnimate && bgReady ? 'show' : 'hidden'}
                     >
-                        <img
+                        {/* Logo de la región (tablet) — lazy */}
+                        <SmartImage
                             src={region.logo}
                             alt={t(keys.alts.regionLogo)}
                             title={t(keys.alts.regionLogo)}
@@ -395,7 +401,8 @@ if (!region) {
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
                 >
-                    <img
+                    {/* Perfil de la región (desktop) — lazy */}
+                    <SmartImage
                         src={region.perfil}
                         alt={t(keys.alts.profile)}
                         title={t(keys.alts.profile)}
@@ -410,7 +417,8 @@ if (!region) {
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                 >
-                    <img
+                    {/* Gráfica de la región (desktop) — lazy */}
+                    <SmartImage
                         src={region.grafica[lang] || region.grafica.es}
                         alt={t(keys.alts.chart)}
                         title={t(keys.alts.chart)}
@@ -451,7 +459,8 @@ if (!region) {
                         animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                         transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
                     >
-                        <img
+                        {/* Perfil de la región (mobile) — lazy */}
+                        <SmartImage
                             src={region.perfil}
                             alt={t(keys.alts.profile)}
                             title={t(keys.alts.profile)}
@@ -465,7 +474,8 @@ if (!region) {
                         animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                         transition={{ duration: 1.2, ease: 'easeOut', delay: 2.8 }}
                     >
-                        <img
+                        {/* Gráfica de la región (mobile) — lazy */}
+                        <SmartImage
                             src={region.grafica[lang] || region.grafica.es}
                             alt={t(keys.alts.chart)}
                             title={t(keys.alts.chart)}
@@ -505,7 +515,8 @@ if (!region) {
                 {showZoom && (
                     <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50" onClick={() => setShowZoom(false)}>
                         <div className="relative" onClick={(e) => e.stopPropagation()}>
-                            <img
+                            {/* Modal zoom: priority=false está bien, el usuario abre el modal conscientemente */}
+                            <SmartImage
                                 src={region.fondo}
                                 alt={t(keys.alts.modalImage)}
                                 title={t(keys.alts.modalImage)}

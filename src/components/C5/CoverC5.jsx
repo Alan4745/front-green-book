@@ -3,6 +3,7 @@ import LanguageSelector from "../Global/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import PageSkeleton from "../Global/PageSkeleton";
 import { Link } from "react-router-dom";
+import SmartImage from "../Global/SmartImage";
 
 const CoverC5 = () => {
     const { t } = useTranslation();
@@ -77,11 +78,13 @@ const CoverC5 = () => {
                             <span className={mobileTitleLineClassName}>{titleTop}</span>
                             <span className={mobileTitleLineClassName}>{titleBottom}</span>
                         </h2>
-                        <img
+                        {/* Número de capítulo mobile — eager (priority) */}
+                        <SmartImage
                             src="/Img/Global/Numbers/05.svg"
                             alt={t("c5.cover.alts.chapter", { num: 5 })}
                             title={t("c5.cover.alts.chapter", { num: 5 })}
                             className={mobileNumberClassName}
+                            priority
                         />
                     </div>
 
@@ -98,11 +101,13 @@ const CoverC5 = () => {
                 </div>
 
                 <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
-                    <img
+                    {/* Número de capítulo desktop — eager (priority) */}
+                    <SmartImage
                         src="/Img/Global/Numbers/05.svg"
                         alt={t("c5.cover.alts.chapter", { num: 5 })}
                         title={t("c5.cover.alts.chapter", { num: 5 })}
                         className="w-[50vh] h-auto"
+                        priority
                     />
                 </div>
 
@@ -124,11 +129,13 @@ const CoverC5 = () => {
 
                 <Link to='/'>
                 <div className="absolute bottom-[5vh] left-[3vw] z-30 max-lg:bottom-[2vh] max-lg:left-[4vw]">
-                    <img
+                    {/* Logo portada — eager (priority) */}
+                    <SmartImage
                         src="/Logos/LogoPequeño.svg"
                         alt={t("c5.cover.alts.greenBook")}
                         title={t("c5.cover.alts.greenBook")}
                         className="w-[22vh] h-auto max-lg:w-[15vh]"
+                        priority
                     />
                 </div>
                 </Link>

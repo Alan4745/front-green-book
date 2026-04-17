@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import ZoomButton from '../Global/ZoomButton';
 import CloseButton from '../Global/CloseButton';
+import SmartImage from '../Global/SmartImage';
 
 // ✅ Importa assets para rutas correctas en build
 import Img1 from '../../assets/C1/F3.webp';
@@ -132,10 +133,12 @@ const Section1C2 = () => {
                 onClick={onClose}
             >
                 <div className="relative" onClick={(e) => e.stopPropagation()}>
-                    <img
+                    {/* Lightbox: usuario abrió el modal → priority (carga inmediata) */}
+                    <SmartImage
                         src={src}
                         alt={alt}
                         className="max-h-[95vh] max-w-[95vw] object-contain block"
+                        priority
                     />
                     <CloseButton
                         onClick={onClose}
