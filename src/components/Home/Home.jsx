@@ -4,7 +4,6 @@ import Carrousel from "./ui/Carrousel";
 import LanguageSelector from "../Global/LanguageSelector";
 import MainMenu from "../Global/MainMenu";
 import ColabButton from "./ui/ColabButton";
-import SmartImage from "../Global/SmartImage";
 
 const backgrounds = [
     "/Img/Start/Fondo1.webp",
@@ -42,8 +41,13 @@ const Home = () => {
         const tick = () => {
             const current = indexRef.current;
             const next = (current + 1) % backgrounds.length;
+
+            const preload = new Image();
+            preload.src = backgrounds[next];
+
             setPrevIndex(current);
             setCurrentIndex(next);
+
             setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
         };
 
@@ -68,45 +72,56 @@ const Home = () => {
     return (
         <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
             <div className="absolute inset-0">
-                {/*
-                 * 4 imágenes SIEMPRE en el DOM con key estable (nunca se desmontan).
-                 * Cambiar key en cada transición forzaba remount → el browser tenía
-                 * que reconectar el elemento al cache → congelamiento visible.
-                 * Con key estable solo cambia el estilo: CSS transition se encarga
-                 * del fade sin ningún parpadeo.
-                 */}
+                {/* Crossfade background layers */}
+                <style>{`
+                    @keyframes bgFadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                `}</style>
                 <div className="absolute inset-0 z-10" aria-hidden="true">
-                    {backgrounds.map((bg, i) => (
+                    {/* Prev image sits below, fully opaque, gets covered by current fading in */}
+                    {prevIndex !== null && (
                         <img
-                            key={i}
-                            src={bg}
+                            key={`prev-${prevIndex}`}
+                            src={backgrounds[prevIndex]}
                             alt=""
                             aria-hidden="true"
-                            loading={i === 0 ? "eager" : "eager"}
-                            decoding={i === 0 ? "sync" : "async"}
-                            fetchPriority={i === 0 ? "high" : "auto"}
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="low"
                             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-                            style={{
-                                /* Visible si es current o prev (durante el fade) */
-                                opacity: i === currentIndex || i === prevIndex ? 1 : 0,
-                                /* Solo el current hace transición; el prev se queda en 1 sin animar */
-                                transition: i === currentIndex
-                                    ? `opacity ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1)`
-                                    : 'none',
-                                zIndex: i === currentIndex ? 2 : 1,
-                            }}
+                            style={{ zIndex: 1 }}
                         />
-                    ))}
+                    )}
+                    {/* Current image fades in on top */}
+                    <img
+                        key={`curr-${currentIndex}`}
+                        src={backgrounds[currentIndex]}
+                        alt=""
+                        aria-hidden="true"
+                        loading={currentIndex === 0 ? "eager" : "eager"}
+                        decoding={currentIndex === 0 ? "sync" : "async"}
+                        fetchPriority={currentIndex === 0 ? "high" : "low"}
+                        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+                        style={{
+                            zIndex: 2,
+                            animation: currentIndex === 0
+                                ? "none"
+                                : `bgFadeIn ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1) forwards`,
+                        }}
+                    />
                 </div>
 
                 {/* Logo */}
                 <div className="relative z-30 flex items-center justify-center h-full">
-                    {/* Logo principal hero — eager (priority) */}
-                    <SmartImage
+                    <img
                         src="/Logos/Greenbook.svg"
                         alt={t("app.title")}
                         className={homeLogoClassName}
-                        priority
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
                     />
                 </div>
 
