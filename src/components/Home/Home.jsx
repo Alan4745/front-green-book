@@ -48,9 +48,17 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        const tick = () => {
+        const tick = async () => {
             const current = indexRef.current;
             const next = (current + 1) % backgrounds.length;
+
+            /* Esperar a que la imagen esté decodificada antes de transicionar.
+             * Sin esto, bgFadeIn arranca pero el browser no tiene los píxeles
+             * listos → el slider se "congela" hasta que los tiene. */
+            const img = new Image();
+            img.src = backgrounds[next];
+            await img.decode().catch(() => {});
+
             setPrevIndex(current);
             setCurrentIndex(next);
             setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
@@ -106,7 +114,7 @@ const Home = () => {
                         alt=""
                         aria-hidden="true"
                         loading="eager"
-                        decoding="async"
+                        decoding="sync"
                         fetchPriority="high"
                         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
                         style={{
