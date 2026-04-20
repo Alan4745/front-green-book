@@ -12,13 +12,12 @@ const backgrounds = [
     "/Img/Start/Fondo4.webp",
 ];
 
-const FADE_DURATION_MS = 2000;
+const FADE_DURATION_MS = 800;
 const DISPLAY_TIME_MS = 8000;
 
 const Home = () => {
     const { t, i18n } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [prevIndex, setPrevIndex] = useState(null);
     const [viewport, setViewport] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -37,18 +36,18 @@ const Home = () => {
         indexRef.current = currentIndex;
     }, [currentIndex]);
 
+    // Precarga todas las imágenes al montar para que estén en caché antes de la primera transición
+    useEffect(() => {
+        backgrounds.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
+
     useEffect(() => {
         const tick = () => {
-            const current = indexRef.current;
-            const next = (current + 1) % backgrounds.length;
-
-            const preload = new Image();
-            preload.src = backgrounds[next];
-
-            setPrevIndex(current);
+            const next = (indexRef.current + 1) % backgrounds.length;
             setCurrentIndex(next);
-
-            setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
         };
 
         const id = setInterval(tick, DISPLAY_TIME_MS);
@@ -72,45 +71,36 @@ const Home = () => {
     return (
         <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
             <div className="absolute inset-0">
-                {/* Crossfade background layers */}
-                <style>{`
-                    @keyframes bgFadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
-                `}</style>
                 <div className="absolute inset-0 z-10" aria-hidden="true">
-                    {/* Prev image sits below, fully opaque, gets covered by current fading in */}
-                    {prevIndex !== null && (
+                    {/*
+                     * Las 4 imágenes siempre en el DOM con key estable → siempre decodificadas,
+                     * nunca hay "imagen que carga de cero" durante la transición.
+                     *
+                     * Estrategia fade-out (no fade-in):
+                     *   - currentIndex: opacity 1, z:1 — aparece instantáneo
+                     *   - prevIndex:    opacity 0, z:2, transition activa — hace fade-out encima
+                     *   - resto:        opacity 0, z:0, sin transición
+                     *
+                     * El usuario ve la imagen nueva aparecer de golpe y la vieja desvanecerse
+                     * encima de ella — efecto crossfade suave sin flash ni "imagen pegada".
+                     */}
+                    {backgrounds.map((bg, i) => (
                         <img
-                            key={`prev-${prevIndex}`}
-                            src={backgrounds[prevIndex]}
+                            key={i}
+                            src={bg}
                             alt=""
                             aria-hidden="true"
                             loading="eager"
-                            decoding="async"
-                            fetchPriority="low"
+                            decoding={i === 0 ? "sync" : "async"}
+                            fetchPriority={i === 0 ? "high" : "auto"}
                             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-                            style={{ zIndex: 1 }}
+                            style={{
+                                opacity: i === currentIndex ? 1 : 0,
+                                transition: `opacity ${FADE_DURATION_MS}ms ease`,
+                                willChange: 'opacity',
+                            }}
                         />
-                    )}
-                    {/* Current image fades in on top */}
-                    <img
-                        key={`curr-${currentIndex}`}
-                        src={backgrounds[currentIndex]}
-                        alt=""
-                        aria-hidden="true"
-                        loading={currentIndex === 0 ? "eager" : "eager"}
-                        decoding={currentIndex === 0 ? "sync" : "async"}
-                        fetchPriority={currentIndex === 0 ? "high" : "low"}
-                        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-                        style={{
-                            zIndex: 2,
-                            animation: currentIndex === 0
-                                ? "none"
-                                : `bgFadeIn ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1) forwards`,
-                        }}
-                    />
+                    ))}
                 </div>
 
                 {/* Logo */}
