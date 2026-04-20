@@ -38,27 +38,10 @@ const Home = () => {
         indexRef.current = currentIndex;
     }, [currentIndex]);
 
-    /* Precargar todos los fondos al montar para que estén en caché
-     * cuando el timer los necesite — evita el flash blanco durante el fade */
     useEffect(() => {
-        backgrounds.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-        });
-    }, []);
-
-    useEffect(() => {
-        const tick = async () => {
+        const tick = () => {
             const current = indexRef.current;
             const next = (current + 1) % backgrounds.length;
-
-            /* Esperar a que la imagen esté decodificada antes de transicionar.
-             * Sin esto, bgFadeIn arranca pero el browser no tiene los píxeles
-             * listos → el slider se "congela" hasta que los tiene. */
-            const img = new Image();
-            img.src = backgrounds[next];
-            await img.decode().catch(() => {});
-
             setPrevIndex(current);
             setCurrentIndex(next);
             setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
@@ -85,45 +68,35 @@ const Home = () => {
     return (
         <div className="relative min-h-screen max-lg:h-[100dvh] max-lg:min-h-0 w-screen overflow-hidden bg-black">
             <div className="absolute inset-0">
-                {/* Crossfade background layers */}
-                <style>{`
-                    @keyframes bgFadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
-                `}</style>
+                {/*
+                 * 4 imágenes SIEMPRE en el DOM con key estable (nunca se desmontan).
+                 * Cambiar key en cada transición forzaba remount → el browser tenía
+                 * que reconectar el elemento al cache → congelamiento visible.
+                 * Con key estable solo cambia el estilo: CSS transition se encarga
+                 * del fade sin ningún parpadeo.
+                 */}
                 <div className="absolute inset-0 z-10" aria-hidden="true">
-                    {/* Fondo anterior — se queda visible mientras el nuevo hace fade encima */}
-                    {prevIndex !== null && (
+                    {backgrounds.map((bg, i) => (
                         <img
-                            key={`prev-${prevIndex}`}
-                            src={backgrounds[prevIndex]}
+                            key={i}
+                            src={bg}
                             alt=""
                             aria-hidden="true"
-                            loading="eager"
-                            decoding="async"
-                            fetchPriority="high"
+                            loading={i === 0 ? "eager" : "eager"}
+                            decoding={i === 0 ? "sync" : "async"}
+                            fetchPriority={i === 0 ? "high" : "auto"}
                             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-                            style={{ zIndex: 1 }}
+                            style={{
+                                /* Visible si es current o prev (durante el fade) */
+                                opacity: i === currentIndex || i === prevIndex ? 1 : 0,
+                                /* Solo el current hace transición; el prev se queda en 1 sin animar */
+                                transition: i === currentIndex
+                                    ? `opacity ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1)`
+                                    : 'none',
+                                zIndex: i === currentIndex ? 2 : 1,
+                            }}
                         />
-                    )}
-                    {/* Fondo actual — hace fade in encima del anterior */}
-                    <img
-                        key={`curr-${currentIndex}`}
-                        src={backgrounds[currentIndex]}
-                        alt=""
-                        aria-hidden="true"
-                        loading="eager"
-                        decoding="sync"
-                        fetchPriority="high"
-                        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-                        style={{
-                            zIndex: 2,
-                            animation: currentIndex === 0
-                                ? "none"
-                                : `bgFadeIn ${FADE_DURATION_MS}ms cubic-bezier(0.22,1,0.36,1) forwards`,
-                        }}
-                    />
+                    ))}
                 </div>
 
                 {/* Logo */}
