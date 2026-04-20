@@ -38,17 +38,21 @@ const Home = () => {
         indexRef.current = currentIndex;
     }, [currentIndex]);
 
+    /* Precargar todos los fondos al montar para que estén en caché
+     * cuando el timer los necesite — evita el flash blanco durante el fade */
+    useEffect(() => {
+        backgrounds.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
+
     useEffect(() => {
         const tick = () => {
             const current = indexRef.current;
             const next = (current + 1) % backgrounds.length;
-
-            const preload = new Image();
-            preload.src = backgrounds[next];
-
             setPrevIndex(current);
             setCurrentIndex(next);
-
             setTimeout(() => setPrevIndex(null), FADE_DURATION_MS);
         };
 
@@ -81,29 +85,29 @@ const Home = () => {
                     }
                 `}</style>
                 <div className="absolute inset-0 z-10" aria-hidden="true">
-                    {/* Prev image sits below, fully opaque, gets covered by current fading in */}
+                    {/* Fondo anterior — se queda visible mientras el nuevo hace fade encima */}
                     {prevIndex !== null && (
                         <img
                             key={`prev-${prevIndex}`}
                             src={backgrounds[prevIndex]}
                             alt=""
                             aria-hidden="true"
-                            loading="lazy"
+                            loading="eager"
                             decoding="async"
-                            fetchPriority="low"
+                            fetchPriority="high"
                             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
                             style={{ zIndex: 1 }}
                         />
                     )}
-                    {/* Current image fades in on top */}
+                    {/* Fondo actual — hace fade in encima del anterior */}
                     <img
                         key={`curr-${currentIndex}`}
                         src={backgrounds[currentIndex]}
                         alt=""
                         aria-hidden="true"
-                        loading={currentIndex === 0 ? "eager" : "lazy"}
-                        decoding={currentIndex === 0 ? "sync" : "async"}
-                        fetchPriority={currentIndex === 0 ? "high" : "low"}
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
                         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
                         style={{
                             zIndex: 2,
