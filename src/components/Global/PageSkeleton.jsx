@@ -197,6 +197,9 @@ export default function PageSkeleton({
 
     return (
         <>
+            {/* Placeholder que mantiene la altura del cover durante la carga,
+                evita que el browser haga scroll anchoring hacia Section1 */}
+            <div className="min-h-screen" aria-hidden="true" />
             {phase === "exiting" && children}
             <LogoPulseLoader tintHex={tintHex} exiting={phase === "exiting"} />
         </>

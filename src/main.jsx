@@ -7,6 +7,11 @@ import App from './App.jsx';
 // 👇 Asegúrate de que este archivo existe (según el paso 1 que hiciste):
 // /src/i18n/index.js  (o ajusta la ruta si la tienes distinta)
 import './i18n';
+
+// Evitar que el browser restaure el scroll automáticamente al navegar
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 import i18n from 'i18next';
 
 function HtmlLangUpdater() {

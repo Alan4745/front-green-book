@@ -1,7 +1,13 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { TransitionProvider } from './components/Global/PageTransition';
 import PageSkeleton from './components/Global/PageSkeleton';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 
 const Home        = lazy(() => import('./components/Home/Home'));
 const MainC1      = lazy(() => import('./components/C1/MainC1'));
@@ -35,6 +41,7 @@ function App() {
   return (
     <Router>
       <TransitionProvider>
+        <ScrollToTop />
         <Suspense fallback={<PageSkeleton />}>
           <Routes>
             <Route path="/" element={<Home />} />
