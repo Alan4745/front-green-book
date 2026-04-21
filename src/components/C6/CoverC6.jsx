@@ -62,7 +62,7 @@ const CoverC6 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
+                <div className="lg:landscape:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
                             className={mobileTitleClassName}
@@ -92,7 +92,7 @@ const CoverC6 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
+                <div className="hidden lg:landscape:block absolute top-[10vh] 2xl:top-[20vh] right-[25vh] z-30">
                     {/* Número de capítulo desktop — eager (priority) */}
                     <SmartImage
                         src="/Img/Global/Numbers/06.svg"
@@ -103,23 +103,23 @@ const CoverC6 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
+                <div className="hidden lg:landscape:block absolute top-[15vh] 2xl:top-[25vh] right-[40vh] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] uppercase whitespace-nowrap"
+                        className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {titleLine1} <br />
                         {titleLine2}
                     </h2>
                     <h3
-                        className="text-white text-[2vw] mt-[3vw] uppercase"
+                        className="text-white text-[3vh] 2xl:text-[4vh] mt-[5vh] 2xl:mt-[10vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {subtitle}
                     </h3>
-                    <div className="w-[10vw] h-[0.4vw] bg-[#00AE43] mt-[0.5vw]"></div>
+                    <div className="w-[10vw] h-[1.5vh] bg-[#00AE43] mt-[0.5vh]"></div>
                     <p
-                        className="text-white text-justify text-[1.4vw] mt-[1.5vw] max-w-[35vw]"
+                        className="text-white text-justify text-[2vh] 2xl:text-[3vh] mt-[1vh] 2xl:mt-[2vh] max-w-[35vw]"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t("c6.cover.body")}

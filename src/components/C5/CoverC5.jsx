@@ -63,13 +63,13 @@ const CoverC5 = () => {
                 <div className="absolute inset-0 bg-black/50 z-20" />
 
                 <figcaption
-                    className="hidden lg:block absolute top-[2vh] left-[2vh] z-30 text-white text-sm px-3 py-1 rounded"
+                    className="hidden lg:landscape:block absolute top-[2vh] left-[2vh] z-30 text-white text-sm px-3 py-1 rounded"
                     style={{ fontFamily: "GothamNormal" }}
                 >
                     {t("c5.cover.credits", { defaultValue: "Créditos: Rocío Silva" })}
                 </figcaption>
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
+                <div className="lg:landscape:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
                             className={mobileTitleClassName}
@@ -100,7 +100,7 @@ const CoverC5 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
+                <div className="hidden lg:landscape:block absolute top-[10vh] 2xl:top-[20vh] right-[25vh] z-30">
                     {/* Número de capítulo desktop — eager (priority) */}
                     <SmartImage
                         src="/Img/Global/Numbers/05.svg"
@@ -111,20 +111,20 @@ const CoverC5 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
+                <div className="hidden lg:landscape:block absolute top-[20vh] 2xl:top-[30vh] right-[50vh] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {titleTop} <br /> {titleBottom}
                     </h2>
                     <h3
-                        className="text-white text-[2vw] mt-[3vw] uppercase"
+                        className="text-white text-[3vh] 2xl:text-[4vh] mt-[8vh] 2xl:mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {subtitleLine1} <br /> {subtitleLine2}
                     </h3>
-                    <div className="w-[10vw] h-[0.4vw] bg-[#562E91] mt-[0.5vw]"></div>
+                    <div className="w-[10vw] h-[1.5vh] bg-[#562E91] mt-[0.5vh]"></div>
                 </div>
 
                 <Link to='/'>

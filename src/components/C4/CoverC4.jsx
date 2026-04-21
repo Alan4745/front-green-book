@@ -27,7 +27,7 @@ const CoverC4 = () => {
 
                 {/* MOBILE: bloque título + número + subtítulo */}
                 <div
-                    className="lg:hidden absolute left-0 right-0 z-20"
+                    className="lg:landscape:hidden absolute left-0 right-0 z-20"
                     style={{ top: 'calc(30vh)' }}
                 >
                     {/* Row: solo h2 + número, centrados entre sí */}
@@ -61,7 +61,7 @@ const CoverC4 = () => {
                 </div>
 
                 {/* DESKTOP: número de capítulo — intacto */}
-                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
+                <div className="hidden lg:landscape:block absolute top-[10vh] 2xl:top-[20vh] right-[25vh] z-30">
                     {/* Número de capítulo desktop — priority (cover) */}
                     <SmartImage
                         src="/Img/Global/Numbers/04.svg"
@@ -72,21 +72,21 @@ const CoverC4 = () => {
                     />
                 </div>
 
-                {/* DESKTOP: título y descripción — intacto */}
-                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
+                {/* DESKTOP: título y descripción */}
+                <div className="hidden lg:landscape:block absolute top-[20vh] 2xl:top-[30vh] right-[50vh] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[50vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c4.cover.title.top")} <br /> {t("c4.cover.title.bottom")}
                     </h2>
                     <h3
-                        className="text-white text-[2vw] mt-[3vw] uppercase"
+                        className="text-white text-[3vh] 2xl:text-[4vh] mt-[8vh] 2xl:mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c4.cover.subtitle.line1")} <br /> {t("c4.cover.subtitle.line2")}
                     </h3>
-                    <div className="w-[10vw] h-[0.4vw] bg-[#FF5200] mt-[0.5vw]"></div>
+                    <div className="w-[10vw] h-[1.5vh] bg-[#FF5200] mt-[0.5vh]"></div>
                 </div>
 
                 <Link to='/'>

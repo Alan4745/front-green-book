@@ -61,7 +61,7 @@ const CoverC2 = () => {
                 {/* Overlay oscuro suave */}
                 <div className="absolute inset-0 bg-black/30 z-20" />
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
+                <div className="lg:landscape:hidden absolute left-0 right-0 z-20" style={mobileCoverTopStyle}>
                     <div className="relative flex items-center">
                         <h2
                             className={mobileTitleClassName}
@@ -91,7 +91,7 @@ const CoverC2 = () => {
                     </div>
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
+                <div className="hidden lg:landscape:block absolute top-[10vh] 2xl:top-[20vh] right-[25vh] z-30">
                     {/* Número de capítulo desktop — eager (priority) */}
                     <SmartImage
                         src="/Img/Global/Numbers/02.svg"
@@ -101,20 +101,20 @@ const CoverC2 = () => {
                     />
                 </div>
 
-                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
+                <div className="hidden lg:landscape:block absolute top-[20vh] 2xl:top-[30vh] right-[60vh] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[50vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {titleTop} <br /> {titleBottom}
                     </h2>
                     <h3
-                        className="text-white text-[2vw] mt-[3vw] uppercase"
+                        className="text-white text-[3vh] 2xl:text-[4vh] mt-[8vh] 2xl:mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {subtitleTop} <br /> {subtitleBottom}
                     </h3>
-                    <div className="w-[10vw] h-[0.4vw] bg-[#5FCAD0] mt-[0.5vw]" />
+                    <div className="w-[10vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
                 </div>
 
                 <Link to='/'>

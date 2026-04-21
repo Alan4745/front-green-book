@@ -43,7 +43,7 @@ const CoverC1 = () => {
                 <div className="absolute inset-0 bg-black/5 z-20" />
 
                 {/* Número de capítulo + Título (móvil: juntos centrados) */}
-                <div className="hidden lg:block absolute top-[20vh] right-[14vw] z-30">
+                <div className="hidden lg:landscape:block absolute top-[10vh] 2xl:top-[20vh] right-[30vh] z-30">
                     <img
                         src="/Img/Global/Numbers/01.svg"
                         alt={t("c1.cover.chapterAlt", { num: 1 })}
@@ -52,7 +52,7 @@ const CoverC1 = () => {
                     />
                 </div>
 
-                <div className="lg:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
+                <div className="lg:landscape:hidden absolute left-0 right-0 z-20" style={{ top: 'calc(30vh)' }}>
                     <div className="relative flex items-center">
                         <h2
                             className="relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase"
@@ -94,9 +94,9 @@ const CoverC1 = () => {
                 </div>
 
                 {/* Título y descripción */}
-                <div className="hidden lg:block absolute top-[20vh] right-[28vw] z-30 text-white text-left">
+                <div className="hidden lg:landscape:block absolute top-[25vh] 2xl:top-[35vh] right-[45vh] z-30 text-white text-left">
                     <h2
-                        className="text-white text-[3.6vw] leading-[1.1] max-w-[45vw] uppercase"
+                        className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[30vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.title.top")}
@@ -105,7 +105,7 @@ const CoverC1 = () => {
                     </h2>
 
                     <p
-                        className="text-[1.6vw] text-white/90 mt-[3vw] max-w-[60vw] leading-tight"
+                        className="text-[2vh] 2xl:text-[3vh] text-white/90 mt-[3vh] 2xl:mt-[5vh] max-w-[60vw] leading-tight"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {descFirst}
@@ -119,7 +119,7 @@ const CoverC1 = () => {
 
                     {/* Subtítulo */}
                     <h3
-                        className="text-white text-[2vw] uppercase mt-[3vw] tracking-wider"
+                        className="text-white text-[3vh] 2xl:text-[4vh] uppercase mt-[3vh] 2xl:mt-[6vh] tracking-wider"
                         style={{ fontFamily: "GothamBold" }}
                     >
                         {t("c1.cover.subtitle")}
