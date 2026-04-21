@@ -27,6 +27,8 @@ const CoverC6 = () => {
     const titleLine1 = t("c6.cover.title.line1").trim();
     const titleLine2 = t("c6.cover.title.line2").trim();
     const titleLine3 = t("c6.cover.title.line3").trim();
+    const titleDesktop1 = t("c6.cover.title.desktopLine1").trim();
+    const titleDesktop2 = t("c6.cover.title.desktopLine2").trim();
     const subtitle = t("c6.cover.subtitle").trim();
 
     const mobileTitleClassName = isCompactLandscape
@@ -70,6 +72,7 @@ const CoverC6 = () => {
                         >
                             <span className={mobileTitleLineClassName}>{titleLine1}</span>
                             <span className={mobileTitleLineClassName}>{titleLine2}</span>
+                            <span className={mobileTitleLineClassName}>{titleLine3}</span>
                         </h2>
                         {/* Número de capítulo mobile — eager (priority) */}
                         <SmartImage
@@ -89,6 +92,12 @@ const CoverC6 = () => {
                             {subtitle}
                         </h3>
                         <div className="w-[15vw] h-[1.5vh] bg-[#00AE43] mt-[0.5vh]"></div>
+                        <p
+                            className="text-white text-[1.8vh] mt-[2vh] max-w-[80vw] leading-tight pr-4"
+                            style={{ fontFamily: "GothamNormal" }}
+                        >
+                            {t("c6.cover.body")}
+                        </p>
                     </div>
                 </div>
 
@@ -108,8 +117,8 @@ const CoverC6 = () => {
                         className="text-white text-[5.5vh] 2xl:text-[8vh] leading-[1] max-w-[60vw] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {titleLine1} <br />
-                        {titleLine2}
+                        {titleDesktop1} <br />
+                        {titleDesktop2}
                     </h2>
                     <h3
                         className="text-white text-[3vh] 2xl:text-[4vh] mt-[5vh] 2xl:mt-[10vh] uppercase"

@@ -572,9 +572,11 @@
     "c6": {
         "cover": {
             "title": {
-                "line1": "Sustainability that",
-                "line2": "transforms the future",
-                "line3": "of coffee"
+                "line1": "Sustainability",
+                "line2": "that transforms",
+                "line3": "the future",
+                "desktopLine1": "Sustainability that",
+                "desktopLine2": "transforms the future"
             },
             "subtitle": "Coffee farming that evolves",
             "body": "In Guatemala, coffee cultivation is evolving toward a sustainable approach that combines environmental protection with the production of world-class coffee.",
