@@ -197,60 +197,58 @@ const Section2C4 = () => {
             </div>
 
             <div className="hidden lg:flex lg:w-full">
-                <div className="relative w-full text-white">
-                    <div className="absolute left-[10vh] top-[20vh] min-[1600px]:left-[15vh] min-[1600px]:top-[30vh]">
+                <div className="relative w-full text-white" style={{ minHeight: "inherit" }}>
+                    <div className="absolute left-[3vw] top-[18vh] xl:left-[5vw] xl:top-[20vh] min-[1600px]:left-[6vw] min-[1600px]:top-[28vh]">
                         <h3
-                            className="text-2xl font-bold uppercase min-[1600px]:text-3xl"
+                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[30vw] xl:text-2xl min-[1600px]:max-w-[32vw] min-[1600px]:text-3xl"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t(keys.left.title)}
                         </h3>
                         <div
-                            className="mt-[-17vh] text-[30vh] font-bold opacity-30"
+                            className="mt-[-11vh] text-[20vh] font-bold opacity-30 xl:mt-[-15vh] xl:text-[28vh] min-[1600px]:mt-[-17vh] min-[1600px]:text-[30vh]"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             01
                         </div>
                     </div>
 
-                    <div className="absolute right-[10vh] top-[20vh] text-right min-[1600px]:right-[15vh] min-[1600px]:top-[30vh]">
+                    <div className="absolute right-[3vw] top-[18vh] text-right xl:right-[5vw] xl:top-[20vh] min-[1600px]:right-[6vw] min-[1600px]:top-[28vh]">
                         <h3
-                            className="text-2xl font-bold uppercase min-[1600px]:text-3xl"
+                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[30vw] xl:text-2xl min-[1600px]:max-w-[32vw] min-[1600px]:text-3xl"
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            {t(keys.right.title.line1)}
-                            <br />
-                            {t(keys.right.title.line2)}
+                            {t(keys.right.title.line1)} {t(keys.right.title.line2)}
                         </h3>
                         <div
-                            className="mt-[-17vh] text-[30vh] font-bold opacity-30"
+                            className="mt-[-11vh] text-[20vh] font-bold opacity-30 xl:mt-[-15vh] xl:text-[28vh] min-[1600px]:mt-[-17vh] min-[1600px]:text-[30vh]"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             02
                         </div>
                     </div>
 
-                    <div className="absolute left-[10vh] top-[50vh] max-w-[45vh] min-[1600px]:left-[15vh] min-[1600px]:top-[60vh]">
+                    <div className="absolute left-[3vw] top-[48vh] max-w-[24vw] xl:left-[5vw] xl:top-[52vh] xl:max-w-[26vw] min-[1600px]:left-[6vw] min-[1600px]:top-[60vh]">
                         <p
-                            className="text-base leading-relaxed min-[1600px]:text-xl"
+                            className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl"
                             style={{ fontFamily: "GothamNormal" }}
                         >
                             {t(keys.left.desc)}
                         </p>
                     </div>
 
-                    <div className="absolute right-[10vh] top-[50vh] max-w-[45vh] text-right min-[1600px]:right-[15vh] min-[1600px]:top-[60vh]">
+                    <div className="absolute right-[3vw] top-[48vh] max-w-[24vw] text-right xl:right-[5vw] xl:top-[52vh] xl:max-w-[26vw] min-[1600px]:right-[6vw] min-[1600px]:top-[60vh]">
                         <p
-                            className="text-base leading-relaxed min-[1600px]:text-xl"
+                            className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl"
                             style={{ fontFamily: "GothamNormal" }}
                         >
                             {t(keys.right.desc)}
                         </p>
                     </div>
 
-                    <div className="absolute left-1/2 top-0 flex h-full -translate-x-1/2 transform flex-col">
+                    <div className="absolute inset-0 flex -translate-x-1/2 transform flex-col" style={{ left: "50%", width: "36vw" }}>
                         <MotionDiv
-                            className="group relative h-[50vh] w-[60vh] cursor-pointer origin-center hover:z-30"
+                            className="group relative h-[44vh] w-full cursor-pointer origin-center hover:z-30 xl:h-[50vh]"
                             style={{ willChange: "transform" }}
                             whileHover={{ scale: 1.08, y: hoveredImage === "top" ? 24 : 0 }}
                             whileTap={{ scale: 1.02 }}
@@ -259,7 +257,6 @@ const Section2C4 = () => {
                             onClick={() => openLightbox(Img1)}
                         >
                             <div className="absolute inset-0 overflow-hidden rounded-none">
-                                {/* Imagen sección izquierda desktop — lazy */}
                                 <SmartImage
                                     src={Img1}
                                     alt={t(keys.left.imgAlt)}
@@ -283,7 +280,7 @@ const Section2C4 = () => {
                         </MotionDiv>
 
                         <MotionDiv
-                            className="group relative mt-auto h-[50vh] w-[60vh] cursor-pointer origin-center hover:z-30"
+                            className="group relative mt-auto h-[44vh] w-full cursor-pointer origin-center hover:z-30 xl:h-[50vh]"
                             style={{ willChange: "transform" }}
                             whileHover={{ scale: 1.08, y: hoveredImage === "bottom" ? -24 : 0 }}
                             whileTap={{ scale: 1.02 }}
@@ -292,7 +289,6 @@ const Section2C4 = () => {
                             onClick={() => openLightbox(Img2)}
                         >
                             <div className="absolute inset-0 overflow-hidden rounded-none">
-                                {/* Imagen sección derecha desktop — lazy */}
                                 <SmartImage
                                     src={Img2}
                                     alt={t(keys.right.imgAlt)}
