@@ -198,9 +198,9 @@ const Section2C4 = () => {
 
             <div className="hidden lg:flex lg:w-full">
                 <div className="relative w-full text-white" style={{ minHeight: "inherit" }}>
-                    <div className="absolute left-[3vw] top-[18vh] xl:left-[5vw] xl:top-[20vh] min-[1600px]:left-[6vw] min-[1600px]:top-[28vh]">
+                    <div className="absolute left-[2vw] top-[18vh] xl:left-[3vw] xl:top-[20vh] min-[1600px]:left-[4vw] min-[1600px]:top-[28vh]">
                         <h3
-                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[30vw] xl:text-2xl min-[1600px]:max-w-[32vw] min-[1600px]:text-3xl"
+                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[27vw] xl:text-2xl min-[1600px]:max-w-[26vw] min-[1600px]:text-3xl"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t(keys.left.title)}
@@ -213,9 +213,9 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
-                    <div className="absolute right-[3vw] top-[18vh] text-right xl:right-[5vw] xl:top-[20vh] min-[1600px]:right-[6vw] min-[1600px]:top-[28vh]">
+                    <div className="absolute right-[2vw] top-[18vh] text-right xl:right-[3vw] xl:top-[20vh] min-[1600px]:right-[4vw] min-[1600px]:top-[28vh]">
                         <h3
-                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[30vw] xl:text-2xl min-[1600px]:max-w-[32vw] min-[1600px]:text-3xl"
+                            className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[27vw] xl:text-2xl min-[1600px]:max-w-[26vw] min-[1600px]:text-3xl"
                             style={{ fontFamily: "GothamBold" }}
                         >
                             {t(keys.right.title.line1)} {t(keys.right.title.line2)}
@@ -228,7 +228,7 @@ const Section2C4 = () => {
                         </div>
                     </div>
 
-                    <div className="absolute left-[3vw] top-[48vh] max-w-[24vw] xl:left-[5vw] xl:top-[52vh] xl:max-w-[26vw] min-[1600px]:left-[6vw] min-[1600px]:top-[60vh]">
+                    <div className="absolute left-[2vw] top-[48vh] max-w-[26vw] xl:left-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:left-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
                         <p
                             className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl"
                             style={{ fontFamily: "GothamNormal" }}
@@ -237,7 +237,7 @@ const Section2C4 = () => {
                         </p>
                     </div>
 
-                    <div className="absolute right-[3vw] top-[48vh] max-w-[24vw] text-right xl:right-[5vw] xl:top-[52vh] xl:max-w-[26vw] min-[1600px]:right-[6vw] min-[1600px]:top-[60vh]">
+                    <div className="absolute right-[2vw] top-[48vh] max-w-[26vw] text-right xl:right-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:right-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
                         <p
                             className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl"
                             style={{ fontFamily: "GothamNormal" }}
