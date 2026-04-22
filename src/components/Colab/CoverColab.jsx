@@ -316,7 +316,7 @@ const CoverColab = () => {
 
                     {/* GC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <div
-                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group [@media(orientation:portrait)]:order-3"
                         onClick={() => setActiveVideo('gc')}
                         title="Reproducir video"
                     >
@@ -341,7 +341,7 @@ const CoverColab = () => {
 
                     {/* AC logo (verde) */}
                     <div
-                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#0B312C] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200 [@media(orientation:portrait)]:order-4"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#0B312C] overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-200 [@media(orientation:portrait)]:order-2"
                         onClick={handleGoToSectionAC}
                         role="button"
                         title={t('colab.cover.buttons.toAC')}
@@ -356,7 +356,7 @@ const CoverColab = () => {
 
                     {/* AC video — HLS adaptativo, lazy: carga al entrar al viewport */}
                     <div
-                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group [@media(orientation:portrait)]:order-3"
+                        className="relative [@media(orientation:landscape)]:flex-1 [@media(orientation:landscape)]:min-w-0 w-full h-full rounded-xl bg-[#FFFFFF] overflow-hidden cursor-pointer group [@media(orientation:portrait)]:order-4"
                         onClick={() => setActiveVideo('ac')}
                         title="Reproducir video"
                     >
