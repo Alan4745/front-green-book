@@ -123,7 +123,10 @@
         "cover": {
             "title": {
                 "top": "8 REGIONES DEL ",
-                "bottom": "CAFÉ DE GUATEMALA"
+                "bottom": "CAFÉ DE GUATEMALA",
+                "mobileLine1": "8 REGIONES",
+                "mobileLine2": "DEL CAFÉ DE",
+                "mobileLine3": "GUATEMALA"
             },
             "subtitle": {
                 "top": "CADA REGIÓN ES UNA EXPERIENCIA",

@@ -25,14 +25,17 @@ const CoverC2 = () => {
 
     const titleTop = t("c2.cover.title.top").trim();
     const titleBottom = t("c2.cover.title.bottom").trim();
+    const titleMobileLine1 = t("c2.cover.title.mobileLine1").trim();
+    const titleMobileLine2 = t("c2.cover.title.mobileLine2").trim();
+    const titleMobileLine3 = t("c2.cover.title.mobileLine3").trim();
     const subtitleTop = t("c2.cover.subtitle.top").trim();
     const subtitleBottom = t("c2.cover.subtitle.bottom").trim();
 
     const mobileTitleClassName = isCompactLandscape
         ? "relative z-30 pl-4 pr-[14vw] text-white text-[4.6vw] leading-[1.05] max-w-[70vw] uppercase"
-        : "relative z-30 pl-4 pr-[18vw] text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[58vw] uppercase";
+        : "relative z-30 pl-4 text-white text-[9vw] sm:text-[7vw] md:text-[5.5vw] leading-[1.1] max-w-[65vw] uppercase";
 
-    const mobileTitleLineClassName = isCompactLandscape ? "block whitespace-nowrap" : "block";
+    const mobileTitleLineClassName = isCompactLandscape ? "block whitespace-nowrap" : "block whitespace-nowrap";
     const mobileNumberClassName = isCompactLandscape
         ? "absolute right-[4vw] w-[44vw] h-auto z-20"
         : "absolute right-[5vw] w-[50vw] h-auto z-20";
@@ -67,8 +70,9 @@ const CoverC2 = () => {
                             className={mobileTitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            <span className={mobileTitleLineClassName}>{titleTop}</span>
-                            <span className={mobileTitleLineClassName}>{titleBottom}</span>
+                            <span className={mobileTitleLineClassName}>{titleMobileLine1}</span>
+                            <span className={mobileTitleLineClassName}>{titleMobileLine2}</span>
+                            <span className={mobileTitleLineClassName}>{titleMobileLine3}</span>
                         </h2>
                         {/* Número de capítulo mobile — eager (priority) */}
                         <SmartImage
