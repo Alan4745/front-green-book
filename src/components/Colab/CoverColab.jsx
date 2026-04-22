@@ -297,7 +297,7 @@ const CoverColab = () => {
                 </div>
 
                 {/* Tarjetas — portrait: 2x2 grid | landscape: fila flex */}
-                <div className="flex-1 min-h-0 w-full overflow-hidden gap-2 [@media(orientation:portrait)]:grid [@media(orientation:portrait)]:grid-cols-2 [@media(orientation:landscape)]:flex">
+                <div className="flex-1 min-h-0 w-full overflow-hidden gap-2 [@media(orientation:portrait)]:grid [@media(orientation:portrait)]:grid-cols-2 [@media(orientation:portrait)]:grid-rows-2 [@media(orientation:landscape)]:flex">
 
                     {/* GC logo */}
                     <div
