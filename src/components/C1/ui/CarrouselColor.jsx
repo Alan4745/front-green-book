@@ -15,7 +15,7 @@ const CarrouselColor = ({ slides = [] }) => {
             if (typeof window === 'undefined') return;
             const isLandscape = window.innerWidth > window.innerHeight;
             setIsShortLandscape(isLandscape && window.innerHeight <= 450);
-            setIsMobilePortrait(!isLandscape && window.innerWidth <= 460 && window.innerHeight >= 760);
+            setIsMobilePortrait(!isLandscape && window.innerWidth <= 460 && window.innerHeight >= 700);
             setIsCompactDesktopPortrait(
                 !isLandscape &&
                 window.innerWidth >= 1024
@@ -46,8 +46,8 @@ const CarrouselColor = ({ slides = [] }) => {
 
         if (isMobilePortrait) {
             return hasImage
-                ? 'h-[18vw] w-[18vw] max-h-[86px] max-w-[86px]'
-                : 'h-[22vw] w-[22vw] max-h-[104px] max-w-[104px]';
+                ? 'h-[28vw] w-[28vw] max-h-[132px] max-w-[132px]'
+                : 'h-[28vw] w-[28vw] max-h-[132px] max-w-[132px]';
         }
 
         if (isCompactDesktopPortrait) {
@@ -57,8 +57,8 @@ const CarrouselColor = ({ slides = [] }) => {
         }
 
         return hasImage
-            ? 'h-[14vw] w-[14vw] lg:h-[13vh] lg:w-[13vh] lg:max-h-[110px] lg:max-w-[110px]'
-            : 'h-[15vw] w-[15vw] lg:h-[14.5vh] lg:w-[14.5vh] lg:max-h-[120px] lg:max-w-[120px]';
+            ? 'h-[28vw] w-[28vw] max-h-[132px] max-w-[132px] lg:h-[13vh] lg:w-[13vh] lg:max-h-[110px] lg:max-w-[110px]'
+            : 'h-[28vw] w-[28vw] max-h-[132px] max-w-[132px] lg:h-[14.5vh] lg:w-[14.5vh] lg:max-h-[120px] lg:max-w-[120px]';
     };
 
     const getMainTextClass = (card) => {
@@ -83,8 +83,8 @@ const CarrouselColor = ({ slides = [] }) => {
         }
 
         return isLongValue
-            ? 'px-3 text-[1.35rem] lg:text-[1.7rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
-            : 'px-3 text-2xl lg:text-3xl portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
+            ? 'px-2 text-[1.55rem] lg:text-[1.7rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
+            : 'px-2 text-[1.9rem] lg:text-3xl portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
     };
 
     const getDescClass = (card) => {
@@ -120,10 +120,10 @@ const CarrouselColor = ({ slides = [] }) => {
                     <SmartImage
                         src={card.image}
                         alt=""
-                        className={`object-contain ${isCompactDesktopPortrait ? 'max-h-[54%] max-w-[54%]' : isIpadPortrait1032 ? 'max-h-[58%] max-w-[58%]' : 'max-h-[70%] max-w-[70%]'}`}
+                        className={`object-contain ${isCompactDesktopPortrait ? 'max-h-[54%] max-w-[54%]' : isIpadPortrait1032 ? 'max-h-[58%] max-w-[58%]' : 'max-h-[82%] max-w-[82%]'}`}
                         style={{
-                            width: isShortLandscape ? '8vh' : isMobilePortrait ? '10.5vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageWidth || '10vw'),
-                            height: isShortLandscape ? '8vh' : isMobilePortrait ? '10.5vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageHeight || '10vw')
+                            width: isShortLandscape ? '8vh' : isMobilePortrait ? '14vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageWidth || '10vw'),
+                            height: isShortLandscape ? '8vh' : isMobilePortrait ? '14vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageHeight || '10vw')
                         }}
                     />
                 ) : (

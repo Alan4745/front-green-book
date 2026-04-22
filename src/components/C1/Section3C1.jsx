@@ -35,8 +35,8 @@ const Section3C1 = () => {
             bgColor: "#EF7D00",
             circleColor: "#EF7D00",
             image: Porcent98,
-            imageWidth: "8vw",
-            imageHeight: "8vw",
+            imageWidth: "14vw",
+            imageHeight: "14vw",
             description: t("c1.section3.slides.3.desc")
         },
         {
