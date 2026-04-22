@@ -134,115 +134,104 @@ const Section2C6 = () => {
 
             {/* ===== DESKTOP LAYOUT (blindado) ===== */}
             <div className="hidden lg:flex [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden lg:w-full">
-            <div className="relative w-full text-white">
-                {/* Título izquierda */}
-                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] left-[10vh] min-[1600px]:left-[15vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:left-[4vw]">
-                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[2vw]" style={{ fontFamily: "GothamBold" }}>
-                        {t("c6.section2.left.title.top")} <br /> {t("c6.section2.left.title.bottom")}
-                    </h3>
-                    {/* Número grande 03 */}
-                    <div className="text-[30vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[10vw] font-bold opacity-30 mt-[-17vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mt-[-8vw]" style={{ fontFamily: "GothamBold" }}>
-                        03
+                <div className="relative w-full text-white" style={{ minHeight: "inherit" }}>
+                    <div className="absolute left-[2vw] top-[18vh] xl:left-[3vw] xl:top-[20vh] min-[1600px]:left-[4vw] min-[1600px]:top-[28vh]">
+                        <h3 className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[27vw] xl:text-2xl min-[1600px]:max-w-[26vw] min-[1600px]:text-3xl" style={{ fontFamily: "GothamBold" }}>
+                            {t("c6.section2.left.title.top")} <br /> {t("c6.section2.left.title.bottom")}
+                        </h3>
+                        <div className="mt-[-11vh] text-[20vh] font-bold opacity-30 xl:mt-[-15vh] xl:text-[28vh] min-[1600px]:mt-[-17vh] min-[1600px]:text-[30vh]" style={{ fontFamily: "GothamBold" }}>
+                            03
+                        </div>
                     </div>
-                </div>
 
-                {/* Título derecha */}
-                <div className="absolute top-[20vh] min-[1600px]:top-[30vh] right-[10vh] min-[1600px]:right-[15vh] text-right [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:right-[4vw]">
-                    <h3 className="text-2xl min-[1600px]:text-3xl font-bold uppercase [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[2vw]" style={{ fontFamily: "GothamBold" }}>
-                        {t("c6.section2.right.title.top")} <br /> {t("c6.section2.right.title.bottom")}
-                    </h3>
-                    {/* Número grande 04 */}
-                    <div className="text-[30vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[10vw] font-bold opacity-30 mt-[-17vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:mt-[-8vw]" style={{ fontFamily: "GothamBold" }}>
-                        04
+                    <div className="absolute right-[2vw] top-[18vh] text-right xl:right-[3vw] xl:top-[20vh] min-[1600px]:right-[4vw] min-[1600px]:top-[28vh]">
+                        <h3 className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[27vw] xl:text-2xl min-[1600px]:max-w-[26vw] min-[1600px]:text-3xl" style={{ fontFamily: "GothamBold" }}>
+                            {t("c6.section2.right.title.top")} <br /> {t("c6.section2.right.title.bottom")}
+                        </h3>
+                        <div className="mt-[-11vh] text-[20vh] font-bold opacity-30 xl:mt-[-15vh] xl:text-[28vh] min-[1600px]:mt-[-17vh] min-[1600px]:text-[30vh]" style={{ fontFamily: "GothamBold" }}>
+                            04
+                        </div>
                     </div>
-                </div>
 
-                {/* Texto descriptivo izquierda */}
-                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] left-[10vh] min-[1600px]:left-[15vh] max-w-[40vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:top-[40vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:left-[4vw] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:max-w-[28vw]">
-                    <p className="text-base min-[1600px]:text-xl leading-relaxed [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[1.4vw]" style={{ fontFamily: "GothamNormal" }}>
-                        {t("c6.section2.left.desc.line1")} <br />
-                        {t("c6.section2.left.desc.line2")} <br />
-                        {t("c6.section2.left.desc.line3")}
-                    </p>
-                </div>
+                    <div className="absolute left-[2vw] top-[48vh] max-w-[26vw] xl:left-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:left-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
+                        <p className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl" style={{ fontFamily: "GothamNormal" }}>
+                            {t("c6.section2.left.desc.line1")} <br />
+                            {t("c6.section2.left.desc.line2")} <br />
+                            {t("c6.section2.left.desc.line3")}
+                        </p>
+                    </div>
 
-                {/* Texto descriptivo derecha */}
-                <div className="absolute top-[50vh] min-[1600px]:top-[60vh] right-[10vh] min-[1600px]:right-[15vh] text-right max-w-[50vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:top-[40vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:right-[4vw] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:max-w-[28vw]">
-                    <p className="text-base min-[1600px]:text-xl leading-relaxed [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:text-[1.4vw]" style={{ fontFamily: "GothamNormal" }}>
-                        {t("c6.section2.right.desc.line1")} <br />
-                        {t("c6.section2.right.desc.line2")} <br />
-                        {t("c6.section2.right.desc.line3")}
-                    </p>
-                </div>
+                    <div className="absolute right-[2vw] top-[48vh] max-w-[26vw] text-right xl:right-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:right-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
+                        <p className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl" style={{ fontFamily: "GothamNormal" }}>
+                            {t("c6.section2.right.desc.line1")} <br />
+                            {t("c6.section2.right.desc.line2")} <br />
+                            {t("c6.section2.right.desc.line3")}
+                        </p>
+                    </div>
 
-                {/* Imágenes del centro - rectangulares tocando arriba y abajo */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col h-full">
-                    {/* Primera imagen */}
-                    <MotionDiv
-                        className="relative w-[60vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[22vw] h-[50vh] cursor-pointer origin-center group hover:z-30"
-                        style={{ willChange: 'transform' }}
-                        whileHover={{ scale: 1.08 }}
-                        whileTap={{ scale: 1.02 }}
-                    >
-                        <div className="absolute inset-0 overflow-hidden rounded-none"  onClick={() => handleImageClick(Img1)}>
-                            {/* Imagen desktop 1 — lazy */}
-                            <SmartImage
-                                src={Img1}
-                                alt={t("c6.section2.images.img1Alt")}
-                                title={t("c6.section2.images.img1Alt")}
-                                className="w-full h-full object-cover select-none pointer-events-none"
-                                draggable={false}
-                            />
-                        </div>
-                        {/* ZoomButton en la esquina inferior derecha */}
-                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <div
-                                onClick={() => handleImageClick(Img1)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleImageClick(Img1)}
-                                title={t("c6.section2.buttons.zoom")}
-                                aria-label={t("c6.section2.buttons.zoom")}
-                            >
-                                <ZoomButton />
+                    <div className="absolute inset-0 flex -translate-x-1/2 transform flex-col" style={{ left: "50%", width: "36vw" }}>
+                        <MotionDiv
+                            className="group relative flex-1 w-full cursor-pointer origin-center hover:z-30"
+                            style={{ willChange: 'transform' }}
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 1.02 }}
+                            onClick={() => handleImageClick(Img1)}
+                        >
+                            <div className="absolute inset-0 overflow-hidden rounded-none">
+                                <SmartImage
+                                    src={Img1}
+                                    alt={t("c6.section2.images.img1Alt")}
+                                    title={t("c6.section2.images.img1Alt")}
+                                    className="w-full h-full object-cover select-none pointer-events-none"
+                                    draggable={false}
+                                />
                             </div>
-                        </div>
-                    </MotionDiv>
-
-                    {/* Segunda imagen */}
-                    <MotionDiv
-                        className="relative w-[60vh] [@media(min-width:1024px)_and_(max-width:1399px)_and_(orientation:landscape)]:w-[22vw] h-[50vh] mt-auto cursor-pointer origin-center group hover:z-30"
-                        style={{ willChange: 'transform' }}
-                        whileHover={{ scale: 1.08 }}
-                        whileTap={{ scale: 1.02 }}
-                    >
-                        <div className="absolute inset-0 overflow-hidden rounded-none" onClick={() => handleImageClick(Img2)}>
-                            {/* Imagen desktop 2 — lazy */}
-                            <SmartImage
-                                src={Img2}
-                                alt={t("c6.section2.images.img2Alt")}
-                                title={t("c6.section2.images.img2Alt")}
-                                className="w-full h-full object-cover select-none pointer-events-none"
-                                draggable={false}
-                            />
-                        </div>
-                        {/* ZoomButton en la esquina inferior derecha */}
-                        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <div
-                                onClick={() => handleImageClick(Img2)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleImageClick(Img2)}
-                                title={t("c6.section2.buttons.zoom")}
-                                aria-label={t("c6.section2.buttons.zoom")}
-                            >
-                                <ZoomButton />
+                            <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                <div
+                                    onClick={() => handleImageClick(Img1)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleImageClick(Img1)}
+                                    title={t("c6.section2.buttons.zoom")}
+                                    aria-label={t("c6.section2.buttons.zoom")}
+                                >
+                                    <ZoomButton />
+                                </div>
                             </div>
-                        </div>
-                    </MotionDiv>
+                        </MotionDiv>
+
+                        <MotionDiv
+                            className="group relative flex-1 w-full cursor-pointer origin-center hover:z-30"
+                            style={{ willChange: 'transform' }}
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 1.02 }}
+                            onClick={() => handleImageClick(Img2)}
+                        >
+                            <div className="absolute inset-0 overflow-hidden rounded-none">
+                                <SmartImage
+                                    src={Img2}
+                                    alt={t("c6.section2.images.img2Alt")}
+                                    title={t("c6.section2.images.img2Alt")}
+                                    className="w-full h-full object-cover select-none pointer-events-none"
+                                    draggable={false}
+                                />
+                            </div>
+                            <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                <div
+                                    onClick={() => handleImageClick(Img2)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleImageClick(Img2)}
+                                    title={t("c6.section2.buttons.zoom")}
+                                    aria-label={t("c6.section2.buttons.zoom")}
+                                >
+                                    <ZoomButton />
+                                </div>
+                            </div>
+                        </MotionDiv>
+                    </div>
                 </div>
             </div>
-            </div>{/* cierre desktop wrapper */}
 
             {/* Modal para imagen ampliada */}
             {selectedImage && (
