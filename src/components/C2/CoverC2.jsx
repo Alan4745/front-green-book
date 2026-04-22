@@ -88,8 +88,8 @@ const CoverC2 = () => {
                             className={mobileSubtitleClassName}
                             style={{ fontFamily: "GothamBold" }}
                         >
-                            <span className={mobileTitleLineClassName}>{subtitleTop}</span>
-                            <span className={mobileTitleLineClassName}>{subtitleBottom}</span>
+                            <span className="block">{subtitleTop}</span>
+                            <span className="block">{subtitleBottom}</span>
                         </h3>
                         <div className="w-[15vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
                     </div>
