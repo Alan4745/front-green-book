@@ -248,7 +248,7 @@ const Section2C4 = () => {
 
                     <div className="absolute inset-0 flex -translate-x-1/2 transform flex-col" style={{ left: "50%", width: "36vw" }}>
                         <MotionDiv
-                            className="group relative h-[44vh] w-full cursor-pointer origin-center hover:z-30 xl:h-[50vh]"
+                            className="group relative flex-1 w-full cursor-pointer origin-center hover:z-30"
                             style={{ willChange: "transform" }}
                             whileHover={{ scale: 1.08, y: hoveredImage === "top" ? 24 : 0 }}
                             whileTap={{ scale: 1.02 }}
@@ -280,7 +280,7 @@ const Section2C4 = () => {
                         </MotionDiv>
 
                         <MotionDiv
-                            className="group relative mt-auto h-[44vh] w-full cursor-pointer origin-center hover:z-30 xl:h-[50vh]"
+                            className="group relative flex-1 w-full cursor-pointer origin-center hover:z-30"
                             style={{ willChange: "transform" }}
                             whileHover={{ scale: 1.08, y: hoveredImage === "bottom" ? -24 : 0 }}
                             whileTap={{ scale: 1.02 }}
