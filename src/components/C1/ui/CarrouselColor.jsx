@@ -120,10 +120,10 @@ const CarrouselColor = ({ slides = [] }) => {
                     <SmartImage
                         src={card.image}
                         alt=""
-                        className={`object-contain ${isCompactDesktopPortrait ? 'max-h-[54%] max-w-[54%]' : isIpadPortrait1032 ? 'max-h-[58%] max-w-[58%]' : 'max-h-[82%] max-w-[82%]'}`}
+                        className={`object-contain ${isCompactDesktopPortrait ? 'max-h-[54%] max-w-[54%]' : isIpadPortrait1032 ? 'max-h-[58%] max-w-[58%]' : 'max-h-[110%] max-w-[110%]'}`}
                         style={{
-                            width: isShortLandscape ? '8vh' : isMobilePortrait ? '14vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageWidth || '10vw'),
-                            height: isShortLandscape ? '8vh' : isMobilePortrait ? '14vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageHeight || '10vw')
+                            width: isShortLandscape ? '8vh' : isMobilePortrait ? '24vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageWidth || '10vw'),
+                            height: isShortLandscape ? '8vh' : isMobilePortrait ? '24vw' : isCompactDesktopPortrait ? '3.5vw' : (card.imageHeight || '10vw')
                         }}
                     />
                 ) : (
