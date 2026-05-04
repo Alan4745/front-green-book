@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
+const BASE_PATH = "/";
 import { TransitionProvider } from './components/Global/PageTransition';
 import PageSkeleton from './components/Global/PageSkeleton';
 
@@ -39,7 +41,7 @@ const CoverColab  = lazy(() => import('./components/Colab/CoverColab'));
 
 function App() {
   return (
-    <Router>
+    <Router basename={BASE_PATH}>
       <TransitionProvider>
         <ScrollToTop />
         <Suspense fallback={<PageSkeleton />}>
