@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { changeLanguageSafe } from "../../i18n";
 
 const LANGS = [
     { code: "en", label: "English", region: "United States" },
@@ -31,12 +32,7 @@ const LanguageSelector = ({
     const others = LANGS.filter((l) => l.code !== current);
 
     const handleSelect = (lang) => {
-        i18n.changeLanguage(lang.code);
-        try {
-            localStorage.setItem("lang", lang.code);
-        } catch {
-            // localStorage can fail in restricted browser contexts.
-        }
+        changeLanguageSafe(lang.code);
         setOpen(false);
     };
 

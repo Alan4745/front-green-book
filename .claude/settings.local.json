@@ -8,7 +8,17 @@
       "Bash(npm run:*)",
       "WebSearch",
       "WebFetch(domain:screensiz.es)",
-      "WebFetch(domain:yesviz.com)"
+      "WebFetch(domain:yesviz.com)",
+      "Bash(node -e \"const j=require\\('./src/locales/es/common.json'\\); console.log\\('menu.items.c2:', j.menu?.items?.c2\\); console.log\\('c2.cover.title.top:', j.c2?.cover?.title?.top\\); console.log\\('c6.section1.left.desc.line2:', j.c6?.section1?.left?.desc?.line2\\); console.log\\('colab.sac.section2.top.brand:', j.colab?.sac?.section2?.top?.brand\\);\")",
+      "Bash(node -e \"const j=require\\('./src/locales/es/common.json'\\); const keys=['menu','c2','c6','colab']; keys.forEach\\(k=>{ if\\(j[k]\\) console.log\\(k+':',JSON.stringify\\(j[k]\\).slice\\(0,200\\)\\); }\\);\")",
+      "Bash(node -e \"const j=require\\('./src/locales/es/common.json'\\); console.log\\(j.c6?.section1?.left?.desc\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const content=fs.readFileSync\\('./src/locales/es/common.json','utf8'\\); const idx=content.indexOf\\('gracias la conservación'\\); console.log\\('idx:', idx\\); if\\(idx>-1\\) console.log\\('context:', content.slice\\(idx-50,idx+80\\)\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const content=fs.readFileSync\\('./src/locales/es/common.json','utf8'\\); let lineNum=1; const lines=content.split\\('\\\\n'\\); lines.forEach\\(\\(l,i\\)=>{ if\\(l.includes\\('gracias la conservación'\\)\\) console.log\\('line '+\\(i+1\\)+':', l\\); }\\);\")",
+      "Bash(node -e \"const j=require\\('./src/locales/es/common.json'\\); console.log\\('menu.items.c2:', j.menu?.items?.c2\\); console.log\\('c2.cover.title.top:', JSON.stringify\\(j.c2?.cover?.title?.top\\)\\); console.log\\('c6.section1.left.desc.line2:', j.c6?.section1?.left?.desc?.line2\\); console.log\\('colab.sac.section2.top.brand:', j.colab?.sac?.section2?.top?.brand\\);\")",
+      "Bash(node -e \"const content=require\\('fs'\\).readFileSync\\('./src/i18n/index.js','utf8'\\); console.log\\(content\\);\")",
+      "Bash(node -e \"const content=require\\('fs'\\).readFileSync\\('./src/components/Global/LanguageSelector.jsx','utf8'\\); console.log\\(content.slice\\(0,500\\)\\);\")",
+      "Bash(node -e \"const content=require\\('fs'\\).readFileSync\\('./src/components/Global/LanguageSelector.jsx','utf8'\\); const idx=content.indexOf\\('handleSelect'\\); console.log\\(content.slice\\(idx, idx+150\\)\\);\")",
+      "Bash(node -e \"try { JSON.parse\\(require\\('fs'\\).readFileSync\\('./src/locales/es/common.json','utf8'\\)\\); console.log\\('JSON válido'\\); } catch\\(e\\) { console.error\\('JSON inválido:', e.message\\); }\")"
     ]
   }
 }

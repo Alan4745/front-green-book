@@ -27,12 +27,17 @@ i18n.use(initReactI18next).init({
   returnEmptyString: false,
 });
 
-i18n.on("languageChanged", async (lng) => {
-  if (SUPPORTED.includes(lng) && !i18n.hasResourceBundle(lng, "translation")) {
+i18n.on("languageChanged", (lng) => {
+  localStorage.setItem("lang", lng);
+});
+
+export const changeLanguageSafe = async (lng) => {
+  if (!SUPPORTED.includes(lng)) return;
+  if (!i18n.hasResourceBundle(lng, "translation")) {
     const translation = await loadTranslation(lng);
     i18n.addResourceBundle(lng, "translation", translation);
   }
-  localStorage.setItem("lang", lng);
-});
+  return i18n.changeLanguage(lng);
+};
 
 export default i18n;
