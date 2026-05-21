@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import CardColor from './CardColor';
 import SmartImage from '../../Global/SmartImage';
+import ProgressRing from './ProgressRing';
 
 const CarrouselColor = ({ slides = [] }) => {
     const flatSlides = slides.flat();
@@ -83,8 +85,8 @@ const CarrouselColor = ({ slides = [] }) => {
         }
 
         return isLongValue
-            ? 'px-2 text-[1.55rem] lg:text-[1.7rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
-            : 'px-2 text-[1.9rem] lg:text-3xl portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
+            ? 'px-2 lg:px-1 text-[1.55rem] lg:text-[1.9rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
+            : 'px-2 text-[1.9rem] lg:text-[2.2rem] portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
     };
 
     const getDescClass = (card) => {
@@ -105,17 +107,30 @@ const CarrouselColor = ({ slides = [] }) => {
                 : 'text-[0.8rem] tracking-normal leading-[1.1]';
         }
         return isDense
-            ? 'text-sm tracking-normal leading-[1.15]'
-            : 'text-md tracking-wide leading-tight';
+            ? 'text-[1.2rem] tracking-normal leading-[1.15]'
+            : 'text-[1.2rem] tracking-wide leading-tight';
     };
 
-    const cardContent = (card) => (
+    const cardContent = (card, replayKey = 0, delayIndex = 0) => (
         <div className={`flex flex-col items-center h-full ${isShortLandscape ? 'py-2' : isMobilePortrait ? 'py-4.5' : isCompactDesktopPortrait ? 'py-1' : 'py-4'}`}>
-            <div
+            <motion.div
+                key={replayKey}
                 className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full ${getCircleSizeClass(card)}`}
-                style={{ backgroundColor: card.circleColor }}
+                style={{ backgroundColor: card.circleColor, willChange: 'transform' }}
+                initial={{ scale: 0.4, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 18, delay: delayIndex * 0.08 }}
             >
-                {card.image ? (
+                {card.progress != null ? (
+                    /* Anillo de progreso que se "carga" (ej. 98%) */
+                    <ProgressRing
+                        percent={card.progress}
+                        label={card.mainText}
+                        labelClassName={getMainTextClass(card)}
+                        replayKey={replayKey}
+                    />
+                ) : card.image ? (
                     /* Imagen ícono tarjeta — lazy */
                     <SmartImage
                         src={card.image}
@@ -134,7 +149,7 @@ const CarrouselColor = ({ slides = [] }) => {
                         {card.mainText}
                     </h2>
                 )}
-            </div>
+            </motion.div>
             <div className={`flex-grow flex items-center justify-center ${isShortLandscape ? 'mt-2 px-3' : isMobilePortrait ? 'mt-3 px-4' : isCompactDesktopPortrait ? 'mt-0.5 px-3' : 'mt-3'}`}>
                 <p className={`text-center uppercase ${getDescClass(card)}`}>
                     {card.description.split('\n').map((line, i) => (
@@ -180,7 +195,7 @@ const CarrouselColor = ({ slides = [] }) => {
                             height={isShortLandscape ? 'h-[50vh]' : isMobilePortrait ? 'h-[39vh]' : 'h-[36vh]'}
                             className={isShortLandscape ? 'rounded-[1.25rem] px-5 py-2.5' : isMobilePortrait ? 'rounded-[1.5rem] px-5 py-4' : ''}
                         >
-                            {cardContent(flatSlides[activeIndex])}
+                            {cardContent(flatSlides[activeIndex], activeIndex, 0)}
                         </CardColor>
                     </div>
 
@@ -216,17 +231,23 @@ const CarrouselColor = ({ slides = [] }) => {
             <div className="hidden lg:block w-full px-6">
                 <div className={`grid mx-auto ${isCompactDesktopPortrait ? 'grid-cols-2 max-w-[68vw] gap-x-4 gap-y-4' : 'grid-cols-3 max-w-[65vw] gap-x-5 gap-y-5 portrait:lg:grid-cols-2 portrait:lg:max-w-[68vw] portrait:lg:gap-x-4 portrait:lg:gap-y-4'}`}>
                     {flatSlides.map((card, index) => (
-                        <div key={index}>
+                        <motion.div
+                            key={index}
+                            whileHover={{ scale: 1.04, y: -8 }}
+                            transition={{ type: 'tween', ease: 'easeOut', duration: 0.25 }}
+                            style={{ willChange: 'transform' }}
+                            className="cursor-pointer"
+                        >
                             <CardColor
                                 bgColor={card.bgColor}
                                 circleColor={card.circleColor}
                                 width="w-full"
-                                height={isCompactDesktopPortrait ? 'h-[34vw]' : 'h-[28vw]'}
-                                className={isCompactDesktopPortrait ? 'p-4' : 'p-5'}
+                                height={isCompactDesktopPortrait ? 'h-[26vw]' : 'h-[20vw]'}
+                                className={`${isCompactDesktopPortrait ? 'p-4' : 'p-5'} transition-shadow duration-300 hover:shadow-2xl`}
                             >
-                                {cardContent(card)}
+                                {cardContent(card, index, index)}
                             </CardColor>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
