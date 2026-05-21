@@ -4,7 +4,6 @@ import LanguageSelector from "../Global/LanguageSelector";
 
 import FS3 from "../../assets/C1/FS3.webp";
 import MapaS3 from "../../assets/C1/MapaS3.svg";
-import Porcent98 from "../../assets/C1/Porcent98.svg";
 
 const Section3C1 = () => {
     const { t } = useTranslation();
@@ -34,9 +33,8 @@ const Section3C1 = () => {
         {
             bgColor: "#EF7D00",
             circleColor: "#EF7D00",
-            image: Porcent98,
-            imageWidth: "14vw",
-            imageHeight: "14vw",
+            progress: 98,
+            mainText: "98%",
             description: t("c1.section3.slides.3.desc")
         },
         {
