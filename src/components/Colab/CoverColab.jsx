@@ -154,19 +154,17 @@ const CoverColab = () => {
 
 
             {showIndicator && (
-                <div className="hidden lg:block [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden fixed bottom-0 left-[48%] z-50 pointer-events">
-                    <div className="animate-bounce">
-                        <div style={{ width: "5rem" }}>
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-
-                        <div className="fixed bottom-8" style={{ width: "5rem" }}>
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
+                <div className="hidden lg:flex [@media(min-width:1024px)_and_(orientation:portrait)]:!hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex-col items-center gap-0 pointer-events-none">
+                    <p className="text-white/60 text-xs tracking-widest uppercase mb-1 select-none" style={{ fontFamily: 'GothamBold' }}>
+                        {t('colab.cover.bajar')}
+                    </p>
+                    <div className="animate-bounce flex flex-col items-center">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="-mt-4">
+                            <path d="M6 9L12 15L18 9" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                     </div>
                 </div>
             )}

@@ -30,7 +30,11 @@ const LanguageSelector = ({
 
     const others = LANGS.filter((l) => l.code !== current);
 
-    const handleSelect = (lang) => {
+    const handleSelect = async (lang) => {
+        if (!i18n.hasResourceBundle(lang.code, 'translation')) {
+            const m = await import(`../../locales/${lang.code}/common.json`);
+            i18n.addResourceBundle(lang.code, 'translation', m.default);
+        }
         i18n.changeLanguage(lang.code);
         try {
             localStorage.setItem("lang", lang.code);

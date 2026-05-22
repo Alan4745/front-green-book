@@ -67,7 +67,7 @@ export default function CircleFeature({
                 className="absolute z-0 font-extrabold select-none pointer-events-none"
                 style={{
                     color: colorNumero,
-                    opacity: 0.5,
+                    opacity: 0.15,
                     fontFamily: "GothamBold",
                     fontSize: numeroTamano ?? Math.round(dynamicSize * 0.4),
                     transform,
@@ -85,34 +85,8 @@ export default function CircleFeature({
                     className="absolute inset-0 "
                     aria-hidden="true"
                 >
-                    {/* Aro claro */}
+                    {/* Aro completo de un solo color */}
                     <circle cx={cx} cy={cy} r={r} fill="none" stroke={colorAro} strokeWidth={thickness} />
-
-                    {/* Grupo 1: Fija la posición inicial del arco */}
-                    <g style={{ transformBox: "fill-box", transformOrigin: "50% 50%", transform: `rotate(${baseRotate}deg)` }}>
-                        {/* Grupo 2: Rota infinitamente sincronizado para todos */}
-                        <g
-                            style={{
-                                transformBox: "fill-box",
-                                transformOrigin: "50% 50%",
-                                transform: `rotate(${phaseShiftDeg}deg)`,
-                                animation: `cf_spin ${speedSec}s linear infinite`,
-                                willChange: "transform",
-                            }}
-                        >
-                            <circle
-                                cx={cx}
-                                cy={cy}
-                                r={r}
-                                fill="none"
-                                stroke={colorMovimiento}
-                                strokeWidth={thickness}
-                                strokeLinecap="round"
-                                strokeDasharray={`${seg} ${C - seg}`}
-                                strokeDashoffset={0}
-                            />
-                        </g>
-                    </g>
                 </svg>
 
                 {/* Texto dentro del círculo */}
@@ -131,10 +105,6 @@ export default function CircleFeature({
                 </div>
             </div>
 
-            {/* Keyframes para la animación */}
-            <style>{`
-                @keyframes cf_spin { to { transform: rotate(360deg); } }
-            `}</style>
         </div>
     );
 }
