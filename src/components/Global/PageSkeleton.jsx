@@ -1,5 +1,6 @@
 // src/components/Global/HyperSkeletonGate.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import SmartImage from "./SmartImage";
 
 /* =========================
@@ -52,6 +53,7 @@ export function SkeletonBlock({
  * Layout de carga: logo palpitante con salida cinematográfica
  * ========================= */
 function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
+    const { t } = useTranslation();
     // Si el fondo es blanco el logo (blanco) sería invisible → usar oscuro de respaldo
     const isWhite =
         tintHex === "#fff" ||
@@ -90,22 +92,43 @@ function LogoPulseLoader({ tintHex = "#DA2F7D", exiting = false }) {
                     0% { transform: scale(0.5); opacity: 0; }
                     100% { transform: scale(1); opacity: 0.6; }
                 }
+                @keyframes dot { 0%, 80%, 100% { opacity: 0.2; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-5px); } }
             `}</style>
-            {/* Logo skeleton de carga — lazy */}
-            <SmartImage
-                src="/Logos/Logo.svg"
-                alt="Guatemalan Coffees"
-                style={{
-                    width: "180px",
-                    maxWidth: "45vw",
-                    height: "auto",
-                    animation: exiting
-                        ? "logoExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
-                        : entered
-                            ? "logoEnter 0.6s ease-out forwards, logoPulse 1.6s ease-in-out 0.6s infinite"
-                            : "none",
-                }}
-            />
+            <div className="flex flex-col items-center gap-5">
+                {/* Logo skeleton de carga — lazy */}
+                <SmartImage
+                    src="/Logos/Logo.svg"
+                    alt="Guatemalan Coffees"
+                    style={{
+                        width: "180px",
+                        maxWidth: "45vw",
+                        height: "auto",
+                        animation: exiting
+                            ? "logoExit 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards"
+                            : entered
+                                ? "logoEnter 0.6s ease-out forwards, logoPulse 1.6s ease-in-out 0.6s infinite"
+                                : "none",
+                    }}
+                />
+                {/* Texto + puntos */}
+                {!exiting && (
+                    <div style={{ opacity: entered ? 1 : 0, transition: "opacity 0.5s ease", textAlign: "center" }}>
+                        <p style={{ color: "rgba(255,255,255,0.75)", fontFamily: "GothamBold", fontSize: "0.75rem", letterSpacing: "0.2em", marginBottom: "8px" }}>
+                            {t('app.loading')}
+                        </p>
+                        <div style={{ display: "flex", gap: "6px", justifyContent: "center" }}>
+                            {[0, 1, 2].map((i) => (
+                                <span key={i} style={{
+                                    width: "6px", height: "6px", borderRadius: "50%",
+                                    backgroundColor: "rgba(255,255,255,0.75)",
+                                    display: "inline-block",
+                                    animation: `dot 1.4s ease-in-out ${i * 0.2}s infinite`,
+                                }} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

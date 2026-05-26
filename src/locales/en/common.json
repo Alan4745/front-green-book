@@ -1,6 +1,7 @@
 {
     "app": {
-        "title": "GreenBook"
+        "title": "GreenBook",
+        "loading": "LOADING"
     },
     "carrousel": {
         "prev": "Previous",
