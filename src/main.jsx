@@ -12,6 +12,17 @@ import './i18n';
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+
+// Cuando el SW toma control (nueva versión desplegada), recargar para
+// que el usuario siempre reciba el código más reciente.
+if ('serviceWorker' in navigator) {
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloading) return;
+    reloading = true;
+    window.location.reload();
+  });
+}
 import i18n from 'i18next';
 
 function HtmlLangUpdater() {
