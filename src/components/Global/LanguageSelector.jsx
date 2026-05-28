@@ -5,7 +5,8 @@ import { changeLanguageSafe } from "../../i18n";
 
 const LANGS = [
     { code: "en", label: "English", region: "United States" },
-    { code: "es", label: "Español", region: "Guatemala" }
+    { code: "es", label: "Español", region: "Guatemala" },
+    { code: "ko", label: "한국어", region: "Korea" }
 ];
 
 const LanguageSelector = ({

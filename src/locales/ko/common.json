@@ -1,0 +1,848 @@
+{
+    "app": {
+        "title": "GreenBook",
+        "loading": "로딩 중"
+    },
+    "carrousel": {
+        "prev": "",
+        "next": "",
+        "cards": [
+            { "text": "과테말라 커피", "bgImage": "/Img/Start/Caps/bg1.webp", "chapter": "c1" },
+            { "text": "과테말라의 8대 커피 산지", "bgImage": "/Img/Start/Caps/bg2.webp", "chapter": "c2" },
+            { "text": "혼농임업 시스템", "bgImage": "/Img/Start/Caps/bg3.webp", "chapter": "c3" },
+            { "text": "생태계 서비스", "bgImage": "/Img/Start/Caps/bg4.webp", "chapter": "c4" },
+            { "text": "탐험을 기다리는 다채로운 환경", "bgImage": "/Img/Start/Caps/bg5.webp", "chapter": "c5" },
+            { "text": "커피의 미래를 바꾸는 지속가능성", "bgImage": "/Img/Start/Caps/bg6.webp", "chapter": "c6" }
+        ]
+    },
+    "menu": {
+        "open": "",
+        "close": "",
+        "items": {
+            "home": "홈",
+            "c1": "과테말라 커피",
+            "c2": "과테말라의 8대 커피 산지",
+            "c3": "혼농임업 시스템",
+            "c4": "생태계 서비스",
+            "c5": "생물다양성의 보금자리",
+            "c6": "지속가능성을 향한 약속",
+            "colab": "아나카페 - GUATEMALAN COFFEES"
+        }
+    },
+    "c1": {
+        "cover": {
+            "title": {
+                "top": "과테말라",
+                "bottom": "커피"
+            },
+            "desc": "과테말라 전역에서 재배되는 커피는 어디에서도 찾아볼 수 없는 독특한 지리적 환경에서 자라납니다.",
+            "subtitle": "과테말라 커피를 특별하게 만드는 요소들",
+            "cta": "",
+            "chapterAlt": ""
+        },
+        "section1": {
+            "left": {
+                "title": "고도",
+                "descLine1": "해발 1,200~2,000m의 산악 지대에서",
+                "descLine2": "재배됩니다.",
+                "ctaAria": ""
+            },
+            "right": {
+                "title": {
+                    "top": "300개 이상의",
+                    "bottom": "미기후"
+                },
+                "descLine1": "활화산, 바다, 호수 그리고",
+                "descLine2": "풍부한 자연환경이 각 커피",
+                "descLine3": "산지마다 고유한 특성을 만들어냅니다."
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            },
+            "modal": {
+                "alt": ""
+            }
+        },
+        "section2": {
+            "left": {
+                "title": "강수량",
+                "descLine1": "좋은 수확을 위한 이상적인 연평균 강수량은 1,500~1,700mm이며,",
+                "descLine2": "생육 주기 전반에 걸쳐 고르게 분포됩니다.",
+                "descLine3": "최적의 강수량은 균일한 개화와 최적의 커피 체리 성장을 도와줍니다."
+            },
+            "right": {
+                "title": {
+                    "top": "수작업",
+                    "bottom": "수확"
+                },
+                "descLine1": "최고의 커피 체리는",
+                "descLine2": "사람의 손으로 직접 선별됩니다."
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            },
+            "modal": {
+                "alt": ""
+            }
+        },
+        "section3": {
+            "title": "숫자로 보는 과테말라 커피",
+            "slides": [
+                { "main": "376,019", "desc": "재배 면적\n헥타르" },
+                { "main": "", "desc": "과테말라 21개 주에서\n커피 생산" },
+                { "main": "261", "desc": "전국 340개 지방자치구 중\n커피 생산" },
+                { "main": "", "desc": "98%가 그늘 재배\n방식으로 생산" },
+                { "main": "+125K", "desc": "커피\n농가" },
+                { "main": "+500K", "desc": "연간\n일자리 창출" }
+            ]
+        },
+        "section4": {
+            "iconAlt": "",
+            "pink": {
+                "title": {
+                    "top": "",
+                    "bottom": ""
+                }
+            },
+            "playBox": {
+                "title": {
+                    "top": "",
+                    "bottom": ""
+                },
+                "playAlt": ""
+            },
+            "steps": [
+                { "title": "", "subtitle": "1,370 m o más" },
+                { "title": "", "subtitle": "1,066 – 1,370 m" },
+                { "title": "", "subtitle": "762 – 1,066 m" }
+            ]
+        }
+    },
+    "c2": {
+        "cover": {
+            "title": {
+                "top": "과테말라의",
+                "bottom": "8대 커피 산지",
+                "mobileLine1": "과테말라의",
+                "mobileLine2": "8대 커피",
+                "mobileLine3": "산지"
+            },
+            "subtitle": {
+                "top": "각 산지는 저마다 특별한",
+                "bottom": "경험을 선사합니다."
+            },
+            "chapterAlt": ""
+        },
+        "section1": {
+            "mapAlt": "",
+            "modalAlt": "",
+            "cta": "과테말라 커피의\n다채로운 세계를 만나보세요.",
+            "regions": {
+                "coban": { "alt": "" },
+                "huehue": { "alt": "" },
+                "sanmarcos": { "alt": "" },
+                "atitlan": { "alt": "" },
+                "acatenango": { "alt": "" },
+                "antigua": { "alt": "" },
+                "fraijanes": { "alt": "" },
+                "oriente": { "alt": "" }
+            },
+            "acatenango": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "푸에고 화산과 아카테낭고 화산의 에너지, 태평양에서 불어오는 바람,",
+                    "line2": "그리고 미네랄이 풍부한 토양"
+                },
+                "features": {
+                    "f1": "선명한 산미",
+                    "f2": "향긋한 아로마",
+                    "f3": "균형 잡힌 바디감",
+                    "f4": "클린하고 오래 지속되는 후미"
+                }
+            },
+            "antigua": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "한 잔의 커피마다 화산 토양의 풍요로움과",
+                    "line2": "감각적 특성을 극대화하는 서늘한 기후가 담겨 있습니다.",
+                    "line3": "",
+                    "line4": ""
+                },
+                "features": {
+                    "f1": "우아함",
+                    "f2": "균형감",
+                    "f3": "풍부한 아로마",
+                    "f4": "단 맛"
+                }
+            },
+            "atitlan": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "상징적인 아티틀란 호수 주변과",
+                    "line2": "강한 소코밀 바람의 영향을 받는 지역입니다."
+                },
+                "features": {
+                    "f1": "풍부한 아로마",
+                    "f2": "강렬한 시트러스 산미",
+                    "f3": "좋은 바디감"
+                }
+            },
+            "coban": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "연중 이어지는 이슬비와 안개,",
+                    "line2": "서늘한 기후가 특징입니다."
+                },
+                "features": {
+                    "f1": "풍부한 과일 향",
+                    "f2": "기분 좋은 아로마",
+                    "f3": "섬세하고 균형 잡힌 바디감"
+                }
+            },
+            "fraijanes": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "고도, 습도 그리고",
+                    "line2": "파카야 활화산의 힘이 어우러진 지역입니다."
+                },
+                "features": {
+                    "f1": "선명하고 지속적인 산미",
+                    "f2": "풍부한 아로마",
+                    "f3": "뚜렷한 바디감"
+                }
+            },
+            "huehue": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "해발 2,000m 이상의 산악 지대와",
+                    "line2": "북풍의 영향을 받는 지역입니다."
+                },
+                "features": {
+                    "f1": "섬세하고 강렬한 산미",
+                    "f2": "풍부한 바디감",
+                    "f3": "와인을 연상시키는 향미"
+                }
+            },
+            "oriente": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "과테말라 국토를 가로지르는",
+                    "line2": "장엄한 휴화산 산맥에서 재배됩니다."
+                },
+                "features": {
+                    "f1": "균형 잡힌 풍미",
+                    "f2": "초콜릿 풍미",
+                    "f3": "풍부한 바디감"
+                }
+            },
+            "sanmarcos": {
+                "alts": {
+                    "bg": "",
+                    "regionLogo": "",
+                    "profile": "",
+                    "chart": "",
+                    "modalImage": ""
+                },
+                "buttons": {
+                    "back": "",
+                    "openZoom": "",
+                    "close": ""
+                },
+                "desc": {
+                    "line1": "",
+                    "line2": ""
+                },
+                "features": {
+                    "f1": "뛰어난 바디감",
+                    "f2": "뚜렷한 산미",
+                    "f3": "플로럴 노트"
+                }
+            }
+        }
+    },
+    "c3": {
+        "cover": {
+            "title": {
+                "top": "혼농임업",
+                "bottom": "시스템"
+            },
+            "subtitle": "과테말라 최대 규모의 시스템",
+            "alts": {
+                "chapter": "",
+                "greenBook": ""
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": ""
+            },
+            "intro": {
+                "start": "200년이 넘는 시간 동안",
+                "highlight": "과테말라 커피 농장의 {{percent}}%는",
+                "end": "다음과 같은 역할을 하는 그늘나무 아래에서 재배되어 왔습니다."
+            },
+            "outro": {
+                "line1": "그 결과 커피 체리는 천천히 익으며, 더욱 뛰어난 품질과 컵 프로파일을 형성합니다."
+            },
+            "slider": {
+                "ingaSpuria": {
+                    "title": "Inga spuria",
+                    "subtitle": "쿠신",
+                    "desc": "잉가 스푸리아는 커피 농장에 그늘을 제공하는 열대 수종입니다. 질소를 고정해 토양을 비옥하게 하며, 달콤한 과육이 들어 있는 꼬투리를 맺습니다.",
+                    "alt": "Inga spuria",
+                    "credits": "사진 제공 : 로시오 실바"
+                },
+                "ingaEdulis": {
+                    "title": "Inga edulis",
+                    "subtitle": "페페토 데 리오",
+                    "desc": "잉가 에둘리스는 토양을 비옥하게 가꾸어 주며, 달콤하고 상큼한 과육을 가진 긴 꼬투리를 맺는 열대 수종입니다.",
+                    "alt": "Inga edulis"
+                },
+                "ingaMicheliana": {
+                    "title": "Inga micheliana",
+                    "subtitle": "찰룸",
+                    "desc": "잉가 미켈리아나는 빠르게 성장하는 열대 수종으로 혼농임업 시스템에 활용됩니다. 질소 고정을 통해 토양을 비옥하게 하며, 달콤한 과육이 있는 식용 꼬투리를 생산합니다.",
+                    "alt": "Inga micheliana"
+                },
+                "gravileaInga": {
+                    "title": "Gravilea",
+                    "subtitle": "Grevillea robusta",
+                    "desc": "그라빌레아는 토양 속 인 성분의 흡수를 돕고, 서리에 대한 뛰어난 저항성을 가진 고목성 수종입니다.",
+                    "alt": "Gravilea"
+                }
+            },
+            "circles": {
+                "aria": {
+                    "list": ""
+                },
+                "itemLabel": "",
+                "f1": "햇빛을 적절히 차단하고",
+                "f2": "빗물을 흡수하고 완화하며",
+                "f3": "토양 침식을 줄이고",
+                "f4": "최대 {{pct}}의 수분을 유지하며",
+                "f5": "생태계의 온도를 조절합니다."
+            }
+        }
+    },
+    "c4": {
+        "cover": {
+            "title": {
+                "top": "생태계",
+                "bottom": "서비스"
+            },
+            "subtitle": {
+                "line1": "과테말라에 선사하는",
+                "line2": "자연의 힘"
+            },
+            "alts": {
+                "chapter": "",
+                "greenBook": ""
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": ""
+            },
+            "intro": {
+                "text": "과테말라의 커피 혼농임업 시스템은 환경의 균형을 유지하고 강화하는 완전한 생태계를 만들어 줍니다."
+            },
+            "buttons": {
+                "expand": "",
+                "close": ""
+            },
+            "items": {
+                "f1": { "title": "토양 보존", "alt": "" },
+                "f2": { "title": "탄소 및 질소 고정", "alt": "" },
+                "f3": { "title": "물의 순환 조절", "alt": "" },
+                "f4": { "title": "공기 정화", "alt": "", "credits": "" },
+                "f5": { "title": "가뭄 및 홍수 완화", "alt": "" },
+                "f6": { "title": "생물다양성 유지", "alt": "", "credits": "" },
+                "f7": { "title": "자연이 빚어낸 아름다움과 쉼터", "alt": "" }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "expand": "",
+                "close": ""
+            },
+            "left": {
+                "title": "다채로운 미기후",
+                "desc": "과테말라는 고도, 화산 토양 등 풍부하고 다양한 생태계와 품질 중심의 커피 문화가 어우러진 커피 산지입니다. 이러한 다양성은 전 세계 커피 산업이 오랫동안 인정하고 가치를 부여해 온 독창적이고 다채로운 컵 프로파일을 만들어냅니다.",
+                "imgAlt": ""
+            },
+            "right": {
+                "title": {
+                    "line1": "화산의",
+                    "line2": "에너지"
+                },
+                "desc": "국토를 가로지르는 화산 지대인 '불의 고리(Anillo de Fuego)'는 커피나무가 자라는 토양에 영양분을 공급하며, 과테말라의 중요한 생태 통로 역할을 합니다.",
+                "imgAlt": ""
+            }
+        }
+    },
+    "c5": {
+        "cover": {
+            "title": {
+                "top": "탐험을 기다리는",
+                "bottom": "다채로운 환경"
+            },
+            "subtitle": {
+                "line1": "메소아메리카 생물 다양성의",
+                "line2": "중심지"
+            },
+            "alts": {
+                "chapter": "",
+                "greenBook": ""
+            },
+            "credits": ""
+        },
+        "section1": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "close": ""
+            },
+            "cta": "더 알아보기",
+            "title": "생태계의 역동적인 움직임",
+            "intro": "과테말라는 300만 년 전부터 메소아메리카 생물 다양성의 중심지 역할을 해왔습니다. 특히 커피 혼농임업 시스템은 이 귀중한 생태계를 보존하는 핵심 열쇠입니다.",
+            "outro": "식물과 낙엽, 나무가 서로 어우러져 수많은 곤충, 조류 등 다양한 생물종의 보금자리가 되어줍니다.",
+            "slides": {
+                "f1": {
+                    "title": "낙엽층",
+                    "desc": "낙엽층은 개미, 딱정벌레와 같은 곤충들의 서식지가 됩니다.",
+                    "highlight": ["낙엽층"]
+                },
+                "f2": {
+                    "title": "난초, 브로멜리아드, 이끼와 지의류",
+                    "desc": "난초, 브로멜리아드, 이끼, 지의류 같은 착생식물은 중요한 절지동물들의 서식지 역할을 합니다.",
+                    "highlight": ["난초", "브로멜리아드", "이끼", "지의류"],
+                    "credits": "사진 제공: 로시오 실바"
+                },
+                "f3": {
+                    "title": "잉가 나무",
+                    "desc": "잉가와 같은 그늘나무는 다양한 생물종에게 먹이와 서식지가 되어줍니다.",
+                    "highlight": ["잉가 나무"]
+                }
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "expand": "",
+                "close": ""
+            },
+            "cols": {
+                "mariposas": {
+                    "title": "나비",
+                    "hover": {
+                        "number": "+80",
+                        "text": "서부 지역에서만 80종 이상의 나비가 서식합니다."
+                    }
+                },
+                "murcielagos": {
+                    "title": "박쥐",
+                    "hover": {
+                        "number": "+24",
+                        "text": "24종 이상의 박쥐가 그늘나무에서 서식합니다."
+                    }
+                },
+                "anfibios": {
+                    "title": "양서류와 파충류",
+                    "hover": {
+                        "number": "+300",
+                        "text": "개구리와 도마뱀 등 300종 이상의 양서류 및 파충류가 서식합니다."
+                    },
+                    "credits": "사진 제공: 로시오 실바"
+                }
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "expand": "",
+                "close": ""
+            },
+            "cols": {
+                "insectos": {
+                    "title": "곤충",
+                    "hover": {
+                        "pre": "수많은 ",
+                        "highlight": "곤충이",
+                        "post": " 해충을 조절하고 영양분을 순환시키며 다른 생물들의 먹이가 됩니다."
+                    }
+                },
+                "aves": {
+                    "title": "철새",
+                    "hover": {
+                        "number": "+90",
+                        "text": "90종 이상의 철새가 커피 농장에서 먹이를 얻고 살아갑니다."
+                    },
+                    "credits": "사진 제공: 로시오 실바"
+                }
+            }
+        }
+    },
+    "c6": {
+        "cover": {
+            "title": {
+                "line1": "커피의 미래를",
+                "line2": "바꾸는",
+                "line3": "지속가능성",
+                "desktopLine1": "커피의 미래를 바꾸는",
+                "desktopLine2": "지속가능성"
+            },
+            "subtitle": "진화하는 커피 산업",
+            "body": "과테말라의 커피 산업은 환경 보호와 세계 수준의 커피 생산을 결합한 '지속가능한 모델'로 진화하고 있습니다.",
+            "alts": {
+                "chapter": "",
+                "greenBook": ""
+            }
+        },
+        "section1": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "zoom": "",
+                "close": ""
+            },
+            "left": {
+                "title": {
+                    "top": "품질과",
+                    "bottom": "책임"
+                },
+                "desc": {
+                    "line1": "산림 수종과 토착종 보존을 통해",
+                    "line2": "지속가능한 생태계를 구축하고 책임 있는 생산을 실현합니다."
+                }
+            },
+            "right": {
+                "title": {
+                    "line1": "글로벌",
+                    "line2": "표준",
+                    "line3": "준수"
+                },
+                "desc": {
+                    "line1": "우수한 농업 관리를 실천하며",
+                    "line2": "생산의 전 과정을 철저하게 추적 관리합니다."
+                }
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            }
+        },
+        "section2": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "zoom": "",
+                "close": ""
+            },
+            "left": {
+                "title": {
+                    "top": "기후 변화",
+                    "bottom": "대응"
+                },
+                "desc": {
+                    "line1": "혼농임업 시스템을 통해 탄소를 흡수하고,",
+                    "line2": "커피 산업이 환경에 미치는 영향을",
+                    "line3": "최소화 합니다."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "통합적 농촌",
+                    "bottom": "발전"
+                },
+                "desc": {
+                    "line1": "커피 농가와 지역사회 전체가 장기적으로",
+                    "line2": "경제적·사회적 발전을 이룰 수 있도록",
+                    "line3": "지원합니다."
+                }
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            }
+        },
+        "section3": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "zoom": "",
+                "close": ""
+            },
+            "left": {
+                "title": {
+                    "top": "가공 과정에서의",
+                    "bottom": "수자원 관리",
+                    "tercera": ""
+                },
+                "desc": {
+                    "line1": "커피 체리의 과육 제거와 세척 과정에서",
+                    "line2": "핵심 자원인 수자원을",
+                    "line3": "책임감 있게 사용합니다."
+                }
+            },
+            "right": {
+                "title": {
+                    "top": "감축, 재활용",
+                    "bottom": "그리고 재사용",
+                    "tercera": ""
+                },
+                "desc": {
+                    "pre": "아나카페는 커피 가공에 소모되는 물 사용량을 줄이기 위해 새로운 기술 도입과 우수 사례 확산을 추진해오고 있습니다.",
+                    "post": ""
+                }
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            }
+        },
+        "section4": {
+            "aria": {
+                "section": ""
+            },
+            "modalAlt": "",
+            "buttons": {
+                "zoom": "",
+                "close": ""
+            },
+            "left": {
+                "title": "책임 있는 관리",
+                "desc": {
+                    "line1": "커피 가공 부산물인 과육과 점액질은 유기 비료로 재탄생하며,",
+                    "line2": "다시 토양으로 돌아가 영양분과 미생물을 공급합니다."
+                }
+            },
+            "right": {
+                "title": "품질 중심의 문화",
+                "desc": {
+                    "line1": "습식 가공 공정을 통해 과테말라 생산 농가에",
+                    "line2": "높은 부가가치와 이력 추적성,",
+                    "line3": "그리고 글로벌 경쟁력을 부여합니다."
+                }
+            },
+            "images": {
+                "img1Alt": "",
+                "img2Alt": ""
+            }
+        }
+    },
+    "colab": {
+        "cover": {
+            "bajar": "",
+            "aria": {
+                "section": ""
+            },
+            "alts": {
+                "gcLogo": "",
+                "gcLogotype": "",
+                "acLogo": "",
+                "acLogotype": ""
+            },
+            "buttons": {
+                "toGC": "",
+                "toAC": ""
+            },
+            "videoFallback": ""
+        },
+        "sac": {
+            "aria": { "section": "" },
+            "videoAlt": "",
+            "videoFallback": "",
+            "desc": "",
+            "buttons": {
+                "readMore": "",
+                "readMoreTitle": "",
+                "play": "",
+                "pause": "",
+                "mute": "",
+                "unmute": "",
+                "toggle": {
+                    "clean": "",
+                    "show": ""
+                }
+            },
+            "points": {
+                "p1": { "title": "", "text": "" },
+                "p2": { "title": "", "text": "" },
+                "p3": { "title": "", "text": "" }
+            },
+            "section2": {
+                "alts": {
+                    "shape": "",
+                    "analabLogo": ""
+                },
+                "top": {
+                    "pre": "",
+                    "brand": "",
+                    "post": ""
+                },
+                "cards": {
+                    "c1": { "title": "", "desc": "" },
+                    "c2": { "title": "", "desc": "" },
+                    "c3": { "title": "", "desc": "" }
+                }
+            },
+            "section3": {
+                "items": {
+                    "i1": { "desc": "" },
+                    "i2": { "desc": "" },
+                    "i3": { "desc": "" },
+                    "i4": { "desc": "" }
+                }
+            },
+            "section4": {
+                "izquierdo": { "desc": "" },
+                "derecho": { "title": "", "desc": "" },
+                "derecho2": { "title": "", "desc": "" },
+                "derecho3": { "title": "", "desc": "" }
+            }
+        },
+        "gc": {
+            "video": {
+                "title": "",
+                "unsupported": ""
+            },
+            "overlay": {
+                "text": "",
+                "cta": "",
+                "ctaAria": ""
+            },
+            "controls": {
+                "play": "",
+                "pause": "",
+                "mute": "",
+                "unmute": "",
+                "toggle": {
+                    "show": "",
+                    "hide": ""
+                }
+            },
+            "section1": {
+                "desc": ""
+            },
+            "section2": {
+                "cta": "",
+                "intro": "",
+                "alts": {
+                    "shape": ""
+                },
+                "items": {
+                    "i1": { "title": "", "desc": "" },
+                    "i2": { "title": "", "desc": "" },
+                    "i3": { "title": "", "desc": "" }
+                }
+            },
+            "section3": {
+                "alts": {
+                    "shape": ""
+                },
+                "body": {
+                    "pre": "",
+                    "brand": "Guatemalan Coffees",
+                    "post": ""
+                }
+            }
+        }
+    }
+}

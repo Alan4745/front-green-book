@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 import { useTranslation } from 'react-i18next';
 
 import F1 from '../../assets/C5/S3/F1.webp';
@@ -42,6 +43,8 @@ const Section3C5 = () => {
             }
         }
     };
+
+    useBodyScrollLock(isLightboxOpen);
 
     // Abrir lightbox
     const openLightbox = (img) => {

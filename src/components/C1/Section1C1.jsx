@@ -54,7 +54,7 @@ const Section1C1 = () => {
             document.body.style.right = prev.right;
             document.body.style.width = prev.width;
             document.body.style.overflow = prev.overflow;
-            window.scrollTo(0, scrollY);
+            window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
         };
     }, [selectedImage]);
 

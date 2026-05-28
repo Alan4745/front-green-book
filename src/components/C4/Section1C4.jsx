@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useBodyScrollLock from "../../hooks/useBodyScrollLock";
 import { useTranslation } from "react-i18next";
 
 import F1 from "../../assets/C4/F1.webp";
@@ -56,6 +57,8 @@ const Section1C4 = () => {
     };
 
     // Abrir / cerrar lightbox
+    useBodyScrollLock(isLightboxOpen);
+
     const openLightbox = (img, altKey) => {
         setCurrentImage(img);
         setCurrentAltKey(altKey);
