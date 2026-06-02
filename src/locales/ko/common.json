@@ -102,21 +102,21 @@
             "iconAlt": "",
             "pink": {
                 "title": {
-                    "top": "",
-                    "bottom": ""
+                    "top": "고도에 따른",
+                    "bottom": "생두 분류"
                 }
             },
             "playBox": {
                 "title": {
-                    "top": "",
-                    "bottom": ""
+                    "top": "동영상",
+                    "bottom": "재생"
                 },
-                "playAlt": ""
+                "playAlt": "재생"
             },
             "steps": [
-                { "title": "", "subtitle": "1,370 m o más" },
-                { "title": "", "subtitle": "1,066 – 1,370 m" },
-                { "title": "", "subtitle": "762 – 1,066 m" }
+                { "title": "최고경도(SHB):", "subtitle": "해발고도 1,370m 이상" },
+                { "title": "세미하드~ 하드:", "subtitle": "해발고도 1,066 ~ 1,370m" },
+                { "title": "프라임 – 엑스트라 프라임:", "subtitle": "해발고도 762m ~ 1,066m" }
             ]
         }
     },
