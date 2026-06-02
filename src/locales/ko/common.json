@@ -365,26 +365,26 @@
             },
             "slider": {
                 "ingaSpuria": {
-                    "title": "Inga spuria",
+                    "title": "잉가 스푸리아",
                     "subtitle": "쿠신",
                     "desc": "잉가 스푸리아는 커피 농장에 그늘을 제공하는 열대 수종입니다. 질소를 고정해 토양을 비옥하게 하며, 달콤한 과육이 들어 있는 꼬투리를 맺습니다.",
                     "alt": "Inga spuria",
                     "credits": "사진 제공 : 로시오 실바"
                 },
                 "ingaEdulis": {
-                    "title": "Inga edulis",
+                    "title": "잉가 에둘리스",
                     "subtitle": "페페토 데 리오",
                     "desc": "잉가 에둘리스는 토양을 비옥하게 가꾸어 주며, 달콤하고 상큼한 과육을 가진 긴 꼬투리를 맺는 열대 수종입니다.",
                     "alt": "Inga edulis"
                 },
                 "ingaMicheliana": {
-                    "title": "Inga micheliana",
+                    "title": "잉가 미켈리아나",
                     "subtitle": "찰룸",
                     "desc": "잉가 미켈리아나는 빠르게 성장하는 열대 수종으로 혼농임업 시스템에 활용됩니다. 질소 고정을 통해 토양을 비옥하게 하며, 달콤한 과육이 있는 식용 꼬투리를 생산합니다.",
                     "alt": "Inga micheliana"
                 },
                 "gravileaInga": {
-                    "title": "그레빌레아",
+                    "title": "그라빌레아",
                     "subtitle": "그레빌레아 로부스타",
                     "desc": "그라빌레아는 토양 속 인 성분의 흡수를 돕고, 서리에 대한 뛰어난 저항성을 가진 고목성 수종입니다.",
                     "alt": "Gravilea"
