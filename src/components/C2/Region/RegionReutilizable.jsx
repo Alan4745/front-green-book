@@ -199,18 +199,19 @@ if (!region) {
         ...(i18n.exists(keys.features.f4) ? [keys.features.f4] : []),
     ];
     const hasFourFeatures = featureKeys.length === 4;
+    const isKorean = lang === 'ko';
+
+    const desktopProfileClassName = `absolute left-1/2 -translate-x-1/2 flex items-start h-full will-change-transform ${
+        isKorean ? 'top-[4%]' : 'top-[5%]'
+    } max-lg:hidden`;
 
     const desktopGraphClassName = `absolute left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${
         hasFourFeatures
-            ? 'top-[43%] w-[34vw] min-[1024px]:max-[1200px]:top-[45%] min-[1024px]:max-[1200px]:w-[28vw]'
-            : 'top-1/2 w-[38vw] min-[1024px]:max-[1200px]:w-[32vw]'
+            ? 'top-[44%] w-[34vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[28vw]'
+            : 'top-[48%] w-[38vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[32vw]'
     } min-[768px]:max-[1023px]:w-[38vw] max-lg:hidden`;
 
-    const desktopFeaturesClassName = `absolute left-[20%] z-20 ${
-        hasFourFeatures
-            ? 'bottom-[5vh] min-[1024px]:max-[1200px]:bottom-[3.5vh]'
-            : 'bottom-[10vh] min-[1024px]:max-[1200px]:bottom-[6vh]'
-    } min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:hidden`;
+    const desktopFeaturesClassName = `absolute left-[20%] bottom-[6vh] z-20 min-[1024px]:max-[1200px]:bottom-[4vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:hidden`;
 
     const desktopFeaturesListClassName = `space-y-1 min-[768px]:max-[1023px]:text-[1.8vh] max-lg:text-[2.2vh] max-lg:landscape:text-sm ${
         hasFourFeatures
@@ -380,7 +381,7 @@ if (!region) {
             <div className="w-[42%] h-full bg-white relative max-lg:w-full max-[767px]:h-auto max-[767px]:min-h-[65vh] max-[767px]:pb-[4vh] min-[768px]:max-[1023px]:h-auto min-[768px]:max-[1023px]:pb-[2vh] max-lg:landscape:w-[42%] max-lg:landscape:h-full max-lg:landscape:min-h-0 max-lg:landscape:pb-0">
                 {/* Perfil de la región */}
                 <motion.div
-                    className="absolute top-[5%] left-[20%] flex items-start h-full will-change-transform min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:top-[4%] min-[768px]:max-[1023px]:left-1/2 min-[768px]:max-[1023px]:-translate-x-1/2 min-[768px]:max-[1023px]:h-[40%] max-lg:hidden"
+                    className={desktopProfileClassName}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 1, ease: 'easeOut', delay: 2.5 }}
