@@ -5,8 +5,10 @@ import { changeLanguageSafe } from "../../i18n";
 
 const LANGS = [
     { code: "en", label: "English", region: "United States" },
-    { code: "es", label: "Español", region: "Guatemala" },
-    { code: "ko", label: "한국어", region: "Korea" }
+    { code: "es", label: "Espa\u00f1ol", region: "Guatemala" },
+    { code: "ko", label: "\ud55c\uad6d\uc5b4", region: "Korea" },
+    { code: "zh", label: "\u4e2d\u6587", region: "China" },
+    { code: "jp", label: "\u65e5\u672c\u8a9e", region: "Japan" }
 ];
 
 const LanguageSelector = ({
