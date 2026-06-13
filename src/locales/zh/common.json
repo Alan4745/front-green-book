@@ -1,0 +1,996 @@
+﻿{
+    "app":  {
+                "title":  "GreenBook",
+                "loading":  "載入中"
+            },
+    "carrousel":  {
+                      "prev":  "Previous",
+                      "next":  "Next",
+                      "cards":  [
+                                    {
+                                        "text":  "瓜地馬拉咖啡",
+                                        "bgImage":  "/Img/Start/Caps/bg1.webp",
+                                        "chapter":  "c1"
+                                    },
+                                    {
+                                        "text":  "瓜地馬拉8大咖啡產區",
+                                        "bgImage":  "/Img/Start/Caps/bg2.webp",
+                                        "chapter":  "c2"
+                                    },
+                                    {
+                                        "text":  "農林複合系統",
+                                        "bgImage":  "/Img/Start/Caps/bg3.webp",
+                                        "chapter":  "c3"
+                                    },
+                                    {
+                                        "text":  "生態系統服務",
+                                        "bgImage":  "/Img/Start/Caps/bg4.webp",
+                                        "chapter":  "c4"
+                                    },
+                                    {
+                                        "text":  "值得探索的多元生態環境",
+                                        "bgImage":  "/Img/Start/Caps/bg5.webp",
+                                        "chapter":  "c5"
+                                    },
+                                    {
+                                        "text":  "以永續理念塑造咖啡產業的未來",
+                                        "bgImage":  "/Img/Start/Caps/bg6.webp",
+                                        "chapter":  "c6"
+                                    }
+                                ]
+                  },
+    "menu":  {
+                 "open":  "Open menu",
+                 "close":  "Close menu",
+                 "items":  {
+                               "home":  "首頁",
+                               "c1":  "瓜地馬拉咖啡",
+                               "c2":  "瓜地馬拉8大咖啡產區",
+                               "c3":  "農林複合系統",
+                               "c4":  "生態系統服務",
+                               "c5":  "生物多樣性的庇護所",
+                               "c6":  "對永續發展的承諾",
+                               "colab":  "ANACAFÉ - 瓜地馬拉國家咖啡協會"
+                           }
+             },
+    "c1":  {
+               "cover":  {
+                             "title":  {
+                                           "top":  "瓜地馬拉",
+                                           "bottom":  "咖啡"
+                                       },
+                             "desc":  "咖啡遍佈瓜地馬拉所有省份，其獨特的地理環境孕育出卓越的咖啡品質。",
+                             "subtitle":  "成就獨特風味的關鍵",
+                             "cta":  "VIEW MAP",
+                             "chapterAlt":  "Chapter {{num}}"
+                         },
+               "section1":  {
+                                "left":  {
+                                             "title":  "海拔高度",
+                                             "descLine1":  "種植於海拔 1,200 至",
+                                             "descLine2":  "2,000 公尺的山區地帶。",
+                                             "ctaAria":  "Press button"
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "top":  "超過300種",
+                                                            "bottom":  "微型氣候"
+                                                        },
+                                              "descLine1":  "活火山、海洋、湖泊與",
+                                              "descLine2":  "豐富的自然生態，共同造就",
+                                              "descLine3":  "各咖啡產區獨特的風味特徵。"
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Image 1",
+                                               "img2Alt":  "Image 2"
+                                           },
+                                "modal":  {
+                                              "alt":  "Expanded image"
+                                          }
+                            },
+               "section2":  {
+                                "left":  {
+                                             "title":  "降雨量",
+                                             "descLine1":  "優質咖啡收成所需的理想年降雨量約為",
+                                             "descLine2":  "1,500 至 1,700 毫米，並均勻分布於整個生產週期。",
+                                             "descLine3":  "此降雨量有助於咖啡樹均勻開花，並促進咖啡豆充分發育。"
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "top":  "手工",
+                                                            "bottom":  "採收"
+                                                        },
+                                              "descLine1":  "沒有什麼比得上手工精心挑選的",
+                                              "descLine2":  "上等咖啡豆。"
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Image 1",
+                                               "img2Alt":  "Image 2"
+                                           },
+                                "modal":  {
+                                              "alt":  "Expanded image"
+                                          }
+                            },
+               "section3":  {
+                                "title":  "數據",
+                                "slides":  [
+                                               {
+                                                   "main":  "376,019",
+                                                   "desc":  "公頃種植面積"
+                                               },
+                                               {
+                                                   "main":  "",
+                                                   "desc":  "瓜地馬拉 21 個省份\n皆有咖啡生產"
+                                               },
+                                               {
+                                                   "main":  "261",
+                                                   "desc":  "全國 340 個市鎮中有 261 個從事咖啡生產"
+                                               },
+                                               {
+                                                   "main":  "",
+                                                   "desc":  "98% 採遮蔭栽培"
+                                               },
+                                               {
+                                                   "main":  "+125K",
+                                                   "desc":  "超過 12.5 萬個咖啡種植家庭"
+                                               },
+                                               {
+                                                   "main":  "+500K",
+                                                   "desc":  "創造超過 50 萬個就業機會"
+                                               }
+                                           ]
+                            },
+               "section4":  {
+                                "iconAlt":  "Mountain icon",
+                                "pink":  {
+                                             "title":  {
+                                                           "top":  "Ranking of the",
+                                                           "bottom":  "grain by altitude"
+                                                       }
+                                         },
+                                "playBox":  {
+                                                "title":  {
+                                                              "top":  "PLAY",
+                                                              "bottom":  "VIDEO"
+                                                          },
+                                                "playAlt":  "Play"
+                                            },
+                                "steps":  [
+                                              {
+                                                  "title":  "Strictly Hard (SHB):",
+                                                  "subtitle":  "1,370 m or higher"
+                                              },
+                                              {
+                                                  "title":  "Semi-Hard â€“ Hard:",
+                                                  "subtitle":  "1,066 â€“ 1,370 m"
+                                              },
+                                              {
+                                                  "title":  "Prime â€“ Extra Prime:",
+                                                  "subtitle":  "762 â€“ 1,066 m"
+                                              }
+                                          ]
+                            }
+           },
+    "c2":  {
+               "cover":  {
+                             "title":  {
+                                           "top":  "瓜地馬拉",
+                                           "bottom":  "8大咖啡產區",
+                                           "mobileLine1":  "瓜地馬拉",
+                                           "mobileLine2":  "8大咖啡",
+                                           "mobileLine3":  "產區"
+                                       },
+                             "subtitle":  {
+                                              "top":  "每一個產區",
+                                              "bottom":  "都是一段值得探索的體驗"
+                                          },
+                             "chapterAlt":  "Chapter {{num}}"
+                         },
+               "section1":  {
+                                "mapAlt":  "Base map",
+                                "modalAlt":  "Expanded image",
+                                "cta":  "認識咖啡產業\n之多樣性",
+                                "regions":  {
+                                                "coban":  {
+                                                              "alt":  "科班雨林產區"
+                                                          },
+                                                "huehue":  {
+                                                               "alt":  "巍巍高地產區"
+                                                           },
+                                                "sanmarcos":  {
+                                                                  "alt":  "聖馬可斯火山產區"
+                                                              },
+                                                "atitlan":  {
+                                                                "alt":  "阿蒂特蘭產區"
+                                                            },
+                                                "acatenango":  {
+                                                                   "alt":  "阿卡特南果產區"
+                                                               },
+                                                "antigua":  {
+                                                                "alt":  "安提瓜產區"
+                                                            },
+                                                "fraijanes":  {
+                                                                  "alt":  "法漢尼斯產區"
+                                                              },
+                                                "oriente":  {
+                                                                "alt":  "新東方產區"
+                                                            }
+                                            },
+                                "acatenango":  {
+                                                   "alts":  {
+                                                                "bg":  "Acatenango background",
+                                                                "regionLogo":  "Acatenango logo",
+                                                                "profile":  "Acatenango region profile",
+                                                                "chart":  "Acatenango chart",
+                                                                "modalImage":  "Acatenango (full view)"
+                                                            },
+                                                   "buttons":  {
+                                                                   "back":  "Back",
+                                                                   "openZoom":  "Open zoom",
+                                                                   "close":  "Close"
+                                                               },
+                                                   "desc":  {
+                                                                "line1":  "來自富埃戈火山與阿卡特南果火山的能量，太平洋海風吹拂，",
+                                                                "line2":  "以及富含礦物質的高地土壤，共同孕育獨特風味。"
+                                                            },
+                                                   "features":  {
+                                                                    "f1":  "強烈酸質",
+                                                                    "f2":  "馥郁香氣",
+                                                                    "f3":  "均衡口感",
+                                                                    "f4":  "乾淨且持久餘韻"
+                                                                }
+                                               },
+                                "antigua":  {
+                                                "alts":  {
+                                                             "bg":  "Antigua background",
+                                                             "regionLogo":  "Antigua logo",
+                                                             "profile":  "Antigua region profile",
+                                                             "chart":  "Antigua chart",
+                                                             "modalImage":  "Antigua (full view)"
+                                                         },
+                                                "buttons":  {
+                                                                "back":  "Back",
+                                                                "openZoom":  "Open zoom",
+                                                                "close":  "Close"
+                                                            },
+                                                "desc":  {
+                                                             "line1":  "咖啡遍佈瓜地馬拉所有省份，",
+                                                             "line2":  "展現豐富多元的地理風貌。",
+                                                             "line3":  "咖啡遍佈瓜地馬拉所有省份，",
+                                                             "line4":  "展現豐富多元的地理風貌。"
+                                                         },
+                                                "features":  {
+                                                                 "f1":  "優雅",
+                                                                 "f2":  "均衡",
+                                                                 "f3":  "香氣濃郁",
+                                                                 "f4":  "甜感"
+                                                             }
+                                            },
+                                "atitlan":  {
+                                                "alts":  {
+                                                             "bg":  "AtitlÃ¡n background",
+                                                             "regionLogo":  "AtitlÃ¡n logo",
+                                                             "profile":  "AtitlÃ¡n region profile",
+                                                             "chart":  "AtitlÃ¡n chart",
+                                                             "modalImage":  "AtitlÃ¡n (full view)"
+                                                         },
+                                                "buttons":  {
+                                                                "back":  "Back",
+                                                                "openZoom":  "Open zoom",
+                                                                "close":  "Close"
+                                                            },
+                                                "desc":  {
+                                                             "line1":  "來自標誌性的阿蒂特蘭湖周邊地區",
+                                                             "line2":  "和強勁的索科米爾風。"
+                                                         },
+                                                "features":  {
+                                                                 "f1":  "香氣濃郁",
+                                                                 "f2":  "柑橘酸質鮮明",
+                                                                 "f3":  "醇厚口感"
+                                                             }
+                                            },
+                                "coban":  {
+                                              "alts":  {
+                                                           "bg":  "CobÃ¡n background",
+                                                           "regionLogo":  "CobÃ¡n logo",
+                                                           "profile":  "CobÃ¡n region profile",
+                                                           "chart":  "CobÃ¡n chart",
+                                                           "modalImage":  "CobÃ¡n (full view)"
+                                                       },
+                                              "buttons":  {
+                                                              "back":  "Back",
+                                                              "openZoom":  "Open zoom",
+                                                              "close":  "Close"
+                                                          },
+                                              "desc":  {
+                                                           "line1":  "細雨不斷、雲霧繚繞，",
+                                                           "line2":  "終年氣候濕冷。"
+                                                       },
+                                              "features":  {
+                                                               "f1":  "果香",
+                                                               "f2":  "宜人香氣",
+                                                               "f3":  "細緻且均衡口感"
+                                                           }
+                                          },
+                                "fraijanes":  {
+                                                  "alts":  {
+                                                               "bg":  "Fraijanes background",
+                                                               "regionLogo":  "Fraijanes logo",
+                                                               "profile":  "Fraijanes region profile",
+                                                               "chart":  "Fraijanes chart",
+                                                               "modalImage":  "Fraijanes (full view)"
+                                                           },
+                                                  "buttons":  {
+                                                                  "back":  "Back",
+                                                                  "openZoom":  "Open zoom",
+                                                                  "close":  "Close"
+                                                              },
+                                                  "desc":  {
+                                                               "line1":  "海拔高度、濕度，",
+                                                               "line2":  "以及活躍帕卡亞火山的地質力量。"
+                                                           },
+                                                  "features":  {
+                                                                   "f1":  "明顯且持久酸質",
+                                                                   "f2":  "香氣濃郁",
+                                                                   "f3":  "口感清晰"
+                                                               }
+                                              },
+                                "huehue":  {
+                                               "alts":  {
+                                                            "bg":  "Huehuetenango background",
+                                                            "regionLogo":  "Huehuetenango logo",
+                                                            "profile":  "Huehuetenango region profile",
+                                                            "chart":  "Huehuetenango chart",
+                                                            "modalImage":  "Huehuetenango (full view)"
+                                                        },
+                                               "buttons":  {
+                                                               "back":  "Back",
+                                                               "openZoom":  "Open zoom",
+                                                               "close":  "Close"
+                                                           },
+                                               "desc":  {
+                                                            "line1":  "來自海拔超過 2,000 公尺的山區，",
+                                                            "line2":  "並受北方季風影響。"
+                                                        },
+                                               "features":  {
+                                                                "f1":  "細緻且強酸質",
+                                                                "f2":  "醇厚口感",
+                                                                "f3":  "酒感風味"
+                                                            }
+                                           },
+                                "oriente":  {
+                                                "alts":  {
+                                                             "bg":  "Oriente background",
+                                                             "regionLogo":  "Oriente logo",
+                                                             "profile":  "Oriente region profile",
+                                                             "chart":  "Oriente charts",
+                                                             "modalImage":  "Oriente (full view)"
+                                                         },
+                                                "buttons":  {
+                                                                "back":  "Back",
+                                                                "openZoom":  "Open zoom",
+                                                                "close":  "Close"
+                                                            },
+                                                "desc":  {
+                                                             "line1":  "孕育於橫貫全國、",
+                                                             "line2":  "壯麗雄偉的休眠火山山脈之間。"
+                                                         },
+                                                "features":  {
+                                                                 "f1":  "均衡",
+                                                                 "f2":  "巧克力風味",
+                                                                 "f3":  "醇厚口感"
+                                                             }
+                                            },
+                                "sanmarcos":  {
+                                                  "alts":  {
+                                                               "bg":  "San Marcos background",
+                                                               "regionLogo":  "San Marcos logo",
+                                                               "profile":  "San Marcos region profile",
+                                                               "chart":  "San Marcos chart",
+                                                               "modalImage":  "San Marcos (full view)"
+                                                           },
+                                                  "buttons":  {
+                                                                  "back":  "Back",
+                                                                  "openZoom":  "Open zoom",
+                                                                  "close":  "Close"
+                                                              },
+                                                  "desc":  {
+                                                               "line1":  "持續降雨、溫暖的氣候，",
+                                                               "line2":  "以及早期開花期。"
+                                                           },
+                                                  "features":  {
+                                                                   "f1":  "醇厚",
+                                                                   "f2":  "明亮酸質",
+                                                                   "f3":  "花香風味"
+                                                               }
+                                              }
+                            }
+           },
+    "c3":  {
+               "cover":  {
+                             "title":  {
+                                           "top":  "農林複合",
+                                           "bottom":  "系統"
+                                       },
+                             "subtitle":  "瓜地馬拉規模最大的農林複合系統",
+                             "alts":  {
+                                          "chapter":  "Chapter {{num}}",
+                                          "greenBook":  "Green Book logo"
+                                      }
+                         },
+               "section1":  {
+                                "aria":  {
+                                             "section":  "Agroforestry systems: introduction"
+                                         },
+                                "intro":  {
+                                              "start":  "兩百多年以來，",
+                                              "highlight":  "瓜地馬拉 {{percent}}% 的咖啡園",
+                                              "end":  "皆採用遮蔭栽種，這些樹木能夠："
+                                          },
+                                "outro":  {
+                                              "line1":  "因此，咖啡豆能緩慢成熟，進而提升其品質與杯測風味表現。"
+                                          },
+                                "slider":  {
+                                               "ingaSpuria":  {
+                                                                  "title":  "Inga spuria",
+                                                                  "subtitle":  "印加樹的一個品種 (Cushín)",
+                                                                  "desc":  "Inga spuria 是一種熱帶樹木，可為咖啡作物提供遮蔭。它能固定氮素、改善土壤，並結出帶有甜味果肉的豆莢。",
+                                                                  "alt":  "Inga spuria",
+                                                                  "credits":  "攝影：Rocío Silva"
+                                                              },
+                                               "ingaEdulis":  {
+                                                                  "title":  "Inga edulis",
+                                                                  "subtitle":  "冰淇淋豆樹",
+                                                                  "desc":  "Inga edulis 是一種熱帶樹木，可豐富土壤，並結出帶有甜味且清爽果肉的長豆莢。",
+                                                                  "alt":  "Inga edulis"
+                                                              },
+                                               "ingaMicheliana":  {
+                                                                      "title":  "Inga micheliana",
+                                                                      "subtitle":  "Chalum",
+                                                                      "desc":  "Inga micheliana 是一種生長快速的熱帶樹木，常用於農林複合系統中。它能透過固氮作用豐富土壤，並產出可食用且帶甜味果肉的豆莢。",
+                                                                      "alt":  "Inga micheliana"
+                                                                  },
+                                               "gravileaInga":  {
+                                                                    "title":  "Gravilea",
+                                                                    "subtitle":  "銀樺樹",
+                                                                    "desc":  "Grevillea robusta（銀樺樹）是一種高大喬木，具有提升土壤中磷的可利用性，並具有良好的抗霜能力。",
+                                                                    "alt":  "Gravilea"
+                                                                }
+                                           },
+                                "circles":  {
+                                                "aria":  {
+                                                             "list":  "Benefits of the agroforestry system"
+                                                         },
+                                                "itemLabel":  "Item {{num}}: {{text}}",
+                                                "f1":  "過濾陽光",
+                                                "f2":  "緩衝並滲透雨水",
+                                                "f3":  "減少土壤侵蝕",
+                                                "f4":  "保留最高達 {{pct}} 的水分",
+                                                "f5":  "調節生態系統溫度"
+                                            }
+                            }
+           },
+    "c4":  {
+               "cover":  {
+                             "title":  {
+                                           "top":  "生態系統",
+                                           "bottom":  "服務"
+                                       },
+                             "subtitle":  {
+                                              "line1":  "為瓜地馬拉帶來益處的",
+                                              "line2":  "自然力量"
+                                          },
+                             "alts":  {
+                                          "chapter":  "Chapter {{num}}",
+                                          "greenBook":  "Green Book logo"
+                                      }
+                         },
+               "section1":  {
+                                "aria":  {
+                                             "section":  "Ecosystem benefits: gallery"
+                                         },
+                                "intro":  {
+                                              "text":  "在瓜地馬拉，咖啡農林複合系統是完整的生態系統，能強化環境的平衡。"
+                                          },
+                                "buttons":  {
+                                                "expand":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "items":  {
+                                              "f1":  {
+                                                         "title":  "保護土壤",
+                                                         "alt":  "保護土壤"
+                                                     },
+                                              "f2":  {
+                                                         "title":  "固定碳與氮",
+                                                         "alt":  "固定碳與氮"
+                                                     },
+                                              "f3":  {
+                                                         "title":  "調節水循環",
+                                                         "alt":  "調節水循環"
+                                                     },
+                                              "f4":  {
+                                                         "title":  "淨化空氣",
+                                                         "alt":  "淨化空氣",
+                                                         "credits":  "攝影：Miguel Teleguario"
+                                                     },
+                                              "f5":  {
+                                                         "title":  "減緩乾旱與洪水",
+                                                         "alt":  "減緩乾旱與洪水"
+                                                     },
+                                              "f6":  {
+                                                         "title":  "維護生物多樣性",
+                                                         "alt":  "維護生物多樣性",
+                                                         "credits":  "攝影：Rocío Silva"
+                                                     },
+                                              "f7":  {
+                                                         "title":  "休閒與自然美景",
+                                                         "alt":  "休閒與自然美景"
+                                                     }
+                                          }
+                            },
+               "section2":  {
+                                "aria":  {
+                                             "section":  "Ecosystem benefits: soils and volcanoes"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "expand":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "left":  {
+                                             "title":  "微氣候的多樣性",
+                                             "desc":  "瓜地馬拉擁有豐富且多樣的生態系統，海拔變化、火山土壤以及以品質為導向的咖啡文化，共同造就了這個具備高度多樣性的產地，使其能發展出獨特的杯測風味，並在咖啡產業歷史中持續受到認可與重視。",
+                                             "imgAlt":  "微氣候的多樣性"
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "line1":  "火山的",
+                                                            "line2":  "力量"
+                                                        },
+                                              "desc":  "環太平洋火山帶橫貫該國，提升咖啡種植地的土壤肥力，並在瓜地馬拉發揮生態廊道的作用。",
+                                              "imgAlt":  "火山的力量"
+                                          }
+                            }
+           },
+    "c5":  {
+               "cover":  {
+                             "title":  {
+                                           "top":  "值得探索的",
+                                           "bottom":  "多元生態環境"
+                                       },
+                             "subtitle":  {
+                                              "line1":  "中美洲生物多樣性",
+                                              "line2":  "的核心地帶"
+                                          },
+                             "alts":  {
+                                          "chapter":  "Chapter {{num}}",
+                                          "greenBook":  "Green Book logo"
+                                      },
+                             "credits":  "Photo by RocÃ­o Silva"
+                         },
+               "section1":  {
+                                "aria":  {
+                                             "section":  "Ecosystems in action"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "close":  "Close"
+                                            },
+                                "cta":  "Explore more",
+                                "title":  "生態系統的運作",
+                                "intro":  "三百多萬年來，瓜地馬拉一直是中美洲文化區（Mesoamérica）生物多樣性的核心地區；其中，咖啡的農林複合系統在保育工作中扮演關鍵角色。",
+                                "outro":  "植物、葉片與樹木相互作用，共同保護數千種昆蟲、節肢動物、鳥類及其他生物。",
+                                "slides":  {
+                                               "f1":  {
+                                                          "title":  "落葉層",
+                                                          "desc":  "落葉層中棲息著螞蟻、甲蟲與蠕蟲等昆蟲。",
+                                                          "highlight":  [
+                                                                            "落葉層"
+                                                                        ]
+                                                      },
+                                               "f2":  {
+                                                          "title":  "蘭花、火鶴蘭、苔蘚與地衣",
+                                                          "desc":  "附生植物如蘭花、火鶴蘭、苔蘚與地衣，為重要的節肢動物提供棲息環境。",
+                                                          "highlight":  [
+                                                                            "蘭花",
+                                                                            "火鶴蘭",
+                                                                            "苔蘚",
+                                                                            "地衣"
+                                                                        ],
+                                                          "credits":  "Photo by RocÃ­o Silva"
+                                                      },
+                                               "f3":  {
+                                                          "title":  "印加豆樹",
+                                                          "desc":  "如印加豆樹等遮蔭樹種，為多種物種提供食物與庇護。",
+                                                          "highlight":  [
+                                                                            "印加豆樹"
+                                                                        ]
+                                                      }
+                                           }
+                            },
+               "section2":  {
+                                "aria":  {
+                                             "section":  "Biodiversity: butterflies, bats, amphibians and reptiles"
+                                         },
+                                "modalAlt":  "Expanded image",
+                                "buttons":  {
+                                                "expand":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "cols":  {
+                                             "mariposas":  {
+                                                               "title":  "蝴蝶",
+                                                               "hover":  {
+                                                                             "number":  "+80",
+                                                                             "text":  "種蝴蝶僅在西部地區就有分布。"
+                                                                         }
+                                                           },
+                                             "murcielagos":  {
+                                                                 "title":  "蝙蝠",
+                                                                 "hover":  {
+                                                                               "number":  "+24",
+                                                                               "text":  "種蝙蝠棲息於遮蔭樹中。"
+                                                                           }
+                                                             },
+                                             "anfibios":  {
+                                                              "title":  "兩棲類與爬行類",
+                                                              "hover":  {
+                                                                            "number":  "+300",
+                                                                            "text":  "種兩棲類與爬行類動物，如青蛙與蜥蜴。"
+                                                                        },
+                                                              "credits":  "攝影：Rocío Silva"
+                                                          }
+                                         }
+                            },
+               "section3":  {
+                                "aria":  {
+                                             "section":  "Biodiversity: insects and migratory birds"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "expand":  "Expand",
+                                                "close":  "Close"
+                                            },
+                                "cols":  {
+                                             "insectos":  {
+                                                              "title":  "昆蟲",
+                                                              "hover":  {
+                                                                            "pre":  "",
+                                                                            "highlight":  "數以千計的昆蟲",
+                                                                            "post":  "既能控制害蟲、促進養分循環，也為其他生物提供賴以維生的食物。"
+                                                                        }
+                                                          },
+                                             "aves":  {
+                                                          "title":  "候鳥",
+                                                          "hover":  {
+                                                                        "number":  "+90",
+                                                                        "text":  "種候鳥在咖啡園中覓食與棲息。"
+                                                                    },
+                                                          "credits":  "Photo by RocÃ­o Silva"
+                                                      }
+                                         }
+                            }
+           },
+    "c6":  {
+               "cover":  {
+                             "title":  {
+                                           "line1":  "以永續理念",
+                                           "line2":  "塑造",
+                                           "line3":  "未來",
+                                           "desktopLine1":  "以永續理念",
+                                           "desktopLine2":  "塑造未來"
+                                       },
+                             "subtitle":  "咖啡文化的演進",
+                             "body":  "在瓜地馬拉，咖啡產業正朝向永續發展的方向演進，結合環境保護與世界級咖啡生產。",
+                             "alts":  {
+                                          "chapter":  "Chapter {{num}}",
+                                          "greenBook":  "Green Book logo"
+                                      }
+                         },
+               "section1":  {
+                                "aria":  {
+                                             "section":  "Sustainability: quality and standards"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "zoom":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "left":  {
+                                             "title":  {
+                                                           "top":  "品質與",
+                                                           "bottom":  "責任"
+                                                       },
+                                             "desc":  {
+                                                          "line1":  "透過保護森林與原生物種，推動永續生態系統發展，",
+                                                          "line2":  "並促進負責任的生產模式。"
+                                                      }
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "line1":  "符合",
+                                                            "line2":  "國際",
+                                                            "line3":  "標準"
+                                                        },
+                                              "desc":  {
+                                                           "line1":  "良好的農業實踐與完整的",
+                                                           "line2":  "可追溯性。"
+                                                       }
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Quality and responsibility (image)",
+                                               "img2Alt":  "Compliance with international standards (image)"
+                                           }
+                            },
+               "section2":  {
+                                "aria":  {
+                                             "section":  "Sustainability: climate mitigation and rural development"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "zoom":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "left":  {
+                                             "title":  {
+                                                           "top":  "降低",
+                                                           "bottom":  "氣候變遷衝擊"
+                                                       },
+                                             "desc":  {
+                                                          "line1":  "農林複合系統能夠捕捉碳排放，",
+                                                          "line2":  "並降低咖啡產業對環境的",
+                                                          "line3":  "影響。"
+                                                      }
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "top":  "鄉村整合",
+                                                            "bottom":  "發展"
+                                                        },
+                                              "desc":  {
+                                                           "line1":  "為咖啡農與整個社區帶來長期的",
+                                                           "line2":  "經濟與社會",
+                                                           "line3":  "發展。"
+                                                       }
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Mitigating climate change (image)",
+                                               "img2Alt":  "Integrated rural development (image)"
+                                           }
+                            },
+               "section3":  {
+                                "aria":  {
+                                             "section":  "Sustainability: water in the coffee process"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "zoom":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "left":  {
+                                             "title":  {
+                                                           "top":  "生產過程中的",
+                                                           "bottom":  "用水管理",
+                                                           "tercera":  "of coffee"
+                                                       },
+                                             "desc":  {
+                                                          "line1":  "在咖啡去果肉與水洗處理過程中，",
+                                                          "line2":  "水資源扮演關鍵角色，並以",
+                                                          "line3":  "負責任的方式加以運用。"
+                                                      }
+                                         },
+                                "right":  {
+                                              "title":  {
+                                                            "top":  "減量回收及",
+                                                            "bottom":  "資源循環",
+                                                            "tercera":  "resource"
+                                                        },
+                                              "desc":  {
+                                                           "pre":  "Anacafé 積極推動各項技術與良好作業方式的導入，以減少咖啡轉化過程中的用水量。",
+                                                           "anacafe":  "AnacafÃ©",
+                                                           "post":  ""
+                                                       }
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Water in the coffee process (image)",
+                                               "img2Alt":  "Reduce and reuse the resource (image)"
+                                           }
+                            },
+               "section4":  {
+                                "aria":  {
+                                             "section":  "Sustainability: responsible management and composting"
+                                         },
+                                "modalAlt":  "Enlarged image",
+                                "buttons":  {
+                                                "zoom":  "Enlarge",
+                                                "close":  "Close"
+                                            },
+                                "left":  {
+                                             "title":  "負責任的管理",
+                                             "desc":  {
+                                                          "line1":  "咖啡加工的副產品，即果肉和果膠，被再利用生產有機肥料，",
+                                                          "line2":  "這些肥料可以返回咖啡農林複合系統，為土壤提供養分和微生物。"
+                                                      }
+                                         },
+                                "right":  {
+                                              "title":  "品質文化",
+                                              "desc":  {
+                                                           "line1":  "水洗處理過程，不僅為瓜地馬拉咖啡農家庭",
+                                                           "line2":  "創造更高附加價值，更進一步強化產品的",
+                                                           "line3":  "可追溯性與市場競爭力。"
+                                                       }
+                                          },
+                                "images":  {
+                                               "img1Alt":  "Responsible management (image)",
+                                               "img2Alt":  "Quality culture (image)"
+                                           }
+                            }
+           },
+    "colab":  {
+                  "cover":  {
+                                "bajar":  "Scroll Down",
+                                "aria":  {
+                                             "section":  "Collaboration: Guatemalan Coffees \u0026 AnacafÃ©"
+                                         },
+                                "alts":  {
+                                             "gcLogo":  "Guatemalan Coffees logo",
+                                             "gcLogotype":  "Guatemalan Coffees logotype",
+                                             "acLogo":  "AnacafÃ© logo",
+                                             "acLogotype":  "AnacafÃ© logotype"
+                                         },
+                                "buttons":  {
+                                                "toGC":  "Go to Guatemalan Coffees section",
+                                                "toAC":  "Go to AnacafÃ© section"
+                                            },
+                                "videoFallback":  "Your browser does not support the video format ðŸ˜±"
+                            },
+                  "sac":  {
+                              "aria":  {
+                                           "section":  "AnacafÃ© section: video and description"
+                                       },
+                              "videoAlt":  "AnacafÃ© video",
+                              "videoFallback":  "Your browser does not support the video format ðŸ˜±",
+                              "desc":  "At AnacafÃ© we work to transform the future of Guatemalan coffee by developing and implementing the national coffee policy, and by connecting coffee growers and their product with commercial opportunities worldwide.",
+                              "buttons":  {
+                                              "readMore":  "Read more",
+                                              "readMoreTitle":  "Open AnacafÃ© website",
+                                              "play":  "Play video",
+                                              "pause":  "Pause video",
+                                              "mute":  "Mute video",
+                                              "unmute":  "Unmute audio",
+                                              "toggle":  {
+                                                             "clean":  "View video only",
+                                                             "show":  "Show content"
+                                                         }
+                                          },
+                              "points":  {
+                                             "p1":  {
+                                                        "title":  "TECHNOLOGICAL INNOVATION",
+                                                        "text":  "We drive the use of technological tools."
+                                                    },
+                                             "p2":  {
+                                                        "title":  "ORGANIZATIONAL MANAGEMENT",
+                                                        "text":  "We strengthen organizational administration."
+                                                    },
+                                             "p3":  {
+                                                        "title":  "RESEARCH AND DEVELOPMENT",
+                                                        "text":  "We promote research and innovation through our CedicafÃ© department."
+                                                    }
+                                         },
+                              "section2":  {
+                                               "alts":  {
+                                                            "shape":  "AC shape",
+                                                            "analabLogo":  "Analab logo"
+                                                        },
+                                               "top":  {
+                                                           "pre":  "WE PROMOTE",
+                                                           "brand":  "GUATEMALAN COFFEE",
+                                                           "post":  "GLOBALLY"
+                                                       },
+                                               "cards":  {
+                                                             "c1":  {
+                                                                        "title":  "Market Analysis:",
+                                                                        "desc":  "We identify commercial opportunities."
+                                                                    },
+                                                             "c2":  {
+                                                                        "title":  "Tools for Producers:",
+                                                                        "desc":  "We offer support and resources."
+                                                                    },
+                                                             "c3":  {
+                                                                        "title":  "International Promotion:",
+                                                                        "desc":  "We position Guatemalan coffee both locally and internationally."
+                                                                    }
+                                                         }
+                                           },
+                              "section3":  {
+                                               "items":  {
+                                                             "i1":  {
+                                                                        "desc":  "In our coffee academy, we share expertise in barista skills, roasting, and cupping."
+                                                                    },
+                                                             "i2":  {
+                                                                        "desc":  "We carefully monitor the flavor and aroma of the coffee throughout every process. Through our Roastery, we offer comprehensive services from hulling to packaging."
+                                                                    },
+                                                             "i3":  {
+                                                                        "desc":  "We guarantee the quality of every cup in our Cupping Lab."
+                                                                    },
+                                                             "i4":  {
+                                                                        "desc":  "Through FuncafÃ©, we contribute to social development with services focused on health, education, and food security."
+                                                                    }
+                                                         }
+                                           },
+                              "section4":  {
+                                               "izquierdo":  {
+                                                                 "desc":  "Through Analab, we conduct scientific analyses to guarantee coffee quality."
+                                                             },
+                                               "derecho":  {
+                                                               "title":  "Soil Analysis",
+                                                               "desc":  "We evaluate soil conditions and nutrient levels."
+                                                           },
+                                               "derecho2":  {
+                                                                "title":  "Plant Analysis",
+                                                                "desc":  "We monitor plant health and growth."
+                                                            },
+                                               "derecho3":  {
+                                                                "title":  "Fertilizer and Water Analysis",
+                                                                "desc":  "We study their effects on the crops."
+                                                            }
+                                           }
+                          },
+                  "gc":  {
+                             "video":  {
+                                           "title":  "Guatemalan Coffees background video",
+                                           "unsupported":  "Your browser does not support the video format ðŸ˜±"
+                                       },
+                             "overlay":  {
+                                             "text":  "AnacafÃ© has positioned the Guatemalan Coffees brand to promote our countryâ€™s coffee, which is recognized and valued by the most demanding markets around the world.",
+                                             "cta":  "READ MORE",
+                                             "ctaAria":  "Open AnacafÃ© website in a new tab"
+                                         },
+                             "controls":  {
+                                              "play":  "Play video",
+                                              "pause":  "Pause video",
+                                              "mute":  "Mute video",
+                                              "unmute":  "Unmute audio",
+                                              "toggle":  {
+                                                             "show":  "Show content",
+                                                             "hide":  "Video only"
+                                                         }
+                                          },
+                             "section1":  {
+                                              "desc":  "Guatemalan Coffees encompasses eight producing regions with distinct identities tied to their territories. Understanding each regionâ€™s strengths is key to grasping the diversity of Guatemalaâ€™s coffees."
+                                          },
+                             "section2":  {
+                                              "cta":  "View regions",
+                                              "intro":  "Guatemala has positioned itself as a leader in the coffee industry by highlighting how coffee regions, microclimates, and varietals directly influence flavor.",
+                                              "alts":  {
+                                                           "shape":  "GC shape"
+                                                       },
+                                              "items":  {
+                                                            "i1":  {
+                                                                       "title":  "Unique coffee regions:",
+                                                                       "desc":  "Each region has its own flavor profile, enriching overall diversity."
+                                                                   },
+                                                            "i2":  {
+                                                                       "title":  "Terrain impact:",
+                                                                       "desc":  "Climate and terrain conditions determine coffee characteristics."
+                                                                   },
+                                                            "i3":  {
+                                                                       "title":  "Traceability and transparency:",
+                                                                       "desc":  "A process that ensures each lot is fully traceable, building trust with international buyers."
+                                                                   }
+                                                        }
+                                          },
+                             "section3":  {
+                                              "alts":  {
+                                                           "shape":  "GC mountains shape"
+                                                       },
+                                              "body":  {
+                                                           "pre":  "Thus, the brand",
+                                                           "brand":  "Guatemalan Coffees",
+                                                           "post":  " continues to establish itself as a global benchmark for specialty coffees, combining tradition, innovation, and sustainability."
+                                                       }
+                                          }
+                         }
+              }
+}

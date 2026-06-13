@@ -1,13 +1,19 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-const SUPPORTED = ["es", "en", "ko"];
+const SUPPORTED = ["es", "en", "ko", "zh", "jp"];
 const DEFAULT_LNG = "es";
 
+const normalizeLang = (lng) => {
+  if (!lng) return null;
+  if (lng === "ja") return "jp";
+  return lng;
+};
+
 const detectLang = () => {
-  const stored = localStorage.getItem("lang");
+  const stored = normalizeLang(localStorage.getItem("lang"));
   if (stored && SUPPORTED.includes(stored)) return stored;
-  const browser = navigator.language?.slice(0, 2);
+  const browser = normalizeLang(navigator.language?.slice(0, 2));
   return SUPPORTED.includes(browser) ? browser : DEFAULT_LNG;
 };
 
