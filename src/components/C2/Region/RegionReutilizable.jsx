@@ -8,8 +8,11 @@ import { useTranslation } from 'react-i18next';
 import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import PDRAcate_en from '../../../assets/C2/PerfilRegionIngles/AcateT_en.svg';
 import PDRAcate_ko from '../../../assets/C2/PerfilDeRegionesKo/AcateT_ko.svg';
+import PDRAcate_zh from '../../../assets/C2/PerfilRegionChino/AcateT_zh.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
-import AcateG_es from '../../../assets/C2/Graficas/acateG_español.webp'
+import AcateG_es from '../../../assets/C2/Graficas/acateG_español.webp';
+import AcateG_ko from '../../../assets/C2/PerfilDeRegionesKo/acatenango_co.svg';
+import AcateG_zh from '../../../assets/C2/PerfilRegionChino/acatenango_co_zh.svg';
 import FondoAcate from '../../../assets/C2/FR/Acate.webp';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
@@ -17,8 +20,11 @@ import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import PDRAntigua_en from '../../../assets/C2/PerfilRegionIngles/AntiguaT_en.svg';
 import PDRAntigua_ko from '../../../assets/C2/PerfilDeRegionesKo/AntiguaT_ko.svg';
+import PDRAntigua_zh from '../../../assets/C2/PerfilRegionChino/AntiguaT_zh.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
-import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.webp'
+import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.webp';
+import AntiguaG_ko from '../../../assets/C2/PerfilDeRegionesKo/antigua_co.svg';
+import AntiguaG_zh from '../../../assets/C2/PerfilRegionChino/antigua_co_zh.svg';
 import FondoAntigua from '../../../assets/C2/FR/Antigua.webp';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
@@ -26,8 +32,11 @@ import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
 import PDRSanMarcos_en from '../../../assets/C2/PerfilRegionIngles/SanMarcosT_en.svg';
 import PDRSanMarcos_ko from '../../../assets/C2/PerfilDeRegionesKo/SanMarcosT_ko.svg';
+import PDRSanMarcos_zh from '../../../assets/C2/PerfilRegionChino/SanMarcosT_zh.svg';
 import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.webp';
-import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.webp'
+import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.webp';
+import SanMarcosG_ko from '../../../assets/C2/PerfilDeRegionesKo/sanMarcos_co.svg';
+import SanMarcosG_zh from '../../../assets/C2/PerfilRegionChino/sanMarcos_co_zh.svg';
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.webp';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
@@ -35,8 +44,11 @@ import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import PDRAtitlan_en from '../../../assets/C2/PerfilRegionIngles/AtitlanT_en.svg';
 import PDRAtitlan_ko from '../../../assets/C2/PerfilDeRegionesKo/AtitlanT_ko.svg';
+import PDRAtitlan_zh from '../../../assets/C2/PerfilRegionChino/AtitlanT_zh.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
-import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.webp'
+import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.webp';
+import AtitlanG_ko from '../../../assets/C2/PerfilDeRegionesKo/atitlan_co.svg';
+import AtitlanG_zh from '../../../assets/C2/PerfilRegionChino/atitlan_co_zh.svg';
 import FondoAtitlan from '../../../assets/C2/FR/Atitlan.webp';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
@@ -44,8 +56,11 @@ import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
 import PDRCoban_en from '../../../assets/C2/PerfilRegionIngles/CobanT_en.svg';
 import PDRCoban_ko from '../../../assets/C2/PerfilDeRegionesKo/CobanT_ko.svg';
+import PDRCoban_zh from '../../../assets/C2/PerfilRegionChino/CobanT_zh.svg';
 import CobanG from '../../../assets/C2/Graficas/CobanG.webp';
-import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.webp'
+import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.webp';
+import CobanG_ko from '../../../assets/C2/PerfilDeRegionesKo/coban4_co.svg';
+import CobanG_zh from '../../../assets/C2/PerfilRegionChino/coban_co_zh.svg';
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
@@ -53,8 +68,11 @@ import CobanR from '../../../assets/C2/Region/CobanR.svg';
 import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import PDRFraijanes_en from '../../../assets/C2/PerfilRegionIngles/FraijanesT_en.svg';
 import PDRFraijanes_ko from '../../../assets/C2/PerfilDeRegionesKo/FraijanesT_ko.svg';
+import PDRFraijanes_zh from '../../../assets/C2/PerfilRegionChino/FraijanesT_zh.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
-import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.webp'
+import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.webp';
+import FraijanesG_ko from '../../../assets/C2/PerfilDeRegionesKo/fraijanes_co.svg';
+import FraijanesG_zh from '../../../assets/C2/PerfilRegionChino/fraijanes_co_zh.svg';
 import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.webp';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
@@ -62,8 +80,11 @@ import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
 import PDRHuehue_en from '../../../assets/C2/PerfilRegionIngles/HuehueT_en.svg';
 import PDRHuehue_ko from '../../../assets/C2/PerfilDeRegionesKo/HuehueT_ko.svg';
+import PDRHuehue_zh from '../../../assets/C2/PerfilRegionChino/HuehueT_zh.svg';
 import HuehueG from '../../../assets/C2/Graficas/HuehueG.webp';
-import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.webp'
+import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.webp';
+import HuehueG_ko from '../../../assets/C2/PerfilDeRegionesKo/huehue_co.svg';
+import HuehueG_zh from '../../../assets/C2/PerfilRegionChino/huehue_co_zh.svg';
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
@@ -71,8 +92,11 @@ import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
 import PDROriente_en from '../../../assets/C2/PerfilRegionIngles/OrienteT_en.svg';
 import PDROriente_ko from '../../../assets/C2/PerfilDeRegionesKo/OrienteT_ko.svg';
+import PDROriente_zh from '../../../assets/C2/PerfilRegionChino/OrienteT_zh.svg';
 import OrienteG from '../../../assets/C2/Graficas/OrienteG.webp';
-import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.webp'
+import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.webp';
+import OrienteG_ko from '../../../assets/C2/PerfilDeRegionesKo/oriente_co.svg';
+import OrienteG_zh from '../../../assets/C2/PerfilRegionChino/oriente_co_zh.svg';
 import FondoOriente from '../../../assets/C2/FR/Oriente.webp';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
@@ -119,50 +143,50 @@ const regionImages = {
   acatenango: {
     fondo: FondoAcate,
     logo: AcateR,
-    perfil: { es: PDRAcate, en: PDRAcate_en, ko: PDRAcate_ko },
-    grafica: { es: AcateG_es, en: AcateG },
+    perfil: { es: PDRAcate, en: PDRAcate_en, ko: PDRAcate_ko, zh: PDRAcate_zh },
+    grafica: { es: AcateG_es, en: AcateG, ko: AcateG_ko, zh: AcateG_zh },
   },
   antigua: {
     fondo: FondoAntigua,
     logo: AntiguaR,
-    perfil: { es: PDRAntigua, en: PDRAntigua_en, ko: PDRAntigua_ko },
-    grafica: { es: AntiguaG_es, en: AntiguaG },
+    perfil: { es: PDRAntigua, en: PDRAntigua_en, ko: PDRAntigua_ko, zh: PDRAntigua_zh },
+    grafica: { es: AntiguaG_es, en: AntiguaG, ko: AntiguaG_ko, zh: AntiguaG_zh },
   },
   sanmarcos: {
     fondo: FondoSanMarcos,
     logo: SanMarcosR,
-    perfil: { es: PDRSanMarcos, en: PDRSanMarcos_en, ko: PDRSanMarcos_ko },
-    grafica: { es: SanMarcosG_es, en: SanMarcosG },
+    perfil: { es: PDRSanMarcos, en: PDRSanMarcos_en, ko: PDRSanMarcos_ko, zh: PDRSanMarcos_zh },
+    grafica: { es: SanMarcosG_es, en: SanMarcosG, ko: SanMarcosG_ko, zh: SanMarcosG_zh },
   },
   atitlan: {
     fondo: FondoAtitlan,
     logo: AtitlanR,
-    perfil: { es: PDRAtitlan, en: PDRAtitlan_en, ko: PDRAtitlan_ko },
-    grafica: { es: AtitlanG_es, en: AtitlanG },
+    perfil: { es: PDRAtitlan, en: PDRAtitlan_en, ko: PDRAtitlan_ko, zh: PDRAtitlan_zh },
+    grafica: { es: AtitlanG_es, en: AtitlanG, ko: AtitlanG_ko, zh: CobanG_zh },
   },
   coban: {
     fondo: FondoCoban,
     logo: CobanR,
-    perfil: { es: PDRCoban, en: PDRCoban_en, ko: PDRCoban_ko },
-    grafica: { es: CobanG_es, en: CobanG },
+    perfil: { es: PDRCoban, en: PDRCoban_en, ko: PDRCoban_ko, zh: PDRCoban_zh },
+    grafica: { es: CobanG_es, en: CobanG, ko: CobanG_ko, zh: AtitlanG_zh },
   },
   fraijanes: {
     fondo: FondoFraijanes,
     logo: FraijanesR,
-    perfil: { es: PDRFraijanes, en: PDRFraijanes_en, ko: PDRFraijanes_ko },
-    grafica: { es: FraijanesG_es, en: FraijanesG },
+    perfil: { es: PDRFraijanes, en: PDRFraijanes_en, ko: PDRFraijanes_ko, zh: PDRFraijanes_zh },
+    grafica: { es: FraijanesG_es, en: FraijanesG, ko: FraijanesG_ko, zh: FraijanesG_zh },
   },
   huehue: {
     fondo: FondoHuehue,
     logo: HuehueR,
-    perfil: { es: PDRHuehue, en: PDRHuehue_en, ko: PDRHuehue_ko },
-    grafica: { es: HuehueG_es, en: HuehueG },
+    perfil: { es: PDRHuehue, en: PDRHuehue_en, ko: PDRHuehue_ko, zh: PDRHuehue_zh },
+    grafica: { es: HuehueG_es, en: HuehueG, ko: HuehueG_ko, zh: HuehueG_zh },
   },
   oriente: {
     fondo: FondoOriente,
     logo: OrienteR,
-    perfil: { es: PDROriente, en: PDROriente_en, ko: PDROriente_ko },
-    grafica: { es: OrienteG_es, en: OrienteG },
+    perfil: { es: PDROriente, en: PDROriente_en, ko: PDROriente_ko, zh: PDROriente_zh },
+    grafica: { es: OrienteG_es, en: OrienteG, ko: OrienteG_ko, zh: OrienteG_zh },
   },
 };
 
@@ -208,15 +232,20 @@ if (!region) {
     ];
     const hasFourFeatures = featureKeys.length === 4;
     const isKorean = lang === 'ko';
+    const hasCompactGraphLayout = lang === 'ko' || lang === 'zh';
 
     const desktopProfileClassName = `absolute left-1/2 -translate-x-1/2 flex items-start h-full will-change-transform ${
         isKorean ? 'top-[4%]' : 'top-[5%]'
     } max-lg:hidden`;
 
     const desktopGraphClassName = `absolute left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform ${
-        hasFourFeatures
-            ? 'top-[44%] w-[34vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[28vw]'
-            : 'top-[48%] w-[38vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[32vw]'
+        hasCompactGraphLayout
+            ? hasFourFeatures
+                ? 'top-[44%] w-[28vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[23vw]'
+                : 'top-[48%] w-[31vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[26vw]'
+            : hasFourFeatures
+                ? 'top-[44%] w-[34vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[28vw]'
+                : 'top-[48%] w-[38vw] min-[1024px]:max-[1200px]:top-[46%] min-[1024px]:max-[1200px]:w-[32vw]'
     } min-[768px]:max-[1023px]:w-[38vw] max-lg:hidden`;
 
     const desktopFeaturesClassName = `absolute left-[20%] bottom-[6vh] z-20 min-[1024px]:max-[1200px]:bottom-[4vh] min-[1024px]:max-[1200px]:left-[12%] min-[768px]:max-[1023px]:bottom-[4%] min-[768px]:max-[1023px]:left-[10%] max-lg:hidden`;
@@ -472,7 +501,7 @@ if (!region) {
                             src={region.grafica[lang] || region.grafica.es}
                             alt={t(keys.alts.chart)}
                             title={t(keys.alts.chart)}
-                            className="w-[78vw] h-auto object-contain max-lg:landscape:w-[38vh]"
+                            className={hasCompactGraphLayout ? 'w-[64vw] h-auto object-contain max-lg:landscape:w-[31vh]' : 'w-[78vw] h-auto object-contain max-lg:landscape:w-[38vh]'}
                         />
                     </motion.div>
 
