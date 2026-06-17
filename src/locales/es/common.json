@@ -388,6 +388,36 @@
                     "subtitle": "Grevillea robusta",
                     "desc": "Gravilea (Grevillea robusta) árbol de porte alto que se le atribuye la capacidad de facilitar la disponibilidad de fósforo en los suelos y cuenta con una notable habilidad de resistencia a heladas.",
                     "alt": "Gravilea"
+                },
+                "paloBlanco": {
+                    "title": "Palo blanco",
+                    "subtitle": "Roseodendron donnell-smithii",
+                    "desc": "El palo blanco es un árbol nativo que puede alcanzar gran altura y es apreciado por la calidad y durabilidad de su madera. Su floración amarilla aporta color al paisaje y favorece la presencia de aves e insectos polinizadores, contribuyendo al equilibrio y la biodiversidad de los ecosistemas donde se desarrolla.",
+                    "alt": "Palo blanco"
+                },
+                "pino": {
+                    "title": "Pino",
+                    "subtitle": "Pinus spp.",
+                    "desc": "El pino es una especie forestal que puede alcanzar hasta 35 m de altura. Su madera es utilizada en la fabricación de construcciones, muebles y otros productos, lo que le confiere importancia económica. Además, proporciona hábitat y sitios de paso para diversas especies de aves, contribuyendo a la conectividad y conservación de los ecosistemas.",
+                    "alt": "Pino"
+                },
+                "encino": {
+                    "title": "Encino",
+                    "subtitle": "Quercus spp.",
+                    "desc": "El encino es una especie que contribuye a la conservación de la biodiversidad al proporcionar alimento, refugio y sitios de reproducción para diversas especies de fauna. También favorece el desarrollo de plantas epífitas, hongos y otros organismos asociados a los ecosistemas forestales. Constituye una fuente de leña y madera para las comunidades locales.",
+                    "alt": "Encino"
+                },
+                "matilisguate": {
+                    "title": "Matilisguate",
+                    "subtitle": "Tabebuia rosea",
+                    "desc": "El matilisguate es un árbol nativo de porte alto reconocido por su abundante floración rosada. Sus flores favorecen la presencia de aves e insectos polinizadores y aportan color al paisaje durante la época de floración. Además, su madera es utilizada en la fabricación de muebles, construcciones y otros productos forestales.",
+                    "alt": "Matilisguate"
+                },
+                "madreCacao": {
+                    "title": "Madre cacao",
+                    "subtitle": "Gliricidia sepium",
+                    "desc": "El madre cacao es un árbol nativo de porte medio que contribuye a la fertilidad del suelo mediante su asociación con microorganismos capaces de fijar nitrógeno atmosférico. Esta característica favorece la disponibilidad natural de nutrientes y aporta materia orgánica al sistema. Además, su cobertura ayuda a conservar la humedad del suelo y mejorar las condiciones para el desarrollo de los cultivos.",
+                    "alt": "Madre cacao"
                 }
             },
             "circles": {

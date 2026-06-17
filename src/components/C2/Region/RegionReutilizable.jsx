@@ -9,10 +9,12 @@ import PDRAcate from '../../../assets/C2/PerfilDeRegion/AcateT.svg';
 import PDRAcate_en from '../../../assets/C2/PerfilRegionIngles/AcateT_en.svg';
 import PDRAcate_ko from '../../../assets/C2/PerfilDeRegionesKo/AcateT_ko.svg';
 import PDRAcate_zh from '../../../assets/C2/PerfilRegionChino/AcateT_zh.svg';
+import PDRAcate_ja from '../../../assets/C2/PerfilRegionJapones/AcateT_ja.svg';
 import AcateG from '../../../assets/C2/Graficas/AcateG.svg';
 import AcateG_es from '../../../assets/C2/Graficas/acateG_español.webp';
 import AcateG_ko from '../../../assets/C2/PerfilDeRegionesKo/acatenango_co.svg';
-import AcateG_zh from '../../../assets/C2/PerfilRegionChino/acatenango_co_zh.svg';
+import AcateG_zh from '../../../assets/C2/GraficaChina/AcateG_zh.svg';
+import AcateG_ja from '../../../assets/C2/GraficaJaponesa/AcateG_ja.svg';
 import FondoAcate from '../../../assets/C2/FR/Acate.webp';
 import AcateR from '../../../assets/C2/Region/AcatenangoR.svg';
 
@@ -21,10 +23,12 @@ import PDRAntigua from '../../../assets/C2/PerfilDeRegion/AntiguaT.svg';
 import PDRAntigua_en from '../../../assets/C2/PerfilRegionIngles/AntiguaT_en.svg';
 import PDRAntigua_ko from '../../../assets/C2/PerfilDeRegionesKo/AntiguaT_ko.svg';
 import PDRAntigua_zh from '../../../assets/C2/PerfilRegionChino/AntiguaT_zh.svg';
+import PDRAntigua_ja from '../../../assets/C2/PerfilRegionJapones/AntiguaT_ja.svg';
 import AntiguaG from '../../../assets/C2/Graficas/AntiguaG.svg';
 import AntiguaG_es from '../../../assets/C2/Graficas/antiguaG_español.webp';
 import AntiguaG_ko from '../../../assets/C2/PerfilDeRegionesKo/antigua_co.svg';
-import AntiguaG_zh from '../../../assets/C2/PerfilRegionChino/antigua_co_zh.svg';
+import AntiguaG_zh from '../../../assets/C2/GraficaChina/AntiguaG_zh.svg';
+import AntiguaG_ja from '../../../assets/C2/GraficaJaponesa/AntiguaG_ja.svg';
 import FondoAntigua from '../../../assets/C2/FR/Antigua.webp';
 import AntiguaR from '../../../assets/C2/Region/AntiguaR.svg';
 
@@ -33,10 +37,12 @@ import PDRSanMarcos from '../../../assets/C2/PerfilDeRegion/SanMarcosT.svg';
 import PDRSanMarcos_en from '../../../assets/C2/PerfilRegionIngles/SanMarcosT_en.svg';
 import PDRSanMarcos_ko from '../../../assets/C2/PerfilDeRegionesKo/SanMarcosT_ko.svg';
 import PDRSanMarcos_zh from '../../../assets/C2/PerfilRegionChino/SanMarcosT_zh.svg';
+import PDRSanMarcos_ja from '../../../assets/C2/PerfilRegionJapones/SanMarcosT_ja.svg';
 import SanMarcosG from '../../../assets/C2/Graficas/SanMarcosG.webp';
 import SanMarcosG_es from '../../../assets/C2/Graficas/sanmarcosG_español.webp';
 import SanMarcosG_ko from '../../../assets/C2/PerfilDeRegionesKo/sanMarcos_co.svg';
-import SanMarcosG_zh from '../../../assets/C2/PerfilRegionChino/sanMarcos_co_zh.svg';
+import SanMarcosG_zh from '../../../assets/C2/GraficaChina/SanMarcosG_zh.svg';
+import SanMarcosG_ja from '../../../assets/C2/GraficaJaponesa/SanMarcosG_ja.svg';
 import FondoSanMarcos from '../../../assets/C2/FR/SanMarcos.webp';
 import SanMarcosR from '../../../assets/C2/Region/SanMarcosR.svg';
 
@@ -45,10 +51,12 @@ import PDRAtitlan from '../../../assets/C2/PerfilDeRegion/AtitlanT.svg';
 import PDRAtitlan_en from '../../../assets/C2/PerfilRegionIngles/AtitlanT_en.svg';
 import PDRAtitlan_ko from '../../../assets/C2/PerfilDeRegionesKo/AtitlanT_ko.svg';
 import PDRAtitlan_zh from '../../../assets/C2/PerfilRegionChino/AtitlanT_zh.svg';
+import PDRAtitlan_ja from '../../../assets/C2/PerfilRegionJapones/AtitlanT_ja.svg';
 import AtitlanG from '../../../assets/C2/Graficas/AtitlanG.svg';
 import AtitlanG_es from '../../../assets/C2/Graficas/atlitanG_español.webp';
 import AtitlanG_ko from '../../../assets/C2/PerfilDeRegionesKo/atitlan_co.svg';
-import AtitlanG_zh from '../../../assets/C2/PerfilRegionChino/atitlan_co_zh.svg';
+import AtitlanG_zh from '../../../assets/C2/GraficaChina/AtitlanG_zh.svg';
+import AtitlanG_ja from '../../../assets/C2/GraficaJaponesa/AtitlanG_ja.svg';
 import FondoAtitlan from '../../../assets/C2/FR/Atitlan.webp';
 import AtitlanR from '../../../assets/C2/Region/AtitlanR.svg';
 
@@ -57,10 +65,12 @@ import PDRCoban from '../../../assets/C2/PerfilDeRegion/CobanT.svg';
 import PDRCoban_en from '../../../assets/C2/PerfilRegionIngles/CobanT_en.svg';
 import PDRCoban_ko from '../../../assets/C2/PerfilDeRegionesKo/CobanT_ko.svg';
 import PDRCoban_zh from '../../../assets/C2/PerfilRegionChino/CobanT_zh.svg';
+import PDRCoban_ja from '../../../assets/C2/PerfilRegionJapones/CobanT_ja.svg';
 import CobanG from '../../../assets/C2/Graficas/CobanG.webp';
 import CobanG_es from '../../../assets/C2/Graficas/cobanG_español.webp';
 import CobanG_ko from '../../../assets/C2/PerfilDeRegionesKo/coban4_co.svg';
-import CobanG_zh from '../../../assets/C2/PerfilRegionChino/coban_co_zh.svg';
+import CobanG_zh from '../../../assets/C2/GraficaChina/CobanG_zh.svg';
+import CobanG_ja from '../../../assets/C2/GraficaJaponesa/CobanG_ja.svg';
 import FondoCoban from '../../../assets/C2/FR/Coban.svg';
 import CobanR from '../../../assets/C2/Region/CobanR.svg';
 
@@ -69,10 +79,12 @@ import PDRFraijanes from '../../../assets/C2/PerfilDeRegion/FraijanesT.svg';
 import PDRFraijanes_en from '../../../assets/C2/PerfilRegionIngles/FraijanesT_en.svg';
 import PDRFraijanes_ko from '../../../assets/C2/PerfilDeRegionesKo/FraijanesT_ko.svg';
 import PDRFraijanes_zh from '../../../assets/C2/PerfilRegionChino/FraijanesT_zh.svg';
+import PDRFraijanes_ja from '../../../assets/C2/PerfilRegionJapones/FraijanesT_ja.svg';
 import FraijanesG from '../../../assets/C2/Graficas/FraijanesG.svg';
 import FraijanesG_es from '../../../assets/C2/Graficas/frajinesG_español.webp';
 import FraijanesG_ko from '../../../assets/C2/PerfilDeRegionesKo/fraijanes_co.svg';
-import FraijanesG_zh from '../../../assets/C2/PerfilRegionChino/fraijanes_co_zh.svg';
+import FraijanesG_zh from '../../../assets/C2/GraficaChina/FraijanesG_zh.svg';
+import FraijanesG_ja from '../../../assets/C2/GraficaJaponesa/FraijanesG_ja.svg';
 import FondoFraijanes from '../../../assets/C2/FR/Fraijanes.webp';
 import FraijanesR from '../../../assets/C2/Region/FraijanesR.svg';
 
@@ -81,10 +93,12 @@ import PDRHuehue from '../../../assets/C2/PerfilDeRegion/HuehueT.svg';
 import PDRHuehue_en from '../../../assets/C2/PerfilRegionIngles/HuehueT_en.svg';
 import PDRHuehue_ko from '../../../assets/C2/PerfilDeRegionesKo/HuehueT_ko.svg';
 import PDRHuehue_zh from '../../../assets/C2/PerfilRegionChino/HuehueT_zh.svg';
+import PDRHuehue_ja from '../../../assets/C2/PerfilRegionJapones/HuehueT_ja.svg';
 import HuehueG from '../../../assets/C2/Graficas/HuehueG.webp';
 import HuehueG_es from '../../../assets/C2/Graficas/huehueG_español.webp';
 import HuehueG_ko from '../../../assets/C2/PerfilDeRegionesKo/huehue_co.svg';
-import HuehueG_zh from '../../../assets/C2/PerfilRegionChino/huehue_co_zh.svg';
+import HuehueG_zh from '../../../assets/C2/GraficaChina/HuehueG_zh.svg';
+import HuehueG_ja from '../../../assets/C2/GraficaJaponesa/HuehueG_ja.svg';
 import FondoHuehue from '../../../assets/C2/FR/Huehue.svg';
 import HuehueR from '../../../assets/C2/Region/HuehueR.svg';
 
@@ -93,10 +107,12 @@ import PDROriente from '../../../assets/C2/PerfilDeRegion/OrienteT.svg';
 import PDROriente_en from '../../../assets/C2/PerfilRegionIngles/OrienteT_en.svg';
 import PDROriente_ko from '../../../assets/C2/PerfilDeRegionesKo/OrienteT_ko.svg';
 import PDROriente_zh from '../../../assets/C2/PerfilRegionChino/OrienteT_zh.svg';
+import PDROriente_ja from '../../../assets/C2/PerfilRegionJapones/OrienteT_ja.svg';
 import OrienteG from '../../../assets/C2/Graficas/OrienteG.webp';
 import OrienteG_es from '../../../assets/C2/Graficas/orienteG_español.webp';
 import OrienteG_ko from '../../../assets/C2/PerfilDeRegionesKo/oriente_co.svg';
-import OrienteG_zh from '../../../assets/C2/PerfilRegionChino/oriente_co_zh.svg';
+import OrienteG_zh from '../../../assets/C2/GraficaChina/OrienteG_zh.svg';
+import OrienteG_ja from '../../../assets/C2/GraficaJaponesa/OrienteG_ja.svg';
 import FondoOriente from '../../../assets/C2/FR/Oriente.webp';
 import OrienteR from '../../../assets/C2/Region/OrienteR.svg';
 
@@ -143,50 +159,50 @@ const regionImages = {
   acatenango: {
     fondo: FondoAcate,
     logo: AcateR,
-    perfil: { es: PDRAcate, en: PDRAcate_en, ko: PDRAcate_ko, zh: PDRAcate_zh },
-    grafica: { es: AcateG_es, en: AcateG, ko: AcateG_ko, zh: AcateG_zh },
+    perfil: { es: PDRAcate, en: PDRAcate_en, ko: PDRAcate_ko, zh: PDRAcate_zh, jp: PDRAcate_ja },
+    grafica: { es: AcateG_es, en: AcateG, ko: AcateG_ko, zh: AcateG_zh, jp: AcateG_ja },
   },
   antigua: {
     fondo: FondoAntigua,
     logo: AntiguaR,
-    perfil: { es: PDRAntigua, en: PDRAntigua_en, ko: PDRAntigua_ko, zh: PDRAntigua_zh },
-    grafica: { es: AntiguaG_es, en: AntiguaG, ko: AntiguaG_ko, zh: AntiguaG_zh },
+    perfil: { es: PDRAntigua, en: PDRAntigua_en, ko: PDRAntigua_ko, zh: PDRAntigua_zh, jp: PDRAntigua_ja },
+    grafica: { es: AntiguaG_es, en: AntiguaG, ko: AntiguaG_ko, zh: AntiguaG_zh, jp: AntiguaG_ja },
   },
   sanmarcos: {
     fondo: FondoSanMarcos,
     logo: SanMarcosR,
-    perfil: { es: PDRSanMarcos, en: PDRSanMarcos_en, ko: PDRSanMarcos_ko, zh: PDRSanMarcos_zh },
-    grafica: { es: SanMarcosG_es, en: SanMarcosG, ko: SanMarcosG_ko, zh: SanMarcosG_zh },
+    perfil: { es: PDRSanMarcos, en: PDRSanMarcos_en, ko: PDRSanMarcos_ko, zh: PDRSanMarcos_zh, jp: PDRSanMarcos_ja },
+    grafica: { es: SanMarcosG_es, en: SanMarcosG, ko: SanMarcosG_ko, zh: SanMarcosG_zh, jp: SanMarcosG_ja },
   },
   atitlan: {
     fondo: FondoAtitlan,
     logo: AtitlanR,
-    perfil: { es: PDRAtitlan, en: PDRAtitlan_en, ko: PDRAtitlan_ko, zh: PDRAtitlan_zh },
-    grafica: { es: AtitlanG_es, en: AtitlanG, ko: AtitlanG_ko, zh: CobanG_zh },
+    perfil: { es: PDRAtitlan, en: PDRAtitlan_en, ko: PDRAtitlan_ko, zh: PDRAtitlan_zh, jp: PDRAtitlan_ja },
+    grafica: { es: AtitlanG_es, en: AtitlanG, ko: AtitlanG_ko, zh: AtitlanG_zh, jp: AtitlanG_ja },
   },
   coban: {
     fondo: FondoCoban,
     logo: CobanR,
-    perfil: { es: PDRCoban, en: PDRCoban_en, ko: PDRCoban_ko, zh: PDRCoban_zh },
-    grafica: { es: CobanG_es, en: CobanG, ko: CobanG_ko, zh: AtitlanG_zh },
+    perfil: { es: PDRCoban, en: PDRCoban_en, ko: PDRCoban_ko, zh: PDRCoban_zh, jp: PDRCoban_ja },
+    grafica: { es: CobanG_es, en: CobanG, ko: CobanG_ko, zh: CobanG_zh, jp: CobanG_ja },
   },
   fraijanes: {
     fondo: FondoFraijanes,
     logo: FraijanesR,
-    perfil: { es: PDRFraijanes, en: PDRFraijanes_en, ko: PDRFraijanes_ko, zh: PDRFraijanes_zh },
-    grafica: { es: FraijanesG_es, en: FraijanesG, ko: FraijanesG_ko, zh: FraijanesG_zh },
+    perfil: { es: PDRFraijanes, en: PDRFraijanes_en, ko: PDRFraijanes_ko, zh: PDRFraijanes_zh, jp: PDRFraijanes_ja },
+    grafica: { es: FraijanesG_es, en: FraijanesG, ko: FraijanesG_ko, zh: FraijanesG_zh, jp: FraijanesG_ja },
   },
   huehue: {
     fondo: FondoHuehue,
     logo: HuehueR,
-    perfil: { es: PDRHuehue, en: PDRHuehue_en, ko: PDRHuehue_ko, zh: PDRHuehue_zh },
-    grafica: { es: HuehueG_es, en: HuehueG, ko: HuehueG_ko, zh: HuehueG_zh },
+    perfil: { es: PDRHuehue, en: PDRHuehue_en, ko: PDRHuehue_ko, zh: PDRHuehue_zh, jp: PDRHuehue_ja },
+    grafica: { es: HuehueG_es, en: HuehueG, ko: HuehueG_ko, zh: HuehueG_zh, jp: HuehueG_ja },
   },
   oriente: {
     fondo: FondoOriente,
     logo: OrienteR,
-    perfil: { es: PDROriente, en: PDROriente_en, ko: PDROriente_ko, zh: PDROriente_zh },
-    grafica: { es: OrienteG_es, en: OrienteG, ko: OrienteG_ko, zh: OrienteG_zh },
+    perfil: { es: PDROriente, en: PDROriente_en, ko: PDROriente_ko, zh: PDROriente_zh, jp: PDROriente_ja },
+    grafica: { es: OrienteG_es, en: OrienteG, ko: OrienteG_ko, zh: OrienteG_zh, jp: OrienteG_ja },
   },
 };
 
@@ -232,7 +248,7 @@ if (!region) {
     ];
     const hasFourFeatures = featureKeys.length === 4;
     const isKorean = lang === 'ko';
-    const hasCompactGraphLayout = lang === 'ko' || lang === 'zh';
+    const hasCompactGraphLayout = lang === 'ko' || lang === 'zh' || lang === 'jp';
 
     const desktopProfileClassName = `absolute left-1/2 -translate-x-1/2 flex items-start h-full will-change-transform ${
         isKorean ? 'top-[4%]' : 'top-[5%]'
