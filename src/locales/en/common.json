@@ -388,6 +388,36 @@
                     "subtitle": "Grevillea robusta",
                     "desc": "Gravilea (Grevillea robusta) is a tall-growing tree species attributed with the ability to enhance phosphorus availability in soils and notable resistance to frost.",
                     "alt": "Inga Gravilea"
+                },
+                "paloBlanco": {
+                    "title": "Palo blanco",
+                    "subtitle": "Roseodendron donnell-smithii",
+                    "desc": "Palo blanco is a native tree that can reach great heights and is valued for the quality and durability of its wood. Its yellow blossoms add color to the landscape and attract birds and pollinating insects, contributing to the balance and biodiversity of the ecosystems where it grows.",
+                    "alt": "Palo blanco"
+                },
+                "pino": {
+                    "title": "Pine",
+                    "subtitle": "Pinus spp.",
+                    "desc": "The pine is a forest species that can reach up to 35 meters in height. Its wood is used in the manufacture of buildings, furniture, and other products, giving it significant economic importance. It also provides habitat and stopover sites for various bird species, contributing to ecosystem connectivity and conservation.",
+                    "alt": "Pine"
+                },
+                "encino": {
+                    "title": "Oak",
+                    "subtitle": "Quercus spp.",
+                    "desc": "The oak is a species that contributes to biodiversity conservation by providing food, shelter, and breeding sites for various wildlife species. It also promotes the development of epiphytic plants, fungi, and other organisms associated with forest ecosystems. It serves as an important source of firewood and timber for local communities.",
+                    "alt": "Oak"
+                },
+                "matilisguate": {
+                    "title": "Matilisguate",
+                    "subtitle": "Tabebuia rosea",
+                    "desc": "The matilisguate is a tall native tree recognized for its abundant pink blossoms. Its flowers attract birds and pollinating insects and add color to the landscape during the flowering season. Its wood is also used in the manufacture of furniture, construction materials, and other forest products.",
+                    "alt": "Matilisguate"
+                },
+                "madreCacao": {
+                    "title": "Madre cacao",
+                    "subtitle": "Gliricidia sepium",
+                    "desc": "Madre cacao is a medium-sized native tree that contributes to soil fertility through its association with microorganisms capable of fixing atmospheric nitrogen. This promotes the natural availability of nutrients and adds organic matter to the system. Its canopy also helps conserve soil moisture and improve growing conditions for crops.",
+                    "alt": "Madre cacao"
                 }
             },
             "circles": {

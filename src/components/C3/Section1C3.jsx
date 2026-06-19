@@ -7,6 +7,11 @@ import IngaSpuria from "../../assets/C3/IngaSpuria.webp";
 import IngaEdulis from "../../assets/C3/IngaEdulis.webp";
 import IngaMicheliana from "../../assets/C3/IngaMicheliana.webp";
 import GravileaInga from "../../assets/C3/IngaGravilea.webp";
+import PaloBlanco from "../../assets/C3/PaloBlanco.jpg";
+import Pino from "../../assets/C3/Pino.jpeg";
+import Encino from "../../assets/C3/Encino.jpg";
+import Matilisguate from "../../assets/C3/Matilisguate.jpg";
+import MadreCacao from "../../assets/C3/MadreCacao.jpeg";
 
 const Section1C3 = () => {
     const { t } = useTranslation();
@@ -62,6 +67,41 @@ const Section1C3 = () => {
             subtitle: t("c3.section1.slider.gravileaInga.subtitle"),
             description: t("c3.section1.slider.gravileaInga.desc"),
             alt: t("c3.section1.slider.gravileaInga.alt"),
+        },
+        {
+            src: PaloBlanco,
+            title: t("c3.section1.slider.paloBlanco.title"),
+            subtitle: t("c3.section1.slider.paloBlanco.subtitle"),
+            description: t("c3.section1.slider.paloBlanco.desc"),
+            alt: t("c3.section1.slider.paloBlanco.alt"),
+        },
+        {
+            src: Pino,
+            title: t("c3.section1.slider.pino.title"),
+            subtitle: t("c3.section1.slider.pino.subtitle"),
+            description: t("c3.section1.slider.pino.desc"),
+            alt: t("c3.section1.slider.pino.alt"),
+        },
+        {
+            src: Encino,
+            title: t("c3.section1.slider.encino.title"),
+            subtitle: t("c3.section1.slider.encino.subtitle"),
+            description: t("c3.section1.slider.encino.desc"),
+            alt: t("c3.section1.slider.encino.alt"),
+        },
+        {
+            src: Matilisguate,
+            title: t("c3.section1.slider.matilisguate.title"),
+            subtitle: t("c3.section1.slider.matilisguate.subtitle"),
+            description: t("c3.section1.slider.matilisguate.desc"),
+            alt: t("c3.section1.slider.matilisguate.alt"),
+        },
+        {
+            src: MadreCacao,
+            title: t("c3.section1.slider.madreCacao.title"),
+            subtitle: t("c3.section1.slider.madreCacao.subtitle"),
+            description: t("c3.section1.slider.madreCacao.desc"),
+            alt: t("c3.section1.slider.madreCacao.alt"),
         },
     ];
 
