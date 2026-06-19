@@ -432,57 +432,57 @@
                                           },
                                 "slider":  {
                                                "ingaSpuria":  {
-                                                                  "title":  "Inga spuria",
-                                                                  "subtitle":  "印加樹的一個品種 (Cushín)",
+                                                                  "title":  "英加·斯普里亞",
+                                                                  "subtitle":  "Cushín",
                                                                   "desc":  "Inga spuria 是一種熱帶樹木，可為咖啡作物提供遮蔭。它能固定氮素、改善土壤，並結出帶有甜味果肉的豆莢。",
                                                                   "alt":  "Inga spuria",
                                                                   "credits":  "攝影：Rocío Silva"
                                                               },
                                                "ingaEdulis":  {
-                                                                  "title":  "Inga edulis",
-                                                                  "subtitle":  "冰淇淋豆樹",
+                                                                  "title":  "英加·愛杜利斯",
+                                                                  "subtitle":  "Pepeto de Río",
                                                                   "desc":  "Inga edulis 是一種熱帶樹木，可豐富土壤，並結出帶有甜味且清爽果肉的長豆莢。",
                                                                   "alt":  "Inga edulis"
                                                               },
                                                "ingaMicheliana":  {
-                                                                      "title":  "Inga micheliana",
-                                                                      "subtitle":  "查倫",
+                                                                      "title":  "英加·米歇利亞納",
+                                                                      "subtitle":  "Chalum",
                                                                       "desc":  "Inga micheliana 是一種生長快速的熱帶樹木，常用於農林複合系統中。它能透過固氮作用豐富土壤，並產出可食用且帶甜味果肉的豆莢。",
                                                                       "alt":  "Inga micheliana"
                                                                   },
                                                "gravileaInga":  {
-                                                                    "title":  "Gravilea",
-                                                                    "subtitle":  "銀樺樹",
+                                                                    "title":  "銀樺樹",
+                                                                    "subtitle":  "Grevillea robusta",
                                                                     "desc":  "Grevillea robusta（銀樺樹）是一種高大喬木，具有提升土壤中磷的可利用性，並具有良好的抗霜能力。",
                                                                     "alt":  "Gravilea"
                                                                 },
                                                "paloBlanco":  {
                                                                     "title":  "白木",
-                                                                    "subtitle":  "羅西奧登德龍·多內爾-史密斯",
+                                                                    "subtitle":  "Roseodendron donnell-smithii",
                                                                     "desc":  "白木是一種原生樹種，可生長至相當高大的高度，因其木材品質優良且耐久性高而備受珍視。其黃色花朵盛開時為景觀增添色彩，並有助於吸引鳥類及授粉昆蟲，促進其生長環境中的生態平衡與生物多樣性。",
                                                                     "alt":  "Palo blanco"
                                                                 },
                                                "pino":  {
                                                                     "title":  "松樹",
-                                                                    "subtitle":  "皮努斯屬",
+                                                                    "subtitle":  "Pinus spp.",
                                                                     "desc":  "松樹是一種森林樹種，高度可達 35 公尺。其木材廣泛應用於建築、家具及其他產品的製造，因此具有重要的經濟價值。此外，松樹也為多種鳥類提供棲息地及遷徙途中的停留場所，有助於維持生態系統的連結性與保育。",
                                                                     "alt":  "Pino"
                                                                 },
                                                "encino":  {
                                                                     "title":  "櫟樹",
-                                                                    "subtitle":  "克爾庫斯屬",
+                                                                    "subtitle":  "Quercus spp.",
                                                                     "desc":  "櫟樹是一種有助於生物多樣性保育的樹種，為多種野生動物提供食物、庇護所及繁殖場所。同時，它也促進附生植物、真菌及其他與森林生態系統相關生物的生長與發展。此外，櫟樹亦是當地社區重要的薪柴與木材來源。",
                                                                     "alt":  "Encino"
                                                                 },
                                                "matilisguate":  {
                                                                     "title":  "馬蒂利斯瓜特樹",
-                                                                    "subtitle":  "塔貝布亞·羅西亞",
+                                                                    "subtitle":  "Tabebuia rosea",
                                                                     "desc":  "馬蒂利斯瓜特樹是一種高大挺拔的原生樹種，以其繁盛的粉紅色花朵聞名。其花朵有助於吸引鳥類及授粉昆蟲，並在開花季節為景觀增添繽紛色彩。此外，其木材廣泛用於家具製造、建築工程及其他林業產品，具有重要的經濟價值。",
                                                                     "alt":  "Matilisguate"
                                                                 },
                                                "madreCacao":  {
                                                                     "title":  "母可可樹",
-                                                                    "subtitle":  "格里里西地亞·賽皮烏姆",
+                                                                    "subtitle":  "Gliricidia sepium",
                                                                     "desc":  "母可可樹是一種中等高度的原生樹種，透過與能夠固定大氣中氮元素的微生物共生，有助於提升土壤肥力。此特性可增加養分的自然供應，並為生態系統提供有機質。此外，其樹冠覆蓋有助於保持土壤濕度，改善作物生長環境，促進農業生產的發展。",
                                                                     "alt":  "Madre cacao"
                                                                 }
