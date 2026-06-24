@@ -81,7 +81,7 @@ const Section3C5 = () => {
                         <div className="mt-1 w-[20vw] border-t-4 border-[#562E91]" />
                     </h2>
                     <div className="absolute bottom-12 left-4 text-white">
-                        <p className="text-[3.5vw] md:text-[2.5vw] text-left w-[70vw]" style={{ fontFamily: 'GothamNormal' }}>
+                        <p className="text-[3.5vw] md:text-[2.5vw] text-left w-[70vw] whitespace-pre-line" style={{ fontFamily: 'GothamNormal' }}>
                             {t(keys.cols.insectos.hover.pre)}
                             <span className="text-[#AC7EF0]">{t(keys.cols.insectos.hover.highlight)}</span>
                             {t(keys.cols.insectos.hover.post)}
@@ -153,7 +153,7 @@ const Section3C5 = () => {
 
                     {hoveredSection === 'mariposas' && (
                         <div className="absolute bottom-20 left-8 text-white transition-all duration-300">
-                            <p className="text-2xl text-left w-[90vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
+                            <p className="text-2xl text-left w-[90vh] max-w-md whitespace-pre-line" style={{ fontFamily: 'GothamNormal' }}>
                                 {t(keys.cols.insectos.hover.pre)}
                                 <span className="text-[#AC7EF0]">{t(keys.cols.insectos.hover.highlight)}</span>
                                 {t(keys.cols.insectos.hover.post)}

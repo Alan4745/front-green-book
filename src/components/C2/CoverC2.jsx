@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SmartImage from "../Global/SmartImage";
 
 const CoverC2 = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [isCompactLandscape, setIsCompactLandscape] = useState(false);
 
     useEffect(() => {
@@ -29,7 +29,13 @@ const CoverC2 = () => {
     const titleMobileLine2 = t("c2.cover.title.mobileLine2").trim();
     const titleMobileLine3 = t("c2.cover.title.mobileLine3").trim();
     const subtitleTop = t("c2.cover.subtitle.top").trim();
-    const subtitleBottom = t("c2.cover.subtitle.bottom").trim();
+    // Leemos el valor del idioma activo (sin fallback) para respetar un "" intencional;
+    // si el idioma no define la clave, caemos a t() (que sí usa el fallback).
+    const activeLng = i18n.resolvedLanguage || i18n.language;
+    const subtitleBottomRaw = i18n.getResource(activeLng, "translation", "c2.cover.subtitle.bottom");
+    const subtitleBottom = (typeof subtitleBottomRaw === "string"
+        ? subtitleBottomRaw
+        : t("c2.cover.subtitle.bottom")).trim();
 
     const mobileTitleClassName = isCompactLandscape
         ? "relative z-30 pl-4 pr-[14vw] text-white text-[4.6vw] leading-[1.05] max-w-[70vw] uppercase"
@@ -89,7 +95,7 @@ const CoverC2 = () => {
                             style={{ fontFamily: "GothamBold" }}
                         >
                             <span className="block">{subtitleTop}</span>
-                            <span className="block">{subtitleBottom}</span>
+                            {subtitleBottom && <span className="block">{subtitleBottom}</span>}
                         </h3>
                         <div className="w-[15vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
                     </div>
@@ -116,7 +122,7 @@ const CoverC2 = () => {
                         className="text-white text-[3vh] 2xl:text-[4vh] mt-[8vh] 2xl:mt-[20vh] uppercase"
                         style={{ fontFamily: "GothamBold" }}
                     >
-                        {subtitleTop} <br /> {subtitleBottom}
+                        {subtitleTop}{subtitleBottom && <> <br /> {subtitleBottom}</>}
                     </h3>
                     <div className="w-[10vw] h-[1.5vh] bg-[#5FCAD0] mt-[0.5vh]" />
                 </div>
