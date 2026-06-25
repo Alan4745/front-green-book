@@ -172,7 +172,7 @@ const Section2C4 = () => {
                         {t(keys.right.title.line2)}
                     </h3>
                     <p
-                        className="mt-4 text-right text-[3.8vw] leading-relaxed md:text-[2.5vw]"
+                        className="mt-4 text-right text-[3.8vw] leading-relaxed whitespace-pre-line md:text-[2.5vw]"
                         style={{ fontFamily: "GothamNormal" }}
                     >
                         {t(keys.right.desc)}
@@ -239,7 +239,7 @@ const Section2C4 = () => {
 
                     <div className="absolute right-[2vw] top-[48vh] max-w-[26vw] text-right xl:right-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:right-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
                         <p
-                            className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl"
+                            className="text-sm leading-relaxed whitespace-pre-line xl:text-base min-[1600px]:text-xl"
                             style={{ fontFamily: "GothamNormal" }}
                         >
                             {t(keys.right.desc)}

@@ -91,7 +91,7 @@ const Section1C5 = () => {
                         {t('c5.section1.intro')}
                     </p>
                     <p
-                        className="mb-7 text-[clamp(0.85rem,3.4vw,1.05rem)] min-[744px]:max-[1023px]:mb-6 min-[744px]:max-[1023px]:text-[1rem] text-justify leading-tight"
+                        className="mb-7 text-[clamp(0.85rem,3.4vw,1.05rem)] min-[744px]:max-[1023px]:mb-6 min-[744px]:max-[1023px]:text-[1rem] text-justify leading-tight whitespace-pre-line"
                         style={{ fontFamily: 'GothamNormal' }}
                     >
                         {t('c5.section1.outro')}
@@ -155,7 +155,7 @@ const Section1C5 = () => {
                                                     {t('c5.section1.intro')}
                                                 </p>
                                                 <p
-                                                    className="w-[43.25rem] text-[1.1rem] leading-[1.16]"
+                                                    className="w-[43.25rem] text-[1.1rem] leading-[1.16] whitespace-pre-line"
                                                     style={{ fontFamily: 'GothamNormal' }}
                                                 >
                                                     {t('c5.section1.outro')}

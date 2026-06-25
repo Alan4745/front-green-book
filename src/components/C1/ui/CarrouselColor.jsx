@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import CardColor from './CardColor';
 import SmartImage from '../../Global/SmartImage';
@@ -85,8 +85,8 @@ const CarrouselColor = ({ slides = [] }) => {
         }
 
         return isLongValue
-            ? 'px-2 lg:px-1 text-[1.55rem] lg:text-[1.9rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
-            : 'px-2 text-[1.9rem] lg:text-[2.2rem] portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
+            ? 'px-2 lg:px-2 text-[1.55rem] lg:text-[1.2rem] portrait:lg:text-[0.92rem] portrait:lg:px-1 leading-none whitespace-nowrap'
+            : 'px-2 text-[1.9rem] lg:text-[1.9rem] portrait:lg:text-[1.2rem] portrait:lg:px-1 leading-none whitespace-nowrap';
     };
 
     const getDescClass = (card) => {
@@ -154,13 +154,19 @@ const CarrouselColor = ({ slides = [] }) => {
                 <p className={`text-center uppercase ${getDescClass(card)}`}>
                     {card.description.split('\n').map((line, i) => (
                         <span key={i}>
-                            {line.split(/(\d+)/).map((part, j) =>
-                                /\d+/.test(part) ? (
-                                    <span key={j} style={{ fontFamily: 'GothamBold' }}>{part}</span>
-                                ) : (
-                                    <span key={j} style={{ fontFamily: 'GothamNormal' }}>{part}</span>
-                                )
-                            )}
+                            {/* <brm> = salto solo en móvil/tablet (oculto en desktop) */}
+                            {line.split('<brm>').map((seg, k, segArr) => (
+                                <Fragment key={k}>
+                                    {seg.split(/(\d+)/).map((part, j) =>
+                                        /\d+/.test(part) ? (
+                                            <span key={j} style={{ fontFamily: 'GothamBold' }}>{part}</span>
+                                        ) : (
+                                            <span key={j} style={{ fontFamily: 'GothamNormal' }}>{part}</span>
+                                        )
+                                    )}
+                                    {k < segArr.length - 1 && <br className="lg:hidden" />}
+                                </Fragment>
+                            ))}
                             <br />
                         </span>
                     ))}

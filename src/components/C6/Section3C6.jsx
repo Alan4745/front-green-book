@@ -12,7 +12,10 @@ import Img2 from '../../assets/C6/F6.webp';
 
 const Section3C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const activeLng = i18n.resolvedLanguage || i18n.language;
+    const leftTitleBottomRaw = i18n.getResource(activeLng, 'translation', 'c6.section3.left.title.bottom');
+    const leftTitleBottom = (typeof leftTitleBottomRaw === 'string' ? leftTitleBottomRaw : t('c6.section3.left.title.bottom')).trim();
     const MotionDiv = motion.div;
 
     const handleImageClick = (imageSrc) => {
@@ -99,7 +102,7 @@ const Section3C6 = () => {
                 <div className="relative px-6 min-[744px]:max-[1023px]:px-10 [@media(min-width:1024px)_and_(orientation:portrait)]:!px-14 py-[3vh] min-[744px]:max-[1023px]:py-[2vh] [@media(min-width:1024px)_and_(orientation:portrait)]:!py-[2vh]">
                     <div className="text-[28vw] md:text-[18vw] min-[744px]:max-[1023px]:text-[15vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[13vw] font-bold opacity-30 leading-none" style={{ fontFamily: "GothamBold" }}>05</div>
                     <h3 className="text-[6vw] md:text-[4vw] min-[744px]:max-[1023px]:text-[3.2vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[2.8vw] font-bold uppercase mt-[-7vw] md:mt-[-4vw] min-[744px]:max-[1023px]:mt-[-3vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!mt-[-2.5vw]" style={{ fontFamily: "GothamBold" }}>
-                        {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
+                        {t("c6.section3.left.title.top")}{leftTitleBottom && <> <br /> {leftTitleBottom}</>}
                     </h3>
                     <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[1.8vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section3.left.desc.line1")} <br />
@@ -136,7 +139,7 @@ const Section3C6 = () => {
                 <div className="relative w-full text-white" style={{ minHeight: "inherit" }}>
                     <div className="absolute left-[2vw] top-[18vh] xl:left-[3vw] xl:top-[20vh] min-[1600px]:left-[4vw] min-[1600px]:top-[28vh]">
                         <h3 className="max-w-[28vw] text-xl font-bold uppercase xl:max-w-[27vw] xl:text-2xl min-[1600px]:max-w-[26vw] min-[1600px]:text-3xl" style={{ fontFamily: "GothamBold" }}>
-                            {t("c6.section3.left.title.top")} <br /> {t("c6.section3.left.title.bottom")}
+                            {t("c6.section3.left.title.top")}{leftTitleBottom && <> <br /> {leftTitleBottom}</>}
                         </h3>
                         <div className="mt-[-11vh] text-[20vh] font-bold opacity-30 xl:mt-[-15vh] xl:text-[28vh] min-[1600px]:mt-[-17vh] min-[1600px]:text-[30vh]" style={{ fontFamily: "GothamBold" }}>
                             05
