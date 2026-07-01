@@ -453,7 +453,7 @@
                                                "gravileaInga":  {
                                                                     "title":  "銀樺樹",
                                                                     "subtitle":  "Grevillea robusta",
-                                                                    "desc":  "Grevillea robusta（銀樺樹）是一種高大喬木，具有提升土壤中磷的可利用性，並具有良好的抗霜能力。",
+                                                                    "desc":  "銀樺樹是一種高大喬木，具有提升土壤中磷的可利用性，並具有良好的抗霜能力",
                                                                     "alt":  "Gravilea"
                                                                 },
                                                "paloBlanco":  {
@@ -597,7 +597,7 @@
                                           "chapter":  "Chapter {{num}}",
                                           "greenBook":  "Green Book logo"
                                       },
-                             "credits":  "Photo by RocÃ­o Silva"
+                             "credits":  "攝影：Rocío Silva"
                          },
                "section1":  {
                                 "aria":  {
@@ -628,7 +628,7 @@
                                                                             "苔蘚",
                                                                             "地衣"
                                                                         ],
-                                                          "credits":  "Photo by RocÃ­o Silva"
+                                                          "credits":  "攝影：Rocío Silva"
                                                       },
                                                "f3":  {
                                                           "title":  "印加豆樹",
@@ -653,7 +653,7 @@
                                                                "title":  "蝴蝶",
                                                                "hover":  {
                                                                              "number":  "+80",
-                                                                             "text":  "種蝴蝶僅在西部地區就有分布。"
+                                                                             "text":  "種蝴蝶分布於西部地區。"
                                                                          }
                                                            },
                                              "murcielagos":  {
@@ -697,7 +697,7 @@
                                                                         "number":  "+90",
                                                                         "text":  "種候鳥在咖啡園中覓食與棲息。"
                                                                     },
-                                                          "credits":  "Photo by RocÃ­o Silva"
+                                                          "credits":  "攝影：Rocío Silva"
                                                       }
                                          }
                             }
@@ -818,7 +818,7 @@
                                                         },
                                               "desc":  {
                                                            "pre":  "Anacafé 積極推動各項技術與良好作業方式的導入，以減少咖啡轉化過程中的用水量。",
-                                                           "anacafe":  "AnacafÃ©",
+                                                           "anacafe":  "Anacafé",
                                                            "post":  ""
                                                        }
                                           },

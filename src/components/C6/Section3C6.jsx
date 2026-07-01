@@ -14,6 +14,11 @@ const Section3C6 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const { t, i18n } = useTranslation();
     const activeLng = i18n.resolvedLanguage || i18n.language;
+    // Devuelve "" si la clave no resuelve (p. ej. "post" vacío + fallback ES no cargado)
+    const tOpt = (key, opts) => {
+        const value = t(key, opts);
+        return value === key ? "" : value;
+    };
     const leftTitleBottomRaw = i18n.getResource(activeLng, 'translation', 'c6.section3.left.title.bottom');
     const leftTitleBottom = (typeof leftTitleBottomRaw === 'string' ? leftTitleBottomRaw : t('c6.section3.left.title.bottom')).trim();
     const MotionDiv = motion.div;
@@ -124,7 +129,7 @@ const Section3C6 = () => {
                     </h3>
                     <p className="text-[3.8vw] md:text-[2.5vw] min-[744px]:max-[1023px]:text-[2.1vw] [@media(min-width:1024px)_and_(orientation:portrait)]:!text-[1.8vw] leading-relaxed mt-4 min-[744px]:max-[1023px]:mt-3 text-right" style={{ fontFamily: "GothamNormal" }}>
                         {t("c6.section3.right.desc.pre")}
-                        {t("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
+                        {tOpt("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
                     </p>
                     <div className="relative mt-4 cursor-pointer" onClick={() => handleImageClick(Img2)}>
                         <img src={Img2} alt={t("c6.section3.images.img2Alt")} title={t("c6.section3.images.img2Alt")}
@@ -166,7 +171,7 @@ const Section3C6 = () => {
                     <div className="absolute right-[2vw] top-[48vh] max-w-[26vw] text-right xl:right-[3vw] xl:top-[52vh] xl:max-w-[25vw] min-[1600px]:right-[4vw] min-[1600px]:top-[60vh] min-[1600px]:max-w-[24vw]">
                         <p className="text-sm leading-relaxed xl:text-base min-[1600px]:text-xl" style={{ fontFamily: "GothamNormal" }}>
                             {t("c6.section3.right.desc.pre")}
-                            {t("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
+                            {tOpt("c6.section3.right.desc.post", { liters: 150, lbs: 100 })}
                         </p>
                     </div>
 

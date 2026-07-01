@@ -113,6 +113,11 @@ const Section1C2 = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [showContent, setShowContent] = useState(false); // ⬅️ control de skeleton
     const { t } = useTranslation();
+    // Devuelve "" si la clave no resuelve (p. ej. "descLine3" vacío + fallback ES no cargado)
+    const tOpt = (key, opts) => {
+        const value = t(key, opts);
+        return value === key ? "" : value;
+    };
 
     // 🎛️ Animación de zoom
     const hoverAnim = useMemo(() => ({
@@ -249,7 +254,7 @@ const Section1C2 = () => {
 
                 <div className="absolute top-[60vh] left-[8vw] max-w-[22vw]">
                     <p className="text-[2vh] leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
-                        {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')} <br />{t('c1.section2.left.descLine3')}
+                        {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')}{tOpt('c1.section2.left.descLine3') && <><br />{tOpt('c1.section2.left.descLine3')}</>}
                     </p>
                 </div>
 
@@ -290,7 +295,7 @@ const Section1C2 = () => {
                     </div>
                     <div className="flex items-center">
                         <p className="text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'GothamNormal' }}>
-                            {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')} <br />{t('c1.section2.left.descLine3')}
+                            {t('c1.section2.left.descLine1')} <br />{t('c1.section2.left.descLine2')}{tOpt('c1.section2.left.descLine3') && <><br />{tOpt('c1.section2.left.descLine3')}</>}
                         </p>
                     </div>
                 </div>
