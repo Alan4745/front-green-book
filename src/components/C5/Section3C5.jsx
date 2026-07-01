@@ -13,7 +13,12 @@ const Section3C5 = () => {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
     const [hoveredSection, setHoveredSection] = useState(null);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    // Devuelve "" si la clave no resuelve (p. ej. "pre" vacío + fallback ES no cargado)
+    const tOpt = (key, opts) => {
+        const value = t(key, opts);
+        return value === key ? "" : value;
+    };
 
     const keys = {
         aria: {
@@ -82,7 +87,7 @@ const Section3C5 = () => {
                     </h2>
                     <div className="absolute bottom-12 left-4 text-white">
                         <p className="text-[3.5vw] md:text-[2.5vw] text-left w-[70vw] whitespace-pre-line" style={{ fontFamily: 'GothamNormal' }}>
-                            {t(keys.cols.insectos.hover.pre)}
+                            {tOpt(keys.cols.insectos.hover.pre)}
                             <span className="text-[#AC7EF0]">{t(keys.cols.insectos.hover.highlight)}</span>
                             {t(keys.cols.insectos.hover.post)}
                         </p>
@@ -154,7 +159,7 @@ const Section3C5 = () => {
                     {hoveredSection === 'mariposas' && (
                         <div className="absolute bottom-20 left-8 text-white transition-all duration-300">
                             <p className="text-2xl text-left w-[90vh] max-w-md whitespace-pre-line" style={{ fontFamily: 'GothamNormal' }}>
-                                {t(keys.cols.insectos.hover.pre)}
+                                {tOpt(keys.cols.insectos.hover.pre)}
                                 <span className="text-[#AC7EF0]">{t(keys.cols.insectos.hover.highlight)}</span>
                                 {t(keys.cols.insectos.hover.post)}
                             </p>
@@ -199,7 +204,7 @@ const Section3C5 = () => {
                     {hoveredSection === 'murcielagos' && (
                         <div className="absolute top-10 right-10 text-white transition-all duration-300">
                             <p className="text-2xl text-justify w-[50vh] max-w-md" style={{ fontFamily: 'GothamNormal' }}>
-                                <span className="text-[#AC7EF0]">{t(keys.cols.aves.hover.number)} </span>
+                                <span className="text-[#AC7EF0]">{t(keys.cols.aves.hover.number)}{i18n.language !== "zh" && " "}</span>
                                 {t(keys.cols.aves.hover.text)}
                             </p>
                         </div>

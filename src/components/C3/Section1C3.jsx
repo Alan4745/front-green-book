@@ -14,7 +14,7 @@ import Matilisguate from "../../assets/C3/Matilisguate.jpg";
 import MadreCacao from "../../assets/C3/MadreCacao.jpeg";
 
 const Section1C3 = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     // Estado para el tamaño de la ventana
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -135,7 +135,7 @@ const Section1C3 = () => {
                                 {t("c3.section1.intro.start")}{" "}
                                 <span style={{ fontFamily: "GothamBold" }}>
                                     {t("c3.section1.intro.highlight", { percent: 98 })}
-                                </span>{" "}
+                                </span>{i18n.language !== "zh" && " "}
                                 {t("c3.section1.intro.end")}
                             </p>
                         </div>
