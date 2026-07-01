@@ -97,6 +97,50 @@ import HumHuehue_jp from '../../../assets/C2/DiversidadJp/HumHuehue.svg';
 import HumOriente_jp from '../../../assets/C2/DiversidadJp/HumOriente.svg';
 import HumSanMarcos_jp from '../../../assets/C2/DiversidadJp/HumSanMarcos.svg';
 
+// 🇨🇳 Chino
+import BaseDiversidad_zh from '../../../assets/C2/DiversidadZh/DiversidadSVG.svg';
+import TituloG_zh from '../../../assets/C2/DiversidadZh/TituloG.svg';
+import TitAcatenango_zh from '../../../assets/C2/DiversidadZh/TitAcatenango.svg';
+import TitAntigua_zh from '../../../assets/C2/DiversidadZh/TitAntigua.svg';
+import TitAtitlan_zh from '../../../assets/C2/DiversidadZh/TitAtitlan.svg';
+import TitCoban_zh from '../../../assets/C2/DiversidadZh/TitCoban.svg';
+import TitFraijanes_zh from '../../../assets/C2/DiversidadZh/TitFraijanes.svg';
+import TitHuehue_zh from '../../../assets/C2/DiversidadZh/TitHuehue.svg';
+import TitOriente_zh from '../../../assets/C2/DiversidadZh/TitOriente.svg';
+import TitSanMarcos_zh from '../../../assets/C2/DiversidadZh/TitSanMarcos.svg';
+import AltAcatenango_zh from '../../../assets/C2/DiversidadZh/AltAcatenango.svg';
+import AltAntigua_zh from '../../../assets/C2/DiversidadZh/AltAntigua.svg';
+import AltAtitlan_zh from '../../../assets/C2/DiversidadZh/AltAtitlan.svg';
+import AltCoban_zh from '../../../assets/C2/DiversidadZh/AltCoban.svg';
+import AltFraijanes_zh from '../../../assets/C2/DiversidadZh/AltFraijanes.svg';
+import AltHuehue_zh from '../../../assets/C2/DiversidadZh/AltHuehue.svg';
+import AltOriente_zh from '../../../assets/C2/DiversidadZh/AltOriente.svg';
+import AltSanMarcos_zh from '../../../assets/C2/DiversidadZh/AltSanMarcos.svg';
+import LluAcatenango_zh from '../../../assets/C2/DiversidadZh/LluAcatenango.svg';
+import LluAntigua_zh from '../../../assets/C2/DiversidadZh/LluAntigua.svg';
+import LluAtitlan_zh from '../../../assets/C2/DiversidadZh/LluAtitlan.svg';
+import LluCoban_zh from '../../../assets/C2/DiversidadZh/LluCoban.svg';
+import LluFraijanes_zh from '../../../assets/C2/DiversidadZh/LluFraijanes.svg';
+import LluHuehue_zh from '../../../assets/C2/DiversidadZh/LluHuehue.svg';
+import LluOriente_zh from '../../../assets/C2/DiversidadZh/LluOriente.svg';
+import LluSanMarcos_zh from '../../../assets/C2/DiversidadZh/LluSanMarcos.svg';
+import TempAcatenango_zh from '../../../assets/C2/DiversidadZh/TempAcatenango.svg';
+import TempAntigua_zh from '../../../assets/C2/DiversidadZh/TempAntigua.svg';
+import TempAtitlan_zh from '../../../assets/C2/DiversidadZh/TempAtitlan.svg';
+import TempCoban_zh from '../../../assets/C2/DiversidadZh/TempCoban.svg';
+import TempFraijanes_zh from '../../../assets/C2/DiversidadZh/TempFraijanes.svg';
+import TempHuehue_zh from '../../../assets/C2/DiversidadZh/TempHuehue.svg';
+import TempOriente_zh from '../../../assets/C2/DiversidadZh/TempOriente.svg';
+import TempSanMarcos_zh from '../../../assets/C2/DiversidadZh/TempSanMarcos.svg';
+import HumAcatenango_zh from '../../../assets/C2/DiversidadZh/HumAcatenango.svg';
+import HumAntigua_zh from '../../../assets/C2/DiversidadZh/HumAntigua.svg';
+import HumAtitlan_zh from '../../../assets/C2/DiversidadZh/HumAtitlan.svg';
+import HumCoban_zh from '../../../assets/C2/DiversidadZh/HumCoban.svg';
+import HumFraijanes_zh from '../../../assets/C2/DiversidadZh/HumFraijanes.svg';
+import HumHuehue_zh from '../../../assets/C2/DiversidadZh/HumHuehue.svg';
+import HumOriente_zh from '../../../assets/C2/DiversidadZh/HumOriente.svg';
+import HumSanMarcos_zh from '../../../assets/C2/DiversidadZh/HumSanMarcos.svg';
+
 import TituloG from '../../../assets/C2/ui/TituloG.svg';
 
 import TitAcatenango from '../../../assets/C2/ui/TitAcatenango.svg';
@@ -299,6 +343,7 @@ const DiversidadC = ({
     const { i18n } = useTranslation();
     const isKo = i18n.language === 'ko';
     const isJp = i18n.language === 'jp';
+    const isZh = i18n.language === 'zh';
 
     // Posiciones por idioma. Korean: cada barra alineada al centro de su columna y escalada
     // para que la barra coloreada tenga el MISMO tamaño visual que en español (las barras KO
@@ -308,104 +353,118 @@ const DiversidadC = ({
         ? ['25.2vh', '39.4vh', '52.3vh', '66.2vh', '79.6vh', '92.3vh', '106.1vh', '118.6vh']
         : isJp  // centrado por el texto (el diamante viene del base)
         ? ['30.3vh', '40.9vh', '52.3vh', '62.8vh', '72.8vh', '84.3vh', '95.1vh',  '105.7vh']
+        : isZh
+        ? ['30.1vh', '40.9vh', '51.6vh', '62.2vh', '73.1vh', '84.1vh', '95.0vh',  '105.5vh']
         : ['34vh',   '44vh',   '55vh',   '66vh',   '76vh',   '87vh',   '98vh',    '109vh'];
     const LA = isKo  // Altitud
         ? ['21.8vh', '36.2vh', '49.4vh', '63.9vh', '77.1vh', '90.1vh', '104.2vh', '117.3vh']
         : isJp
         ? ['29.6vh', '40.5vh', '51.2vh', '62.3vh', '72.7vh', '83.5vh', '94.3vh',  '105.2vh']
+        : isZh
+        ? ['30.2vh', '40.9vh', '51.7vh', '62.4vh', '73.1vh', '83.8vh', '94.8vh',  '105.5vh']
         : ['33vh',   '44vh',   '55vh',   '65.5vh', '76vh',   '87vh',   '98vh',    '109vh'];
     const LL = isKo  // Lluvia
         ? ['22.5vh', '35.9vh', '49.5vh', '62.8vh', '76.6vh', '89.3vh', '102.8vh', '116.4vh']
         : isJp
         ? ['29.8vh', '40.6vh', '51.0vh', '61.9vh', '72.6vh', '83.4vh', '94.3vh',  '105.2vh']
+        : isZh
+        ? ['29.9vh', '40.8vh', '51.5vh', '62.2vh', '73.2vh', '83.7vh', '94.5vh',  '105.3vh']
         : ['33vh',   '44vh',   '55vh',   '65.5vh', '76vh',   '87vh',   '98vh',    '109vh'];
     const LT = isKo  // Temperatura
         ? ['24.0vh', '37.2vh', '50.4vh', '63.8vh', '78.3vh', '91.5vh', '104.2vh', '118.9vh']
         : isJp
         ? ['30.0vh', '40.7vh', '51.2vh', '62.0vh', '73.1vh', '83.7vh', '94.6vh',  '105.2vh']
+        : isZh
+        ? ['30.0vh', '40.9vh', '51.2vh', '62.2vh', '73.2vh', '83.9vh', '94.5vh',  '105.3vh']
         : ['34vh',   '45vh',   '56vh',   '66.5vh', '77vh',   '88vh',   '99vh',    '110vh'];
     const LH = isKo  // Humedad
         ? ['23.2vh', '37.7vh', '50.6vh', '65.2vh', '77.9vh', '91.3vh', '104.7vh', '118.5vh']
         : isJp  // centros reales del pastel (círculo, no bbox)
         ? ['29.1vh', '39.7vh', '50.5vh', '61.7vh', '72.2vh', '83.0vh', '93.9vh',  '104.8vh']
+        : isZh
+        ? ['29.1vh', '40.0vh', '50.6vh', '61.7vh', '72.3vh', '83.0vh', '94.0vh',  '104.5vh']
         : ['33vh',   '44vh',   '55vh',   '65.5vh', '76vh',   '87vh',   '98vh',    '109vh'];
 
     // Alturas calibradas (barra coloreada igual a español).
     const TH = isKo ? 0.9 : 1;        // Title Height scale (KO)
     const hTitJp = 19;                // Altura uniforme títulos japoneses
-    const fTitle = isKo ? 4 : isJp ? -2 : 0;   // subir/bajar títulos
-    const hAlt  = isKo ? 22 : isJp ? 16.1 : 15;  // Altitud
-    const hLlu  = isKo ? 20 : isJp ? 16.1 : 15;  // Lluvia
-    const hTemp = isKo ? 22 : isJp ? 17   : 15;  // Temperatura
-    const hHum  = isKo ? 11 : isJp ? 11   : 8;   // Humedad
+    const hTitZh = 19;                // Altura uniforme títulos chinos
+    const fTitle = isKo ? 4 : isJp ? -2 : isZh ? -2 : 0;   // subir/bajar títulos
+    const hAlt  = isKo ? 22 : isJp ? 16.1 : isZh ? 16.1 : 15;  // Altitud
+    const hLlu  = isKo ? 20 : isJp ? 16.1 : isZh ? 15.5 : 15;  // Lluvia
+    const hTemp = isKo ? 22 : isJp ? 17   : isZh ? 17   : 15;  // Temperatura
+    const hHum  = isKo ? 11 : isJp ? 11   : isZh ? 11   : 8;   // Humedad
     // Ajuste de baseline por idioma
     const fAlt = isKo ? 2.6 : 0, fLlu = isKo ? -2 : 0, fTemp = isKo ? -6 : 0;
-    const fHum = isKo ? -10 : isJp ? -2 : 0;   // bajar pasteles (KO/JP)
+    const fHum = isKo ? -10 : isJp ? -2 : isZh ? -2 : 0;   // bajar pasteles (KO/JP/ZH)
+
+    // El base chino tiene toda la tabla ~4vh más abajo que el español/japonés.
+    const zhShift = isZh ? 4.1 : 0;
 
     // Banda de cosecha (KO): calendario del base coreano en ~128-142vh.
-    const harBandTop  = isKo ? 107.8 : HAR_BAND_TOP_VH;
+    const harBandTop  = (isKo ? 107.8 : HAR_BAND_TOP_VH) + zhShift;
     const harMonthOff = isKo
         ? { apr: -1.8, mar: 1.4, feb: 4.6, jan: 7.8, dec: 11.0 }
         : HAR_MONTH_OFFSET_VH;
 
     // Títulos de regiones
     const titles = [
-        { key: 'acatenango', src: isKo ? TitAcatenango_ko : isJp ? TitAcatenango_jp : TitAcatenango, alt: 'Acatenango', left: L[0], heightVh: isJp ? hTitJp : 19 * TH, bottomFixVh: 0.0 },
-        { key: 'antigua',    src: isKo ? TitAntigua_ko    : isJp ? TitAntigua_jp    : TitAntigua,    alt: 'Antigua',    left: L[1], heightVh: isJp ? hTitJp : 14.5 * TH, bottomFixVh: 0.0 },
-        { key: 'atitlan',    src: isKo ? TitAtitlan_ko    : isJp ? TitAtitlan_jp    : TitAtitlan,    alt: 'Atitlán',    left: L[2], heightVh: isJp ? hTitJp : 17.5 * TH, bottomFixVh: 0.2 },
-        { key: 'coban',      src: isKo ? TitCoban_ko      : isJp ? TitCoban_jp      : TitCoban,      alt: 'Cobán',      left: L[3], heightVh: isJp ? hTitJp : 16.8 * TH, bottomFixVh: -0.1 },
-        { key: 'fraijanes',  src: isKo ? TitFraijanes_ko  : isJp ? TitFraijanes_jp  : TitFraijanes,  alt: 'Fraijanes',  left: L[4], heightVh: isJp ? hTitJp : 16 * TH, bottomFixVh: 0.0 },
-        { key: 'huehue',     src: isKo ? TitHuehue_ko     : isJp ? TitHuehue_jp     : TitHuehue,     alt: 'Huehue',     left: L[5], heightVh: isJp ? hTitJp : 16.0 * TH, bottomFixVh: 0.0 },
-        { key: 'oriente',    src: isKo ? TitOriente_ko    : isJp ? TitOriente_jp    : TitOriente,    alt: 'Oriente',    left: L[6], heightVh: isJp ? hTitJp : 14.2 * TH, bottomFixVh: 0.0 },
-        { key: 'sanmarcos',  src: isKo ? TitSanMarcos_ko  : isJp ? TitSanMarcos_jp  : TitSanMarcos,  alt: 'San Marcos', left: L[7], heightVh: isJp ? hTitJp : 19 * TH, bottomFixVh: 0.1 }
+        { key: 'acatenango', src: isKo ? TitAcatenango_ko : isJp ? TitAcatenango_jp : isZh ? TitAcatenango_zh : TitAcatenango, alt: 'Acatenango', left: L[0], heightVh: isJp ? hTitJp : isZh ? hTitZh : 19 * TH, bottomFixVh: 0.0 },
+        { key: 'antigua',    src: isKo ? TitAntigua_ko    : isJp ? TitAntigua_jp    : isZh ? TitAntigua_zh    : TitAntigua,    alt: 'Antigua',    left: L[1], heightVh: isJp ? hTitJp : isZh ? hTitZh : 14.5 * TH, bottomFixVh: 0.0 },
+        { key: 'atitlan',    src: isKo ? TitAtitlan_ko    : isJp ? TitAtitlan_jp    : isZh ? TitAtitlan_zh    : TitAtitlan,    alt: 'Atitlán',    left: L[2], heightVh: isJp ? hTitJp : isZh ? hTitZh : 17.5 * TH, bottomFixVh: 0.2 },
+        { key: 'coban',      src: isKo ? TitCoban_ko      : isJp ? TitCoban_jp      : isZh ? TitCoban_zh      : TitCoban,      alt: 'Cobán',      left: L[3], heightVh: isJp ? hTitJp : isZh ? hTitZh : 16.8 * TH, bottomFixVh: -0.1 },
+        { key: 'fraijanes',  src: isKo ? TitFraijanes_ko  : isJp ? TitFraijanes_jp  : isZh ? TitFraijanes_zh  : TitFraijanes,  alt: 'Fraijanes',  left: L[4], heightVh: isJp ? hTitJp : isZh ? hTitZh : 16 * TH, bottomFixVh: 0.0 },
+        { key: 'huehue',     src: isKo ? TitHuehue_ko     : isJp ? TitHuehue_jp     : isZh ? TitHuehue_zh     : TitHuehue,     alt: 'Huehue',     left: L[5], heightVh: isJp ? hTitJp : isZh ? hTitZh : 16.0 * TH, bottomFixVh: 0.0 },
+        { key: 'oriente',    src: isKo ? TitOriente_ko    : isJp ? TitOriente_jp    : isZh ? TitOriente_zh    : TitOriente,    alt: 'Oriente',    left: L[6], heightVh: isJp ? hTitJp : isZh ? hTitZh : 14.2 * TH, bottomFixVh: 0.0 },
+        { key: 'sanmarcos',  src: isKo ? TitSanMarcos_ko  : isJp ? TitSanMarcos_jp  : isZh ? TitSanMarcos_zh  : TitSanMarcos,  alt: 'San Marcos', left: L[7], heightVh: isJp ? hTitJp : isZh ? hTitZh : 19 * TH, bottomFixVh: 0.1 }
     ];
 
     // ALTITUD
     const altItems = [
-        { key: 'alt-acatenango', src: isKo ? AltAcatenango_ko : isJp ? AltAcatenango_jp : AltAcatenango, alt: 'Altitud Acatenango', left: LA[0], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-antigua',    src: isKo ? AltAntigua_ko    : isJp ? AltAntigua_jp    : AltAntigua,    alt: 'Altitud Antigua',    left: LA[1], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-atitlan',    src: isKo ? AltAtitlan_ko    : isJp ? AltAtitlan_jp    : AltAtitlan,    alt: 'Altitud Atitlán',    left: LA[2], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-coban',      src: isKo ? AltCoban_ko      : isJp ? AltCoban_jp      : AltCoban,      alt: 'Altitud Cobán',      left: LA[3], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-fraijanes',  src: isKo ? AltFraijanes_ko  : isJp ? AltFraijanes_jp  : AltFraijanes,  alt: 'Altitud Fraijanes',  left: LA[4], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-huehue',     src: isKo ? AltHuehue_ko     : isJp ? AltHuehue_jp     : AltHuehue,     alt: 'Altitud Huehue',     left: LA[5], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-oriente',    src: isKo ? AltOriente_ko    : isJp ? AltOriente_jp    : AltOriente,    alt: 'Altitud Oriente',    left: LA[6], heightVh: hAlt, bottomFixVh: fAlt },
-        { key: 'alt-sanmarcos',  src: isKo ? AltSanMarcos_ko  : isJp ? AltSanMarcos_jp  : AltSanMarcos,  alt: 'Altitud San Marcos', left: LA[7], heightVh: hAlt, bottomFixVh: fAlt }
+        { key: 'alt-acatenango', src: isKo ? AltAcatenango_ko : isJp ? AltAcatenango_jp : isZh ? AltAcatenango_zh : AltAcatenango, alt: 'Altitud Acatenango', left: LA[0], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-antigua',    src: isKo ? AltAntigua_ko    : isJp ? AltAntigua_jp    : isZh ? AltAntigua_zh    : AltAntigua,    alt: 'Altitud Antigua',    left: LA[1], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-atitlan',    src: isKo ? AltAtitlan_ko    : isJp ? AltAtitlan_jp    : isZh ? AltAtitlan_zh    : AltAtitlan,    alt: 'Altitud Atitlán',    left: LA[2], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-coban',      src: isKo ? AltCoban_ko      : isJp ? AltCoban_jp      : isZh ? AltCoban_zh      : AltCoban,      alt: 'Altitud Cobán',      left: LA[3], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-fraijanes',  src: isKo ? AltFraijanes_ko  : isJp ? AltFraijanes_jp  : isZh ? AltFraijanes_zh  : AltFraijanes,  alt: 'Altitud Fraijanes',  left: LA[4], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-huehue',     src: isKo ? AltHuehue_ko     : isJp ? AltHuehue_jp     : isZh ? AltHuehue_zh     : AltHuehue,     alt: 'Altitud Huehue',     left: LA[5], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-oriente',    src: isKo ? AltOriente_ko    : isJp ? AltOriente_jp    : isZh ? AltOriente_zh    : AltOriente,    alt: 'Altitud Oriente',    left: LA[6], heightVh: hAlt, bottomFixVh: fAlt },
+        { key: 'alt-sanmarcos',  src: isKo ? AltSanMarcos_ko  : isJp ? AltSanMarcos_jp  : isZh ? AltSanMarcos_zh  : AltSanMarcos,  alt: 'Altitud San Marcos', left: LA[7], heightVh: hAlt, bottomFixVh: fAlt }
     ];
 
     // LLUVIA
     const lluItems = [
-        { key: 'llu-acatenango', src: isKo ? LluAcatenango_ko : isJp ? LluAcatenango_jp : LluAcatenango, alt: 'Lluvia Acatenango', left: LL[0], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-antigua',    src: isKo ? LluAntigua_ko    : isJp ? LluAntigua_jp    : LluAntigua,    alt: 'Lluvia Antigua',    left: LL[1], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-atitlan',    src: isKo ? LluAtitlan_ko    : isJp ? LluAtitlan_jp    : LluAtitlan,    alt: 'Lluvia Atitlán',    left: LL[2], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-coban',      src: isKo ? LluCoban_ko      : isJp ? LluCoban_jp      : LluCoban,      alt: 'Lluvia Cobán',      left: LL[3], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-fraijanes',  src: isKo ? LluFraijanes_ko  : isJp ? LluFraijanes_jp  : LluFraijanes,  alt: 'Lluvia Fraijanes',  left: LL[4], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-huehue',     src: isKo ? LluHuehue_ko     : isJp ? LluHuehue_jp     : LluHuehue,     alt: 'Lluvia Huehue',     left: LL[5], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-oriente',    src: isKo ? LluOriente_ko    : isJp ? LluOriente_jp    : LluOriente,    alt: 'Lluvia Oriente',    left: LL[6], heightVh: hLlu, bottomFixVh: fLlu },
-        { key: 'llu-sanmarcos',  src: isKo ? LluSanMarcos_ko  : isJp ? LluSanMarcos_jp  : LluSanMarcos,  alt: 'Lluvia San Marcos', left: LL[7], heightVh: hLlu, bottomFixVh: fLlu - (isJp ? 1 : 0) }
+        { key: 'llu-acatenango', src: isKo ? LluAcatenango_ko : isJp ? LluAcatenango_jp : isZh ? LluAcatenango_zh : LluAcatenango, alt: 'Lluvia Acatenango', left: LL[0], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-antigua',    src: isKo ? LluAntigua_ko    : isJp ? LluAntigua_jp    : isZh ? LluAntigua_zh    : LluAntigua,    alt: 'Lluvia Antigua',    left: LL[1], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-atitlan',    src: isKo ? LluAtitlan_ko    : isJp ? LluAtitlan_jp    : isZh ? LluAtitlan_zh    : LluAtitlan,    alt: 'Lluvia Atitlán',    left: LL[2], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-coban',      src: isKo ? LluCoban_ko      : isJp ? LluCoban_jp      : isZh ? LluCoban_zh      : LluCoban,      alt: 'Lluvia Cobán',      left: LL[3], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-fraijanes',  src: isKo ? LluFraijanes_ko  : isJp ? LluFraijanes_jp  : isZh ? LluFraijanes_zh  : LluFraijanes,  alt: 'Lluvia Fraijanes',  left: LL[4], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-huehue',     src: isKo ? LluHuehue_ko     : isJp ? LluHuehue_jp     : isZh ? LluHuehue_zh     : LluHuehue,     alt: 'Lluvia Huehue',     left: LL[5], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-oriente',    src: isKo ? LluOriente_ko    : isJp ? LluOriente_jp    : isZh ? LluOriente_zh    : LluOriente,    alt: 'Lluvia Oriente',    left: LL[6], heightVh: hLlu, bottomFixVh: fLlu },
+        { key: 'llu-sanmarcos',  src: isKo ? LluSanMarcos_ko  : isJp ? LluSanMarcos_jp  : isZh ? LluSanMarcos_zh  : LluSanMarcos,  alt: 'Lluvia San Marcos', left: LL[7], heightVh: hLlu, bottomFixVh: fLlu - (isJp ? 1 : 0) }
     ];
 
     // 🌡️ TEMPERATURA
     const tempItems = [
-        { key: 'temp-acatenango', src: isKo ? TempAcatenango_ko : isJp ? TempAcatenango_jp : TempAcatenango, alt: 'Temperatura Acatenango', left: LT[0], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-antigua',    src: isKo ? TempAntigua_ko    : isJp ? TempAntigua_jp    : TempAntigua,    alt: 'Temperatura Antigua',    left: LT[1], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-atitlan',    src: isKo ? TempAtitlan_ko    : isJp ? TempAtitlan_jp    : TempAtitlan,    alt: 'Temperatura Atitlán',    left: LT[2], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-coban',      src: isKo ? TempCoban_ko      : isJp ? TempCoban_jp      : TempCoban,      alt: 'Temperatura Cobán',      left: LT[3], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-fraijanes',  src: isKo ? TempFraijanes_ko  : isJp ? TempFraijanes_jp  : TempFraijanes,  alt: 'Temperatura Fraijanes',  left: LT[4], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-huehue',     src: isKo ? TempHuehue_ko     : isJp ? TempHuehue_jp     : TempHuehue,     alt: 'Temperatura Huehue',     left: LT[5], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-oriente',    src: isKo ? TempOriente_ko    : isJp ? TempOriente_jp    : TempOriente,    alt: 'Temperatura Oriente',    left: LT[6], heightVh: hTemp, bottomFixVh: fTemp },
-        { key: 'temp-sanmarcos',  src: isKo ? TempSanMarcos_ko  : isJp ? TempSanMarcos_jp  : TempSanMarcos,  alt: 'Temperatura San Marcos', left: LT[7], heightVh: hTemp, bottomFixVh: fTemp }
+        { key: 'temp-acatenango', src: isKo ? TempAcatenango_ko : isJp ? TempAcatenango_jp : isZh ? TempAcatenango_zh : TempAcatenango, alt: 'Temperatura Acatenango', left: LT[0], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-antigua',    src: isKo ? TempAntigua_ko    : isJp ? TempAntigua_jp    : isZh ? TempAntigua_zh    : TempAntigua,    alt: 'Temperatura Antigua',    left: LT[1], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-atitlan',    src: isKo ? TempAtitlan_ko    : isJp ? TempAtitlan_jp    : isZh ? TempAtitlan_zh    : TempAtitlan,    alt: 'Temperatura Atitlán',    left: LT[2], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-coban',      src: isKo ? TempCoban_ko      : isJp ? TempCoban_jp      : isZh ? TempCoban_zh      : TempCoban,      alt: 'Temperatura Cobán',      left: LT[3], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-fraijanes',  src: isKo ? TempFraijanes_ko  : isJp ? TempFraijanes_jp  : isZh ? TempFraijanes_zh  : TempFraijanes,  alt: 'Temperatura Fraijanes',  left: LT[4], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-huehue',     src: isKo ? TempHuehue_ko     : isJp ? TempHuehue_jp     : isZh ? TempHuehue_zh     : TempHuehue,     alt: 'Temperatura Huehue',     left: LT[5], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-oriente',    src: isKo ? TempOriente_ko    : isJp ? TempOriente_jp    : isZh ? TempOriente_zh    : TempOriente,    alt: 'Temperatura Oriente',    left: LT[6], heightVh: hTemp, bottomFixVh: fTemp },
+        { key: 'temp-sanmarcos',  src: isKo ? TempSanMarcos_ko  : isJp ? TempSanMarcos_jp  : isZh ? TempSanMarcos_zh  : TempSanMarcos,  alt: 'Temperatura San Marcos', left: LT[7], heightVh: hTemp, bottomFixVh: fTemp }
     ];
 
     // 💧 HUMEDAD
     const humItems = [
-        { key: 'hum-acatenango', src: isKo ? HumAcatenango_ko : isJp ? HumAcatenango_jp : HumAcatenango, alt: 'Humedad Acatenango', left: LH[0], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-antigua',    src: isKo ? HumAntigua_ko    : isJp ? HumAntigua_jp    : HumAntigua,    alt: 'Humedad Antigua',    left: LH[1], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-atitlan',    src: isKo ? HumAtitlan_ko    : isJp ? HumAtitlan_jp    : HumAtitlan,    alt: 'Humedad Atitlán',    left: LH[2], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-coban',      src: isKo ? HumCoban_ko      : isJp ? HumCoban_jp      : HumCoban,      alt: 'Humedad Cobán',      left: LH[3], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-fraijanes',  src: isKo ? HumFraijanes_ko  : isJp ? HumFraijanes_jp  : HumFraijanes,  alt: 'Humedad Fraijanes',  left: LH[4], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-huehue',     src: isKo ? HumHuehue_ko     : isJp ? HumHuehue_jp     : HumHuehue,     alt: 'Humedad Huehue',     left: LH[5], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-oriente',    src: isKo ? HumOriente_ko    : isJp ? HumOriente_jp    : HumOriente,    alt: 'Humedad Oriente',    left: LH[6], heightVh: hHum, bottomFixVh: fHum },
-        { key: 'hum-sanmarcos',  src: isKo ? HumSanMarcos_ko  : isJp ? HumSanMarcos_jp  : HumSanMarcos,  alt: 'Humedad San Marcos', left: LH[7], heightVh: hHum, bottomFixVh: fHum }
+        { key: 'hum-acatenango', src: isKo ? HumAcatenango_ko : isJp ? HumAcatenango_jp : isZh ? HumAcatenango_zh : HumAcatenango, alt: 'Humedad Acatenango', left: LH[0], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-antigua',    src: isKo ? HumAntigua_ko    : isJp ? HumAntigua_jp    : isZh ? HumAntigua_zh    : HumAntigua,    alt: 'Humedad Antigua',    left: LH[1], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-atitlan',    src: isKo ? HumAtitlan_ko    : isJp ? HumAtitlan_jp    : isZh ? HumAtitlan_zh    : HumAtitlan,    alt: 'Humedad Atitlán',    left: LH[2], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-coban',      src: isKo ? HumCoban_ko      : isJp ? HumCoban_jp      : isZh ? HumCoban_zh      : HumCoban,      alt: 'Humedad Cobán',      left: LH[3], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-fraijanes',  src: isKo ? HumFraijanes_ko  : isJp ? HumFraijanes_jp  : isZh ? HumFraijanes_zh  : HumFraijanes,  alt: 'Humedad Fraijanes',  left: LH[4], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-huehue',     src: isKo ? HumHuehue_ko     : isJp ? HumHuehue_jp     : isZh ? HumHuehue_zh     : HumHuehue,     alt: 'Humedad Huehue',     left: LH[5], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-oriente',    src: isKo ? HumOriente_ko    : isJp ? HumOriente_jp    : isZh ? HumOriente_zh    : HumOriente,    alt: 'Humedad Oriente',    left: LH[6], heightVh: hHum, bottomFixVh: fHum },
+        { key: 'hum-sanmarcos',  src: isKo ? HumSanMarcos_ko  : isJp ? HumSanMarcos_jp  : isZh ? HumSanMarcos_zh  : HumSanMarcos,  alt: 'Humedad San Marcos', left: LH[7], heightVh: hHum, bottomFixVh: fHum }
     ];
 
     // 🍒 HARVEST: puntos por mes y región
@@ -418,7 +477,7 @@ const DiversidadC = ({
         huehue: '95.3vh',
         oriente: '108.8vh',
         sanmarcos: '122.4vh'
-    } : isJp ? {
+    } : (isJp || isZh) ? {
         acatenango: '33.6vh',
         antigua: '44.3vh',
         atitlan: '55.1vh',
@@ -500,7 +559,7 @@ const DiversidadC = ({
             {/* 🖼️ Base */}
             {/* Imagen base infografía — lazy */}
             <SmartImage
-                src={isKo ? BaseDiversidad_ko : isJp ? BaseDiversidad_jp : BaseDiversidad}
+                src={isKo ? BaseDiversidad_ko : isJp ? BaseDiversidad_jp : isZh ? BaseDiversidad_zh : BaseDiversidad}
                 alt="Diversidad cafetalera"
                 className="block select-none pointer-events-none"
                 style={{ width: `${baseWidthVh}vh`, height: 'auto' }}
@@ -509,23 +568,23 @@ const DiversidadC = ({
 
             {/* Título morado */}
             <motion.img
-                src={isKo ? TituloG_ko : isJp ? TituloG_jp : TituloG}
+                src={isKo ? TituloG_ko : isJp ? TituloG_jp : isZh ? TituloG_zh : TituloG}
                 alt="Diversidad cafetalera (título)"
                 className="absolute select-none pointer-events-none"
                 style={{
                     top: `${TITLE_TOP_VH}vh`,
-                    left: isJp ? '50%' : '22%',
+                    left: (isJp || isZh) ? '50%' : '22%',
                     transform: 'translateX(-50%)',
-                    height: `${isJp ? 11 : TITLE_HEIGHT_VH}vh`,
+                    height: `${(isJp || isZh) ? 11 : TITLE_HEIGHT_VH}vh`,
                     width: 'auto',
                     transformOrigin: '50% 100%'
                 }}
-                initial={{ opacity: 0, y: -140, scaleY: 1, x: isJp ? '-50%' : 0 }}
+                initial={{ opacity: 0, y: -140, scaleY: 1, x: (isJp || isZh) ? '-50%' : 0 }}
                 animate={{
                     opacity: [0, 1, 1, 1, 1, 1, 1, 1],
                     y: [-140, 0, -14, 0, -8, 0, -3, 0],
                     scaleY: [1, 0.92, 1.05, 0.98, 1.03, 0.995, 1.01, 1],
-                    x: isJp ? '-50%' : 0
+                    x: (isJp || isZh) ? '-50%' : 0
                 }}
                 transition={{ duration: 1.9, ease: EASE, times: [0, 0.55, 0.7, 0.78, 0.86, 0.93, 0.975, 1] }}
                 draggable={false}
@@ -535,7 +594,7 @@ const DiversidadC = ({
             <div
                 className="absolute left-0"
                 style={{
-                    top: `${BAND_TOP_VH}vh`,
+                    top: `${BAND_TOP_VH + zhShift}vh`,
                     width: `${baseWidthVh}vh`,
                     height: `${BAND_HEIGHT_VH}vh`,
                     pointerEvents: 'none',
@@ -575,7 +634,7 @@ const DiversidadC = ({
             <div
                 className="absolute left-0"
                 style={{
-                    top: `${ALT_BAND_TOP_VH}vh`,
+                    top: `${ALT_BAND_TOP_VH + zhShift}vh`,
                     width: `${baseWidthVh}vh`,
                     height: `${ALT_BAND_HEIGHT_VH}vh`,
                     pointerEvents: 'none',
@@ -624,7 +683,7 @@ const DiversidadC = ({
             <div
                 className="absolute left-0"
                 style={{
-                    top: `${LLU_BAND_TOP_VH}vh`,
+                    top: `${LLU_BAND_TOP_VH + zhShift}vh`,
                     width: `${baseWidthVh}vh`,
                     height: `${LLU_BAND_HEIGHT_VH}vh`,
                     pointerEvents: 'none',
@@ -673,7 +732,7 @@ const DiversidadC = ({
             <div
                 className="absolute left-0"
                 style={{
-                    top: `${TEMP_BAND_TOP_VH}vh`,
+                    top: `${TEMP_BAND_TOP_VH + zhShift}vh`,
                     width: `${baseWidthVh}vh`,
                     height: `${TEMP_BAND_HEIGHT_VH}vh`,
                     pointerEvents: 'none',
@@ -724,7 +783,7 @@ const DiversidadC = ({
             <div
                 className="absolute left-0"
                 style={{
-                    top: `${HUM_BAND_TOP_VH}vh`,
+                    top: `${HUM_BAND_TOP_VH + zhShift}vh`,
                     width: `${baseWidthVh}vh`,
                     height: `${HUM_BAND_HEIGHT_VH}vh`,
                     pointerEvents: 'none',
